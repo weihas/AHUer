@@ -8,11 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		3578CA2926E8ED5E00667BEF /* AHUerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3578CA2826E8ED5E00667BEF /* AHUerApp.swift */; };
-		3578CA2B26E8ED5E00667BEF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3578CA2A26E8ED5E00667BEF /* ContentView.swift */; };
 		3578CA2D26E8ED5E00667BEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3578CA2C26E8ED5E00667BEF /* Assets.xcassets */; };
 		3578CA3026E8ED5F00667BEF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3578CA2F26E8ED5F00667BEF /* Preview Assets.xcassets */; };
 		3578CA3B26E8ED5F00667BEF /* AHUerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3578CA3A26E8ED5F00667BEF /* AHUerTests.swift */; };
 		3578CA4626E8ED5F00667BEF /* AHUerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3578CA4526E8ED5F00667BEF /* AHUerUITests.swift */; };
+		3578CA5426E8EDB500667BEF /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3578CA5326E8EDB500667BEF /* RootView.swift */; };
+		3578CA5626E8F0ED00667BEF /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3578CA5526E8F0ED00667BEF /* HomePageView.swift */; };
+		3578CA5A26E8F33D00667BEF /* TodayMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3578CA5926E8F33D00667BEF /* TodayMessages.swift */; };
+		3578CA5D26E8F51400667BEF /* Today.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3578CA5C26E8F51400667BEF /* Today.swift */; };
+		3578CA6026E90FDE00667BEF /* TimeTablePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3578CA5F26E90FDE00667BEF /* TimeTablePageView.swift */; };
+		3578CA6326E9117E00667BEF /* TimeTableShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3578CA6226E9117E00667BEF /* TimeTableShow.swift */; };
+		3578CA6526E9120400667BEF /* TimeTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3578CA6426E9120400667BEF /* TimeTable.swift */; };
+		35AA432B26E916320096724A /* BathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AA432A26E916320096724A /* BathView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +42,6 @@
 /* Begin PBXFileReference section */
 		3578CA2526E8ED5E00667BEF /* AHUer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AHUer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3578CA2826E8ED5E00667BEF /* AHUerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AHUerApp.swift; sourceTree = "<group>"; };
-		3578CA2A26E8ED5E00667BEF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3578CA2C26E8ED5E00667BEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3578CA2F26E8ED5F00667BEF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3578CA3126E8ED5F00667BEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -45,6 +51,14 @@
 		3578CA4126E8ED5F00667BEF /* AHUerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AHUerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3578CA4526E8ED5F00667BEF /* AHUerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AHUerUITests.swift; sourceTree = "<group>"; };
 		3578CA4726E8ED5F00667BEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3578CA5326E8EDB500667BEF /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		3578CA5526E8F0ED00667BEF /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
+		3578CA5926E8F33D00667BEF /* TodayMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayMessages.swift; sourceTree = "<group>"; };
+		3578CA5C26E8F51400667BEF /* Today.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Today.swift; sourceTree = "<group>"; };
+		3578CA5F26E90FDE00667BEF /* TimeTablePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTablePageView.swift; sourceTree = "<group>"; };
+		3578CA6226E9117E00667BEF /* TimeTableShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableShow.swift; sourceTree = "<group>"; };
+		3578CA6426E9120400667BEF /* TimeTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTable.swift; sourceTree = "<group>"; };
+		35AA432A26E916320096724A /* BathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BathView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +110,9 @@
 			isa = PBXGroup;
 			children = (
 				3578CA2826E8ED5E00667BEF /* AHUerApp.swift */,
-				3578CA2A26E8ED5E00667BEF /* ContentView.swift */,
+				3578CA5326E8EDB500667BEF /* RootView.swift */,
+				3578CA6126E9113E00667BEF /* TimeTablePage */,
+				3578CA5726E8F2E900667BEF /* HomePage */,
 				3578CA2C26E8ED5E00667BEF /* Assets.xcassets */,
 				3578CA3126E8ED5F00667BEF /* Info.plist */,
 				3578CA2E26E8ED5F00667BEF /* Preview Content */,
@@ -128,6 +144,51 @@
 				3578CA4726E8ED5F00667BEF /* Info.plist */,
 			);
 			path = AHUerUITests;
+			sourceTree = "<group>";
+		};
+		3578CA5726E8F2E900667BEF /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+				3578CA5B26E8F4F500667BEF /* Model */,
+				3578CA5E26E8F55500667BEF /* ViewModel */,
+				3578CA5826E8F2F200667BEF /* View */,
+			);
+			path = HomePage;
+			sourceTree = "<group>";
+		};
+		3578CA5826E8F2F200667BEF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3578CA5526E8F0ED00667BEF /* HomePageView.swift */,
+				35AA432A26E916320096724A /* BathView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3578CA5B26E8F4F500667BEF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3578CA5926E8F33D00667BEF /* TodayMessages.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3578CA5E26E8F55500667BEF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3578CA5C26E8F51400667BEF /* Today.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3578CA6126E9113E00667BEF /* TimeTablePage */ = {
+			isa = PBXGroup;
+			children = (
+				3578CA6426E9120400667BEF /* TimeTable.swift */,
+				3578CA6226E9117E00667BEF /* TimeTableShow.swift */,
+				3578CA5F26E90FDE00667BEF /* TimeTablePageView.swift */,
+			);
+			path = TimeTablePage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,8 +320,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3578CA2B26E8ED5E00667BEF /* ContentView.swift in Sources */,
+				3578CA6026E90FDE00667BEF /* TimeTablePageView.swift in Sources */,
+				3578CA6526E9120400667BEF /* TimeTable.swift in Sources */,
 				3578CA2926E8ED5E00667BEF /* AHUerApp.swift in Sources */,
+				3578CA5D26E8F51400667BEF /* Today.swift in Sources */,
+				3578CA6326E9117E00667BEF /* TimeTableShow.swift in Sources */,
+				3578CA5626E8F0ED00667BEF /* HomePageView.swift in Sources */,
+				3578CA5426E8EDB500667BEF /* RootView.swift in Sources */,
+				3578CA5A26E8F33D00667BEF /* TodayMessages.swift in Sources */,
+				35AA432B26E916320096724A /* BathView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
