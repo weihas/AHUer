@@ -8,17 +8,37 @@
 import SwiftUI
 
 struct SettingView: View {
+    @State var showOtherWeekLectures: Bool = false
+    @State var showCourse: Bool = false
     var body: some View {
-        List{
-            Text("导入课表")
-            Text("手动添加课表")
-            Spacer()
-            Text("更换皮肤")
-            Text("自定义皮肤")
-            Spacer()
+        Form{
+            Section(header: Text("课表").font(.footnote)) {
+                Button("导入课表"){
+                    print("导入课表")
+                    //TODO: 导入课表
+                }
+                NavigationLink("手动添加课表", destination: SwiftUIView() )
+            }
+            Section(header: Text("皮肤").font(.footnote)) {
+                Text("更换皮肤")
+                Text("自定义皮肤")
+            }
+            Section(header: Text("显示").font(.footnote)) {
+                Toggle(isOn: $showOtherWeekLectures) {
+                    Text("显示非本周课表")
+                }
+                Toggle(isOn: $showCourse) {
+                    Text("显示讲座信息")
+                }
+            }
+            Section(header: Text("其他").font(.footnote)) {
+                Button("清除缓存"){
+                    print("清除缓存")
+                }
+                .foregroundColor(.blue)
+            }
             
         }
-        .listStyle(InsetListStyle())
         .navigationBarTitle("设置")
     }
 }

@@ -8,28 +8,33 @@
 import SwiftUI
 
 struct RootView: View {
+    @State var tabItemNum: Int = 0
     var body: some View {
-        TabView {
-            HomePageView(vm: Today())
+        TabView(selection: $tabItemNum) {
+            HomePageView(vm: Today(), tagNum: $tabItemNum)
                 .tabItem {
                     Image(systemName: "house")
                     Text("主页")
                 }
+                .tag(0)
             TimeTablePageView()
                 .tabItem {
                     Image(systemName: "calendar")
                     Text("课表")
                 }
+                .tag(1)
             NewsPageView()
                 .tabItem {
                     Image(systemName: "newspaper")
                     Text("资讯")
                 }
+                .tag(2)
             PersonalPageView()
                 .tabItem {
                     Image(systemName: "graduationcap")
                     Text("个人")
                 }
+                .tag(3)
         }
         .accentColor(.black)
         .font(.headline)

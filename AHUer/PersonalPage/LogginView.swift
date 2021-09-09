@@ -18,6 +18,8 @@ struct LogginView: View {
                 Text("本科生").tag(true)
                 Text("研究生").tag(false)
             }
+            .padding(.top, 20)
+            .padding(.horizontal, 100)
             .pickerStyle(SegmentedPickerStyle())
             Spacer()
             HStack{

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3517309926EA4C17009340B4 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3517309826EA4C17009340B4 /* SwiftUIView.swift */; };
 		3539741526E986BD00A48A01 /* Lecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3539741426E986BD00A48A01 /* Lecture.swift */; };
 		3539741826E9873900A48A01 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3539741726E9873900A48A01 /* Day.swift */; };
 		35607B9C26E99BFA0037504E /* Date+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35607B9B26E99BFA0037504E /* Date+Helper.swift */; };
@@ -27,6 +28,8 @@
 		3578CA6326E9117E00667BEF /* TimeTableShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3578CA6226E9117E00667BEF /* TimeTableShow.swift */; };
 		3578CA6526E9120400667BEF /* TimeTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3578CA6426E9120400667BEF /* TimeTable.swift */; };
 		35AA432B26E916320096724A /* BathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AA432A26E916320096724A /* BathView.swift */; };
+		35D5B16A26EA5E430070A23C /* JobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D5B16926EA5E430070A23C /* JobView.swift */; };
+		35D5B16D26EA6BFD0070A23C /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D5B16C26EA6BFD0070A23C /* ScoreView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3517309826EA4C17009340B4 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		3539741426E986BD00A48A01 /* Lecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lecture.swift; sourceTree = "<group>"; };
 		3539741726E9873900A48A01 /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		35607B9B26E99BFA0037504E /* Date+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Helper.swift"; sourceTree = "<group>"; };
@@ -73,6 +77,8 @@
 		3578CA6226E9117E00667BEF /* TimeTableShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableShow.swift; sourceTree = "<group>"; };
 		3578CA6426E9120400667BEF /* TimeTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTable.swift; sourceTree = "<group>"; };
 		35AA432A26E916320096724A /* BathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BathView.swift; sourceTree = "<group>"; };
+		35D5B16926EA5E430070A23C /* JobView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobView.swift; sourceTree = "<group>"; };
+		35D5B16C26EA6BFD0070A23C /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +172,7 @@
 				3578CA6126E9113E00667BEF /* TimeTablePage */,
 				35607BA026EA025E0037504E /* NewsPage */,
 				35607BA326EA02E30037504E /* PersonalPage */,
+				3517309826EA4C17009340B4 /* SwiftUIView.swift */,
 				3578CA2C26E8ED5E00667BEF /* Assets.xcassets */,
 				3578CA3126E8ED5F00667BEF /* Info.plist */,
 				3578CA2E26E8ED5F00667BEF /* Preview Content */,
@@ -214,6 +221,8 @@
 			children = (
 				3578CA5526E8F0ED00667BEF /* HomePageView.swift */,
 				35AA432A26E916320096724A /* BathView.swift */,
+				35D5B16C26EA6BFD0070A23C /* ScoreView.swift */,
+				35D5B16B26EA5E470070A23C /* ButtonLinkView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -242,6 +251,14 @@
 				3578CA5F26E90FDE00667BEF /* TimeTablePageView.swift */,
 			);
 			path = TimeTablePage;
+			sourceTree = "<group>";
+		};
+		35D5B16B26EA5E470070A23C /* ButtonLinkView */ = {
+			isa = PBXGroup;
+			children = (
+				35D5B16926EA5E430070A23C /* JobView.swift */,
+			);
+			path = ButtonLinkView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -374,10 +391,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3578CA6026E90FDE00667BEF /* TimeTablePageView.swift in Sources */,
+				35D5B16D26EA6BFD0070A23C /* ScoreView.swift in Sources */,
 				3578CA6526E9120400667BEF /* TimeTable.swift in Sources */,
+				3517309926EA4C17009340B4 /* SwiftUIView.swift in Sources */,
 				3578CA2926E8ED5E00667BEF /* AHUerApp.swift in Sources */,
 				35607B9F26EA025B0037504E /* NewsPageView.swift in Sources */,
 				3578CA5D26E8F51400667BEF /* Today.swift in Sources */,
+				35D5B16A26EA5E430070A23C /* JobView.swift in Sources */,
 				35607BA726EA18280037504E /* SettingView.swift in Sources */,
 				35607BA526EA0EC90037504E /* LogginView.swift in Sources */,
 				3539741826E9873900A48A01 /* Day.swift in Sources */,

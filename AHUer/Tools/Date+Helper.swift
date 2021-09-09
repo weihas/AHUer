@@ -75,6 +75,27 @@ public extension Date {
         return Calendar.current.component(.weekday, from: self)
     }
     
+    var weekDayInChinese: String{
+        var day: String = ""
+        switch Calendar.current.component(.weekday, from: self){
+        case 1:
+            day = "周日"
+        case 2:
+            day = "周一"
+        case 3:
+            day = "周二"
+        case 4:
+            day = "周三"
+        case 5:
+            day = "周四"
+        case 6:
+            day = "周五"
+        default:
+            day = "周六"
+        }
+        return day
+    }
+    
     var yesterDayDate: Date? {
         return adding(day: -1)
     }
@@ -170,5 +191,7 @@ public extension Date {
                     com.month == comToday.month &&
                     com.year == comToday.year )
     }
+    
+    
 }
 

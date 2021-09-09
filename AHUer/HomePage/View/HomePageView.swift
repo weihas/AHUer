@@ -9,44 +9,32 @@ import SwiftUI
 
 struct HomePageView: View {
     @ObservedObject var vm: Today
+    @Binding var tagNum: Int
     var body: some View {
         GeometryReader{ geometry in
             NavigationView{
                 ScrollView{
-                    lectureLabel(lectures: vm.todayLectures)
+                    LectureLabel(lectures: vm.todayLectures)
+                        .onTapGesture {
+                            tagNum = 1
+                        }
+                    ButtonsLabel()
                     Spacer()
                     NavigationLink(destination: BathView()) {
                         bathLabel(southisMan: vm.southBathroomisMen)
                     }
-                    scoreLabel(gpa: vm.gpa)
+                    NavigationLink(destination: ScoreView()) {
+                        scoreLabel(gpa: vm.gpa)
+                    }
                 }
                 .navigationBarTitle("今天")
             }
         }
     }
-    
-    //    @ViewBuilder
-    //    func funcLabel() -> some View{
-    //        VStack{
-    //            HStack{
-    //                Button(action: {
-    //
-    //                }, label: {
-    //                    Text("校招信息")
-    //                    Image(systemName: "list.bullet.rectangle")
-    //                })
-    //
-    //            }
-    //            HStack{
-    //
-    //            }
-    //        }
-    //    }
-    
 }
 
 
-struct lectureLabel: View {
+struct LectureLabel: View {
     @State private var lectureName = "未导入课表或尚未选课，请导入"
     @State private var lectureLocation = "暂无数据"
     @State private var lectureTime = "0-0"
@@ -73,6 +61,35 @@ struct lectureLabel: View {
         .padding()
     }
 }
+
+
+struct ButtonsLabel: View {
+    var body: some View {
+        LazyVGrid(columns: [GridItem(),GridItem(),GridItem(),GridItem(),GridItem()]){
+            ForEach(0..<10){ index in
+                ButtonCell()
+            }
+        }
+        .padding()
+    }
+    
+    
+    @ViewBuilder
+    func ButtonCell() -> some View {
+        NavigationLink(
+            destination: JobView(),
+            label: {
+            VStack{
+                Image(systemName: "envelope.open")
+                    .font(.title)
+                Text("校招信息")
+                    .font(.caption)
+            }
+        })
+    }
+}
+
+
 
 
 struct bathLabel: View {
@@ -102,9 +119,6 @@ struct bathLabel: View {
                 .padding()
                 Spacer()
             }
-        }
-        .onTapGesture {
-            
         }
         .aspectRatio(2, contentMode: .fill)
         .padding()
@@ -161,6 +175,6 @@ struct scoreLabel: View {
 
 struct HomePageView_Previews: PreviewProvider {
     static var previews: some View {
-        HomePageView(vm: Today())
+        HomePageView(vm: Today(), tagNum: .constant(0))
     }
 }
