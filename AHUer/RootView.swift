@@ -20,12 +20,12 @@ struct RootView: View {
                     Image(systemName: "calendar")
                     Text("课表")
                 }
-            Text("The Last Tab")
+            NewsPageView()
                 .tabItem {
                     Image(systemName: "newspaper")
                     Text("资讯")
                 }
-            Text("The Last Tab")
+            PersonalPageView()
                 .tabItem {
                     Image(systemName: "graduationcap")
                     Text("个人")

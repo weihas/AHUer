@@ -96,7 +96,7 @@ struct bathLabel: View {
             VStack{
                 HStack{
                     Image(systemName: "drop")
-                    Text("浴池开放")
+                    Text("浴室开放")
                     Spacer()
                 }
                 .padding()
