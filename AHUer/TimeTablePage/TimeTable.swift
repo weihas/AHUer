@@ -8,15 +8,16 @@
 import Foundation
 
 struct TimeTable {
-    var a = 0
+    var lectureOfWeekDay
 }
 
-enum weekday {
-    case monday
-    case tuesday
-    case wednesday
-    case thursday
-    case friday
-    case saturday
-    case sunday
+
+struct Weekday {
+    var day: Day
+    var lectures: [Lecture]
+    
+    func getLectureVision(){
+        if let lecturesOfToday = lectures.filter({$0.startTime})
+    }
 }
+

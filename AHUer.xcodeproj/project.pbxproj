@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3539741526E986BD00A48A01 /* Lecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3539741426E986BD00A48A01 /* Lecture.swift */; };
+		3539741826E9873900A48A01 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3539741726E9873900A48A01 /* Day.swift */; };
 		3578CA2926E8ED5E00667BEF /* AHUerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3578CA2826E8ED5E00667BEF /* AHUerApp.swift */; };
 		3578CA2D26E8ED5E00667BEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3578CA2C26E8ED5E00667BEF /* Assets.xcassets */; };
 		3578CA3026E8ED5F00667BEF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3578CA2F26E8ED5F00667BEF /* Preview Assets.xcassets */; };
@@ -40,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3539741426E986BD00A48A01 /* Lecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lecture.swift; sourceTree = "<group>"; };
+		3539741726E9873900A48A01 /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		3578CA2526E8ED5E00667BEF /* AHUer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AHUer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3578CA2826E8ED5E00667BEF /* AHUerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AHUerApp.swift; sourceTree = "<group>"; };
 		3578CA2C26E8ED5E00667BEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -86,6 +90,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3539741626E986DD00A48A01 /* PublicClassFile */ = {
+			isa = PBXGroup;
+			children = (
+				3539741426E986BD00A48A01 /* Lecture.swift */,
+				3539741726E9873900A48A01 /* Day.swift */,
+			);
+			path = PublicClassFile;
+			sourceTree = "<group>";
+		};
 		3578CA1C26E8ED5E00667BEF = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +124,7 @@
 			children = (
 				3578CA2826E8ED5E00667BEF /* AHUerApp.swift */,
 				3578CA5326E8EDB500667BEF /* RootView.swift */,
+				3539741626E986DD00A48A01 /* PublicClassFile */,
 				3578CA6126E9113E00667BEF /* TimeTablePage */,
 				3578CA5726E8F2E900667BEF /* HomePage */,
 				3578CA2C26E8ED5E00667BEF /* Assets.xcassets */,
@@ -324,9 +338,11 @@
 				3578CA6526E9120400667BEF /* TimeTable.swift in Sources */,
 				3578CA2926E8ED5E00667BEF /* AHUerApp.swift in Sources */,
 				3578CA5D26E8F51400667BEF /* Today.swift in Sources */,
+				3539741826E9873900A48A01 /* Day.swift in Sources */,
 				3578CA6326E9117E00667BEF /* TimeTableShow.swift in Sources */,
 				3578CA5626E8F0ED00667BEF /* HomePageView.swift in Sources */,
 				3578CA5426E8EDB500667BEF /* RootView.swift in Sources */,
+				3539741526E986BD00A48A01 /* Lecture.swift in Sources */,
 				3578CA5A26E8F33D00667BEF /* TodayMessages.swift in Sources */,
 				35AA432B26E916320096724A /* BathView.swift in Sources */,
 			);
