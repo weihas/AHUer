@@ -36,7 +36,7 @@ struct RootView: View {
                 }
                 .tag(3)
         }
-        .accentColor(.black)
+        .accentColor(Color("AccentColor"))
         .font(.headline)
     }
 }

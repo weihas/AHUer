@@ -9,25 +9,49 @@ import SwiftUI
 
 struct HomePageView: View {
     @ObservedObject var vm: Today
+    @State var showGPA: Bool = false
     @Binding var tagNum: Int
     var body: some View {
         GeometryReader{ geometry in
             NavigationView{
-                ScrollView{
-                    LectureLabel(lectures: vm.todayLectures)
-                        .onTapGesture {
-                            tagNum = 1
+                ScrollViewReader { proxy in
+                    ScrollView{
+                        
+                        LectureLabel(lectures: vm.todayLectures)
+                            .onTapGesture {
+                                tagNum = 1
+                            }
+                        ButtonsLabel()
+                        Spacer()
+                        NavigationLink(destination: BathView()) {
+                            bathLabel(southisMan: vm.southBathroomisMen)
                         }
-                    ButtonsLabel()
-                    Spacer()
-                    NavigationLink(destination: BathView()) {
-                        bathLabel(southisMan: vm.southBathroomisMen)
+                        
+                        ZStack {
+                            NavigationLink(destination: ScoreView()) {
+                                scoreLabel(gpa: vm.gpa)
+                            }
+                            VStack {
+                                HStack{
+                                    Spacer()
+                                    Button(action: {
+                                        withAnimation(){
+                                            showGPA.toggle()
+                                        }
+                                    }, label: {
+                                        Image(systemName: showGPA ? "eye" : "eye.slash")
+                                    })
+                                    .font(.title)
+                                    .padding(30)
+                                }
+                                Spacer()
+                            }
+                        }
                     }
-                    NavigationLink(destination: ScoreView()) {
-                        scoreLabel(gpa: vm.gpa)
-                    }
+                    
                 }
                 .navigationBarTitle("今天")
+                .navigationViewStyle(StackNavigationViewStyle())
             }
         }
     }
@@ -64,10 +88,12 @@ struct LectureLabel: View {
 
 
 struct ButtonsLabel: View {
+    var titles: [String] = ["校招信息","校园电话","空闲教室","成绩查询","考场查询","共享课表","餐卡丢拾","浴室开放","垃圾分类","更多功能"]
+    var icons: [String] = ["envelope.badge","phone.bubble.left.fill","filemenu.and.selection","doc.text.below.ecg","doc.text.magnifyingglass","folder.badge.person.crop","creditcard","drop","trash","ellipsis"]
     var body: some View {
-        LazyVGrid(columns: [GridItem(),GridItem(),GridItem(),GridItem(),GridItem()]){
+        LazyVGrid(columns: Array(repeating: GridItem(.adaptive(minimum: 30,maximum: 50), spacing: 30, alignment: .bottom), count: 5)){
             ForEach(0..<10){ index in
-                ButtonCell()
+                ButtonCell(title: titles[index], icon: icons[index])
             }
         }
         .padding()
@@ -75,14 +101,14 @@ struct ButtonsLabel: View {
     
     
     @ViewBuilder
-    func ButtonCell() -> some View {
+    func ButtonCell(title: String,icon: String) -> some View {
         NavigationLink(
             destination: JobView(),
             label: {
-            VStack{
-                Image(systemName: "envelope.open")
+                VStack{
+                Image(systemName: icon)
                     .font(.title)
-                Text("校招信息")
+                Text(title)
                     .font(.caption)
             }
         })
@@ -157,11 +183,6 @@ struct scoreLabel: View {
                         Image(systemName: "doc.text.below.ecg")
                         Text("成绩查询")
                         Spacer()
-                        Button(action: {
-                            showGPA.toggle()
-                        }, label: {
-                            Image(systemName: showGPA ? "eye" : "eye.slash")
-                        })
                     }
                     .padding()
                     Spacer()

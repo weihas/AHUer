@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3517309926EA4C17009340B4 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3517309826EA4C17009340B4 /* SwiftUIView.swift */; };
+		353705A126EB5FAB002E001C /* pickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353705A026EB5FAB002E001C /* pickView.swift */; };
+		353705A326EB6D62002E001C /* Button+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353705A226EB6D62002E001C /* Button+Style.swift */; };
 		3539741526E986BD00A48A01 /* Lecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3539741426E986BD00A48A01 /* Lecture.swift */; };
 		3539741826E9873900A48A01 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3539741726E9873900A48A01 /* Day.swift */; };
 		35607B9C26E99BFA0037504E /* Date+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35607B9B26E99BFA0037504E /* Date+Helper.swift */; };
@@ -30,6 +32,7 @@
 		35AA432B26E916320096724A /* BathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AA432A26E916320096724A /* BathView.swift */; };
 		35D5B16A26EA5E430070A23C /* JobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D5B16926EA5E430070A23C /* JobView.swift */; };
 		35D5B16D26EA6BFD0070A23C /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D5B16C26EA6BFD0070A23C /* ScoreView.swift */; };
+		35EA370626EB022C00107955 /* addressBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA370526EB022C00107955 /* addressBookView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,8 @@
 
 /* Begin PBXFileReference section */
 		3517309826EA4C17009340B4 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		353705A026EB5FAB002E001C /* pickView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pickView.swift; sourceTree = "<group>"; };
+		353705A226EB6D62002E001C /* Button+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+Style.swift"; sourceTree = "<group>"; };
 		3539741426E986BD00A48A01 /* Lecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lecture.swift; sourceTree = "<group>"; };
 		3539741726E9873900A48A01 /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		35607B9B26E99BFA0037504E /* Date+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Helper.swift"; sourceTree = "<group>"; };
@@ -79,6 +84,7 @@
 		35AA432A26E916320096724A /* BathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BathView.swift; sourceTree = "<group>"; };
 		35D5B16926EA5E430070A23C /* JobView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobView.swift; sourceTree = "<group>"; };
 		35D5B16C26EA6BFD0070A23C /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
+		35EA370526EB022C00107955 /* addressBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addressBookView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				35607B9B26E99BFA0037504E /* Date+Helper.swift */,
+				353705A226EB6D62002E001C /* Button+Style.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -173,6 +180,7 @@
 				35607BA026EA025E0037504E /* NewsPage */,
 				35607BA326EA02E30037504E /* PersonalPage */,
 				3517309826EA4C17009340B4 /* SwiftUIView.swift */,
+				353705A026EB5FAB002E001C /* pickView.swift */,
 				3578CA2C26E8ED5E00667BEF /* Assets.xcassets */,
 				3578CA3126E8ED5F00667BEF /* Info.plist */,
 				3578CA2E26E8ED5F00667BEF /* Preview Content */,
@@ -257,6 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				35D5B16926EA5E430070A23C /* JobView.swift */,
+				35EA370526EB022C00107955 /* addressBookView.swift */,
 			);
 			path = ButtonLinkView;
 			sourceTree = "<group>";
@@ -390,6 +399,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35EA370626EB022C00107955 /* addressBookView.swift in Sources */,
 				3578CA6026E90FDE00667BEF /* TimeTablePageView.swift in Sources */,
 				35D5B16D26EA6BFD0070A23C /* ScoreView.swift in Sources */,
 				3578CA6526E9120400667BEF /* TimeTable.swift in Sources */,
@@ -403,10 +413,12 @@
 				3539741826E9873900A48A01 /* Day.swift in Sources */,
 				35607B9C26E99BFA0037504E /* Date+Helper.swift in Sources */,
 				3578CA6326E9117E00667BEF /* TimeTableShow.swift in Sources */,
+				353705A126EB5FAB002E001C /* pickView.swift in Sources */,
 				3578CA5626E8F0ED00667BEF /* HomePageView.swift in Sources */,
 				3578CA5426E8EDB500667BEF /* RootView.swift in Sources */,
 				3539741526E986BD00A48A01 /* Lecture.swift in Sources */,
 				3578CA5A26E8F33D00667BEF /* TodayMessages.swift in Sources */,
+				353705A326EB6D62002E001C /* Button+Style.swift in Sources */,
 				35AA432B26E916320096724A /* BathView.swift in Sources */,
 				35607BA226EA02E00037504E /* PersonalPageView.swift in Sources */,
 			);

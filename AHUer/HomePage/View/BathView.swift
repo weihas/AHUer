@@ -60,16 +60,16 @@ fileprivate struct CardOfBathView: View {
                     VStack{
                         Text(southIsMen ? "南区/蕙园" : "北区")
                             .font(.title)
-                            .padding()
                         Text("男生")
+                            .padding()
                     }
                     .padding()
                     Spacer()
                     VStack{
                         Text(southIsMen ? "北区" : "南区/蕙园")
                             .font(.title)
-                            .padding()
                         Text("女生")
+                            .padding()
                     }
                     .padding()
                 }

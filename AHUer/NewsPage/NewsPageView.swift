@@ -11,7 +11,7 @@ struct NewsPageView: View {
     @State var showPage: Int = 0
     var body: some View {
         VStack{
-            Image("newsPagetPlayBill")
+            Image("NewsPagetPlayBill")
                 .resizable()
                 .aspectRatio(2, contentMode: .fit)
                 .ignoresSafeArea()
@@ -22,7 +22,7 @@ struct NewsPageView: View {
                 Text("校招实习").tag(3)
             }
             .pickerStyle(SegmentedPickerStyle())
-            .padding(.top,-40)
+            .ignoresSafeArea()
             .padding(.horizontal)
             List{
                 NewsCell()

@@ -25,22 +25,22 @@ struct LogginView: View {
             HStack{
                 Text("学号:")
                 TextField("学号", text: $studentId)
-                   
             }
             .padding()
             Divider().padding(.horizontal)
             HStack{
                 Text("密码:")
                 SecureField("密码", text: $password)
-                   
             }
             .padding()
             Spacer()
-            certifyButton()
-                .onTapGesture {
-                    print("认证")
-                }
-                .frame(width: 100, height: 50, alignment: .center)
+            Button(action: {
+                print("认证")
+            }, label: {
+                Label("认证", systemImage: "chevron.forward.square")
+            })
+            .buttonStyle(ColorButtonStyle(color: .blue))
+            
             Spacer()
         }
         .padding()
@@ -48,20 +48,14 @@ struct LogginView: View {
     }
 }
 
+
+
+
+
+
+
 struct LogginView_Previews: PreviewProvider {
     static var previews: some View {
         LogginView()
-    }
-}
-
-struct certifyButton: View {
-    var body: some View {
-        ZStack{
-            RoundedRectangle(cornerRadius: 10.0)
-                .foregroundColor(.black)
-                .opacity(0.8)
-            Label("认证", systemImage: "chevron.right.circle")
-                .foregroundColor(.white)
-        }
     }
 }
