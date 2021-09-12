@@ -8,16 +8,18 @@
 import SwiftUI
 
 struct RootView: View {
-    @State var tabItemNum: Int = 0
+    @EnvironmentObject var infoData: AHUAppInfo
     var body: some View {
-        TabView(selection: $tabItemNum) {
-            HomePageView(vm: Today(), tagNum: $tabItemNum)
+        TabView(selection: $infoData.tabItemNum) {
+            HomePageView()
+                .environmentObject(infoData)
                 .tabItem {
                     Image(systemName: "house")
                     Text("主页")
                 }
                 .tag(0)
             TimeTablePageView()
+                .environmentObject(infoData)
                 .tabItem {
                     Image(systemName: "calendar")
                     Text("课表")
@@ -30,8 +32,9 @@ struct RootView: View {
                 }
                 .tag(2)
             PersonalPageView()
+                .environmentObject(infoData)
                 .tabItem {
-                    Image(systemName: "graduationcap")
+                    Image(systemName: "person.circle")
                     Text("个人")
                 }
                 .tag(3)

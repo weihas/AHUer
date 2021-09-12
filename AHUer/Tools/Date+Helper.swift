@@ -29,6 +29,16 @@ public extension Date {
         return Self()
     }
     
+    //以字符串的形式获取时和分
+    var hourMinute: String {
+        "\(self.hour):\(self.minute)"
+    }
+    
+        
+        ///以字符串的形式获取年-月-日
+    var yearMonthDay: String {
+        "\(self.year)-\(self.month)-\(self.day)"
+    }
     // MARK: 1.4、从 Date 获取年份
     /// 从 Date 获取年份
     var year: Int {
@@ -96,9 +106,11 @@ public extension Date {
         return day
     }
     
+    ///昨天的日期
     var yesterDayDate: Date? {
         return adding(day: -1)
     }
+    
     
     // MARK: 3.3、明天的日期
     /// 明天的日期

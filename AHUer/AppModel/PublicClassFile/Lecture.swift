@@ -11,6 +11,6 @@ public struct Lecture: Hashable ,Equatable{
     let id: UUID
     var name: String
     var location: String
-    var startTime: Data
-    var endTime: Data
+    var startTime: Date
+    var endTime: Date
 }

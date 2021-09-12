@@ -12,6 +12,7 @@ struct JobView: View {
     var body: some View {
         VStack{
             cusPicker(showPage: $showPage)
+                .padding()
             Spacer()
         }
         .navigationBarTitle("校招信息", displayMode: .inline)

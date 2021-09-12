@@ -17,7 +17,7 @@ struct SettingView: View {
                     print("导入课表")
                     //TODO: 导入课表
                 }
-                NavigationLink("手动添加课表", destination: SwiftUIView() )
+                NavigationLink("手动添加课表", destination: Text("hello") )
             }
             Section(header: Text("皮肤").font(.footnote)) {
                 Text("更换皮肤")

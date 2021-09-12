@@ -13,9 +13,9 @@ struct TodayMessages {
     var gpa: (thisGrade: Double , all: Double)
     
     init() {
-        lectures = []
+        lectures = [Lecture(id: UUID(), name: "高等数学", location: "博北A103", startTime: Date(timeIntervalSinceNow: 2000), endTime: Date(timeIntervalSinceNow: 3000))]
         southBathroomisMen = false
-        gpa = (5.0 , 5.0)
+        gpa = (5.00 , 5.00)
     }
     
 }

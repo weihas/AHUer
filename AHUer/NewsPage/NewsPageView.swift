@@ -10,25 +10,19 @@ import SwiftUI
 struct NewsPageView: View {
     @State var showPage: Int = 0
     var body: some View {
-        VStack{
-            Image("NewsPagetPlayBill")
-                .resizable()
-                .aspectRatio(2, contentMode: .fit)
-                .ignoresSafeArea()
-            Picker(selection: $showPage, label: Text("Picker")) {
-                Text("院系风采").tag(0)
-                Text("教务通知").tag(1)
-                Text("社团动态").tag(2)
-                Text("校招实习").tag(3)
+        NavigationView{
+            ScrollView{
+                HStack{
+                    Text(Date().yearMonthDay)
+                        .font(.title2)
+                        .foregroundColor(.gray)
+                        .padding(.leading)
+                    Spacer()
+                }
+                NewsSourcePicker(showPage: $showPage)
+                NewsCell().padding()
             }
-            .pickerStyle(SegmentedPickerStyle())
-            .ignoresSafeArea()
-            .padding(.horizontal)
-            List{
-                NewsCell()
-            }
-            
-            .listStyle(SidebarListStyle())
+            .navigationBarTitle("资讯")
         }
     }
 }
@@ -59,9 +53,18 @@ struct NewsPageView: View {
     
     
     
-    
-    struct NewsPageView_Previews: PreviewProvider {
-        static var previews: some View {
-            NewsPageView()
-        }
+
+struct NewsSourcePicker: View {
+    @Binding var showPage: Int
+    var body: some View {
+        CapsulePickStyle(selectNum: $showPage, dataSource: ["院系风采","教务通知","社团动态","校招实习"])
     }
+}
+
+
+
+struct NewsPageView_Previews: PreviewProvider {
+    static var previews: some View {
+        NewsPageView()
+    }
+}

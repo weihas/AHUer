@@ -17,8 +17,8 @@ public struct ColorButtonStyle: ButtonStyle {
             .padding(15)
             .background(RoundedRectangle(cornerRadius: 15).fill(color))
             .compositingGroup()
-            .shadow(color: .black, radius: 3)
-            .opacity(configuration.isPressed ? 0.5 : 1.0)
+            .shadow(color: .gray, radius: 3)
+            .opacity(configuration.isPressed ? 0.3 : 0.8)
             .scaleEffect(configuration.isPressed ? 0.8 : 1.0)
     }
 }
