@@ -18,7 +18,7 @@ struct RootView: View {
                     Text("主页")
                 }
                 .tag(0)
-            TimeTablePageView()
+            TimeTablePageView(vm: TimeTableShow())
                 .environmentObject(infoData)
                 .tabItem {
                     Image(systemName: "calendar")

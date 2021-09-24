@@ -8,8 +8,50 @@
 import Foundation
 
 struct TimeTable {
+    var tableClassCellModels: [[TableClassCellModel]]
+    
+    init(){
+        tableClassCellModels = []
+        var id = 0
+        for _ in 0..<11{
+            var sequence: [TableClassCellModel] = []
+            for _ in 0..<7{
+                sequence.append(TableClassCellModel(id: id, name: "", location: "", lectureLengthisTwo: true))
+                id += 1
+            }
+            tableClassCellModels.append(sequence)
+            sequence.removeAll()
+        }
+        
+        
+        tableClassCellModels[2][3].changeInfo(name: "高等数学", location: "博北A401")
+        tableClassCellModels[0][0].changeInfo(name: "大学物理", location: "博北A201", lectureLengthisTwo: false)
+        tableClassCellModels[0][1].changeInfo(name: "大学物理", location: "博北A201", lectureLengthisTwo: false)
+        tableClassCellModels[0][2].changeInfo(name: "大学物理", location: "博北A201", lectureLengthisTwo: false)
+        tableClassCellModels[0][3].changeInfo(name: "大学物理", location: "博北A201", lectureLengthisTwo: false)
+        tableClassCellModels[0][4].changeInfo(name: "大学物理", location: "博北A201", lectureLengthisTwo: false)
+        tableClassCellModels[0][5].changeInfo(name: "大学物理", location: "博北A201", lectureLengthisTwo: true)
+        tableClassCellModels[0][6].changeInfo(name: "大学物理", location: "博北A201", lectureLengthisTwo: false)
+        tableClassCellModels[8][1].changeInfo(name: "英语", location: "博南C201")
+    }
 }
 
+
+struct TableClassCellModel: Identifiable{
+    var id: Int
+    
+    var name: String
+    var location: String
+    var isShow: Bool{get {name != ""} }
+    var lectureLengthisTwo: Bool
+    
+    mutating func changeInfo(name: String, location: String, lectureLengthisTwo: Bool = true){
+        self.name = name
+        self.location = location
+        self.lectureLengthisTwo = lectureLengthisTwo
+    }
+    
+}
 
 struct Weekday {
     var day: Day

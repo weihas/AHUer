@@ -13,6 +13,8 @@
 		353705A326EB6D62002E001C /* Button+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353705A226EB6D62002E001C /* Button+Style.swift */; };
 		3539741526E986BD00A48A01 /* Lecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3539741426E986BD00A48A01 /* Lecture.swift */; };
 		3539741826E9873900A48A01 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3539741726E9873900A48A01 /* Day.swift */; };
+		35542B7526FDC0CB0078F0BD /* ClassModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35542B7426FDC0CB0078F0BD /* ClassModel.swift */; };
+		35542B7726FDCCA30078F0BD /* TableClassCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35542B7626FDCCA30078F0BD /* TableClassCell.swift */; };
 		35607B9C26E99BFA0037504E /* Date+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35607B9B26E99BFA0037504E /* Date+Helper.swift */; };
 		35607B9F26EA025B0037504E /* NewsPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35607B9E26EA025B0037504E /* NewsPageView.swift */; };
 		35607BA226EA02E00037504E /* PersonalPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35607BA126EA02E00037504E /* PersonalPageView.swift */; };
@@ -69,6 +71,8 @@
 		353705A226EB6D62002E001C /* Button+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+Style.swift"; sourceTree = "<group>"; };
 		3539741426E986BD00A48A01 /* Lecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lecture.swift; sourceTree = "<group>"; };
 		3539741726E9873900A48A01 /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
+		35542B7426FDC0CB0078F0BD /* ClassModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassModel.swift; sourceTree = "<group>"; };
+		35542B7626FDCCA30078F0BD /* TableClassCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableClassCell.swift; sourceTree = "<group>"; };
 		35607B9B26E99BFA0037504E /* Date+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Helper.swift"; sourceTree = "<group>"; };
 		35607B9E26EA025B0037504E /* NewsPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPageView.swift; sourceTree = "<group>"; };
 		35607BA126EA02E00037504E /* PersonalPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalPageView.swift; sourceTree = "<group>"; };
@@ -199,6 +203,7 @@
 				3578CA5326E8EDB500667BEF /* RootView.swift */,
 				3578CA5B26E8F4F500667BEF /* AppModel */,
 				3595AF3226EC3D7900F1354A /* AHUAppInfo.swift */,
+				35542B7426FDC0CB0078F0BD /* ClassModel.swift */,
 				35607B9D26E99C010037504E /* Tools */,
 				3578CA5726E8F2E900667BEF /* HomePage */,
 				3578CA6126E9113E00667BEF /* TimeTablePage */,
@@ -270,6 +275,7 @@
 				3578CA6426E9120400667BEF /* TimeTable.swift */,
 				3578CA6226E9117E00667BEF /* TimeTableShow.swift */,
 				3578CA5F26E90FDE00667BEF /* TimeTablePageView.swift */,
+				35542B7626FDCCA30078F0BD /* TableClassCell.swift */,
 			);
 			path = TimeTablePage;
 			sourceTree = "<group>";
@@ -444,6 +450,7 @@
 				3586B8D926EDA3CD00B42A90 /* MoreView.swift in Sources */,
 				3515A0D626ECF74D0003A1F1 /* HomePageButtonsInfo.swift in Sources */,
 				358330EA26EC31DC005927D6 /* ThanksChildView.swift in Sources */,
+				35542B7526FDC0CB0078F0BD /* ClassModel.swift in Sources */,
 				3586B8DB26EDAC0C00B42A90 /* AddressBookLogic.swift in Sources */,
 				351213E726ECBF2D00D62E9B /* NewsPlaying.swift in Sources */,
 				35607BA726EA18280037504E /* SettingView.swift in Sources */,
@@ -460,6 +467,7 @@
 				3586B8D526EDA38E00B42A90 /* SearchView.swift in Sources */,
 				359BEBEE26ECE2B9006FB419 /* GroupBox+Style.swift in Sources */,
 				35AA432B26E916320096724A /* BathView.swift in Sources */,
+				35542B7726FDCCA30078F0BD /* TableClassCell.swift in Sources */,
 				35607BA226EA02E00037504E /* PersonalPageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -619,7 +627,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"AHUer/Preview Content\"";
-				DEVELOPMENT_TEAM = NVF47AP6H6;
+				DEVELOPMENT_TEAM = 4C9768YYTJ;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = AHUer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -627,7 +635,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.weiha.AHUer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.weihas.AHUer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -641,7 +649,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"AHUer/Preview Content\"";
-				DEVELOPMENT_TEAM = NVF47AP6H6;
+				DEVELOPMENT_TEAM = 4C9768YYTJ;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = AHUer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -649,7 +657,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.weiha.AHUer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.weihas.AHUer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

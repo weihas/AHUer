@@ -9,34 +9,30 @@ import SwiftUI
 
 struct TimeTablePageView: View {
     @State private var numOfWeek: Int = 1
+    @ObservedObject var vm: TimeTableShow
+    
     var body: some View {
-        VStack{
-            Text("第\(numOfWeek)周")
-            TitleBarView()
-            HStack{
-                timeLineView()
-                Spacer()
+        ZStack{
+            VStack{
+                Text("第\(numOfWeek)周")
+                TitleBarView()
+                timeLineView(vm: vm)
             }
+            .padding()
         }
-        .padding()
     }
-    
-    
-    
-    
 }
 
 struct TitleBarView: View {
     var body: some View{
         Divider()
-        HStack{
+        HStack(spacing: 20){
             Button(action: {
                 
             }, label: {
                 Image(systemName:  "square.and.arrow.down.on.square")
             })
             ForEach(0..<7){ index in
-                Spacer()
                 weekdayCell(index,Date())
             }
         }
@@ -94,29 +90,28 @@ struct weekdayCell: View {
 }
 
 struct timeLineView: View {
-    var times: [String] = ["8:20","9:15","10:20","11:15","14:00","14:55","15:50","16:45","19:00","19:55","20:50"]
+    @ObservedObject var vm: TimeTableShow
+    
     var body: some View {
-        List{
-            ForEach(times.indices){ index in
-                VStack{
-                    Text("\(index+1)")
-                        .font(.callout)
-                    Text(times[index])
+        ScrollView{
+            ForEach(vm.timetableInfos.indices){ rowIndex in
+                if rowIndex == 4 || rowIndex == 8{
+                    Divider()
+                }
+                HStack(alignment:.top){
+                    Text(vm.timeline[rowIndex])
                         .font(.footnote)
+                    ForEach(vm.timetableInfos[rowIndex]){ info in
+                        TableClassCell(tablecellModel: info)
+                    }
                 }
             }
         }
     }
 }
 
-
-
 struct TimeTablePage_Previews: PreviewProvider {
     static var previews: some View {
-        TimeTablePageView()
+        TimeTablePageView(vm: TimeTableShow())
     }
 }
-
-//VStack{
-//
-//}

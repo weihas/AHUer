@@ -11,6 +11,8 @@ class AHUAppInfo: ObservableObject {
     @Published var isLoggin: Bool = false
     @Published var tabItemNum: Int = 0
     @Published private var todayModel: TodayMessages
+    @Published var lectures: [Lecture] = []
+    
     
     init() {
         todayModel = TodayMessages()
@@ -49,3 +51,6 @@ class AHUAppInfo: ObservableObject {
         return "E01814133"
     }
 }
+
+
+
