@@ -10,7 +10,6 @@
 		351213E526ECBE7B00D62E9B /* NewsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351213E426ECBE7B00D62E9B /* NewsModels.swift */; };
 		351213E726ECBF2D00D62E9B /* NewsPlaying.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351213E626ECBF2D00D62E9B /* NewsPlaying.swift */; };
 		3515A0D626ECF74D0003A1F1 /* HomePageButtonsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3515A0D526ECF74D0003A1F1 /* HomePageButtonsInfo.swift */; };
-		3517309926EA4C17009340B4 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3517309826EA4C17009340B4 /* SwiftUIView.swift */; };
 		353705A326EB6D62002E001C /* Button+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353705A226EB6D62002E001C /* Button+Style.swift */; };
 		3539741526E986BD00A48A01 /* Lecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3539741426E986BD00A48A01 /* Lecture.swift */; };
 		3539741826E9873900A48A01 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3539741726E9873900A48A01 /* Day.swift */; };
@@ -37,11 +36,8 @@
 		3586B8D726EDA3C000B42A90 /* TrashClassifyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586B8D626EDA3C000B42A90 /* TrashClassifyView.swift */; };
 		3586B8D926EDA3CD00B42A90 /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586B8D826EDA3CD00B42A90 /* MoreView.swift */; };
 		3586B8DB26EDAC0C00B42A90 /* AddressBookLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586B8DA26EDAC0C00B42A90 /* AddressBookLogic.swift */; };
-		3586B8DE26EDC88800B42A90 /* delete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586B8DD26EDC88800B42A90 /* delete.swift */; };
 		3595AF3326EC3D7900F1354A /* AHUAppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3595AF3226EC3D7900F1354A /* AHUAppInfo.swift */; };
 		3595AF3526EC423B00F1354A /* Picker+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3595AF3426EC423B00F1354A /* Picker+Style.swift */; };
-		3595AF3726EC6CF300F1354A /* CoolTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3595AF3626EC6CF300F1354A /* CoolTest.swift */; };
-		3595AF3926EC6F1700F1354A /* just.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3595AF3826EC6F1700F1354A /* just.swift */; };
 		359BEBEE26ECE2B9006FB419 /* GroupBox+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359BEBED26ECE2B9006FB419 /* GroupBox+Style.swift */; };
 		35AA432B26E916320096724A /* BathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AA432A26E916320096724A /* BathView.swift */; };
 		35D5B16A26EA5E430070A23C /* JobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D5B16926EA5E430070A23C /* JobView.swift */; };
@@ -70,7 +66,6 @@
 		351213E426ECBE7B00D62E9B /* NewsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModels.swift; sourceTree = "<group>"; };
 		351213E626ECBF2D00D62E9B /* NewsPlaying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPlaying.swift; sourceTree = "<group>"; };
 		3515A0D526ECF74D0003A1F1 /* HomePageButtonsInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageButtonsInfo.swift; sourceTree = "<group>"; };
-		3517309826EA4C17009340B4 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		353705A226EB6D62002E001C /* Button+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+Style.swift"; sourceTree = "<group>"; };
 		3539741426E986BD00A48A01 /* Lecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lecture.swift; sourceTree = "<group>"; };
 		3539741726E9873900A48A01 /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
@@ -103,11 +98,8 @@
 		3586B8D626EDA3C000B42A90 /* TrashClassifyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashClassifyView.swift; sourceTree = "<group>"; };
 		3586B8D826EDA3CD00B42A90 /* MoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreView.swift; sourceTree = "<group>"; };
 		3586B8DA26EDAC0C00B42A90 /* AddressBookLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressBookLogic.swift; sourceTree = "<group>"; };
-		3586B8DD26EDC88800B42A90 /* delete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = delete.swift; sourceTree = "<group>"; };
 		3595AF3226EC3D7900F1354A /* AHUAppInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AHUAppInfo.swift; sourceTree = "<group>"; };
 		3595AF3426EC423B00F1354A /* Picker+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Picker+Style.swift"; sourceTree = "<group>"; };
-		3595AF3626EC6CF300F1354A /* CoolTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoolTest.swift; sourceTree = "<group>"; };
-		3595AF3826EC6F1700F1354A /* just.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = just.swift; sourceTree = "<group>"; };
 		359BEBED26ECE2B9006FB419 /* GroupBox+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GroupBox+Style.swift"; sourceTree = "<group>"; };
 		35AA432A26E916320096724A /* BathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BathView.swift; sourceTree = "<group>"; };
 		35D5B16926EA5E430070A23C /* JobView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobView.swift; sourceTree = "<group>"; };
@@ -212,10 +204,6 @@
 				3578CA6126E9113E00667BEF /* TimeTablePage */,
 				35607BA026EA025E0037504E /* NewsPage */,
 				35607BA326EA02E30037504E /* PersonalPage */,
-				3517309826EA4C17009340B4 /* SwiftUIView.swift */,
-				3595AF3626EC6CF300F1354A /* CoolTest.swift */,
-				3595AF3826EC6F1700F1354A /* just.swift */,
-				3586B8DD26EDC88800B42A90 /* delete.swift */,
 				3578CA2C26E8ED5E00667BEF /* Assets.xcassets */,
 				3578CA3126E8ED5F00667BEF /* Info.plist */,
 				3578CA2E26E8ED5F00667BEF /* Preview Content */,
@@ -449,7 +437,6 @@
 				3595AF3326EC3D7900F1354A /* AHUAppInfo.swift in Sources */,
 				3578CA6526E9120400667BEF /* TimeTable.swift in Sources */,
 				351213E526ECBE7B00D62E9B /* NewsModels.swift in Sources */,
-				3517309926EA4C17009340B4 /* SwiftUIView.swift in Sources */,
 				3578CA2926E8ED5E00667BEF /* AHUerApp.swift in Sources */,
 				35607B9F26EA025B0037504E /* NewsPageView.swift in Sources */,
 				35D5B16A26EA5E430070A23C /* JobView.swift in Sources */,
@@ -458,8 +445,6 @@
 				3515A0D626ECF74D0003A1F1 /* HomePageButtonsInfo.swift in Sources */,
 				358330EA26EC31DC005927D6 /* ThanksChildView.swift in Sources */,
 				3586B8DB26EDAC0C00B42A90 /* AddressBookLogic.swift in Sources */,
-				3595AF3726EC6CF300F1354A /* CoolTest.swift in Sources */,
-				3595AF3926EC6F1700F1354A /* just.swift in Sources */,
 				351213E726ECBF2D00D62E9B /* NewsPlaying.swift in Sources */,
 				35607BA726EA18280037504E /* SettingView.swift in Sources */,
 				3539741826E9873900A48A01 /* Day.swift in Sources */,
@@ -475,7 +460,6 @@
 				3586B8D526EDA38E00B42A90 /* SearchView.swift in Sources */,
 				359BEBEE26ECE2B9006FB419 /* GroupBox+Style.swift in Sources */,
 				35AA432B26E916320096724A /* BathView.swift in Sources */,
-				3586B8DE26EDC88800B42A90 /* delete.swift in Sources */,
 				35607BA226EA02E00037504E /* PersonalPageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -25,7 +25,7 @@ struct RootView: View {
                     Text("课表")
                 }
                 .tag(1)
-            NewsPageView()
+            NewsPageView(newsVM: NewsPlaying())
                 .tabItem {
                     Image(systemName: "newspaper")
                     Text("资讯")
@@ -39,7 +39,6 @@ struct RootView: View {
                 }
                 .tag(3)
         }
-        .accentColor(Color("AccentColor"))
         .font(.headline)
     }
 }

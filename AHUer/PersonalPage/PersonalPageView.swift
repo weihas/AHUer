@@ -8,11 +8,9 @@
 import SwiftUI
 
 struct PersonalPageView: View {
-    @EnvironmentObject var vm: AHUAppInfo
-    
     var body: some View {
         NavigationView{
-            OperationListView(isLoggin: $vm.isLoggin)
+            OperationListView()
                 .navigationBarTitle("个人")
         }
     }
@@ -20,25 +18,34 @@ struct PersonalPageView: View {
 
 
 
-
 struct OperationListView: View {
-    @Binding var isLoggin: Bool
-    @State var showLoggingChoose: Bool = false
-    @State var showLoggingPanel: Bool = false
+    @EnvironmentObject var vm: AHUAppInfo
+    @State private var showLoggingChoose: Bool = false
+    @State private var showLoggingPanel: Bool = false
    
     var body: some View {
         Form{
             AccountSection(showLoggingChoose: $showLoggingChoose)
             OperationSection()
         }.actionSheet(isPresented: $showLoggingChoose) {
-            ActionSheet(
-                title: Text("通过现有学号登录或使用其他学号"),
-                buttons: [
-                    .default(Text("E01814133"),
+            if vm.isLoggin {
+                return ActionSheet(
+                    title: Text("是否退出登录"),
+                    buttons: [
+                        .destructive(Text("退出"),
+                                     action: {vm.isLoggin = false}),
+                        .cancel(Text("取消"))
+                    ])
+            }else{
+                return ActionSheet(
+                    title: Text("通过现有学号登录或使用其他学号"),
+                    buttons: [
+                        .default(Text("E01814133"),
                                  action: logginWithExist),
-                    .default(Text("使用其他学号"), action: {showLoggingPanel.toggle()}),
-                    .cancel()
-                ])
+                        .default(Text("使用其他学号"), action: {showLoggingPanel.toggle()}),
+                        .cancel(Text("取消"))
+                    ])
+            }
         }
         .sheet(isPresented: $showLoggingPanel) {
             LogginView()
@@ -48,7 +55,7 @@ struct OperationListView: View {
     }
     
     func logginWithExist() {
-        isLoggin = true
+        vm.isLoggin = true
     }
     
     
@@ -57,14 +64,16 @@ struct OperationListView: View {
 
 
 
+
 struct AccountSection: View {
+    @EnvironmentObject var vm: AHUAppInfo
     @Binding var showLoggingChoose: Bool
     var body: some View {
-        Section(header:  Label("账号", systemImage: "person") ,footer: Text("教务系统登录认证以使用课表等功能").font(.footnote).padding(.horizontal)){
+        Section(header:  Label("账号", systemImage: "person") ,footer: Text(vm.isLoggin ? "退出教务系统认证" : "教务系统登录认证以使用课表等功能").font(.footnote).padding(.horizontal)){
             Button(action: {
                 showLoggingChoose = true
             }, label: {
-                Text("登录")
+                Text(vm.isLoggin ? vm.logginName : "登录")
                     .foregroundColor(.blue)
             })
             

@@ -45,4 +45,7 @@ class AHUAppInfo: ObservableObject {
         return start.hourMinute + "~" + end.hourMinute
     }
     
+    var logginName: String {
+        return "E01814133"
+    }
 }
