@@ -55,7 +55,7 @@ struct TableClassCellModel: Identifiable{
 
 struct Weekday {
     var day: Day
-    var lectures: [Lecture]
+    var lectures: [Course]
 
     func getLectureVision(){
         

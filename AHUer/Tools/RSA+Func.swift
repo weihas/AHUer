@@ -17,7 +17,7 @@ MIGJAoGBAI9fwyD3Hb5ryCjs7tR1n+SNkZgmUXxdMWl6g9L4s9xLsjsE0yjvaPeZRBIroo6Yc+laattX
 """
         do {
             let publicKey = try PublicKey(pemEncoded: key)
-            let clear = try ClearMessage(string: "123", using: .utf8)
+            let clear = try ClearMessage(string: self, using: .utf8)
             let encrypted = try clear.encrypted(with: publicKey, padding: .PKCS1)
             return encrypted.base64String
         }catch{

@@ -11,7 +11,7 @@ class AHUAppInfo: ObservableObject {
     @Published var isLoggin: Bool = false
     @Published var tabItemNum: Int = 0
     @Published private var todayModel: TodayMessages
-    @Published var lectures: [Lecture] = []
+    @Published var lectures: [Course] = []
     
     
     init() {
@@ -22,7 +22,7 @@ class AHUAppInfo: ObservableObject {
         return todayModel.gpa
     }
     
-    var todayLectures: [Lecture]{
+    var todayLectures: [Course]{
         return todayModel.lectures
     }
     
@@ -41,10 +41,10 @@ class AHUAppInfo: ObservableObject {
     }
     
     var firstlectureTime: String {
-        guard let start = todayModel.lectures.first?.startTime,
-              let end = todayModel.lectures.first?.endTime
-        else { return "0-0" }
-        return start.hourMinute + "~" + end.hourMinute
+//        guard let start = todayModel.lectures.first?.startTime,
+//              let end = todayModel.lectures.first?.endTime
+//        else { return "0-0" }
+        return "12:30" + "~" + "13:40"
     }
     
     var logginName: String {

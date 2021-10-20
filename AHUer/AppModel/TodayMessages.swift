@@ -8,12 +8,12 @@
 import Foundation
 
 struct TodayMessages {
-    var lectures: [Lecture]
+    var lectures: [Course]
     var southBathroomisMen: Bool
     var gpa: (thisGrade: Double , all: Double)
     
     init() {
-        lectures = [Lecture(id: UUID(), name: "高等数学", location: "博北A103", startTime: Date(timeIntervalSinceNow: 2000), endTime: Date(timeIntervalSinceNow: 3000))]
+        lectures = []
         southBathroomisMen = false
         gpa = (5.00 , 5.00)
     }
