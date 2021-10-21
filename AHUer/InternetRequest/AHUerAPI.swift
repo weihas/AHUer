@@ -12,6 +12,7 @@ import Moya
 public enum AHUerAPI {
     case login(userId: String, password: String, type: Int)
     case schedule(schoolYear: String, schoolTerm: String)
+    case logout(type: Int)
 }
 
 extension AHUerAPI: TargetType {
@@ -24,6 +25,8 @@ extension AHUerAPI: TargetType {
             return "/api/login"
         case .schedule:
             return "/api/schedule"
+        case .logout:
+            return "api/logout"
         }
     }
 
@@ -32,6 +35,8 @@ extension AHUerAPI: TargetType {
         case .login:
             return .post
         case .schedule:
+            return .get
+        case .logout:
             return .get
         }
     }
@@ -42,6 +47,8 @@ extension AHUerAPI: TargetType {
             return .requestParameters(parameters: ["userId": userId, "password": password, "type": type], encoding: URLEncoding.default)
         case .schedule(let schoolYear, let schoolTerm):
             return .requestParameters(parameters: ["schoolYear": schoolYear, "schoolTerm": schoolTerm], encoding: URLEncoding.default)
+        case .logout(let type):
+            return .requestParameters(parameters: ["type": type], encoding: URLEncoding.default)
         }
     }
 

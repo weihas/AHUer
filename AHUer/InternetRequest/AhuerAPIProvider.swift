@@ -21,7 +21,7 @@ class AhuerAPIProvider{
     /// - Parameters:
     ///   - userId: 用户的ID
     ///   - password: 用户密码
-    ///   - type: 登录方式
+    ///   - type: 登录方式 1为教务 2为智慧安大
     func loggin(userId: String, password: String, type: String){
         print("==>logging ...")
         guard let pw = password.rsaCrypto() else {return}
@@ -52,6 +52,33 @@ class AhuerAPIProvider{
         }
     }
     
+    
+    /// 登出
+    /// - Parameter type: 登录类型
+    func logout(type: Int , handel: @escaping (Bool) -> Void){
+        provider.request(.logout(type: 1)) { result in
+            print(result)
+            switch result {
+            case .success(let respon):
+                print(respon)
+                if let logginResponse = try? respon.map(logoutResponse.self) {
+                    if logginResponse.code == 0{
+                        print("==> logout done")
+                    }
+                    handel(logginResponse.code == 0)
+                }
+            case .failure(let error):
+                print(error)
+                print("==> logout error")
+            }
+        }
+        print("Error")
+        struct logoutResponse: Codable {
+            let code: Int?
+            let data: String?
+            let msg: String?
+        }
+    }
     
     /// 获取课表
     /// - Parameters:

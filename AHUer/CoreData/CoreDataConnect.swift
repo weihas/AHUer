@@ -72,7 +72,6 @@ class CoreDataConnect{
             return result
         }catch {
             fatalError("\(error)")
-            return nil
         }
     }
     

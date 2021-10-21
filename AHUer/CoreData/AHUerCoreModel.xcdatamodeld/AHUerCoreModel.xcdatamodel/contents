@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19206" systemVersion="20G165" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Lecture" representedClassName="Lecture" syncable="YES" codeGenerationType="class">
+    <entity name="Course" representedClassName="Course" syncable="YES" codeGenerationType="class">
         <attribute name="courseId" optional="YES" attributeType="String"/>
         <attribute name="endWeek" optional="YES" attributeType="Integer 64" minValueString="0" maxValueString="30" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="extra" optional="YES" attributeType="String"/>
@@ -12,15 +12,15 @@
         <attribute name="startWeek" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="teacher" optional="YES" attributeType="String"/>
         <attribute name="weekday" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <relationship name="onwer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Student" inverseName="courses" inverseEntity="Student"/>
+        <relationship name="owner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Student" inverseName="courses" inverseEntity="Student"/>
     </entity>
     <entity name="Student" representedClassName="Student" syncable="YES" codeGenerationType="class">
         <attribute name="studentID" optional="YES" attributeType="String"/>
         <attribute name="studentName" optional="YES" attributeType="String"/>
-        <relationship name="courses" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Lecture" inverseName="onwer" inverseEntity="Lecture"/>
+        <relationship name="courses" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Course" inverseName="owner" inverseEntity="Course"/>
     </entity>
     <elements>
-        <element name="Lecture" positionX="-54" positionY="9" width="128" height="209"/>
-        <element name="Student" positionX="-413.25" positionY="26.48046875" width="152.84765625" height="74"/>
+        <element name="Course" positionX="275.171875" positionY="-669.109375" width="128" height="209"/>
+        <element name="Student" positionX="-243.39453125" positionY="-885.15234375" width="152.84765625" height="88"/>
     </elements>
 </model>
