@@ -12,9 +12,10 @@
 		3515A0D626ECF74D0003A1F1 /* HomePageButtonsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3515A0D526ECF74D0003A1F1 /* HomePageButtonsInfo.swift */; };
 		3519DEFA270C53CE00639531 /* RSA+Func.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3519DEF9270C53CE00639531 /* RSA+Func.swift */; };
 		353705A326EB6D62002E001C /* Button+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353705A226EB6D62002E001C /* Button+Style.swift */; };
-		3538FC592720685E00A9EA47 /* AHUerCoreModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3538FC572720685E00A9EA47 /* AHUerCoreModel.xcdatamodeld */; };
 		3539741526E986BD00A48A01 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3539741426E986BD00A48A01 /* Course.swift */; };
 		3539741826E9873900A48A01 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3539741726E9873900A48A01 /* Day.swift */; };
+		3552E63827219401006A6322 /* AHUerCoreModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3552E63627219401006A6322 /* AHUerCoreModel.xcdatamodeld */; };
+		3552E63A27219425006A6322 /* CoreDataConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3552E63927219425006A6322 /* CoreDataConnect.swift */; };
 		35542B7726FDCCA30078F0BD /* TableClassCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35542B7626FDCCA30078F0BD /* TableClassCell.swift */; };
 		35607B9C26E99BFA0037504E /* Date+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35607B9B26E99BFA0037504E /* Date+Helper.swift */; };
 		35607B9F26EA025B0037504E /* NewsPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35607B9E26EA025B0037504E /* NewsPageView.swift */; };
@@ -79,9 +80,10 @@
 		3515A0D526ECF74D0003A1F1 /* HomePageButtonsInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageButtonsInfo.swift; sourceTree = "<group>"; };
 		3519DEF9270C53CE00639531 /* RSA+Func.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RSA+Func.swift"; sourceTree = "<group>"; };
 		353705A226EB6D62002E001C /* Button+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+Style.swift"; sourceTree = "<group>"; };
-		3538FC582720685E00A9EA47 /* AHUerCoreModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AHUerCoreModel.xcdatamodel; sourceTree = "<group>"; };
 		3539741426E986BD00A48A01 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		3539741726E9873900A48A01 /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
+		3552E63727219401006A6322 /* AHUerCoreModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AHUerCoreModel.xcdatamodel; sourceTree = "<group>"; };
+		3552E63927219425006A6322 /* CoreDataConnect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataConnect.swift; sourceTree = "<group>"; };
 		35542B7626FDCCA30078F0BD /* TableClassCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableClassCell.swift; sourceTree = "<group>"; };
 		35607B9B26E99BFA0037504E /* Date+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Helper.swift"; sourceTree = "<group>"; };
 		35607B9E26EA025B0037504E /* NewsPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPageView.swift; sourceTree = "<group>"; };
@@ -328,7 +330,8 @@
 		35CEF9F62720657400A4B238 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				3538FC572720685E00A9EA47 /* AHUerCoreModel.xcdatamodeld */,
+				3552E63627219401006A6322 /* AHUerCoreModel.xcdatamodeld */,
+				3552E63927219425006A6322 /* CoreDataConnect.swift */,
 				35CEF9F4272064CF00A4B238 /* Persistence.swift */,
 			);
 			path = CoreData;
@@ -617,13 +620,14 @@
 				35D5B16D26EA6BFD0070A23C /* ScoreView.swift in Sources */,
 				3586B8D726EDA3C000B42A90 /* TrashClassifyView.swift in Sources */,
 				3595AF3326EC3D7900F1354A /* AHUAppInfo.swift in Sources */,
-				3538FC592720685E00A9EA47 /* AHUerCoreModel.xcdatamodeld in Sources */,
+				3552E63827219401006A6322 /* AHUerCoreModel.xcdatamodeld in Sources */,
 				3578CA6526E9120400667BEF /* TimeTable.swift in Sources */,
 				351213E526ECBE7B00D62E9B /* NewsModels.swift in Sources */,
 				3578CA2926E8ED5E00667BEF /* AHUerApp.swift in Sources */,
 				35607B9F26EA025B0037504E /* NewsPageView.swift in Sources */,
 				35AE5D6C2720461900B0DC98 /* AhuerAPIProvider.swift in Sources */,
 				35D5B16A26EA5E430070A23C /* JobView.swift in Sources */,
+				3552E63A27219425006A6322 /* CoreDataConnect.swift in Sources */,
 				3586B8CF26EDA17A00B42A90 /* EmptyClassView.swift in Sources */,
 				3586B8D926EDA3CD00B42A90 /* MoreView.swift in Sources */,
 				3515A0D626ECF74D0003A1F1 /* HomePageButtonsInfo.swift in Sources */,
@@ -976,12 +980,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		3538FC572720685E00A9EA47 /* AHUerCoreModel.xcdatamodeld */ = {
+		3552E63627219401006A6322 /* AHUerCoreModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				3538FC582720685E00A9EA47 /* AHUerCoreModel.xcdatamodel */,
+				3552E63727219401006A6322 /* AHUerCoreModel.xcdatamodel */,
 			);
-			currentVersion = 3538FC582720685E00A9EA47 /* AHUerCoreModel.xcdatamodel */;
+			currentVersion = 3552E63727219401006A6322 /* AHUerCoreModel.xcdatamodel */;
 			path = AHUerCoreModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

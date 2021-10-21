@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19206" systemVersion="20G165" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Courses" representedClassName="Courses" syncable="YES" codeGenerationType="class">
+    <entity name="Lecture" representedClassName="Lecture" syncable="YES" codeGenerationType="class">
         <attribute name="courseId" optional="YES" attributeType="String"/>
-        <attribute name="endWeek" optional="YES" attributeType="Integer 16" minValueString="0" maxValueString="30" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="endWeek" optional="YES" attributeType="Integer 64" minValueString="0" maxValueString="30" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="extra" optional="YES" attributeType="String"/>
-        <attribute name="length" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="length" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="location" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="singleDouble" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="startTime" optional="YES" attributeType="String"/>
-        <attribute name="startWeek" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="startWeek" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="teacher" optional="YES" attributeType="String"/>
-        <attribute name="weekday" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="weekday" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="onwer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Student" inverseName="courses" inverseEntity="Student"/>
     </entity>
     <entity name="Student" representedClassName="Student" syncable="YES" codeGenerationType="class">
         <attribute name="studentID" optional="YES" attributeType="String"/>
         <attribute name="studentName" optional="YES" attributeType="String"/>
-        <relationship name="courses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Courses" inverseName="onwer" inverseEntity="Courses"/>
+        <relationship name="courses" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Lecture" inverseName="onwer" inverseEntity="Lecture"/>
     </entity>
     <elements>
-        <element name="Student" positionX="-413.25" positionY="26.48046875" width="152.84765625" height="88"/>
-        <element name="Courses" positionX="-54" positionY="9" width="128" height="223"/>
+        <element name="Lecture" positionX="-54" positionY="9" width="128" height="209"/>
+        <element name="Student" positionX="-413.25" positionY="26.48046875" width="152.84765625" height="74"/>
     </elements>
 </model>
