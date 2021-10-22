@@ -1,0 +1,4 @@
+${PODS_ROOT}/Target Support Files/Pods-AHUer-AHUerUITests/Pods-AHUer-AHUerUITests-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
+${BUILT_PRODUCTS_DIR}/Moya/Moya.framework
+${BUILT_PRODUCTS_DIR}/SwiftyRSA/SwiftyRSA.framework
