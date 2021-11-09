@@ -53,14 +53,14 @@ struct TableClassCellModel: Identifiable{
     
 }
 
-struct Weekday {
-    var day: Day
-    var lectures: [Course]
-
-    func getLectureVision(){
-        
-    }
-}
+//struct Weekday {
+//    var day: Day
+//    var lectures: [Course]
+//
+//    func getLectureVision(){
+//        
+//    }
+//}
 
 struct classData {
     var weekday = "周几"
