@@ -20,7 +20,6 @@ struct HomePageView: View {
                     scoreLabel
                 }
                 .onAppear{
-                    print("freshHoemPage")
                     vm.freshImmediatelyLecture()
                 }
             .navigationTitle(Text("今天"))
