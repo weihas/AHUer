@@ -26,7 +26,7 @@ struct TimeTablePageView: View {
 struct TitleBarView: View {
     var body: some View{
         Divider()
-        HStack(spacing: 20){
+        HStack(alignment: .top, spacing: 10){
             Button(action: {
                 
             }, label: {
@@ -34,6 +34,7 @@ struct TitleBarView: View {
             })
             ForEach(0..<7){ index in
                 weekdayCell(index,Date())
+                    .frame(width: 35)
             }
         }
         Divider()
@@ -110,8 +111,8 @@ struct timeLineView: View {
     }
 }
 
-struct TimeTablePage_Previews: PreviewProvider {
-    static var previews: some View {
-        TimeTablePageView(vm: TimeTableShow())
-    }
-}
+//struct TimeTablePage_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TimeTablePageView(vm: TimeTableShow(context: <#NSManagedObjectContext#>))
+//    }
+//}

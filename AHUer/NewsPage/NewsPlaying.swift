@@ -17,4 +17,8 @@ class NewsPlaying: ObservableObject {
     var news: [NewsItem] {
         return model.somenews
     }
+    
+    deinit {
+        print("🌀NewsPlaying released")
+    }
 }

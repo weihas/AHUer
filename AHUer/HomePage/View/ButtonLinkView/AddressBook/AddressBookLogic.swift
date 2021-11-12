@@ -82,6 +82,10 @@ class AddressBookLogic: ObservableObject {
         return model.map({$0.title})
     }
     
+    deinit {
+        print("🌀AddressBookLogic released")
+    }
+    
 }
 
 

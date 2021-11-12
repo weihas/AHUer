@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct SettingView: View {
-    @State var showOtherWeekLectures: Bool = false
-    @State var showCourse: Bool = false
+    @EnvironmentObject var appInfo: AHUAppInfo
+    
+    @AppStorage("showOtherWeekLectures") private var showOtherWeekLectures: Bool = false
+    @AppStorage("showLecture") private var showLecture: Bool = false
+    
     var body: some View {
         Form{
             Section(header: Text("课表").font(.footnote)) {
@@ -27,13 +30,14 @@ struct SettingView: View {
                 Toggle(isOn: $showOtherWeekLectures) {
                     Text("显示非本周课表")
                 }
-                Toggle(isOn: $showCourse) {
+                Toggle(isOn: $showLecture) {
                     Text("显示讲座信息")
                 }
             }
             Section(header: Text("其他").font(.footnote)) {
                 Button("清除缓存"){
                     print("清除缓存")
+                    appInfo.cleanUp()
                 }
                 .foregroundColor(.blue)
             }
@@ -43,8 +47,8 @@ struct SettingView: View {
     }
 }
 
-struct SettingView_Previews: PreviewProvider {
-    static var previews: some View {
-        SettingView()
-    }
-}
+//struct SettingView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SettingView()
+//    }
+//}

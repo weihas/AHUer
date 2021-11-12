@@ -6,33 +6,31 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct RootView: View {
-    @EnvironmentObject var infoData: AHUAppInfo
+    @EnvironmentObject var appInfo: AHUAppInfo
     var body: some View {
-        TabView(selection: $infoData.tabItemNum) {
-            HomePageView()
-                .environmentObject(infoData)
+        TabView(selection: $appInfo.tabItemNum) {
+            HomePageView(vm: appInfo.homePageVM)
                 .tabItem {
                     Image(systemName: "house")
                     Text("主页")
                 }
                 .tag(0)
-            TimeTablePageView(vm: TimeTableShow())
-                .environmentObject(infoData)
+            TimeTablePageView(vm: appInfo.timeTableVM)
                 .tabItem {
                     Image(systemName: "calendar")
                     Text("课表")
                 }
                 .tag(1)
-            NewsPageView(newsVM: NewsPlaying())
-                .tabItem {
-                    Image(systemName: "newspaper")
-                    Text("资讯")
-                }
-                .tag(2)
-            PersonalPageView()
-                .environmentObject(infoData)
+//            NewsPageView(newsVM: NewsPlaying())
+//                .tabItem {
+//                    Image(systemName: "newspaper")
+//                    Text("资讯")
+//                }
+//                .tag(2)
+            PersonalPageView(vm: appInfo.personPageVM)
                 .tabItem {
                     Image(systemName: "person.circle")
                     Text("个人")
@@ -43,8 +41,8 @@ struct RootView: View {
     }
 }
 
-struct RootView_Previews: PreviewProvider {
-    static var previews: some View {
-        RootView()
-    }
-}
+//struct RootView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        RootView()
+//    }
+//}

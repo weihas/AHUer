@@ -80,9 +80,11 @@ public extension Date {
     var nanosecond: Int {
         return Calendar.current.component(.nanosecond, from: self)
     }
+    
     /// 从 Date 获取 周几,从周日开始
     var weekDay: Int{
-        return Calendar.current.component(.weekday, from: self)
+        let result = Calendar.current.component(.weekday, from: self)
+        return (result - 1 > 0) ? result - 1 : 7
     }
     
     var weekDayInChinese: String{

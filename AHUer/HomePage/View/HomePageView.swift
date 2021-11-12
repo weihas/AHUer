@@ -8,35 +8,48 @@
 import SwiftUI
 
 struct HomePageView: View {
+    @ObservedObject var vm: HomePageShow
+    @EnvironmentObject var appInfo: AHUAppInfo
     @State var showGPA: Bool = false
-    @EnvironmentObject var AppInfoData: AHUAppInfo
-    let vmOfButtons = HomePageButtonsInfo()
     var body: some View {
         NavigationView{
-            ScrollView{
-                ButtonsLabel(vm: vmOfButtons)
-                LectureLabel().environmentObject(AppInfoData)
-                BathLabel().environmentObject(AppInfoData)
-                ScoreLabel().environmentObject(AppInfoData)
-            }
-            .navigationBarTitle("今天")
-            .navigationViewStyle(StackNavigationViewStyle())
+                ScrollView{
+                    buttonsLabel
+                    lectureLabel
+                    bathLabel
+                    scoreLabel
+                }
+                .onAppear{
+                    print("freshHoemPage")
+                    vm.freshImmediatelyLecture()
+                }
+            .navigationTitle(Text("今天"))
+            .navigationBarTitleDisplayMode(.automatic)
         }
+        .navigationViewStyle(.stack)
     }
-}
-
-struct LectureLabel: View {
-    @EnvironmentObject var AppInfoData: AHUAppInfo
-    @State var orderIndex: Int = 0
     
-    var body: some View{
+    private var buttonsLabel: some View {
+        LazyVGrid(columns: Array(repeating: GridItem(.fixed(50), spacing: 20, alignment: .bottom), count: 5)){
+            ForEach(vm.buttonsInfo, id: \.id){ b in
+                NavigationLink {
+                    JobView()
+                } label: {
+                    ButtonCell(button: b)
+                }
+            }
+        }
+        .padding()
+    }
+    
+    private var lectureLabel: some View {
         GroupBox(label: Label("即将开始", systemImage: "note.text")) {
-            Text(AppInfoData.firstlectureName)
+            Text(vm.nextCourse.name )
                 .font(.title2)
                 .foregroundColor(.blue)
             HStack{
-                Label(AppInfoData.firstlectureLocation, systemImage: "location")
-                Label(AppInfoData.firstlectureTime, systemImage: "clock")
+                Label(vm.nextCourse.location , systemImage: "location")
+                Label(vm.nextCourse.time , systemImage: "clock")
                 Spacer()
             }
             .font(.footnote)
@@ -46,94 +59,27 @@ struct LectureLabel: View {
         .padding(.horizontal)
         .shadow(radius: 10)
         .onTapGesture {
-            AppInfoData.tabItemNum = 1
+            appInfo.tabItemNum = 1
         }
     }
-}
-
-
-struct ButtonsLabel: View {
-    @ObservedObject var vm: HomePageButtonsInfo
-    @State var presentLink: Bool = false
-    var body: some View {
-        LazyVGrid(columns: Array(repeating: GridItem(.fixed(50), spacing: 20, alignment: .bottom), count: 5)){
-            ForEach(vm.buttons, id: \.id){ b in
-                ButtonCell(button: b)
-                    .padding(.vertical, 10)
-            }
-        }
-        .padding()
-    }
-}
-
-struct JumpView: View {
-    var numOfButton: Int = 0
-    var body: some View{
-        switch numOfButton {
-        case 0 :
-            JobView()
-        case 1:
-            AddressBookView(vm: AddressBookLogic())
-        case 2:
-            EmptyClassView()
-        case 3:
-            ScoreView()
-        case 4:
-            ExamSiteView()
-        case 5:
-            ShareTableView()
-        case 6:
-            SearchView()
-        case 7:
-            BathView()
-        case 8:
-            TrashClassifyView()
-        default:
-            MoreView()
-        }
-    }
-}
-
-
-
-struct ButtonCell: View {
-    @State var showSheet: Bool = false
-    var button: buttonData
-    var body: some View {
-        HomeButtonCover(icon: button.icon, color: button.color, title: button.title)
-            .sheet(isPresented: $showSheet){
-                JumpView(numOfButton: button.id)
-            }
-            .onTapGesture {
-                showSheet.toggle()
-            }
-    }
-}
-
-struct BathLabel: View {
-    @EnvironmentObject var AppInfoData: AHUAppInfo
-    var body: some View{
+    
+    private var bathLabel: some View {
         NavigationLink(destination: BathView()) {
             GroupBox(label: Label("浴室开放", systemImage: "drop")){
-                Text("北区: " + (AppInfoData.southBathroomisMen ? "女生" : "男生"))
-                Text( "南区/蕙园: " + (AppInfoData.southBathroomisMen ? "男生" : "女生"))
+                Text("北区: " + (vm.NorthBathroomisMen ? "男生" : "女生"))
+                Text( "南区/蕙园: " + (vm.NorthBathroomisMen ? "女生" : "男生"))
             }
             .padding()
             .groupBoxStyle(ColorBoxStyle(backgroundColor: .blue))
         }
     }
-}
-
-
-struct ScoreLabel: View {
-    @State var showGPA: Bool = false
-    @EnvironmentObject var AppInfoData: AHUAppInfo
-    var body: some View {
+    
+    private var scoreLabel: some View {
         ZStack {
             NavigationLink(destination: ScoreView()) {
                 GroupBox(label: Label("成绩查询", systemImage: "doc.text.below.ecg")){
-                    Text("学期绩点: " + (showGPA ? "\(AppInfoData.gpa.0)" : "*. **"))
-                    Text("全程绩点: " + (showGPA ? "\(AppInfoData.gpa.1)" : "*. **"))
+                    Text("学期绩点: " + (showGPA ? "\(vm.gpa.0)" : "*. **"))
+                    Text("全程绩点: " + (showGPA ? "\(vm.gpa.1)" : "*. **"))
                 }
                 .padding()
                 .groupBoxStyle(ColorBoxStyle(backgroundColor: .pink))
@@ -156,30 +102,30 @@ struct ScoreLabel: View {
             .padding(30)
         }
     }
+    
 }
 
 
-
-
-struct HomePageView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomePageView().environmentObject(AHUAppInfo())
-    }
-}
-
-struct HomeButtonCover: View {
-    let icon: String
-    let color: Color
-    let title: String
+struct ButtonCell: View {
+    @State var showSheet: Bool = false
+    var button: ButtonInfo
     var body: some View {
         VStack{
-            Image(systemName: icon)
+            Image(systemName: button.icon)
                 .font(.title)
-                .foregroundColor(color)
+                .foregroundColor(button.color)
             Spacer()
-            Text(title)
+            Text(button.name)
                 .font(.caption)
         }
     }
 }
+
+
+
+//struct HomePageView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        HomePageView().environmentObject(AHUAppInfo())
+//    }
+//}
 

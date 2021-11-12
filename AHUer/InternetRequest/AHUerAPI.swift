@@ -13,6 +13,8 @@ public enum AHUerAPI {
     case login(userId: String, password: String, type: Int)
     case schedule(schoolYear: String, schoolTerm: String)
     case logout(type: Int)
+    case emptyRooms(campus: Int, weekday: Int, weekNum: Int, time: Int)
+    case grade
 }
 
 extension AHUerAPI: TargetType {
@@ -27,6 +29,10 @@ extension AHUerAPI: TargetType {
             return "/api/schedule"
         case .logout:
             return "api/logout"
+        case .emptyRooms:
+            return "/api/emptyRoom"
+        case .grade:
+            return "/api/grade"
         }
     }
 
@@ -37,6 +43,10 @@ extension AHUerAPI: TargetType {
         case .schedule:
             return .get
         case .logout:
+            return .get
+        case .emptyRooms:
+            return .get
+        case .grade:
             return .get
         }
     }
@@ -49,6 +59,10 @@ extension AHUerAPI: TargetType {
             return .requestParameters(parameters: ["schoolYear": schoolYear, "schoolTerm": schoolTerm], encoding: URLEncoding.default)
         case .logout(let type):
             return .requestParameters(parameters: ["type": type], encoding: URLEncoding.default)
+        case .emptyRooms(let campus, let weekday, let weekNum, let time):
+            return .requestParameters(parameters: ["campus": campus, "weekday": weekday, "weekNum": weekNum, "time": time], encoding: URLEncoding.default)
+        case .grade:
+            return .requestPlain
         }
     }
 

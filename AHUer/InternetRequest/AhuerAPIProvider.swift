@@ -10,7 +10,7 @@ import Moya
 
 /// AHUerAPI容器
 class AhuerAPIProvider{
-    /// 静止变量，全应用统一
+    /// 单例，全应用统一
     static let defaults = AhuerAPIProvider()
     
     /// moya请求提供
@@ -21,110 +21,96 @@ class AhuerAPIProvider{
     /// - Parameters:
     ///   - userId: 用户的ID
     ///   - password: 用户密码
-    ///   - type: 登录方式 1为教务 2为智慧安大
-    func loggin(userId: String, password: String, type: String){
+    ///   - type: 登录方式
+    ///   - complete: 登录请求结束回调
+    func loggin(userId: String, password: String, type: Int = 1 , completion: @escaping (String, String?) -> Void) {
         print("==>logging ...")
-        guard let pw = password.rsaCrypto() else {return}
-        provider.request(.login(userId: userId, password: pw, type: 2)) { result in
-            print(result)
-            switch result {
-            case .success(let respon):
-                print(respon)
-                if let logginResponse = try? respon.map(LogginResponse.self) {
-                    if logginResponse.code == 0{
-                        print("==> loggin done")
+        DispatchQueue.global().async { [weak self] in
+            guard let pw = password.rsaCrypto() else {return}
+            self?.provider.request(.login(userId: userId, password: pw, type: type)) { result in
+                print(result)
+                switch result {
+                case .success(let respon):
+                    if let logginResponse = try? respon.mapJSON() as? Dictionary<String, Any?> {
+                        if let logginStatus = logginResponse["code"] as? Int, logginStatus == 0{
+                            print("==>loggin done")
+                            if let data = logginResponse["data"] as? [String:Any?], let userName = data["name"] as? String{
+                                UserDefaults.standard.setValue(pw, forKey: "AHUPassword")
+                                completion(userId,userName)
+                            }
+                        }else{
+                            print("==>loggin Error")
+                        }
                     }
+                case .failure(let error):
+                    print(error)
+                    print("==>loggin error")
                 }
-            case .failure(let error):
-                print(error)
-                print("==> loggin error")
-            }
-        }
-        print("Error")
-        
-        struct LogginResponse: Codable{
-            let code: Int?
-            let msg: String?
-            let data: loginData?
-            struct loginData: Codable{
-                let name: String?
             }
         }
     }
+    
     
     
     /// 登出
-    /// - Parameter type: 登录类型
-    func logout(type: Int , handel: @escaping (Bool) -> Void){
-        provider.request(.logout(type: 1)) { result in
-            print(result)
-            switch result {
-            case .success(let respon):
-                print(respon)
-                if let logginResponse = try? respon.map(logoutResponse.self) {
-                    if logginResponse.code == 0{
-                        print("==> logout done")
+    /// - Parameters:
+    ///   - type: 登录种类，默认为2
+    ///   - completion: 登出请求完成回调
+    func logout(type: Int = 2, completion: @escaping (Bool) -> Void){
+        print("==>logouting ...")
+        DispatchQueue.global().async { [weak self] in
+            self?.provider.request(.logout(type: type)) { result in
+                print(result)
+                switch result{
+                case .success(let respon):
+                    print(respon)
+                    if let logginResponse = try? respon.mapJSON() as? Dictionary<String, Any> {
+                        if let logginStatus = logginResponse["code"] as? Int{
+                            print("==>logout done")
+                            completion(logginStatus == 0)
+                        }
                     }
-                    handel(logginResponse.code == 0)
+                case .failure(let error):
+                    print(error)
+                    print("==> logout error")
                 }
-            case .failure(let error):
-                print(error)
-                print("==> logout error")
             }
         }
-        print("Error")
-        struct logoutResponse: Codable {
-            let code: Int?
-            let data: String?
-            let msg: String?
-        }
     }
+    
     
     /// 获取课表
     /// - Parameters:
     ///   - schoolYear: 学年
     ///   - schoolTerm: 学期
-    func getSchedule(schoolYear: String, schoolTerm: String){
-        provider.request(.schedule(schoolYear: schoolYear, schoolTerm: schoolTerm)) { result in
-            print(result)
-            switch result {
-            case .success(let respon):
-                if let sched = try? respon.mapJSON(){
-                    print(sched)
-                }
-                if let schedule = try? respon.map(ScheduleResponse.self) {
-                    if schedule.code == 0{
-                        print("====>get Done")
+    ///   - complete: 课表请求结束回调
+    func getSchedule(schoolYear: String, schoolTerm: String, completion: @escaping ([[String:Any]]?) -> Void) {
+        print("==>gettingSchedule ...")
+        DispatchQueue.global().async { [weak self] in
+            self?.provider.request(.schedule(schoolYear: schoolYear, schoolTerm: schoolTerm)) { result in
+                print(result)
+                switch result {
+                case .success(let respon):
+                    if let schedule = try? respon.mapJSON(failsOnEmptyData: true) as? Dictionary<String, Any>{
+                        if schedule["code"] as! Int == 0{
+                            print("==>get schedule Done")
+                            guard let data = schedule["data"] as? [[String:Any]]else { return }
+                            completion(data)
+                        }
+                    }else{
+                        print("==>get schedule error")
                     }
+                case .failure(let error):
+                    print(error)
+                    print("====> Get Schedule error")
                 }
-                print("error")
-            case .failure(let error):
-                print(error)
-                print("====> Get Schedule error")
-            }
-        }
-        
-        struct ScheduleResponse: Codable {
-            let code: Int?
-            let msg: String?
-            let data: [ScheduleData]?
-            
-            struct ScheduleData: Codable {
-                let weekday: String?
-                let startWeek: String?
-                let endWeek: String?
-                let location: String?
-                let name: String?
-                let teacher: String?
-                let length: String?
-                let startTime: String?
-                let singleDouble: String?
-                let courseId: String?
-                let extra: String?
             }
         }
     }
     
+    deinit{
+        print("🌀AhuAPIProvider released")
+    }
+    
     
 }
-
