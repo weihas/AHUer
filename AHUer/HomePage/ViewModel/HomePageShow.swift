@@ -11,11 +11,9 @@ import CoreData
 
 class HomePageShow: ObservableObject{
     @Published private var model: HomePageInfo
-    let context: NSManagedObjectContext
     
-    init(context: NSManagedObjectContext) {
+    init() {
         model = HomePageInfo()
-        self.context = context
     }
     
     // MARK: -Intent
@@ -36,8 +34,8 @@ class HomePageShow: ObservableObject{
         return model.gpa
     }
     
-    func freshImmediatelyLecture() {
-        model.fetchImmediatelyLecture(context: context)
+    func freshImmediatelyLecture(context: NSManagedObjectContext, predicate: (String, String)) {
+        model.fetchImmediatelyLecture(context: context, predicate: predicate)
         self.objectWillChange.send()
     }
     

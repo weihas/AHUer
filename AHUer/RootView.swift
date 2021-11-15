@@ -8,17 +8,23 @@
 import SwiftUI
 import CoreData
 
+
+/// 根视图TabView
 struct RootView: View {
     @EnvironmentObject var appInfo: AHUAppInfo
+    @Environment(\.managedObjectContext) private var viewContext
+    let hps = HomePageShow()
+    let tss = TimeScheduleShow()
+   
     var body: some View {
         TabView(selection: $appInfo.tabItemNum) {
-            HomePageView(vm: appInfo.homePageVM)
+            HomePageView(vm: hps)
                 .tabItem {
                     Image(systemName: "house")
                     Text("主页")
                 }
                 .tag(0)
-            TimeTablePageView(vm: appInfo.timeTableVM)
+            TimeSchedulePageView(vm: tss)
                 .tabItem {
                     Image(systemName: "calendar")
                     Text("课表")
@@ -30,7 +36,8 @@ struct RootView: View {
 //                    Text("资讯")
 //                }
 //                .tag(2)
-            PersonalPageView(vm: appInfo.personPageVM)
+            let pps = PersonalPageShow(context: viewContext)
+            PersonalPageView(vm: pps)
                 .tabItem {
                     Image(systemName: "person.circle")
                     Text("个人")

@@ -10,8 +10,8 @@ import SwiftUI
 @main
 struct AHUerApp: App {
     let persistenceController = PersistenceController.shared
+    let info = AHUAppInfo()
     var body: some Scene {
-        let info = AHUAppInfo(context: persistenceController.container.viewContext)
         WindowGroup {
             RootView()
                 .environmentObject(info)

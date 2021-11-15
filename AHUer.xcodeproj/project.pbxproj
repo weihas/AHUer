@@ -24,9 +24,9 @@
 		3578CA4626E8ED5F00667BEF /* AHUerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3578CA4526E8ED5F00667BEF /* AHUerUITests.swift */; };
 		3578CA5426E8EDB500667BEF /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3578CA5326E8EDB500667BEF /* RootView.swift */; };
 		3578CA5626E8F0ED00667BEF /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3578CA5526E8F0ED00667BEF /* HomePageView.swift */; };
-		3578CA6026E90FDE00667BEF /* TimeTablePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3578CA5F26E90FDE00667BEF /* TimeTablePageView.swift */; };
-		3578CA6326E9117E00667BEF /* TimeTableShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3578CA6226E9117E00667BEF /* TimeTableShow.swift */; };
-		3578CA6526E9120400667BEF /* TimeTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3578CA6426E9120400667BEF /* TimeTable.swift */; };
+		3578CA6026E90FDE00667BEF /* TimeSchedulePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3578CA5F26E90FDE00667BEF /* TimeSchedulePageView.swift */; };
+		3578CA6326E9117E00667BEF /* TimeScheduleShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3578CA6226E9117E00667BEF /* TimeScheduleShow.swift */; };
+		3578CA6526E9120400667BEF /* TimeSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3578CA6426E9120400667BEF /* TimeSchedule.swift */; };
 		358330EA26EC31DC005927D6 /* ThanksChildView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358330E926EC31DC005927D6 /* ThanksChildView.swift */; };
 		3586B8CF26EDA17A00B42A90 /* EmptyClassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586B8CE26EDA17A00B42A90 /* EmptyClassView.swift */; };
 		3586B8D126EDA31F00B42A90 /* ExamSiteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586B8D026EDA31F00B42A90 /* ExamSiteView.swift */; };
@@ -99,9 +99,9 @@
 		3578CA4726E8ED5F00667BEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3578CA5326E8EDB500667BEF /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		3578CA5526E8F0ED00667BEF /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
-		3578CA5F26E90FDE00667BEF /* TimeTablePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTablePageView.swift; sourceTree = "<group>"; };
-		3578CA6226E9117E00667BEF /* TimeTableShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableShow.swift; sourceTree = "<group>"; };
-		3578CA6426E9120400667BEF /* TimeTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTable.swift; sourceTree = "<group>"; };
+		3578CA5F26E90FDE00667BEF /* TimeSchedulePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSchedulePageView.swift; sourceTree = "<group>"; };
+		3578CA6226E9117E00667BEF /* TimeScheduleShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeScheduleShow.swift; sourceTree = "<group>"; };
+		3578CA6426E9120400667BEF /* TimeSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSchedule.swift; sourceTree = "<group>"; };
 		358330E926EC31DC005927D6 /* ThanksChildView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThanksChildView.swift; sourceTree = "<group>"; };
 		3586B8CE26EDA17A00B42A90 /* EmptyClassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyClassView.swift; sourceTree = "<group>"; };
 		3586B8D026EDA31F00B42A90 /* ExamSiteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamSiteView.swift; sourceTree = "<group>"; };
@@ -228,7 +228,7 @@
 				35AE5D6A2720453C00B0DC98 /* InternetRequest */,
 				35607B9D26E99C010037504E /* Tools */,
 				3578CA5726E8F2E900667BEF /* HomePage */,
-				3578CA6126E9113E00667BEF /* TimeTablePage */,
+				3578CA6126E9113E00667BEF /* TimeSchedulePage */,
 				35607BA026EA025E0037504E /* NewsPage */,
 				35607BA326EA02E30037504E /* PersonalPage */,
 				3578CA2C26E8ED5E00667BEF /* Assets.xcassets */,
@@ -283,14 +283,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		3578CA6126E9113E00667BEF /* TimeTablePage */ = {
+		3578CA6126E9113E00667BEF /* TimeSchedulePage */ = {
 			isa = PBXGroup;
 			children = (
 				3590EDCA273E7D260077299D /* Model */,
 				3590EDC5273E4B3C0077299D /* ViewModel */,
 				3590EDCB273E7D300077299D /* View */,
 			);
-			path = TimeTablePage;
+			path = TimeSchedulePage;
 			sourceTree = "<group>";
 		};
 		3586B8DC26EDAC1100B42A90 /* AddressBook */ = {
@@ -305,7 +305,7 @@
 		3590EDC5273E4B3C0077299D /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				3578CA6226E9117E00667BEF /* TimeTableShow.swift */,
+				3578CA6226E9117E00667BEF /* TimeScheduleShow.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -313,7 +313,7 @@
 		3590EDCA273E7D260077299D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3578CA6426E9120400667BEF /* TimeTable.swift */,
+				3578CA6426E9120400667BEF /* TimeSchedule.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -321,7 +321,7 @@
 		3590EDCB273E7D300077299D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3578CA5F26E90FDE00667BEF /* TimeTablePageView.swift */,
+				3578CA5F26E90FDE00667BEF /* TimeSchedulePageView.swift */,
 				35542B7626FDCCA30078F0BD /* TableClassCell.swift */,
 			);
 			path = View;
@@ -669,12 +669,12 @@
 				35EA370626EB022C00107955 /* AddressBookView.swift in Sources */,
 				35A578BA273E1BD40056166F /* PersonlPageInfo.swift in Sources */,
 				35A578BD273E1BF30056166F /* PersonalPageShow.swift in Sources */,
-				3578CA6026E90FDE00667BEF /* TimeTablePageView.swift in Sources */,
+				3578CA6026E90FDE00667BEF /* TimeSchedulePageView.swift in Sources */,
 				35D5B16D26EA6BFD0070A23C /* ScoreView.swift in Sources */,
 				3586B8D726EDA3C000B42A90 /* TrashClassifyView.swift in Sources */,
 				3595AF3326EC3D7900F1354A /* AHUAppInfo.swift in Sources */,
 				3552E63827219401006A6322 /* AHUerCoreModel.xcdatamodeld in Sources */,
-				3578CA6526E9120400667BEF /* TimeTable.swift in Sources */,
+				3578CA6526E9120400667BEF /* TimeSchedule.swift in Sources */,
 				351213E526ECBE7B00D62E9B /* NewsModels.swift in Sources */,
 				3578CA2926E8ED5E00667BEF /* AHUerApp.swift in Sources */,
 				35607B9F26EA025B0037504E /* NewsPageView.swift in Sources */,
@@ -687,7 +687,7 @@
 				351213E726ECBF2D00D62E9B /* NewsPlaying.swift in Sources */,
 				35607BA726EA18280037504E /* SettingView.swift in Sources */,
 				35607B9C26E99BFA0037504E /* Date+Helper.swift in Sources */,
-				3578CA6326E9117E00667BEF /* TimeTableShow.swift in Sources */,
+				3578CA6326E9117E00667BEF /* TimeScheduleShow.swift in Sources */,
 				3578CA5626E8F0ED00667BEF /* HomePageView.swift in Sources */,
 				35A578B2273E01CD0056166F /* AHUerEntityProtocol.swift in Sources */,
 				3578CA5426E8EDB500667BEF /* RootView.swift in Sources */,

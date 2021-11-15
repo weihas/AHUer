@@ -21,7 +21,7 @@ struct TableClassCell: View {
                 .font(.footnote)
             }
         }
-        .aspectRatio(tablecellModel.lectureLengthisTwo ? 0.5 : 1, contentMode: .fit)
+        .aspectRatio(tablecellModel.lectureLengthIsTwo ? 0.5 : 1, contentMode: .fit)
     }
 }
 

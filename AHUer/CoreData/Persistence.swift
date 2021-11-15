@@ -7,6 +7,7 @@
 
 import CoreData
 
+/// CoreData展示仓库
 struct PersistenceController {
     static let shared = PersistenceController()
 

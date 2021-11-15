@@ -7,21 +7,15 @@
 
 import Foundation
 import CoreData
+
+/// AHUer全应用共享参数
 class AHUAppInfo: ObservableObject {
     @Published var isLoggin: Bool = false
-    @Published var tabItemNum: Int = 0
+    @Published var tabItemNum: Int = 1
     
     @SetStorage(key: "AHULoggin", default: false) var logged: Bool
     
-    var context: NSManagedObjectContext
-    
-    lazy var homePageVM = HomePageShow(context: context)
-    lazy var timeTableVM = TimeTableShow(context: context)
-    lazy var personPageVM = PersonalPageShow(context: context)
-    
-    
-    init(context: NSManagedObjectContext) {
-        self.context = context
+    init() {
         freshLogginStatus()
     }
     
@@ -29,11 +23,17 @@ class AHUAppInfo: ObservableObject {
         self.isLoggin = logged
     }
     
-    func cleanUp(){
+    func cleanUp(context: NSManagedObjectContext){
         Student.fetch(context: context, predicate: nil)?.forEach({ student in
             student.delete(context: context)
         })
     }
+    
+    var whoAmIPredicate: (String, String){
+        @SetStorage(key: "AHUID", default: "") var studentID: String
+        return ("studentID = %@", studentID)
+    }
+    
     
     deinit{
         print("🌀AHUAppInfo released")
