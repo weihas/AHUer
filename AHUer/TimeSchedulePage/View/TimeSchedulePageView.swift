@@ -17,14 +17,13 @@ struct TimeSchedulePageView: View {
     var body: some View {
         NavigationView{
             ScrollView{
-                LazyVGrid(columns: [GridItem](repeating: GridItem(.adaptive(minimum: 50, maximum: 100)), count: 8)){
+                LazyVGrid(columns: [GridItem(.flexible(minimum: 50, maximum: 120))] + [GridItem](repeating: GridItem(.flexible(minimum: 30, maximum: 90)), count: 7)){
                     timeline
                     ForEach(vm.timetableInfos){ info in
                         ClassInOneDayView(model: info)
                     }
                 }
             }
-            .padding(5)
             .onAppear{
                 vm.freshDataOfClass(context: viewContext, predicate: appInfo.whoAmIPredicate)
             }
@@ -42,11 +41,13 @@ struct TimeSchedulePageView: View {
     
     private var timeline: some View {
         LazyVStack{
-            ForEach(vm.timeline.indices){ index in
-                Text(vm.timeline[index])
-                    .frame(width: 60, height: 100)
+            ForEach(0..<vm.timeline.count/2){ index in
+                Text(vm.timeline[2*index])
+                    .frame(height: 100, alignment: .top)
+                    .fixedSize()
             }
         }
+        
     }
 }
 

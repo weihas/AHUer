@@ -15,7 +15,7 @@ struct TimeSchedule {
         timeSchedule = []
         for weekday in 1...7 {
             var schedule: [TableClassCellModel] = []
-            for num in 1...11 {
+            for num in 1...6 {
                 schedule.append(TableClassCellModel(id: num))
             }
             timeSchedule.append(ClassInOneDay(id: weekday, schedule: schedule))
@@ -24,7 +24,6 @@ struct TimeSchedule {
     
     
     mutating func freshDataOfClass(context: NSManagedObjectContext, predicate: (String, String))  {
-        
         guard let user = Student.fetch(context: context, predicate: predicate)?.first,
               let courses = (user.courses?.allObjects as? [Course]) else {return}
         
@@ -37,7 +36,11 @@ struct TimeSchedule {
         
         for (weekday, lectures) in dic {
             for course in lectures{
-                timeSchedule[weekday-1].schedule[Int(course.startTime-1)].changeInfo(name: course.name, location: course.location, lectureLengthIsTwo: course.singleDouble)
+                timeSchedule[weekday-1].schedule[Int((course.startTime-1)/2)].changeInfo(name: course.name, location: course.location, lectureLengthIsTwo: course.length > 1)
+                
+                if course.length > 2{
+                    timeSchedule[weekday-1].schedule[Int((course.startTime-1)/2)+1].changeInfo(name: course.name, location: course.location, lectureLengthIsTwo: course.length == 4)
+                }
             }
         }
     }
