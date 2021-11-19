@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreData
+import SwiftUI
 
 struct TimeSchedule {
     var timeSchedule: [ClassInOneDay]
@@ -34,12 +35,15 @@ struct TimeSchedule {
             return history
         }
         
+        let color: [Color] = [.red,.blue,.green,.pink,.orange,.purple,.yellow]
+
         for (weekday, lectures) in dic {
             for course in lectures{
-                timeSchedule[weekday-1].schedule[Int((course.startTime-1)/2)].changeInfo(name: course.name, location: course.location, lectureLengthIsTwo: course.length > 1)
+                let classColor = color.randomElement() ?? .blue
+                timeSchedule[weekday-1].schedule[Int((course.startTime-1)/2)].changeInfo(name: course.name, location: course.location, lectureLengthIsTwo: course.length > 1, color: classColor)
                 
                 if course.length > 2{
-                    timeSchedule[weekday-1].schedule[Int((course.startTime-1)/2)+1].changeInfo(name: course.name, location: course.location, lectureLengthIsTwo: course.length == 4)
+                    timeSchedule[weekday-1].schedule[Int((course.startTime-1)/2)+1].changeInfo(name: course.name, location: course.location, lectureLengthIsTwo: course.length == 4, color: classColor)
                 }
             }
         }
@@ -77,11 +81,13 @@ struct TableClassCellModel: Identifiable{
     var location: String = ""
     var isShow: Bool{get {name != ""} }
     var lectureLengthIsTwo: Bool = false
+    var color: Color = .clear
     
-    mutating func changeInfo(name: String?, location: String?, lectureLengthIsTwo: Bool = true){
+    mutating func changeInfo(name: String?, location: String?, lectureLengthIsTwo: Bool = true, color: Color){
         self.name = name ?? ""
         self.location = location ?? ""
         self.lectureLengthIsTwo = lectureLengthIsTwo
+        self.color = color
     }
     
 }

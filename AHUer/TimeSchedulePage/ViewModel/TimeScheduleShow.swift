@@ -22,7 +22,7 @@ class TimeScheduleShow: ObservableObject{
     }
     
     var timeline: [String]{
-        return ["8:20","9:15","10:20","11:15","14:00","14:55","15:50","16:45","19:00","19:55","20:50"]
+        return ["8:20","10:20","14:00","15:50","19:00","20:50"]
     }
     
     func freshDataOfClass(context: NSManagedObjectContext, predicate: (String, String)){

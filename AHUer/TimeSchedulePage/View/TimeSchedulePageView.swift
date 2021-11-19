@@ -17,8 +17,9 @@ struct TimeSchedulePageView: View {
     var body: some View {
         NavigationView{
             ScrollView{
-                LazyVGrid(columns: [GridItem(.flexible(minimum: 50, maximum: 120))] + [GridItem](repeating: GridItem(.flexible(minimum: 30, maximum: 90)), count: 7)){
+                HStack(alignment: .top){
                     timeline
+                        .padding(.horizontal,5)
                     ForEach(vm.timetableInfos){ info in
                         ClassInOneDayView(model: info)
                     }
@@ -41,11 +42,18 @@ struct TimeSchedulePageView: View {
     
     private var timeline: some View {
         LazyVStack{
-            ForEach(0..<vm.timeline.count/2){ index in
-                Text(vm.timeline[2*index])
+            Text(" ")
+                .font(.footnote)
+            Text(" ")
+                .padding(5)
+            ForEach(0..<vm.timeline.count){ index in
+                Text(vm.timeline[index])
+                    .minimumScaleFactor(0.5)
+                    .lineLimit(1)
+                    .fixedSize(horizontal: true, vertical: false)
                     .frame(height: 100, alignment: .top)
-                    .fixedSize()
             }
+            Spacer()
         }
         
     }
@@ -67,13 +75,18 @@ struct ClassInOneDayView: View {
             ForEach(model.schedule){ lecture in
                 LectureViewCell(lecture: lecture)
                     .frame(height: 100, alignment: .top)
+                    .contextMenu
+                    {
+                        Text(lecture.name)
+                        Text(lecture.location)
+                    }
             }
             Spacer()
         }
     }
     
     private var titleOfToday: some View {
-        VStack{
+        LazyVStack{
             Text(model.weekDay)
                 .font(.footnote)
             Text(isToday ?  "今" : "\(data)")
@@ -86,11 +99,22 @@ struct ClassInOneDayView: View {
 struct LectureViewCell: View{
     var lecture: TableClassCellModel
     var body: some View {
-        VStack{
-            Text(lecture.name)
-            Text(lecture.location)
+        GeometryReader{ geometry in
+            RoundedRectangle(cornerRadius: 5)
+                .fill(lecture.isShow ? lecture.color : .clear)
+                .frame(width: geometry.size.width, height: lecture.lectureLengthIsTwo ? geometry.size.height : geometry.size.height/2)
+                .overlay(
+                    VStack{
+                        Text(lecture.name)
+                            .font(.system(size: 16))
+                            .minimumScaleFactor(0.8)
+                        Text(lecture.lectureLengthIsTwo ? lecture.location : "...")
+                            .font(.system(size: 13))
+                            .minimumScaleFactor(0.5)
+                    }
+                        .foregroundColor(.white)
+                )
         }
-        .background(RoundedRectangle(cornerRadius: 5).fill(Color.blue))
     }
 }
 
