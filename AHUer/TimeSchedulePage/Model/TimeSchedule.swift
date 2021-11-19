@@ -40,10 +40,10 @@ struct TimeSchedule {
         for (weekday, lectures) in dic {
             for course in lectures{
                 let classColor = color.randomElement() ?? .blue
-                timeSchedule[weekday-1].schedule[Int((course.startTime-1)/2)].changeInfo(name: course.name, location: course.location, lectureLengthIsTwo: course.length > 1, color: classColor)
-                
+                timeSchedule[weekday-1].hasLecture = true
+                timeSchedule[weekday-1].schedule[Int((course.startTime-1)/2)].changeInfo(name: course.name, location: course.location, lectureLengthIsTwo: course.length > 1, teacher: course.teacher, color: classColor)
                 if course.length > 2{
-                    timeSchedule[weekday-1].schedule[Int((course.startTime-1)/2)+1].changeInfo(name: course.name, location: course.location, lectureLengthIsTwo: course.length == 4, color: classColor)
+                    timeSchedule[weekday-1].schedule[Int((course.startTime-1)/2)+1].changeInfo(name: course.name, location: course.location, lectureLengthIsTwo: course.length == 4, teacher: course.teacher, color: classColor)
                 }
             }
         }
@@ -53,6 +53,7 @@ struct TimeSchedule {
 struct ClassInOneDay: Identifiable{
     let id: Int
     var schedule: [TableClassCellModel]
+    var hasLecture: Bool = false
     
     var weekDay: String{
         switch id {
@@ -82,26 +83,14 @@ struct TableClassCellModel: Identifiable{
     var isShow: Bool{get {name != ""} }
     var lectureLengthIsTwo: Bool = false
     var color: Color = .clear
+    var teacher: String = ""
     
-    mutating func changeInfo(name: String?, location: String?, lectureLengthIsTwo: Bool = true, color: Color){
+    mutating func changeInfo(name: String?, location: String?, lectureLengthIsTwo: Bool = true, teacher: String?, color: Color){
         self.name = name ?? ""
         self.location = location ?? ""
         self.lectureLengthIsTwo = lectureLengthIsTwo
+        self.teacher = teacher ?? ""
         self.color = color
     }
     
-}
-
-struct classData {
-    var weekday = "周几"
-    var startWeek = "开始的周"
-    var endWeek =  "结束的周"
-    var extra =  "附加信息默认为空"
-    var location = "上课地点"
-    var name = "课程名称"
-    var teacher =  "老师姓名"
-    var length =  "课程长度（几节课）"
-    var startTime =  "开始时间（第几节开始）"
-    var singleDouble =  "是否单双周。0为否，1为是"
-    var courseId =  "课程代码"
 }

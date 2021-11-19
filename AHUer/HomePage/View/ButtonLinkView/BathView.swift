@@ -22,7 +22,8 @@ struct BathView: View {
                     
                 }
             }
-            .navigationBarTitle("浴室开放",displayMode: .inline)
+            .navigationTitle("浴室开放")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }

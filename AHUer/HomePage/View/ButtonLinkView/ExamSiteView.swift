@@ -9,7 +9,11 @@ import SwiftUI
 
 struct ExamSiteView: View {
     var body: some View {
-        Text("ExamSiteView")
+        VStack{
+            Text("考试查询")
+        }
+        .navigationTitle("考试查询")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

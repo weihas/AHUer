@@ -9,7 +9,11 @@ import SwiftUI
 
 struct MoreView: View {
     var body: some View {
-        Text("MoreView")
+        VStack{
+            Text("MoreView")
+        }
+        .navigationTitle("更多功能")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

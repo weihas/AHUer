@@ -49,46 +49,55 @@
       "size" : "60x60"
     },
     {
+      "filename" : "AHUer-Notification~ipad.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "20x20"
     },
     {
+      "filename" : "AHUer-Notification@2x ~ipad.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "20x20"
     },
     {
+      "filename" : "AHUer-Settings~ipad.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "29x29"
     },
     {
+      "filename" : "AHUer-Settings@2x~ipad.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "29x29"
     },
     {
+      "filename" : "AHUer-Spotlight-40~ipad.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "40x40"
     },
     {
+      "filename" : "AHUer-Spotlight-40@2x~ipad.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "40x40"
     },
     {
+      "filename" : "AHUer-76~ipad.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "76x76"
     },
     {
+      "filename" : "AHUer-76@2x~ipad.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "76x76"
     },
     {
+      "filename" : "AHUer-83.5@2x~ipad.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "83.5x83.5"

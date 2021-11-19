@@ -12,7 +12,6 @@
 		3519DEFA270C53CE00639531 /* RSA+Func.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3519DEF9270C53CE00639531 /* RSA+Func.swift */; };
 		353705A326EB6D62002E001C /* Button+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353705A226EB6D62002E001C /* Button+Style.swift */; };
 		3552E63827219401006A6322 /* AHUerCoreModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3552E63627219401006A6322 /* AHUerCoreModel.xcdatamodeld */; };
-		35542B7726FDCCA30078F0BD /* TableClassCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35542B7626FDCCA30078F0BD /* TableClassCell.swift */; };
 		35607B9C26E99BFA0037504E /* Date+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35607B9B26E99BFA0037504E /* Date+Helper.swift */; };
 		35607B9F26EA025B0037504E /* NewsPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35607B9E26EA025B0037504E /* NewsPageView.swift */; };
 		35607BA226EA02E00037504E /* PersonalPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35607BA126EA02E00037504E /* PersonalPageView.swift */; };
@@ -30,9 +29,6 @@
 		358330EA26EC31DC005927D6 /* ThanksChildView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358330E926EC31DC005927D6 /* ThanksChildView.swift */; };
 		3586B8CF26EDA17A00B42A90 /* EmptyClassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586B8CE26EDA17A00B42A90 /* EmptyClassView.swift */; };
 		3586B8D126EDA31F00B42A90 /* ExamSiteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586B8D026EDA31F00B42A90 /* ExamSiteView.swift */; };
-		3586B8D326EDA33E00B42A90 /* ShareTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586B8D226EDA33E00B42A90 /* ShareTableView.swift */; };
-		3586B8D526EDA38E00B42A90 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586B8D426EDA38E00B42A90 /* SearchView.swift */; };
-		3586B8D726EDA3C000B42A90 /* TrashClassifyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586B8D626EDA3C000B42A90 /* TrashClassifyView.swift */; };
 		3586B8D926EDA3CD00B42A90 /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586B8D826EDA3CD00B42A90 /* MoreView.swift */; };
 		3586B8DB26EDAC0C00B42A90 /* AddressBookLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586B8DA26EDAC0C00B42A90 /* AddressBookLogic.swift */; };
 		3590EDC9273E6BE20077299D /* SetStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3590EDC8273E6BE20077299D /* SetStorage.swift */; };
@@ -45,11 +41,12 @@
 		35A578B7273E07DA0056166F /* HomePageShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A578B6273E07DA0056166F /* HomePageShow.swift */; };
 		35A578BA273E1BD40056166F /* PersonlPageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A578B9273E1BD40056166F /* PersonlPageInfo.swift */; };
 		35A578BD273E1BF30056166F /* PersonalPageShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A578BC273E1BF30056166F /* PersonalPageShow.swift */; };
+		35A801B32747EC68009E3D08 /* TimeScheduleAddLectureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A801B22747EC68009E3D08 /* TimeScheduleAddLectureView.swift */; };
 		35AA432B26E916320096724A /* BathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AA432A26E916320096724A /* BathView.swift */; };
 		35AE5D6C2720461900B0DC98 /* AhuerAPIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AE5D6B2720461900B0DC98 /* AhuerAPIProvider.swift */; };
 		35CEF9F5272064CF00A4B238 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CEF9F4272064CF00A4B238 /* Persistence.swift */; };
-		35D5B16A26EA5E430070A23C /* JobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D5B16926EA5E430070A23C /* JobView.swift */; };
 		35D5B16D26EA6BFD0070A23C /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D5B16C26EA6BFD0070A23C /* ScoreView.swift */; };
+		35DB74962747E72100E43B33 /* TimeScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DB74952747E72100E43B33 /* TimeScheduleCell.swift */; };
 		35EA370626EB022C00107955 /* AddressBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA370526EB022C00107955 /* AddressBookView.swift */; };
 		3722A30EF8C023B93BCA13C2 /* Pods_AHUer_AHUerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B96A49697F8B0857D7633C56 /* Pods_AHUer_AHUerUITests.framework */; };
 		67E7C0DA60E48F47097D7513 /* Pods_AHUer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6D63E11FEF80E42E8CEA068 /* Pods_AHUer.framework */; };
@@ -81,7 +78,6 @@
 		3519DEF9270C53CE00639531 /* RSA+Func.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RSA+Func.swift"; sourceTree = "<group>"; };
 		353705A226EB6D62002E001C /* Button+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+Style.swift"; sourceTree = "<group>"; };
 		3552E63727219401006A6322 /* AHUerCoreModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AHUerCoreModel.xcdatamodel; sourceTree = "<group>"; };
-		35542B7626FDCCA30078F0BD /* TableClassCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableClassCell.swift; sourceTree = "<group>"; };
 		35607B9B26E99BFA0037504E /* Date+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Helper.swift"; sourceTree = "<group>"; };
 		35607B9E26EA025B0037504E /* NewsPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPageView.swift; sourceTree = "<group>"; };
 		35607BA126EA02E00037504E /* PersonalPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalPageView.swift; sourceTree = "<group>"; };
@@ -105,9 +101,6 @@
 		358330E926EC31DC005927D6 /* ThanksChildView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThanksChildView.swift; sourceTree = "<group>"; };
 		3586B8CE26EDA17A00B42A90 /* EmptyClassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyClassView.swift; sourceTree = "<group>"; };
 		3586B8D026EDA31F00B42A90 /* ExamSiteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamSiteView.swift; sourceTree = "<group>"; };
-		3586B8D226EDA33E00B42A90 /* ShareTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareTableView.swift; sourceTree = "<group>"; };
-		3586B8D426EDA38E00B42A90 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
-		3586B8D626EDA3C000B42A90 /* TrashClassifyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashClassifyView.swift; sourceTree = "<group>"; };
 		3586B8D826EDA3CD00B42A90 /* MoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreView.swift; sourceTree = "<group>"; };
 		3586B8DA26EDAC0C00B42A90 /* AddressBookLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressBookLogic.swift; sourceTree = "<group>"; };
 		3590EDC8273E6BE20077299D /* SetStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetStorage.swift; sourceTree = "<group>"; };
@@ -120,11 +113,12 @@
 		35A578B6273E07DA0056166F /* HomePageShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageShow.swift; sourceTree = "<group>"; };
 		35A578B9273E1BD40056166F /* PersonlPageInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonlPageInfo.swift; sourceTree = "<group>"; };
 		35A578BC273E1BF30056166F /* PersonalPageShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalPageShow.swift; sourceTree = "<group>"; };
+		35A801B22747EC68009E3D08 /* TimeScheduleAddLectureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeScheduleAddLectureView.swift; sourceTree = "<group>"; };
 		35AA432A26E916320096724A /* BathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BathView.swift; sourceTree = "<group>"; };
 		35AE5D6B2720461900B0DC98 /* AhuerAPIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AhuerAPIProvider.swift; sourceTree = "<group>"; };
 		35CEF9F4272064CF00A4B238 /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		35D5B16926EA5E430070A23C /* JobView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobView.swift; sourceTree = "<group>"; };
 		35D5B16C26EA6BFD0070A23C /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
+		35DB74952747E72100E43B33 /* TimeScheduleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeScheduleCell.swift; sourceTree = "<group>"; };
 		35EA370526EB022C00107955 /* AddressBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressBookView.swift; sourceTree = "<group>"; };
 		44EB32932A6D03444E77F0B9 /* Pods-AHUer-AHUerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AHUer-AHUerUITests.release.xcconfig"; path = "Target Support Files/Pods-AHUer-AHUerUITests/Pods-AHUer-AHUerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		4FC326EEBFBEC7CB3AE22D18 /* Pods-AHUer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AHUer.release.xcconfig"; path = "Target Support Files/Pods-AHUer/Pods-AHUer.release.xcconfig"; sourceTree = "<group>"; };
@@ -322,7 +316,8 @@
 			isa = PBXGroup;
 			children = (
 				3578CA5F26E90FDE00667BEF /* TimeSchedulePageView.swift */,
-				35542B7626FDCCA30078F0BD /* TableClassCell.swift */,
+				35DB74952747E72100E43B33 /* TimeScheduleCell.swift */,
+				35A801B22747EC68009E3D08 /* TimeScheduleAddLectureView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -391,15 +386,11 @@
 		35D5B16B26EA5E470070A23C /* ButtonLinkView */ = {
 			isa = PBXGroup;
 			children = (
-				35D5B16926EA5E430070A23C /* JobView.swift */,
 				3586B8DC26EDAC1100B42A90 /* AddressBook */,
 				3586B8CE26EDA17A00B42A90 /* EmptyClassView.swift */,
 				35D5B16C26EA6BFD0070A23C /* ScoreView.swift */,
 				3586B8D026EDA31F00B42A90 /* ExamSiteView.swift */,
-				3586B8D226EDA33E00B42A90 /* ShareTableView.swift */,
-				3586B8D426EDA38E00B42A90 /* SearchView.swift */,
 				35AA432A26E916320096724A /* BathView.swift */,
-				3586B8D626EDA3C000B42A90 /* TrashClassifyView.swift */,
 				3586B8D826EDA3CD00B42A90 /* MoreView.swift */,
 			);
 			path = ButtonLinkView;
@@ -665,13 +656,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3586B8D326EDA33E00B42A90 /* ShareTableView.swift in Sources */,
+				35A801B32747EC68009E3D08 /* TimeScheduleAddLectureView.swift in Sources */,
 				35EA370626EB022C00107955 /* AddressBookView.swift in Sources */,
 				35A578BA273E1BD40056166F /* PersonlPageInfo.swift in Sources */,
 				35A578BD273E1BF30056166F /* PersonalPageShow.swift in Sources */,
 				3578CA6026E90FDE00667BEF /* TimeSchedulePageView.swift in Sources */,
 				35D5B16D26EA6BFD0070A23C /* ScoreView.swift in Sources */,
-				3586B8D726EDA3C000B42A90 /* TrashClassifyView.swift in Sources */,
+				35DB74962747E72100E43B33 /* TimeScheduleCell.swift in Sources */,
 				3595AF3326EC3D7900F1354A /* AHUAppInfo.swift in Sources */,
 				3552E63827219401006A6322 /* AHUerCoreModel.xcdatamodeld in Sources */,
 				3578CA6526E9120400667BEF /* TimeSchedule.swift in Sources */,
@@ -679,7 +670,6 @@
 				3578CA2926E8ED5E00667BEF /* AHUerApp.swift in Sources */,
 				35607B9F26EA025B0037504E /* NewsPageView.swift in Sources */,
 				35AE5D6C2720461900B0DC98 /* AhuerAPIProvider.swift in Sources */,
-				35D5B16A26EA5E430070A23C /* JobView.swift in Sources */,
 				3586B8CF26EDA17A00B42A90 /* EmptyClassView.swift in Sources */,
 				3586B8D926EDA3CD00B42A90 /* MoreView.swift in Sources */,
 				358330EA26EC31DC005927D6 /* ThanksChildView.swift in Sources */,
@@ -697,12 +687,10 @@
 				35CEF9F5272064CF00A4B238 /* Persistence.swift in Sources */,
 				35945F52271C25C40003ABAC /* AHUerAPI.swift in Sources */,
 				353705A326EB6D62002E001C /* Button+Style.swift in Sources */,
-				3586B8D526EDA38E00B42A90 /* SearchView.swift in Sources */,
 				35A578B7273E07DA0056166F /* HomePageShow.swift in Sources */,
 				359BEBEE26ECE2B9006FB419 /* GroupBox+Style.swift in Sources */,
 				35AA432B26E916320096724A /* BathView.swift in Sources */,
 				3590EDC9273E6BE20077299D /* SetStorage.swift in Sources */,
-				35542B7726FDCCA30078F0BD /* TableClassCell.swift in Sources */,
 				35607BA226EA02E00037504E /* PersonalPageView.swift in Sources */,
 				3519DEFA270C53CE00639531 /* RSA+Func.swift in Sources */,
 			);
@@ -876,7 +864,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.weiha.AHUer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -900,7 +888,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.weiha.AHUer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

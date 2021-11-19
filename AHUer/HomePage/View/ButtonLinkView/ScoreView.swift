@@ -14,7 +14,10 @@ struct ScoreView: View {
                 Text("Placeholderajcbiabaicbabcaibaiubcaicbaciabcaibaicb")
                 Text("Placeholderajcbiabaicbabcaibaiubcaicbaciabcaibaicb")
             }
+            .navigationTitle("成绩查询")
+            .navigationBarTitleDisplayMode(.inline)
         }
+        
     }
 }
 

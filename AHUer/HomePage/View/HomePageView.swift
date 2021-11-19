@@ -14,7 +14,7 @@ struct HomePageView: View {
     @State var showGPA: Bool = false
     var body: some View {
         NavigationView{
-                ScrollView{
+                ScrollView(showsIndicators: false){
                     buttonsLabel
                     lectureLabel
                     bathLabel
@@ -30,10 +30,23 @@ struct HomePageView: View {
     }
     
     private var buttonsLabel: some View {
-        LazyVGrid(columns: Array(repeating: GridItem(.fixed(50), spacing: 20, alignment: .bottom), count: 5)){
+        LazyVGrid(columns: Array(repeating: GridItem(.flexible(minimum: 50, maximum: 120), spacing: 20, alignment: .bottom), count: 5)){
             ForEach(vm.buttonsInfo, id: \.id){ b in
                 NavigationLink {
-                    JobView()
+                    Group{
+                        switch b.id{
+                        case 0:
+                            EmptyClassView()
+                        case 1:
+                            ScoreView()
+                        case 2:
+                            ExamSiteView()
+                        case 3:
+                            BathView()
+                        default:
+                            MoreView()
+                        }
+                    }
                 } label: {
                     ButtonCell(button: b)
                 }
@@ -106,7 +119,7 @@ struct HomePageView: View {
 }
 
 
-struct ButtonCell: View {
+private struct ButtonCell: View {
     @State var showSheet: Bool = false
     var button: ButtonInfo
     var body: some View {
