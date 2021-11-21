@@ -35,11 +35,11 @@ struct TimeSchedule {
             return history
         }
         
-        let color: [Color] = [.red,.blue,.green,.pink,.orange,.purple,.yellow]
+        
 
         for (weekday, lectures) in dic {
             for course in lectures{
-                let classColor = color.randomElement() ?? .blue
+                let classColor = Color.random
                 timeSchedule[weekday-1].hasLecture = true
                 timeSchedule[weekday-1].schedule[Int((course.startTime-1)/2)].changeInfo(name: course.name, location: course.location, lectureLengthIsTwo: course.length > 1, teacher: course.teacher, color: classColor)
                 if course.length > 2{
@@ -81,7 +81,7 @@ struct TableClassCellModel: Identifiable{
     var name: String = ""
     var location: String = ""
     var isShow: Bool{get {name != ""} }
-    var lectureLengthIsTwo: Bool = false
+    var lectureLengthIsTwo: Bool = true
     var color: Color = .clear
     var teacher: String = ""
     

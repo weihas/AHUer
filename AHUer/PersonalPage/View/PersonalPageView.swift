@@ -13,7 +13,7 @@ struct PersonalPageView: View {
     @EnvironmentObject var appInfo: AHUAppInfo
     @ObservedObject var vm: PersonalPageShow
     @State private var showLoggingChoose: Bool = false
-    @State var showLoggingPanel: Bool = false
+
     @State var isBachelor: Bool = true
     var body: some View {
         NavigationView{
@@ -21,14 +21,23 @@ struct PersonalPageView: View {
                 accountSection
                 operationSection
             }
+            .alert(isPresented: $vm.showAlert) {
+                Alert(title: Text("登录失败"),
+                      message: Text(vm.msg),
+                      primaryButton: .default(Text("重新登录")){
+                    vm.showLoggingPanel = true
+                },
+                      secondaryButton: .cancel(Text("取消")))
+            }
             .actionSheet(isPresented: $showLoggingChoose) {
                 actionSheet
             }
-            .sheet(isPresented: $showLoggingPanel) {
+            .sheet(isPresented: $vm.showLoggingPanel) {
                 logginPanel
             }
             .navigationBarTitle("个人")
         }
+
         .navigationViewStyle(.stack)
     }
 }
@@ -45,7 +54,7 @@ extension PersonalPageView{
                     showLoggingChoose.toggle()
                 }else{
                     if vm.loggedUsers.isEmpty{
-                        showLoggingPanel.toggle()
+                        vm.showLoggingPanel.toggle()
                     }else{
                         showLoggingChoose.toggle()
                     }
@@ -109,7 +118,7 @@ extension PersonalPageView{
                 buttons: [
 //                    .default(Text("E01814133"),
 //                             action: logginWithExist),
-                    .default(Text("使用其他学号"), action: {showLoggingPanel.toggle()}),
+                    .default(Text("使用其他学号"), action: {vm.showLoggingPanel.toggle()}),
                     .cancel(Text("取消"))
                 ])
         }
@@ -146,7 +155,6 @@ extension PersonalPageView{
                 vm.loggin(){ userID, userName in
                     appInfo.isLoggin = true
                     vm.nowUser = User(studentID: userID, userName: userName)
-                    showLoggingPanel.toggle()
                 }
             }, label: {
                 Label("认证", systemImage: "chevron.forward.square")

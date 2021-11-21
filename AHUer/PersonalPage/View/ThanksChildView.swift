@@ -22,9 +22,3 @@ struct ThanksChildView: View {
         }
     }
 }
-
-struct ThanksChildView_Previews: PreviewProvider {
-    static var previews: some View {
-        ThanksChildView()
-    }
-}

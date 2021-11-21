@@ -11,7 +11,7 @@ import CoreData
 /// AHUer全应用共享参数
 class AHUAppInfo: ObservableObject {
     @Published var isLoggin: Bool = false
-    @Published var tabItemNum: Int = 1
+    @Published var tabItemNum: Int = 0
     
     @SetStorage(key: "AHULoggin", default: false) var logged: Bool
     

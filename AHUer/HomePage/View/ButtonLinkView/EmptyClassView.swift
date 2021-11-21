@@ -7,38 +7,49 @@
 
 import SwiftUI
 
-struct EmptyClassView: View {
-    enum Campus {
-        case LongHe, Qinyuan
-    }
+struct EmptyClassView: View{
+    @ObservedObject var vm: EmptyClassShow
     
-    @State var campus: Campus = Campus.Qinyuan
     @State var topExpanded: Bool = false
-    @State var tExpanded: Bool = false
     
     var body: some View {
-            VStack{
-                DisclosureGroup(campus == .Qinyuan ? "磬苑校区" : "龙河校区", isExpanded: $topExpanded) {
-                    Picker("校区选择", selection: $campus){
-                        Text("磬苑校区").tag(Campus.Qinyuan)
-                        Text("龙河校区").tag(Campus.LongHe)
-                    }.aspectRatio(0.5, contentMode: .fill)
-                }
-                DisclosureGroup(campus == .Qinyuan ? "Moring" : "AfterNoon", isExpanded: $tExpanded) {
-                    Picker("校区选择", selection: $campus){
-                        Text("磬苑校区").tag(Campus.Qinyuan)
-                        Text("龙河校区").tag(Campus.LongHe)
-                    }.aspectRatio(0.5, contentMode: .fill)
-                }
-                Spacer()
+        VStack{
+            Picker("校区选择", selection: $vm.campus){
+                Text("磬苑校区").tag(Campus.Qinyuan)
+                Text("龙河校区").tag(Campus.LongHe)
             }
-            .navigationTitle("空教室查询")
-            .navigationBarTitleDisplayMode(.inline)
-    }
-}
+            .padding(.horizontal)
+            .pickerStyle(SegmentedPickerStyle())
+            Button("show"){
+                topExpanded.toggle()
+            }
 
-struct EmptyClassView_Previews: PreviewProvider {
-    static var previews: some View {
-        EmptyClassView()
+            List(vm.emptyRooms){ room in
+                HStack{
+                    Text(room.pos)
+                    Text(room.seating)
+                }
+            }
+            Spacer()
+        }
+        .toolbar{
+            Button {
+                vm.search()
+            } label: {
+                Label("Search", systemImage: "magnifyingglass")
+            }
+        }
+        .popover(isPresented: $topExpanded) {
+            Picker("时间选择", selection: $vm.time){
+                ForEach(LectureTime.allCases){ time in
+                    Text(time.description).tag(time)
+                }
+            }
+            .padding(.horizontal)
+            .pickerStyle(InlinePickerStyle())
+        }
+        
+        .navigationTitle("空教室查询")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }

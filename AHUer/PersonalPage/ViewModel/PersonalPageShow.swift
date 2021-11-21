@@ -12,6 +12,9 @@ class PersonalPageShow: ObservableObject {
     @Published private var model: PersonalPageInfo
     @Published var userID: String
     @Published var password: String
+    @Published var showAlert: Bool = false
+    @Published var showLoggingPanel: Bool = false
+    var msg: String = ""
     
     private let provider = AhuerAPIProvider.defaults
     var context: NSManagedObjectContext
@@ -24,8 +27,14 @@ class PersonalPageShow: ObservableObject {
     }
     
     func loggin(completion: @escaping (String, String)-> Void){
-        provider.loggin(userId: userID, password: password) { [weak self] studentID, studentName  in
+        provider.loggin(userId: userID, password: password) { [weak self] status, studentID, studentName  in
             guard let userName = studentName else { return }
+            if status.0 != 0 {
+                self?.showAlert = true
+                self?.msg = status.1 ?? ""
+                return
+            }
+            
             guard let result = Student.fetch(context: self?.context, predicate: ("studentID = %@", studentID)) else {return}
             if result.isEmpty{
                 Student.insert(context: self?.context)?.update(context: self?.context, attributeInfo: ["studentID":studentID,"studentName":studentName])
@@ -37,10 +46,11 @@ class PersonalPageShow: ObservableObject {
             completion(studentID,userName)
             self?.getschedule()
         }
+        showLoggingPanel = false
     }
     
     func getschedule(){
-        provider.getSchedule(schoolYear: "2020-2021", schoolTerm: "1") { [weak self] scheduledata in
+        provider.getSchedule(schoolYear: "2020-2021", schoolTerm: "1") { [weak self] status, scheduledata in
             guard let schedules = scheduledata else {return}
             for schedule in schedules{
                 guard let scheduleName = schedule["name"] as? String, let result = Course.fetch(context: self?.context, predicate: ("name = %@",scheduleName)) , let userID = self?.userID else { continue }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		350710B0274A3BB8006D0587 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350710AF274A3BB8006D0587 /* Color+Extension.swift */; };
+		350710B2274A5391006D0587 /* EmptyClassShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350710B1274A5391006D0587 /* EmptyClassShow.swift */; };
 		351213E526ECBE7B00D62E9B /* NewsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351213E426ECBE7B00D62E9B /* NewsModels.swift */; };
 		351213E726ECBF2D00D62E9B /* NewsPlaying.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351213E626ECBF2D00D62E9B /* NewsPlaying.swift */; };
 		3519DEFA270C53CE00639531 /* RSA+Func.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3519DEF9270C53CE00639531 /* RSA+Func.swift */; };
@@ -73,6 +75,8 @@
 /* Begin PBXFileReference section */
 		0A9987D7B8C0A6064E501A6C /* Pods-AHUerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AHUerTests.release.xcconfig"; path = "Target Support Files/Pods-AHUerTests/Pods-AHUerTests.release.xcconfig"; sourceTree = "<group>"; };
 		1F13389D6105CE97CE4E0F34 /* Pods_AHUerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AHUerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		350710AF274A3BB8006D0587 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		350710B1274A5391006D0587 /* EmptyClassShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyClassShow.swift; sourceTree = "<group>"; };
 		351213E426ECBE7B00D62E9B /* NewsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModels.swift; sourceTree = "<group>"; };
 		351213E626ECBF2D00D62E9B /* NewsPlaying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPlaying.swift; sourceTree = "<group>"; };
 		3519DEF9270C53CE00639531 /* RSA+Func.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RSA+Func.swift"; sourceTree = "<group>"; };
@@ -161,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				35607B9B26E99BFA0037504E /* Date+Helper.swift */,
+				350710AF274A3BB8006D0587 /* Color+Extension.swift */,
 				3590EDC8273E6BE20077299D /* SetStorage.swift */,
 				3519DEF9270C53CE00639531 /* RSA+Func.swift */,
 				353705A226EB6D62002E001C /* Button+Style.swift */,
@@ -386,12 +391,13 @@
 		35D5B16B26EA5E470070A23C /* ButtonLinkView */ = {
 			isa = PBXGroup;
 			children = (
-				3586B8DC26EDAC1100B42A90 /* AddressBook */,
 				3586B8CE26EDA17A00B42A90 /* EmptyClassView.swift */,
+				350710B1274A5391006D0587 /* EmptyClassShow.swift */,
 				35D5B16C26EA6BFD0070A23C /* ScoreView.swift */,
 				3586B8D026EDA31F00B42A90 /* ExamSiteView.swift */,
 				35AA432A26E916320096724A /* BathView.swift */,
 				3586B8D826EDA3CD00B42A90 /* MoreView.swift */,
+				3586B8DC26EDAC1100B42A90 /* AddressBook */,
 			);
 			path = ButtonLinkView;
 			sourceTree = "<group>";
@@ -665,6 +671,7 @@
 				35DB74962747E72100E43B33 /* TimeScheduleCell.swift in Sources */,
 				3595AF3326EC3D7900F1354A /* AHUAppInfo.swift in Sources */,
 				3552E63827219401006A6322 /* AHUerCoreModel.xcdatamodeld in Sources */,
+				350710B0274A3BB8006D0587 /* Color+Extension.swift in Sources */,
 				3578CA6526E9120400667BEF /* TimeSchedule.swift in Sources */,
 				351213E526ECBE7B00D62E9B /* NewsModels.swift in Sources */,
 				3578CA2926E8ED5E00667BEF /* AHUerApp.swift in Sources */,
@@ -674,6 +681,7 @@
 				3586B8D926EDA3CD00B42A90 /* MoreView.swift in Sources */,
 				358330EA26EC31DC005927D6 /* ThanksChildView.swift in Sources */,
 				3586B8DB26EDAC0C00B42A90 /* AddressBookLogic.swift in Sources */,
+				350710B2274A5391006D0587 /* EmptyClassShow.swift in Sources */,
 				351213E726ECBF2D00D62E9B /* NewsPlaying.swift in Sources */,
 				35607BA726EA18280037504E /* SettingView.swift in Sources */,
 				35607B9C26E99BFA0037504E /* Date+Helper.swift in Sources */,

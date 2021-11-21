@@ -36,7 +36,7 @@ struct HomePageView: View {
                     Group{
                         switch b.id{
                         case 0:
-                            EmptyClassView()
+                            EmptyClassView(vm: EmptyClassShow())
                         case 1:
                             ScoreView()
                         case 2:
