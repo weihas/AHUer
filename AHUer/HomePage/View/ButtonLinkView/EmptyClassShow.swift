@@ -12,17 +12,16 @@ class EmptyClassShow: ObservableObject {
     @Published var time: LectureTime = .first
     
     @Published var emptyRooms: [EmptyRoom] = []
-    private let provider = AhuerAPIProvider.defaults
     
     func search(){
-        provider.getEmptyRoom(campus: campus, weekNum: 1, weekday: 10, time: time) { [weak self] status, data in
-            guard status.0 == 0, let rooms = data as? [[String: String]] else {return}
-            for (index,room) in rooms.enumerated(){
-                if let seating = room["seating"], let pos = room["pos"]{
-                    self?.emptyRooms.append(EmptyRoom(id: index, seating: seating, pos: pos))
-                }
-            }
-        }
+//        provider.getEmptyRoom(campus: campus, weekNum: 1, weekday: 10, time: time) { [weak self] status, data in
+//            guard status.0 == 0, let rooms = data as? [[String: String]] else {return}
+//            for (index,room) in rooms.enumerated(){
+//                if let seating = room["seating"], let pos = room["pos"]{
+//                    self?.emptyRooms.append(EmptyRoom(id: index, seating: seating, pos: pos))
+//                }
+//            }
+//        }
     }
     
     deinit {

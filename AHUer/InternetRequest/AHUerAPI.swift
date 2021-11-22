@@ -73,4 +73,20 @@ extension AHUerAPI: TargetType {
     public var sampleData: Data {
         return "{}".data(using: String.Encoding.utf8)!
     }
+    
+    public var APILogName: String{
+        
+        switch self {
+        case .login:
+            return "loggin"
+        case .schedule:
+            return "get schedule"
+        case .logout:
+            return "logout"
+        case .emptyRooms:
+            return "get emptyRooms"
+        case .grade:
+            return "get grade"
+        }
+    }
 }

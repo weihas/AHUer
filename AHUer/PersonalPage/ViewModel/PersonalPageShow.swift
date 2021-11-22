@@ -14,64 +14,85 @@ class PersonalPageShow: ObservableObject {
     @Published var password: String
     @Published var showAlert: Bool = false
     @Published var showLoggingPanel: Bool = false
-    var msg: String = ""
+    var msg: String?
     
-    private let provider = AhuerAPIProvider.defaults
-    var context: NSManagedObjectContext
+    typealias provider = AhuerAPIProvider
+   
     
     init(context: NSManagedObjectContext){
         self.model = PersonalPageInfo()
         self.userID = ""
         self.password = ""
-        self.context = context
     }
     
-    func loggin(completion: @escaping (String, String)-> Void){
-        provider.loggin(userId: userID, password: password) { [weak self] status, studentID, studentName  in
-            guard let userName = studentName else { return }
-            if status.0 != 0 {
-                self?.showAlert = true
-                self?.msg = status.1 ?? ""
-                return
-            }
-            
-            guard let result = Student.fetch(context: self?.context, predicate: ("studentID = %@", studentID)) else {return}
-            if result.isEmpty{
-                Student.insert(context: self?.context)?.update(context: self?.context, attributeInfo: ["studentID":studentID,"studentName":studentName])
-            }else{
-                result.forEach { student in
-                    student.update(context: self?.context, attributeInfo: ["studentID":studentID,"studentName":studentName])
+    func loggin(context: NSManagedObjectContext, completion: @escaping (Bool)-> Void){
+        guard let pw = password.rsaCrypto() else {return}
+        let studentID = userID
+        provider.NetRequest(.login(userId: userID, password: pw, type: 1)) { [weak self, unowned context] respon in
+            self?.msg = respon?["msg"] as? String
+            if let status = respon?["success"] as? Bool, let data = respon?["data"] as? [String: Any], let userName = data["name"] as? String{
+                guard let userId = self?.userID else {return}
+                self?.model.user = User(studentID: userId, userName: userName)
+                if status{
+                    UserDefaults.standard.setValue(pw, forKey: "AHUPassword")
+                    self?.model.user = User(studentID: studentID, userName: userName)
+                    completion(true)
+                    guard let result = Student.fetch(context: context, predicate: ("studentID = %@",studentID)) else {return}
+                    if result.isEmpty{
+                        Student.insert(context: context)?.update(context: context, attributeInfo: ["studentID":studentID,"studentName":userName])
+                    }else{
+                        result.forEach { student in
+                            student.update(context: context, attributeInfo: ["studentID":studentID,"studentName":userName])
+                        }
+                    }
                 }
+                self?.getschedule(context: context, predicate: ("studentID = %@",studentID))
+            }else{
+                self?.showAlert.toggle()
             }
-            completion(studentID,userName)
-            self?.getschedule()
+        } error: { error in
+            print(error)
+        } failure: { failure in
+            print(failure)
         }
         showLoggingPanel = false
     }
     
-    func getschedule(){
-        provider.getSchedule(schoolYear: "2020-2021", schoolTerm: "1") { [weak self] status, scheduledata in
-            guard let schedules = scheduledata else {return}
-            for schedule in schedules{
-                guard let scheduleName = schedule["name"] as? String, let result = Course.fetch(context: self?.context, predicate: ("name = %@",scheduleName)) , let userID = self?.userID else { continue }
-                if result.isEmpty{
-                    let course = Course.insert(context: self?.context)?.update(context: self?.context, attributeInfo: schedule)
-                    course?.owner = Student.fetch(context: self?.context, predicate: ("studentID = %@", userID))?[0]
-                    try? self?.context.save()
-                }else{
-                    result[0].update(context: self?.context, attributeInfo: schedule)
-                    result[0].owner = Student.fetch(context: self?.context, predicate: ("studentID = %@", userID))?[0]
-                    try? self?.context.save()
+    func getschedule(context: NSManagedObjectContext, predicate: (String, String)){
+        provider.NetRequest(.schedule(schoolYear: "2021-2022", schoolTerm: "1")) { [weak self, unowned context] respon in
+            print(respon?["msg"] as? String ?? "")
+            if let statusNum = respon?["success"] as? Bool, statusNum == true, let schedules = respon?["data"] as? [[String: Any]]{
+                for schedule in schedules{
+                    guard let scheduleName = schedule["name"] as? String, let result = Course.fetch(context: context, predicate: ("name = %@",scheduleName)) else {continue}
+                    if result.isEmpty{
+                        let course = Course.insert(context: context)?.update(context: context, attributeInfo: schedule)
+                        course?.owner = Student.fetch(context: context, predicate: predicate)?[0]
+                        try? context.save()
+                    }else{
+                        result[0].update(context: context, attributeInfo: schedule)
+                        result[0].owner = Student.fetch(context: context, predicate: predicate)?[0]
+                        try? context.save()
+                    }
                 }
+            }else{
+                self?.showAlert.toggle()
             }
+        } error: { error in
+            print(error)
+        } failure: { failure in
+            print(failure)
         }
     }
     
-    func logout(){
+    func logout(context: NSManagedObjectContext){
         let nowUserID = self.nowUser.studentID
-        provider.logout { [weak self]success in
-            guard let student = Student.fetch(context: self?.context, predicate: ("studentID = %@", nowUserID)) else { return }
-            student.forEach({$0.delete(context: self?.context)})
+        provider.NetRequest(.logout(type: 1)) { [weak context] respon in
+            guard let student = Student.fetch(context: context, predicate: ("studentID = %@", nowUserID)) else { return }
+            student.forEach({$0.delete(context: context)})
+        } error: { error in
+            print(error)
+        } failure: { failure in
+            print(failure)
         }
     }
     

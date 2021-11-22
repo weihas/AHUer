@@ -20,7 +20,9 @@ struct ClassInOneDayView: View {
     }
     
     var body: some View{
-        if model.hasLecture{
+        if !model.hasLecture && model.id>5{
+
+        }else{
             LazyVStack{
                 titleOfToday
                 ForEach(model.schedule, id: \.id){ lecture in
@@ -29,8 +31,6 @@ struct ClassInOneDayView: View {
                 }
                 Spacer()
             }
-        }else{
-            
         }
     }
     
