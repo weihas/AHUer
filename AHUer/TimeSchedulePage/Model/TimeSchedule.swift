@@ -14,19 +14,24 @@ struct TimeSchedule {
     
     init(){
         timeSchedule = []
+        cleanSchedule()
+    }
+    
+    private mutating func cleanSchedule(){
+        var result: [ClassInOneDay] = []
         for weekday in 1...7 {
             var schedule: [TableClassCellModel] = []
             for num in 1...6 {
                 schedule.append(TableClassCellModel(id: num))
             }
-            timeSchedule.append(ClassInOneDay(id: weekday, schedule: schedule))
+            result.append(ClassInOneDay(id: weekday, schedule: schedule))
         }
+        self.timeSchedule = result
     }
-    
     
     mutating func freshDataOfClass(context: NSManagedObjectContext, predicate: (String, String))  {
         guard let user = Student.fetch(context: context, predicate: predicate)?.first,
-              let courses = (user.courses?.allObjects as? [Course]) else {return}
+              let courses = (user.courses?.allObjects as? [Course]) else { cleanSchedule() ; return}
         
         let dic = courses.reduce([Int : [Course]]()) { partialResult, course in
             var history = partialResult

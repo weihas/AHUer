@@ -209,3 +209,17 @@ public extension Date {
     
 }
 
+extension Date{
+    var studyTerm: Int{
+        return self.month > 1 && self.month < 9 ? 2 : 1
+    }
+    
+    var studyYear: String{
+        if studyTerm == 1{
+            return String(year) + "-" + String(year+1)
+        } else {
+            return String(year-1) + "-" + String(year)
+        }
+    }
+}
+

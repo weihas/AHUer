@@ -28,9 +28,14 @@ class PersonalPageShow: ObservableObject {
     func loggin(context: NSManagedObjectContext, completion: @escaping (Bool)-> Void){
         guard let pw = password.rsaCrypto() else {return}
         let studentID = userID
-        provider.NetRequest(.login(userId: userID, password: pw, type: 1)) { [weak self, unowned context] respon in
+        provider.netRequest(.login(userId: userID, password: pw, type: 1)) { [weak self, unowned context] respon in
             self?.msg = respon?["msg"] as? String
             if let status = respon?["success"] as? Bool, let data = respon?["data"] as? [String: Any], let userName = data["name"] as? String{
+                
+                if let cookie = HTTPCookieStorage.shared.cookies(for: URL(string: "https://ahuer.cn/api")!)?.first{
+                    UserDefaults.standard.setValue(cookie.name + "=" + cookie.value, forKey: "AHUCookie")
+                }
+                    
                 guard let userId = self?.userID else {return}
                 self?.model.user = User(studentID: userId, userName: userName)
                 if status{
@@ -59,7 +64,7 @@ class PersonalPageShow: ObservableObject {
     }
     
     func getschedule(context: NSManagedObjectContext, predicate: (String, String)){
-        provider.NetRequest(.schedule(schoolYear: "2021-2022", schoolTerm: "1")) { [weak self, unowned context] respon in
+        provider.netRequest(.schedule(schoolYear: Date().studyYear, schoolTerm: Date().studyTerm)) { [weak self, unowned context] respon in
             print(respon?["msg"] as? String ?? "")
             if let statusNum = respon?["success"] as? Bool, statusNum == true, let schedules = respon?["data"] as? [[String: Any]]{
                 for schedule in schedules{
@@ -86,7 +91,7 @@ class PersonalPageShow: ObservableObject {
     
     func logout(context: NSManagedObjectContext){
         let nowUserID = self.nowUser.studentID
-        provider.NetRequest(.logout(type: 1)) { [weak context] respon in
+        provider.netRequest(.logout(type: 1)) { [weak context] respon in
             guard let student = Student.fetch(context: context, predicate: ("studentID = %@", nowUserID)) else { return }
             student.forEach({$0.delete(context: context)})
         } error: { error in
@@ -94,6 +99,7 @@ class PersonalPageShow: ObservableObject {
         } failure: { failure in
             print(failure)
         }
+        UserDefaults.standard.removeObject(forKey: "AHUCookie")
     }
     
     var nowUser: User{

@@ -11,7 +11,7 @@ import Moya
 
 public enum AHUerAPI {
     case login(userId: String, password: String, type: Int)
-    case schedule(schoolYear: String, schoolTerm: String)
+    case schedule(schoolYear: String, schoolTerm: Int)
     case logout(type: Int)
     case emptyRooms(campus: Int, weekday: Int, weekNum: Int, time: Int)
     case grade
@@ -90,3 +90,30 @@ extension AHUerAPI: TargetType {
         }
     }
 }
+
+final class AHUerAlertPlugin: PluginType {
+    var startTime: CFAbsoluteTime?
+    
+    func prepare(_ request: URLRequest, target: TargetType) -> URLRequest {
+        var myRequest = request
+        if let cookie = UserDefaults.standard.string(forKey: "AHUCookie"){
+            myRequest.setValue(cookie, forHTTPHeaderField: "cookie")
+        }
+        myRequest.timeoutInterval = 20
+        return myRequest
+    }
+    
+    func willSend(_ request: RequestType, target: TargetType) {
+        if let ahuTarget = target as? AHUerAPI {
+            startTime = CFAbsoluteTimeGetCurrent()
+            print("====>Start" + ahuTarget.APILogName)
+        }
+    }
+    
+    func didReceive(_ result: Result<Response, MoyaError>, target: TargetType) {
+        if let ahuTarget = target as? AHUerAPI, let startTime = self.startTime {
+            print("====>Receive" + ahuTarget.APILogName + " back" + "耗时" + "\(CFAbsoluteTimeGetCurrent() - startTime) s")
+        }
+    }
+}
+

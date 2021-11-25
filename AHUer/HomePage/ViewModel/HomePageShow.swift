@@ -39,6 +39,8 @@ class HomePageShow: ObservableObject{
         self.objectWillChange.send()
     }
     
+    lazy var EmptyClassVM = EmptyClassShow()
+    
     deinit {
         print("🌀HomePageShow released")
     }

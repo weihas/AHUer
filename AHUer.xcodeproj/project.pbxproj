@@ -53,6 +53,7 @@
 		3722A30EF8C023B93BCA13C2 /* Pods_AHUer_AHUerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B96A49697F8B0857D7633C56 /* Pods_AHUer_AHUerUITests.framework */; };
 		67E7C0DA60E48F47097D7513 /* Pods_AHUer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6D63E11FEF80E42E8CEA068 /* Pods_AHUer.framework */; };
 		83409662F596371909E57940 /* Pods_AHUerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F13389D6105CE97CE4E0F34 /* Pods_AHUerTests.framework */; };
+		844023D4274F67860034B224 /* Popup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844023D3274F67860034B224 /* Popup.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,6 +129,7 @@
 		4FC326EEBFBEC7CB3AE22D18 /* Pods-AHUer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AHUer.release.xcconfig"; path = "Target Support Files/Pods-AHUer/Pods-AHUer.release.xcconfig"; sourceTree = "<group>"; };
 		51E676CCED6E24409F56C237 /* Pods-AHUerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AHUerTests.debug.xcconfig"; path = "Target Support Files/Pods-AHUerTests/Pods-AHUerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		80048EC7D05829CDA7AF80FA /* Pods-AHUer-AHUerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AHUer-AHUerUITests.debug.xcconfig"; path = "Target Support Files/Pods-AHUer-AHUerUITests/Pods-AHUer-AHUerUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		844023D3274F67860034B224 /* Popup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Popup.swift; sourceTree = "<group>"; };
 		B96A49697F8B0857D7633C56 /* Pods_AHUer_AHUerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AHUer_AHUerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEEE61C8B5C2D0A929EE3173 /* Pods-AHUer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AHUer.debug.xcconfig"; path = "Target Support Files/Pods-AHUer/Pods-AHUer.debug.xcconfig"; sourceTree = "<group>"; };
 		F6D63E11FEF80E42E8CEA068 /* Pods_AHUer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AHUer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -171,6 +173,7 @@
 				353705A226EB6D62002E001C /* Button+Style.swift */,
 				3595AF3426EC423B00F1354A /* Picker+Style.swift */,
 				359BEBED26ECE2B9006FB419 /* GroupBox+Style.swift */,
+				844023D3274F67860034B224 /* Popup.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -391,8 +394,8 @@
 		35D5B16B26EA5E470070A23C /* ButtonLinkView */ = {
 			isa = PBXGroup;
 			children = (
-				3586B8CE26EDA17A00B42A90 /* EmptyClassView.swift */,
 				350710B1274A5391006D0587 /* EmptyClassShow.swift */,
+				3586B8CE26EDA17A00B42A90 /* EmptyClassView.swift */,
 				35D5B16C26EA6BFD0070A23C /* ScoreView.swift */,
 				3586B8D026EDA31F00B42A90 /* ExamSiteView.swift */,
 				35AA432A26E916320096724A /* BathView.swift */,
@@ -664,6 +667,7 @@
 			files = (
 				35A801B32747EC68009E3D08 /* TimeScheduleAddLectureView.swift in Sources */,
 				35EA370626EB022C00107955 /* AddressBookView.swift in Sources */,
+				844023D4274F67860034B224 /* Popup.swift in Sources */,
 				35A578BA273E1BD40056166F /* PersonlPageInfo.swift in Sources */,
 				35A578BD273E1BF30056166F /* PersonalPageShow.swift in Sources */,
 				3578CA6026E90FDE00667BEF /* TimeSchedulePageView.swift in Sources */,
@@ -861,7 +865,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"AHUer/Preview Content\"";
-				DEVELOPMENT_TEAM = NVF47AP6H6;
+				DEVELOPMENT_TEAM = 4WB3QMP893;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = AHUer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -885,7 +889,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"AHUer/Preview Content\"";
-				DEVELOPMENT_TEAM = NVF47AP6H6;
+				DEVELOPMENT_TEAM = 4WB3QMP893;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = AHUer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;

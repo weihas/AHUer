@@ -7,48 +7,33 @@
 
 import Foundation
 import Moya
+import CoreData
 
 /// AHUerAPI容器
 struct AhuerAPIProvider{
-    /// moya请求提供
-    private static let provider = MoyaProvider<AHUerAPI>()
-    
-    private var requestTimeOut: Double = 30
-//    (statusCode: Int, msg: String?),
-    
+    private static let provider = MoyaProvider<AHUerAPI>(plugins: [AHUerAlertPlugin()])
     typealias successCallback = ([String:Any]?) -> Void
     typealias errorCallBack =  (Int) -> Void
     typealias failureCallBack =  (MoyaError) ->Void
     
     
-    static func NetRequest(_ target: AHUerAPI, success successCallback: @escaping successCallback, error errorCallBack: @escaping errorCallBack, failure failureCallBack: @escaping failureCallBack){
-        print("==> Start " + target.APILogName)
+    static func netRequest(_ target: AHUerAPI, success successCallback: @escaping successCallback, error errorCallBack: @escaping errorCallBack, failure failureCallBack: @escaping failureCallBack){
         provider.request(target) { result in
             switch result {
             case .success(let respon):
-                do {
-                    let filterRespon = try respon.filterSuccessfulStatusCodes()
-                    if let analysis = try filterRespon.mapJSON(failsOnEmptyData: true) as? [String:Any]{
+                if let analysis = try? respon.mapJSON(failsOnEmptyData: true) as? [String:Any]{
+                    do {
+                        let _ = try respon.filterSuccessfulStatusCodes()
                         successCallback(analysis)
-                        print(NSHomeDirectory())
-//                        print(provider.session)
-                        for d in HTTPCookieStorage.shared.cookies ?? [] {
-                            print(d.name)
-                            print(d.value)
-                        }
-                        
+                    }catch{
+                        errorCallBack(analysis["code"] as? Int ?? -1)
                     }
-                }catch let error{
-                    errorCallBack((error as? MoyaError)?.response?.statusCode ?? -1)
+                }else{
+                    errorCallBack(-10)
                 }
             case .failure(let error):
                 failureCallBack(error)
             }
         }
     }
-}
-
-struct AhuerAPIProviderStatus: Error {
-    var status: Int
-    var msg: String
 }
