@@ -13,7 +13,7 @@ class AHUAppInfo: ObservableObject {
     @Published var isLoggin: Bool = false
     @Published var tabItemNum: Int = 0
     
-    @SetStorage(key: "AHULoggin", default: false) var logged: Bool
+    @SetStorage(key: "AHULoggin", default: false) private var logged: Bool
     
     init() {
         freshLogginStatus()
@@ -29,7 +29,7 @@ class AHUAppInfo: ObservableObject {
         })
     }
     
-    var whoAmIPredicate: (String, String){
+    static var whoAmIPredicate: (String, String){
         @SetStorage(key: "AHUID", default: "") var studentID: String
         return ("studentID = %@", studentID)
     }

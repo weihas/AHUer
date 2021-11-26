@@ -25,11 +25,11 @@ class TimeScheduleShow: ObservableObject{
         return ["8:20","10:20","14:00","15:50","19:00","20:50"]
     }
     
-    func freshDataOfClass(context: NSManagedObjectContext, predicate: (String, String)){
-        timetable.freshDataOfClass(context: context, predicate: predicate)
+    func freshDataOfClass(context: NSManagedObjectContext){
+        timetable.freshDataOfClass(context: context)
     }
     
-    func freshDataWithInternet(context: NSManagedObjectContext, predicate: (String,String)){
+    func freshDataWithInternet(context: NSManagedObjectContext){
         AhuerAPIProvider.netRequest(.schedule(schoolYear: Date().studyYear, schoolTerm: Date().studyTerm)) { [unowned context] respon in
             print(respon?["msg"] as? String ?? "")
             if let statusNum = respon?["success"] as? Bool, statusNum == true, let schedules = respon?["data"] as? [[String: Any]]{
@@ -37,11 +37,11 @@ class TimeScheduleShow: ObservableObject{
                     guard let scheduleName = schedule["name"] as? String, let result = Course.fetch(context: context, predicate: ("name = %@",scheduleName)) else {continue}
                     if result.isEmpty{
                         let course = Course.insert(context: context)?.update(context: context, attributeInfo: schedule)
-                        course?.owner = Student.fetch(context: context, predicate: predicate)?[0]
+                        course?.owner = Student.fetch(context: context, predicate: AHUAppInfo.whoAmIPredicate)?.first
                         try? context.save()
                     }else{
                         result[0].update(context: context, attributeInfo: schedule)
-                        result[0].owner = Student.fetch(context: context, predicate: predicate)?[0]
+                        result[0].owner = Student.fetch(context: context, predicate: AHUAppInfo.whoAmIPredicate)?[0]
                         try? context.save()
                     }
                 }
@@ -51,7 +51,7 @@ class TimeScheduleShow: ObservableObject{
         } failure: { failure in
             print(failure.localizedDescription)
         }
-        timetable.freshDataOfClass(context: context, predicate: predicate)
+        timetable.freshDataOfClass(context: context)
     }
     
     

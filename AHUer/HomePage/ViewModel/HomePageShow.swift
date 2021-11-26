@@ -34,12 +34,13 @@ class HomePageShow: ObservableObject{
         return model.gpa
     }
     
-    func freshImmediatelyLecture(context: NSManagedObjectContext, predicate: (String, String)) {
-        model.fetchImmediatelyLecture(context: context, predicate: predicate)
+    func freshImmediatelyLecture(context: NSManagedObjectContext) {
+        model.fetchImmediatelyLecture(context: context)
         self.objectWillChange.send()
     }
     
-    lazy var EmptyClassVM = EmptyClassShow()
+    lazy var emptyClassVM = EmptyRoomShow()
+    lazy var scoreViewVM = ScoreShow()
     
     deinit {
         print("🌀HomePageShow released")

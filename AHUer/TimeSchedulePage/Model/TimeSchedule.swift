@@ -29,8 +29,8 @@ struct TimeSchedule {
         self.timeSchedule = result
     }
     
-    mutating func freshDataOfClass(context: NSManagedObjectContext, predicate: (String, String))  {
-        guard let user = Student.fetch(context: context, predicate: predicate)?.first,
+    mutating func freshDataOfClass(context: NSManagedObjectContext)  {
+        guard let user = Student.fetch(context: context, predicate: AHUAppInfo.whoAmIPredicate)?.first,
               let courses = (user.courses?.allObjects as? [Course]) else { cleanSchedule() ; return}
         
         let dic = courses.reduce([Int : [Course]]()) { partialResult, course in

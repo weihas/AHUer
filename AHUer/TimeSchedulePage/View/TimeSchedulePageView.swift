@@ -26,7 +26,7 @@ struct TimeSchedulePageView: View {
                 }
             }
             .onAppear{
-                vm.freshDataOfClass(context: viewContext, predicate: appInfo.whoAmIPredicate)
+                vm.freshDataOfClass(context: viewContext)
             }
             .toolbar{
                 Menu {
@@ -37,13 +37,13 @@ struct TimeSchedulePageView: View {
                         Label("手动添加", systemImage: "plus.rectangle.on.rectangle")
                     }
                     Button {
-                        vm.freshDataWithInternet(context: self.viewContext, predicate: appInfo.whoAmIPredicate)
+                        vm.freshDataWithInternet(context: self.viewContext)
                     } label: {
                         Label("刷新课表", systemImage: "globe.europe.africa")
                     }
                     Button {
                         appInfo.cleanUp(context: self.viewContext)
-                        vm.freshDataOfClass(context: self.viewContext, predicate: appInfo.whoAmIPredicate)
+                        vm.freshDataOfClass(context: self.viewContext)
                     } label: {
                         Label("清除课表", systemImage: "trash")
                     }

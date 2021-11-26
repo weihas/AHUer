@@ -97,3 +97,15 @@ extension Student: AHUerEntityProtocol {
 extension Course: AHUerEntityProtocol{
     typealias selfType = Course
 }
+
+extension GPA: AHUerEntityProtocol{
+    typealias selfType = GPA
+}
+
+extension GradeScore: AHUerEntityProtocol{
+    typealias selfType = GradeScore
+}
+
+extension Exam: AHUerEntityProtocol{
+    typealias selfType = Exam
+}

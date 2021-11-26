@@ -21,7 +21,7 @@ struct HomePageView: View {
                     scoreLabel
                 }
                 .onAppear{
-                    vm.freshImmediatelyLecture(context: viewContext, predicate: appInfo.whoAmIPredicate)
+                    vm.freshImmediatelyLecture(context: viewContext)
                 }
             .navigationTitle(Text("今天"))
             .navigationBarTitleDisplayMode(.automatic)
@@ -36,9 +36,9 @@ struct HomePageView: View {
                     Group{
                         switch b.id{
                         case 0:
-                            EmptyClassView(vm: vm.EmptyClassVM)
+                            EmptyRoomView(vm: vm.emptyClassVM)
                         case 1:
-                            ScoreView()
+                            ScoreView(vm: vm.scoreViewVM)
                         case 2:
                             ExamSiteView()
                         case 3:
@@ -89,7 +89,7 @@ struct HomePageView: View {
     
     private var scoreLabel: some View {
         ZStack {
-            NavigationLink(destination: ScoreView()) {
+            NavigationLink(destination: ScoreView(vm: vm.scoreViewVM)) {
                 GroupBox(label: Label("成绩查询", systemImage: "doc.text.below.ecg")){
                     Text("学期绩点: " + (showGPA ? "\(vm.gpa.0)" : "*. **"))
                     Text("全程绩点: " + (showGPA ? "\(vm.gpa.1)" : "*. **"))

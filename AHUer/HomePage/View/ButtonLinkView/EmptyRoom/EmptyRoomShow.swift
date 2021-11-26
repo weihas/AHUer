@@ -1,5 +1,5 @@
 //
-//  EmptyClassShow.swift
+//  EmptyRoomShow.swift
 //  AHUer
 //
 //  Created by WeIHa'S on 2021/11/21.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class EmptyClassShow: ObservableObject {    
+class EmptyRoomShow: ObservableObject {
     @Published var emptyRooms: [EmptyRoomSection] = []
     
     func search(campus: Int, weekday: Int, weekNum: Int, time: Int){
@@ -38,7 +38,7 @@ class EmptyClassShow: ObservableObject {
     }
     
     deinit {
-        print("🌀EmptyClassShow released")
+        print("🌀EmptyRoomShow released")
     }
 }
 

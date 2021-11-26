@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ScoreView: View {
+    @ObservedObject var vm: ScoreShow
     var body: some View {
         ScrollView(.horizontal, showsIndicators: true) {
             HStack{
@@ -21,8 +22,8 @@ struct ScoreView: View {
     }
 }
 
-struct ScoreView_Previews: PreviewProvider {
-    static var previews: some View {
-        ScoreView()
-    }
-}
+//struct ScoreView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ScoreView()
+//    }
+//}
