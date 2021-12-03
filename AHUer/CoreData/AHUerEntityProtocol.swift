@@ -24,12 +24,13 @@ extension AHUerEntityProtocol{
         }
     }
     
-    static func fetch(context: NSManagedObjectContext?, predicate: (String,String)?, sort: [String: Bool]? = nil, limit: Int? = nil) -> [selfType]? {
+    
+    static func fetch(context: NSManagedObjectContext?, predicate: NSPredicate?, sort: [String: Bool]? = nil, limit: Int? = nil) -> [selfType]? {
         guard let context = context else {return nil}
         let request = self.fetchRequest()
         // predicate
         if let myPredicate = predicate {
-            request.predicate = NSPredicate(format: myPredicate.0, myPredicate.1)
+            request.predicate = myPredicate
         }
         
         // limit
@@ -41,7 +42,8 @@ extension AHUerEntityProtocol{
             guard let result = try context.fetch(request) as? [selfType] else { return nil }
             return result
         }catch {
-            fatalError("\(error)")
+            NSLog("查找失败")
+            return nil
         }
     }
     
@@ -53,6 +55,7 @@ extension AHUerEntityProtocol{
             try context.save()
             return true
         }catch{
+            NSLog("删除失败")
             return false
         }
     }
@@ -82,7 +85,8 @@ extension AHUerEntityProtocol{
             try context.save()
             return self as? Self.selfType
         } catch{
-            fatalError("\(error)")
+            NSLog("保存失败")
+            return nil
         }
     }
 }
@@ -92,10 +96,43 @@ extension AHUerEntityProtocol{
 
 extension Student: AHUerEntityProtocol {
     typealias selfType = Student
+    
+    
+    static func fetch(context: NSManagedObjectContext?, studentId: String) -> [Student]?{
+        guard let context = context else {return nil}
+        let request = self.fetchRequest()
+        
+        request.predicate = NSPredicate(format: "studentID = %@", studentId)
+        
+        do {
+            return try context.fetch(request)
+        }catch {
+            return nil
+        }
+    }
+    
+    static func nowUser(_ context: NSManagedObjectContext?) -> Student?{
+        @SetStorage(key: "AHUID", default: "") var studentID: String
+        return fetch(context: context, studentId: studentID)?.first
+    }
+    
 }
 
 extension Course: AHUerEntityProtocol{
     typealias selfType = Course
+    
+    static func fetch(context: NSManagedObjectContext?, courseName: String) -> [Course]?{
+        guard let context = context else {return nil}
+        let request = self.fetchRequest()
+        
+        request.predicate = NSPredicate(format: "name = %@", courseName)
+        
+        do {
+            return try context.fetch(request)
+        }catch {
+            return nil
+        }
+    }
 }
 
 extension GPA: AHUerEntityProtocol{
@@ -106,6 +143,6 @@ extension GradeScore: AHUerEntityProtocol{
     typealias selfType = GradeScore
 }
 
-extension Exam: AHUerEntityProtocol{
-    typealias selfType = Exam
+extension Examination: AHUerEntityProtocol{
+    typealias selfType = Examination
 }

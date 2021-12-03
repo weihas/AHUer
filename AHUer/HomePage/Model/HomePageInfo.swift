@@ -25,7 +25,7 @@ struct HomePageInfo {
     
     mutating func fetchImmediatelyLecture(context: NSManagedObjectContext){
         nextCourse = Lecture()
-        guard let user = Student.fetch(context: context, predicate: AHUAppInfo.whoAmIPredicate)?.first,
+        guard let user = Student.nowUser(context),
               let courses = (user.courses?.allObjects as? [Course])?.sorted(by: {$0.startTime < $1.startTime}) else {return}
 
         for course in courses {

@@ -42,7 +42,7 @@ class PersonalPageShow: ObservableObject {
                     UserDefaults.standard.setValue(pw, forKey: "AHUPassword")
                     self?.model.user = User(studentID: studentID, userName: userName)
                     completion(true)
-                    guard let result = Student.fetch(context: context, predicate: ("studentID = %@",studentID)) else {return}
+                    guard let result = Student.fetch(context: context, predicate: NSPredicate(format: "studentID = %@", studentID) ) else {return}
                     if result.isEmpty{
                         Student.insert(context: context)?.update(context: context, attributeInfo: ["studentID":studentID,"studentName":userName])
                     }else{
@@ -51,11 +51,11 @@ class PersonalPageShow: ObservableObject {
                         }
                     }
                 }
-                self?.getschedule(context: context, predicate: ("studentID = %@",studentID))
+                self?.getschedule(context: context)
             }else{
                 self?.showAlert.toggle()
             }
-        } error: { error in
+        } error: { code, error in
             print(error)
         } failure: { failure in
             print(failure)
@@ -63,26 +63,26 @@ class PersonalPageShow: ObservableObject {
         showLoggingPanel = false
     }
     
-    func getschedule(context: NSManagedObjectContext, predicate: (String, String)){
+    func getschedule(context: NSManagedObjectContext){
         provider.netRequest(.schedule(schoolYear: Date().studyYear, schoolTerm: Date().studyTerm)) { [weak self, unowned context] respon in
             print(respon?["msg"] as? String ?? "")
             if let statusNum = respon?["success"] as? Bool, statusNum == true, let schedules = respon?["data"] as? [[String: Any]]{
                 for schedule in schedules{
-                    guard let scheduleName = schedule["name"] as? String, let result = Course.fetch(context: context, predicate: ("name = %@",scheduleName)) else {continue}
+                    guard let scheduleName = schedule["name"] as? String, let result = Course.fetch(context: context, predicate: NSPredicate(format: "name = %@", scheduleName)) else {continue}
                     if result.isEmpty{
                         let course = Course.insert(context: context)?.update(context: context, attributeInfo: schedule)
-                        course?.owner = Student.fetch(context: context, predicate: predicate)?[0]
+                        course?.owner = Student.nowUser(context)
                         try? context.save()
                     }else{
                         result[0].update(context: context, attributeInfo: schedule)
-                        result[0].owner = Student.fetch(context: context, predicate: predicate)?[0]
+                        result[0].owner = Student.nowUser(context)
                         try? context.save()
                     }
                 }
             }else{
                 self?.showAlert.toggle()
             }
-        } error: { error in
+        } error: { code, error in
             print(error)
         } failure: { failure in
             print(failure)
@@ -92,9 +92,9 @@ class PersonalPageShow: ObservableObject {
     func logout(context: NSManagedObjectContext){
         let nowUserID = self.nowUser.studentID
         provider.netRequest(.logout(type: 1)) { [weak context] respon in
-            guard let student = Student.fetch(context: context, predicate: ("studentID = %@", nowUserID)) else { return }
+            guard let student = Student.fetch(context: context, predicate: NSPredicate(format: "studentID = %@", nowUserID)) else { return }
             student.forEach({$0.delete(context: context)})
-        } error: { error in
+        } error: { code, error  in
             print(error)
         } failure: { failure in
             print(failure)

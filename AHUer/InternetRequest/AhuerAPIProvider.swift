@@ -13,7 +13,7 @@ import CoreData
 struct AhuerAPIProvider{
     private static let provider = MoyaProvider<AHUerAPI>(plugins: [AHUerAlertPlugin()])
     typealias successCallback = ([String:Any]?) -> Void
-    typealias errorCallBack =  (Int) -> Void
+    typealias errorCallBack =  (_ statusCode: Int, _ message: String) -> Void
     typealias failureCallBack =  (MoyaError) ->Void
     
     
@@ -26,10 +26,10 @@ struct AhuerAPIProvider{
                         let _ = try respon.filterSuccessfulStatusCodes()
                         successCallback(analysis)
                     }catch{
-                        errorCallBack(analysis["code"] as? Int ?? -1)
+                        errorCallBack(analysis["code"] as? Int ?? -1, analysis["msg"] as? String ?? "未知错误")
                     }
                 }else{
-                    errorCallBack(-10)
+                    errorCallBack(-10, "JSON解析失败")
                 }
             case .failure(let error):
                 failureCallBack(error)

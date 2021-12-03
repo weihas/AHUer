@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -47,31 +47,13 @@
 		35CEF9F5272064CF00A4B238 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CEF9F4272064CF00A4B238 /* Persistence.swift */; };
 		35D5B16D26EA6BFD0070A23C /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D5B16C26EA6BFD0070A23C /* ScoreView.swift */; };
 		35DB74962747E72100E43B33 /* TimeScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DB74952747E72100E43B33 /* TimeScheduleCell.swift */; };
+		35E01E382759F96700BA463C /* SwiftUIChart in Frameworks */ = {isa = PBXBuildFile; productRef = 35E01E372759F96700BA463C /* SwiftUIChart */; };
 		35EA370626EB022C00107955 /* AddressBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA370526EB022C00107955 /* AddressBookView.swift */; };
-		3722A30EF8C023B93BCA13C2 /* Pods_AHUer_AHUerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B96A49697F8B0857D7633C56 /* Pods_AHUer_AHUerUITests.framework */; };
 		67E7C0DA60E48F47097D7513 /* Pods_AHUer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6D63E11FEF80E42E8CEA068 /* Pods_AHUer.framework */; };
-		83409662F596371909E57940 /* Pods_AHUerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F13389D6105CE97CE4E0F34 /* Pods_AHUerTests.framework */; };
 		844023D4274F67860034B224 /* Popup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844023D3274F67860034B224 /* Popup.swift */; };
 		847A12CF2750DF6E0011428B /* ScoreShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A12CE2750DF6E0011428B /* ScoreShow.swift */; };
 		847A12D12750E0A90011428B /* ScoreGets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A12D02750E0A90011428B /* ScoreGets.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		3578CA3726E8ED5F00667BEF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3578CA1D26E8ED5E00667BEF /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3578CA2426E8ED5E00667BEF;
-			remoteInfo = AHUer;
-		};
-		3578CA4226E8ED5F00667BEF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3578CA1D26E8ED5E00667BEF /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3578CA2426E8ED5E00667BEF;
-			remoteInfo = AHUer;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0A9987D7B8C0A6064E501A6C /* Pods-AHUerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AHUerTests.release.xcconfig"; path = "Target Support Files/Pods-AHUerTests/Pods-AHUerTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -92,8 +74,6 @@
 		3578CA2C26E8ED5E00667BEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3578CA2F26E8ED5F00667BEF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3578CA3126E8ED5F00667BEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3578CA3626E8ED5F00667BEF /* AHUerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AHUerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3578CA4126E8ED5F00667BEF /* AHUerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AHUerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3578CA5326E8EDB500667BEF /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		3578CA5526E8F0ED00667BEF /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
 		3578CA5F26E90FDE00667BEF /* TimeSchedulePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSchedulePageView.swift; sourceTree = "<group>"; };
@@ -127,7 +107,7 @@
 		80048EC7D05829CDA7AF80FA /* Pods-AHUer-AHUerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AHUer-AHUerUITests.debug.xcconfig"; path = "Target Support Files/Pods-AHUer-AHUerUITests/Pods-AHUer-AHUerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		844023D3274F67860034B224 /* Popup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Popup.swift; sourceTree = "<group>"; };
 		847A12CE2750DF6E0011428B /* ScoreShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreShow.swift; sourceTree = "<group>"; };
-		847A12D02750E0A90011428B /* ScoreGets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreGets.swift; sourceTree = "<group>"; };
+		847A12D02750E0A90011428B /* ScoreGets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreGets.swift; sourceTree = "<group>"; usesTabs = 0; };
 		B96A49697F8B0857D7633C56 /* Pods_AHUer_AHUerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AHUer_AHUerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEEE61C8B5C2D0A929EE3173 /* Pods-AHUer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AHUer.debug.xcconfig"; path = "Target Support Files/Pods-AHUer/Pods-AHUer.debug.xcconfig"; sourceTree = "<group>"; };
 		F6D63E11FEF80E42E8CEA068 /* Pods_AHUer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AHUer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -139,22 +119,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				67E7C0DA60E48F47097D7513 /* Pods_AHUer.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3578CA3326E8ED5F00667BEF /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				83409662F596371909E57940 /* Pods_AHUerTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3578CA3E26E8ED5F00667BEF /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3722A30EF8C023B93BCA13C2 /* Pods_AHUer_AHUerUITests.framework in Frameworks */,
+				35E01E382759F96700BA463C /* SwiftUIChart in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,8 +175,6 @@
 			isa = PBXGroup;
 			children = (
 				3578CA2526E8ED5E00667BEF /* AHUer.app */,
-				3578CA3626E8ED5F00667BEF /* AHUerTests.xctest */,
-				3578CA4126E8ED5F00667BEF /* AHUerUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -442,48 +405,12 @@
 			dependencies = (
 			);
 			name = AHUer;
+			packageProductDependencies = (
+				35E01E372759F96700BA463C /* SwiftUIChart */,
+			);
 			productName = AHUer;
 			productReference = 3578CA2526E8ED5E00667BEF /* AHUer.app */;
 			productType = "com.apple.product-type.application";
-		};
-		3578CA3526E8ED5F00667BEF /* AHUerTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3578CA4D26E8ED5F00667BEF /* Build configuration list for PBXNativeTarget "AHUerTests" */;
-			buildPhases = (
-				C1D22F844387D3A30DAA19BF /* [CP] Check Pods Manifest.lock */,
-				3578CA3226E8ED5F00667BEF /* Sources */,
-				3578CA3326E8ED5F00667BEF /* Frameworks */,
-				3578CA3426E8ED5F00667BEF /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				3578CA3826E8ED5F00667BEF /* PBXTargetDependency */,
-			);
-			name = AHUerTests;
-			productName = AHUerTests;
-			productReference = 3578CA3626E8ED5F00667BEF /* AHUerTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		3578CA4026E8ED5F00667BEF /* AHUerUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3578CA5026E8ED5F00667BEF /* Build configuration list for PBXNativeTarget "AHUerUITests" */;
-			buildPhases = (
-				3BB6C3259423BE3422F87BB7 /* [CP] Check Pods Manifest.lock */,
-				3578CA3D26E8ED5F00667BEF /* Sources */,
-				3578CA3E26E8ED5F00667BEF /* Frameworks */,
-				3578CA3F26E8ED5F00667BEF /* Resources */,
-				B76CFA3D99AAD6AAB32445A6 /* [CP] Embed Pods Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				3578CA4326E8ED5F00667BEF /* PBXTargetDependency */,
-			);
-			name = AHUerUITests;
-			productName = AHUerUITests;
-			productReference = 3578CA4126E8ED5F00667BEF /* AHUerUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -497,14 +424,6 @@
 					3578CA2426E8ED5E00667BEF = {
 						CreatedOnToolsVersion = 12.5.1;
 					};
-					3578CA3526E8ED5F00667BEF = {
-						CreatedOnToolsVersion = 12.5.1;
-						TestTargetID = 3578CA2426E8ED5E00667BEF;
-					};
-					3578CA4026E8ED5F00667BEF = {
-						CreatedOnToolsVersion = 12.5.1;
-						TestTargetID = 3578CA2426E8ED5E00667BEF;
-					};
 				};
 			};
 			buildConfigurationList = 3578CA2026E8ED5E00667BEF /* Build configuration list for PBXProject "AHUer" */;
@@ -516,13 +435,14 @@
 				Base,
 			);
 			mainGroup = 3578CA1C26E8ED5E00667BEF;
+			packageReferences = (
+				35E01E362759F96700BA463C /* XCRemoteSwiftPackageReference "SwiftUIChart" */,
+			);
 			productRefGroup = 3578CA2626E8ED5E00667BEF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				3578CA2426E8ED5E00667BEF /* AHUer */,
-				3578CA3526E8ED5F00667BEF /* AHUerTests */,
-				3578CA4026E8ED5F00667BEF /* AHUerUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -534,20 +454,6 @@
 			files = (
 				3578CA3026E8ED5F00667BEF /* Preview Assets.xcassets in Resources */,
 				3578CA2D26E8ED5E00667BEF /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3578CA3426E8ED5F00667BEF /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3578CA3F26E8ED5F00667BEF /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -576,28 +482,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		3BB6C3259423BE3422F87BB7 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-AHUer-AHUerUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		982CE095CD0A2217F27754FA /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -613,45 +497,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AHUer/Pods-AHUer-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B76CFA3D99AAD6AAB32445A6 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AHUer-AHUerUITests/Pods-AHUer-AHUerUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AHUer-AHUerUITests/Pods-AHUer-AHUerUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AHUer-AHUerUITests/Pods-AHUer-AHUerUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C1D22F844387D3A30DAA19BF /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-AHUerTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -706,34 +551,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3578CA3226E8ED5F00667BEF /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3578CA3D26E8ED5F00667BEF /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		3578CA3826E8ED5F00667BEF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 3578CA2426E8ED5E00667BEF /* AHUer */;
-			targetProxy = 3578CA3726E8ED5F00667BEF /* PBXContainerItemProxy */;
-		};
-		3578CA4326E8ED5F00667BEF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 3578CA2426E8ED5E00667BEF /* AHUer */;
-			targetProxy = 3578CA4226E8ED5F00667BEF /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		3578CA4826E8ED5F00667BEF /* Debug */ = {
@@ -900,94 +718,6 @@
 			};
 			name = Release;
 		};
-		3578CA4E26E8ED5F00667BEF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 51E676CCED6E24409F56C237 /* Pods-AHUerTests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NVF47AP6H6;
-				INFOPLIST_FILE = AHUerTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.weiha.AHUerTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AHUer.app/AHUer";
-			};
-			name = Debug;
-		};
-		3578CA4F26E8ED5F00667BEF /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0A9987D7B8C0A6064E501A6C /* Pods-AHUerTests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NVF47AP6H6;
-				INFOPLIST_FILE = AHUerTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.weiha.AHUerTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AHUer.app/AHUer";
-			};
-			name = Release;
-		};
-		3578CA5126E8ED5F00667BEF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 80048EC7D05829CDA7AF80FA /* Pods-AHUer-AHUerUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NVF47AP6H6;
-				INFOPLIST_FILE = AHUerUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.weiha.AHUerUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = AHUer;
-			};
-			name = Debug;
-		};
-		3578CA5226E8ED5F00667BEF /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 44EB32932A6D03444E77F0B9 /* Pods-AHUer-AHUerUITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NVF47AP6H6;
-				INFOPLIST_FILE = AHUerUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.weiha.AHUerUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = AHUer;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1009,25 +739,26 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3578CA4D26E8ED5F00667BEF /* Build configuration list for PBXNativeTarget "AHUerTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3578CA4E26E8ED5F00667BEF /* Debug */,
-				3578CA4F26E8ED5F00667BEF /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		3578CA5026E8ED5F00667BEF /* Build configuration list for PBXNativeTarget "AHUerUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3578CA5126E8ED5F00667BEF /* Debug */,
-				3578CA5226E8ED5F00667BEF /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		35E01E362759F96700BA463C /* XCRemoteSwiftPackageReference "SwiftUIChart" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/weihas/SwiftUIChart";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		35E01E372759F96700BA463C /* SwiftUIChart */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 35E01E362759F96700BA463C /* XCRemoteSwiftPackageReference "SwiftUIChart" */;
+			productName = SwiftUIChart;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		3552E63627219401006A6322 /* AHUerCoreModel.xcdatamodeld */ = {

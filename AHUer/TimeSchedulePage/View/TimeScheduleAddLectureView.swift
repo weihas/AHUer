@@ -62,16 +62,16 @@ struct TimeScheduleAddLectureView: View {
     }
     
     func addLecture(){
-        guard let result = Course.fetch(context: self.viewContext, predicate: ("name = %@",name)) else { return }
+        guard let result = Course.fetch(context: self.viewContext, predicate: NSPredicate(format: "name = %@", name)) else { return }
         let attributeInfo = ["name": name, "location": location, "teacher": teacher, "weekday": weekDay, "startTime" : startTime, "length": length]
         do{
             if result.isEmpty{
                 let course = Course.insert(context: self.viewContext)?.update(context: self.viewContext, attributeInfo: attributeInfo)
-                course?.owner = Student.fetch(context: self.viewContext, predicate: AHUAppInfo.whoAmIPredicate)?[0]
+                course?.owner = Student.nowUser(viewContext)
                 try self.viewContext.save()
             }else{
                 result[0].update(context: self.viewContext, attributeInfo: attributeInfo)
-                result[0].owner = Student.fetch(context: self.viewContext, predicate: AHUAppInfo.whoAmIPredicate)?[0]
+                result[0].owner = Student.nowUser(viewContext)
                 try self.viewContext.save()
             }
         }catch{

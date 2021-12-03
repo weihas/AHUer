@@ -14,7 +14,7 @@
         <attribute name="weekday" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="owner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Student" inverseName="courses" inverseEntity="Student"/>
     </entity>
-    <entity name="Exam" representedClassName="Exam" syncable="YES" codeGenerationType="class">
+    <entity name="Examination" representedClassName="Examination" syncable="YES" codeGenerationType="class">
         <attribute name="course" optional="YES" attributeType="String"/>
         <attribute name="location" optional="YES" attributeType="String"/>
         <attribute name="schoolTerm" optional="YES" attributeType="String"/>
@@ -49,12 +49,12 @@
         <attribute name="totalGradePoint" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="totalGradePointAverage" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <relationship name="courses" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Course" inverseName="owner" inverseEntity="Course"/>
-        <relationship name="exams" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Exam" inverseName="owner" inverseEntity="Exam"/>
+        <relationship name="exams" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Examination" inverseName="owner" inverseEntity="Examination"/>
         <relationship name="grades" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="GradeScore" inverseName="owner" inverseEntity="GradeScore"/>
     </entity>
     <elements>
         <element name="Course" positionX="154.36328125" positionY="-1107.27734375" width="128" height="209"/>
-        <element name="Exam" positionX="57.76171875" positionY="-770.984375" width="128" height="134"/>
+        <element name="Examination" positionX="57.76171875" positionY="-770.984375" width="128" height="134"/>
         <element name="GPA" positionX="0.12890625" positionY="-534.1328125" width="128" height="134"/>
         <element name="GradeScore" positionX="-389.19921875" positionY="-500.5546875" width="128" height="149"/>
         <element name="Student" positionX="-314.73046875" positionY="-831.71875" width="152.84765625" height="163"/>

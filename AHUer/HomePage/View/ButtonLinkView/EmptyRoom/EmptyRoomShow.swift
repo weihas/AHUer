@@ -12,6 +12,7 @@ class EmptyRoomShow: ObservableObject {
     
     func search(campus: Int, weekday: Int, weekNum: Int, time: Int){
         AhuerAPIProvider.netRequest(.emptyRooms(campus: campus , weekday: weekday, weekNum: weekNum, time: time)) { [weak self] respon in
+            guard let self = self else { return }
             print(respon?["msg"] as? String ?? "")
             if let statusNum = respon?["success"] as? Bool, statusNum == true, let rooms = respon?["data"] as? [[String: String]]{
                 var result: [String :[EmptyRoom]] = [:]
@@ -28,9 +29,9 @@ class EmptyRoomShow: ObservableObject {
                     sections.append(EmptyRoomSection(id: id, name: key, rooms: value.sorted(by: {$0.pos < $1.pos})))
                     id += 1
                 }
-                self?.emptyRooms = sections.sorted(by: {$0.name < $1.name})
+                self.emptyRooms = sections.sorted(by: {$0.name < $1.name})
             }
-        } error: { error in
+        } error: { code, error in
             print(error)
         } failure: { failure in
             print(failure)

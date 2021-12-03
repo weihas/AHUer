@@ -29,12 +29,6 @@ class AHUAppInfo: ObservableObject {
         })
     }
     
-    static var whoAmIPredicate: (String, String){
-        @SetStorage(key: "AHUID", default: "") var studentID: String
-        return ("studentID = %@", studentID)
-    }
-    
-    
     deinit{
         print("🌀AHUAppInfo released")
     }

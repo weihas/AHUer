@@ -9,17 +9,32 @@ import Foundation
 import CoreData
 
 struct ScoreGets {
-    var list: [GradeList] = []
     
+    /// 总学分绩点和
+    private(set) var totalGradePoint: Double = 0
     
+    /// 总学分
+    private(set) var totalCredit: Double = 0
+    
+    /// 总绩点
+    private(set) var totalGradePointAverage: Double = 0
+    
+    private(set) var list: [GradeList] = []
     
     init() {
     }
     
-    mutating func freshList(context: NSManagedObjectContext){
-        guard let user = Student.fetch(context: context, predicate: AHUAppInfo.whoAmIPredicate)?.first,
-              let gradeScores = (user.grades?.allObjects as? [GradeScore]) else {return}
-        self.list = gradeScores.map({GradeList($0)})
+    
+    /// 获取信息
+    /// - Parameter context: CoreDate context
+    mutating func freshTotalPoint(context: NSManagedObjectContext){
+        guard let user = Student.nowUser(context) else { return }
+        self.totalGradePoint = user.totalGradePoint
+        self.totalCredit = user.totalCredit
+        self.totalGradePointAverage = user.totalCredit
+        if let gradeScores = (user.grades?.allObjects as? [GradeScore]){
+            self.list = gradeScores.map({GradeList($0)})
+        }
     }
 }
 

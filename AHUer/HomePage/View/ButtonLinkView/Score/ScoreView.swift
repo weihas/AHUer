@@ -9,8 +9,13 @@ import SwiftUI
 
 struct ScoreView: View {
     @ObservedObject var vm: ScoreShow
+    @Environment(\.managedObjectContext) private var viewContext
     var body: some View {
+        Button("Test") {
+            vm.getScore(context: viewContext)
+        }
         ScrollView(.horizontal, showsIndicators: true) {
+
             HStack{
                 Text("Placeholderajcbiabaicbabcaibaiubcaicbaciabcaibaicb")
                 Text("Placeholderajcbiabaicbabcaibaiubcaicbaciabcaibaicb")
@@ -18,7 +23,9 @@ struct ScoreView: View {
             .navigationTitle("成绩查询")
             .navigationBarTitleDisplayMode(.inline)
         }
-        
+        .onAppear {
+            vm.freshmodel(context: viewContext)
+        }
     }
 }
 
