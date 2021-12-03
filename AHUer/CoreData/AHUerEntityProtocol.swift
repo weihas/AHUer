@@ -64,20 +64,19 @@ extension AHUerEntityProtocol{
     func update(context: NSManagedObjectContext?, attributeInfo: [String: Any?]) -> selfType?{
         guard let context = context else {return nil}
         for (key,value) in attributeInfo {
-            guard let val = value as? String else { self.setNilValueForKey(key); continue }
-            let type = self.entity.attributesByName[key]?.attributeType
+            guard let type = self.entity.attributesByName[key]?.attributeType else { continue }
             switch type {
             case .integer16AttributeType: fallthrough
             case .integer32AttributeType: fallthrough
             case .integer64AttributeType:
-                self.setValue(Int(val), forKey: key)
+                self.setValue(Int("\(value ?? "nil")"), forKey: key)
             case .doubleAttributeType:
-                self.setValue(Double(val), forKey: key)
+                self.setValue(Double("\(value ?? "nil")"), forKey: key)
             case .booleanAttributeType:
-                self.setValue(Bool(val), forKey: key)
+                self.setValue(Bool("\(value ?? "nil")"), forKey: key)
 
             default:
-                self.setValue(val, forKey: key)
+                self.setValue(value, forKey: key)
             }
         }
         
@@ -113,7 +112,10 @@ extension Student: AHUerEntityProtocol {
     
     static func nowUser(_ context: NSManagedObjectContext?) -> Student?{
         @SetStorage(key: "AHUID", default: "") var studentID: String
-        return fetch(context: context, studentId: studentID)?.first
+        guard var students = fetch(context: context, studentId: studentID), !students.isEmpty else { return nil }
+        let student = students.removeFirst()
+        students.forEach({$0.delete(context: context)})
+        return student
     }
     
 }
@@ -122,16 +124,8 @@ extension Course: AHUerEntityProtocol{
     typealias selfType = Course
     
     static func fetch(context: NSManagedObjectContext?, courseName: String) -> [Course]?{
-        guard let context = context else {return nil}
-        let request = self.fetchRequest()
-        
-        request.predicate = NSPredicate(format: "name = %@", courseName)
-        
-        do {
-            return try context.fetch(request)
-        }catch {
-            return nil
-        }
+        let predicate = NSPredicate(format: "name = %@", courseName)
+        return fetch(context: context, predicate: predicate)
     }
 }
 
@@ -139,8 +133,13 @@ extension GPA: AHUerEntityProtocol{
     typealias selfType = GPA
 }
 
-extension GradeScore: AHUerEntityProtocol{
-    typealias selfType = GradeScore
+extension Grade: AHUerEntityProtocol{
+    typealias selfType = Grade
+    
+    static func fetch(context: NSManagedObjectContext?, schoolYear: String, schoolTerm: String) -> [Grade]?{
+        let predicate = NSPredicate(format: "schoolYear = %@ AND schoolTerm = %@", schoolYear, schoolTerm)
+        return fetch(context: context, predicate: predicate)
+    }
 }
 
 extension Examination: AHUerEntityProtocol{

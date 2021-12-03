@@ -10,53 +10,61 @@ import CoreData
 
 class PersonalPageShow: ObservableObject {
     @Published private var model: PersonalPageInfo
-    @Published var userID: String
-    @Published var password: String
+    @Published var userID: String = ""
+    @Published var password: String = ""
     @Published var showAlert: Bool = false
     @Published var showLoggingPanel: Bool = false
+    
     var msg: String?
     
     typealias provider = AhuerAPIProvider
-   
     
-    init(context: NSManagedObjectContext){
-        self.model = PersonalPageInfo()
-        self.userID = ""
-        self.password = ""
+    init(){
+        model = PersonalPageInfo()
     }
     
+    // MARK: -Access to the model
+    
+    var nowUser: User{
+        get { model.user }
+        set { model.user = newValue}
+    }
+    
+    var loggedUsers: [User]{
+        return model.loggedUsers
+    }
+    
+    
+    // MARK: -Intents(s)
+    
     func loggin(context: NSManagedObjectContext, completion: @escaping (Bool)-> Void){
-        guard let pw = password.rsaCrypto() else {return}
-        let studentID = userID
+        guard let pw = password.rsaCrypto() else { return }
         provider.netRequest(.login(userId: userID, password: pw, type: 1)) { [weak self, unowned context] respon in
-            self?.msg = respon?["msg"] as? String
-            if let status = respon?["success"] as? Bool, let data = respon?["data"] as? [String: Any], let userName = data["name"] as? String{
+            guard let self = self else {return}
+            if let data = respon?["data"] as? [String: Any], let userName = data["name"] as? String{
+                //cookie存储
+                HTTPCookieStorage.saveAHUerCookie()
                 
-                if let cookie = HTTPCookieStorage.shared.cookies(for: URL(string: "https://ahuer.cn/api")!)?.first{
-                    UserDefaults.standard.setValue(cookie.name + "=" + cookie.value, forKey: "AHUCookie")
+                self.model.user = User(studentID: self.userID, userName: userName, password: pw)
+                
+                completion(true)
+                
+                guard let result = Student.fetch(context: context, studentId: self.userID) else {return}
+                
+                if result.isEmpty{
+                    Student.insert(context: context)?.update(context: context, attributeInfo: ["studentID":self.userID,"studentName":userName])
+                }else{
+                    result.forEach {$0.update(context: context, attributeInfo: ["studentID":self.userID,"studentName":userName])}
                 }
-                    
-                guard let userId = self?.userID else {return}
-                self?.model.user = User(studentID: userId, userName: userName)
-                if status{
-                    UserDefaults.standard.setValue(pw, forKey: "AHUPassword")
-                    self?.model.user = User(studentID: studentID, userName: userName)
-                    completion(true)
-                    guard let result = Student.fetch(context: context, predicate: NSPredicate(format: "studentID = %@", studentID) ) else {return}
-                    if result.isEmpty{
-                        Student.insert(context: context)?.update(context: context, attributeInfo: ["studentID":studentID,"studentName":userName])
-                    }else{
-                        result.forEach { student in
-                            student.update(context: context, attributeInfo: ["studentID":studentID,"studentName":userName])
-                        }
-                    }
-                }
-                self?.getschedule(context: context)
-            }else{
-                self?.showAlert.toggle()
+                
+                // TODO: -GetSchedule
+                self.getschedule(context: context)
+                
             }
-        } error: { code, error in
-            print(error)
+        } error: { [weak self] code, msg in
+            self?.msg = msg
+            self?.showAlert.toggle()
+            print(msg)
         } failure: { failure in
             print(failure)
         }
@@ -64,55 +72,46 @@ class PersonalPageShow: ObservableObject {
     }
     
     func getschedule(context: NSManagedObjectContext){
-        provider.netRequest(.schedule(schoolYear: Date().studyYear, schoolTerm: Date().studyTerm)) { [weak self, unowned context] respon in
-            print(respon?["msg"] as? String ?? "")
-            if let statusNum = respon?["success"] as? Bool, statusNum == true, let schedules = respon?["data"] as? [[String: Any]]{
+        provider.netRequest(.schedule(schoolYear: Date().studyYear, schoolTerm: Date().studyTerm)) { [unowned context] respon in
+            if let schedules = respon?["data"] as? [[String: Any]]{
                 for schedule in schedules{
-                    guard let scheduleName = schedule["name"] as? String, let result = Course.fetch(context: context, predicate: NSPredicate(format: "name = %@", scheduleName)) else {continue}
-                    if result.isEmpty{
-                        let course = Course.insert(context: context)?.update(context: context, attributeInfo: schedule)
-                        course?.owner = Student.nowUser(context)
-                        try? context.save()
-                    }else{
-                        result[0].update(context: context, attributeInfo: schedule)
-                        result[0].owner = Student.nowUser(context)
-                        try? context.save()
+                    guard let scheduleName = schedule["name"] as? String, let result = Course.fetch(context: context, courseName: scheduleName) else {continue}
+                    do{
+                        if result.isEmpty{
+                            let course = Course.insert(context: context)?.update(context: context, attributeInfo: schedule)
+                            course?.owner = Student.nowUser(context)
+                            try context.save()
+                        }else{
+                            result[0].update(context: context, attributeInfo: schedule)
+                            result[0].owner = Student.nowUser(context)
+                            try context.save()
+                        }
+                    }catch{
+                        NSLog("CoreData Save Error")
                     }
                 }
-            }else{
-                self?.showAlert.toggle()
             }
-        } error: { code, error in
-            print(error)
+        } error: { [weak self] code, msg in
+            self?.msg = msg
+            self?.showAlert.toggle()
+            print(msg)
         } failure: { failure in
             print(failure)
         }
     }
     
     func logout(context: NSManagedObjectContext){
-        let nowUserID = self.nowUser.studentID
-        provider.netRequest(.logout(type: 1)) { [weak context] respon in
-            guard let student = Student.fetch(context: context, predicate: NSPredicate(format: "studentID = %@", nowUserID)) else { return }
-            student.forEach({$0.delete(context: context)})
-        } error: { code, error  in
-            print(error)
+        provider.netRequest(.logout(type: 1)) { [unowned context] respon in
+            guard let student = Student.nowUser(context) else { return }
+            student.delete(context: context)
+        } error: {  [weak self] code, msg in
+            self?.msg = msg
+            self?.showAlert.toggle()
+            print(msg)
         } failure: { failure in
             print(failure)
         }
         UserDefaults.standard.removeObject(forKey: "AHUCookie")
-    }
-    
-    var nowUser: User{
-        get {
-            return model.user
-        }
-        set {
-            model.user = newValue
-        }
-    }
-    
-    var loggedUsers: [User]{
-        return model.loggedUsers
     }
     
     deinit {
@@ -120,4 +119,12 @@ class PersonalPageShow: ObservableObject {
     }
     
     
+}
+
+extension HTTPCookieStorage{
+    static func saveAHUerCookie(){
+        if let cookie = HTTPCookieStorage.shared.cookies(for: URL(string: "https://ahuer.cn/api")!)?.first{
+            UserDefaults.standard.setValue(cookie.name + "=" + cookie.value, forKey: "AHUCookie")
+        }
+    }
 }

@@ -32,7 +32,7 @@ struct ScoreGets {
         self.totalGradePoint = user.totalGradePoint
         self.totalCredit = user.totalCredit
         self.totalGradePointAverage = user.totalCredit
-        if let gradeScores = (user.grades?.allObjects as? [GradeScore]){
+        if let gradeScores = (user.grades?.allObjects as? [Grade]){
             self.list = gradeScores.map({GradeList($0)})
         }
     }
@@ -40,7 +40,7 @@ struct ScoreGets {
 
 struct GradeList: Identifiable {
     
-    init(_ termList: GradeScore){
+    init(_ termList: Grade){
         self.id = termList.id
         self.schoolYear = termList.schoolYear ?? ""
         self.schoolTerm = termList.schoolTerm ?? ""
@@ -48,7 +48,7 @@ struct GradeList: Identifiable {
         self.termTotalCredit = termList.termTotalCredit
         self.termGradePointAverge = termList.termGradePointAverage
         
-        if let gradeGpas = termList.gradeList?.allObjects as? [GPA]{
+        if let gradeGpas = termList.gpas?.allObjects as? [GPA]{
             self.Lectures = gradeGpas.map({LectureGPA($0)})
         }
     }

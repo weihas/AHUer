@@ -13,18 +13,17 @@ import CoreData
 struct RootView: View {
     @EnvironmentObject var appInfo: AHUAppInfo
     @Environment(\.managedObjectContext) private var viewContext
-    let hps = HomePageShow()
-    let tss = TimeScheduleShow()
-   
+    private var rootVM = RootViewShow()
+    
     var body: some View {
         TabView(selection: $appInfo.tabItemNum) {
-            HomePageView(vm: hps)
+            HomePageView(vm: rootVM.HomePageViewModel)
                 .tabItem {
                     Image(systemName: "house")
                     Text("主页")
                 }
                 .tag(0)
-            TimeSchedulePageView(vm: tss)
+            TimeSchedulePageView(vm: rootVM.timeScheduleViewModel)
                 .tabItem {
                     Image(systemName: "calendar")
                     Text("课表")
@@ -36,8 +35,8 @@ struct RootView: View {
 //                    Text("资讯")
 //                }
 //                .tag(2)
-            let pps = PersonalPageShow(context: viewContext)
-            PersonalPageView(vm: pps)
+
+            PersonalPageView(vm: rootVM.PersonalPageViewModel)
                 .tabItem {
                     Image(systemName: "person.circle")
                     Text("个人")

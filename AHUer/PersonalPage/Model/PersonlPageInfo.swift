@@ -17,9 +17,10 @@ struct PersonalPageInfo{
             User(studentID: userID, userName: userName, password: userPassWD)
         }
         set {
+            isLoggin = newValue.studentID != ""
             userID = newValue.studentID
             userName = newValue.userName
-            isLoggin = newValue.studentID != ""
+            userPassWD = newValue.password
         }
     }
     var loggedUsers: [User] = []
@@ -28,5 +29,5 @@ struct PersonalPageInfo{
 struct User{
     var studentID: String
     var userName: String
-    var password: String = ""
+    var password: String
 }

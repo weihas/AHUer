@@ -42,13 +42,29 @@ class ScoreShow: ObservableObject{
     func getScore(context: NSManagedObjectContext){
         AhuerAPIProvider.netRequest(.grade) { [weak self, unowned context] respon in
             guard let self = self else { return }
-            if let statusNum = respon?["success"] as? Bool, statusNum == true, var grade = respon?["data"] as? [String: Any]{
-                let termGradeLists = grade.removeValue(forKey: "termGradeList")
-                Student.nowUser(context)?.update(context: context, attributeInfo: grade)
-                
-                
-                let b = grade
-                let stop = 0
+            if let grades = respon?["data"] as? [String: Any]{
+                let user = Student.nowUser(context)?.update(context: context, attributeInfo: grades)
+                guard let termGradeLists = grades["termGradeList"] as? [[String:Any?]] else {return}
+                do {
+                    for term in termGradeLists{
+                        guard let gpas = term["termGradeList"] as? [[String:Any]?], let schoolYear = term["schoolYear"] as? String, let schoolTerm = term["schoolTerm"] as? String else {continue}
+                        
+                        //清空原有的数据
+                        Grade.fetch(context: context, schoolYear: schoolYear, schoolTerm: schoolTerm)?.forEach({$0.delete(context: context)})
+                        
+                        let grade = Grade.insert(context: context)?.update(context: context, attributeInfo: term)
+                        for gpa in gpas{
+                            let g = GPA.insert(context: context)?.update(context: context, attributeInfo: gpa ?? [:])
+                            g?.owner = grade
+                            try context.save()
+                        }
+                        grade?.owner = user
+                        try context.save()
+                    }
+                }catch{
+                    print("CoreData Save Error")
+                }
+
             }
         } error: { code,error  in
             print(error)

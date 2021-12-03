@@ -17,16 +17,20 @@ struct AhuerAPIProvider{
     typealias failureCallBack =  (MoyaError) ->Void
     
     
-    static func netRequest(_ target: AHUerAPI, success successCallback: @escaping successCallback, error errorCallBack: @escaping errorCallBack, failure failureCallBack: @escaping failureCallBack){
+    static func netRequest(_ target: AHUerAPI,
+                           success successCallback: @escaping successCallback,
+                           error errorCallBack: @escaping errorCallBack,
+                           failure failureCallBack: @escaping failureCallBack)
+    {
         provider.request(target) { result in
             switch result {
             case .success(let respon):
                 if let analysis = try? respon.mapJSON(failsOnEmptyData: true) as? [String:Any]{
-                    do {
-                        let _ = try respon.filterSuccessfulStatusCodes()
+                    let msg = analysis["msg"] as? String ?? ""
+                    if let status = analysis["success"] as? Bool, status == true {
                         successCallback(analysis)
-                    }catch{
-                        errorCallBack(analysis["code"] as? Int ?? -1, analysis["msg"] as? String ?? "未知错误")
+                    }else{
+                        errorCallBack(analysis["code"] as? Int ?? -1, msg)
                     }
                 }else{
                     errorCallBack(-10, "JSON解析失败")
