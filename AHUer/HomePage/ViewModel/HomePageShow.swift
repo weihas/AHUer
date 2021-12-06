@@ -18,7 +18,7 @@ class HomePageShow: ObservableObject{
     
     // MARK: -Intent
     
-    var nextCourse: Lecture{
+    var nextCourse: Course?{
         return model.nextCourse
     }
     
@@ -36,11 +36,11 @@ class HomePageShow: ObservableObject{
     
     func freshImmediatelyLecture(context: NSManagedObjectContext) {
         model.fetchImmediatelyLecture(context: context)
-        self.objectWillChange.send()
     }
     
     lazy var emptyClassVM = EmptyRoomShow()
     lazy var scoreViewVM = ScoreShow()
+    lazy var examSiteVM = ExamSiteShow()
     
     deinit {
         print("🌀HomePageShow released")

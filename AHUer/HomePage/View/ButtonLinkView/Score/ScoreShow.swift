@@ -7,9 +7,10 @@
 
 import Foundation
 import CoreData
+import SwiftUIChart
 
 class ScoreShow: ObservableObject{
-    private var model: ScoreGets
+    @Published private var model: ScoreGets
     
     init(){
         model = ScoreGets()
@@ -32,6 +33,19 @@ class ScoreShow: ObservableObject{
         return model.totalGradePointAverage
     }
     
+    var grades: [Grade]{
+        return model.grades
+    }
+    
+    var gpaLine: [Double]{
+        return model.grades.map({$0.termGradePointAverage})
+    }
+    
+    var gpaline: ChartData {
+        return ChartData(values: model.grades.map({(($0.schoolYear ?? "") + "\n" + ($0.schoolTerm ?? "") ,$0.termTotalCredit)}))
+    }
+    
+    
     
     // MARK: -Intents(s)
     func freshmodel(context: NSManagedObjectContext){
@@ -40,21 +54,20 @@ class ScoreShow: ObservableObject{
     
     ///网络请求成绩
     func getScore(context: NSManagedObjectContext){
-        AhuerAPIProvider.netRequest(.grade) { [weak self, unowned context] respon in
-            guard let self = self else { return }
+        AhuerAPIProvider.netRequest(.grade) { [unowned context] respon in
             if let grades = respon?["data"] as? [String: Any]{
-                let user = Student.nowUser(context)?.update(context: context, attributeInfo: grades)
+                let user = Student.nowUser(context)?.update(in: context, of: grades)
                 guard let termGradeLists = grades["termGradeList"] as? [[String:Any?]] else {return}
                 do {
                     for term in termGradeLists{
                         guard let gpas = term["termGradeList"] as? [[String:Any]?], let schoolYear = term["schoolYear"] as? String, let schoolTerm = term["schoolTerm"] as? String else {continue}
                         
                         //清空原有的数据
-                        Grade.fetch(context: context, schoolYear: schoolYear, schoolTerm: schoolTerm)?.forEach({$0.delete(context: context)})
+                        Grade.fetch(context: context, schoolYear: schoolYear, schoolTerm: schoolTerm)?.forEach({$0.delete(in: context)})
                         
-                        let grade = Grade.insert(context: context)?.update(context: context, attributeInfo: term)
+                        let grade = Grade.insert(in: context)?.update(in: context, of: term)
                         for gpa in gpas{
-                            let g = GPA.insert(context: context)?.update(context: context, attributeInfo: gpa ?? [:])
+                            let g = GPA.insert(in: context)?.update(in: context, of: gpa ?? [:])
                             g?.owner = grade
                             try context.save()
                         }

@@ -58,7 +58,7 @@ public extension Date {
     }
     
     // MARK: 1.7、从 Date 获取 小时
-    /// 从 Date 获取 日
+    /// 从 Date 获取 小时
     var hour: Int {
         return Calendar.current.component(.hour, from: self)
     }
@@ -209,6 +209,7 @@ public extension Date {
     
 }
 
+//AHUer
 extension Date{
     var studyTerm: Int{
         return self.month > 1 && self.month < 9 ? 2 : 1
@@ -221,5 +222,28 @@ extension Date{
             return String(year-1) + "-" + String(year)
         }
     }
+    
+    var startTime: Int{
+        if (8..<10).contains(hour){
+            return 1
+        }else if (10..<12).contains(hour){
+            return 2
+        }else if (14..<16).contains(hour){
+            return 3
+        }else if (16..<18).contains(hour){
+            return 4
+        }else if (19..<22).contains(hour){
+            return 5
+        }else{
+            return 0
+        }
+    }
+    
+    
+    //TODO: -
+    var studyWeek: Int{
+        return 11
+    }
+    
 }
 

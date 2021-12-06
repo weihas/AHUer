@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftUIChart
 
 struct ScoreView: View {
     @ObservedObject var vm: ScoreShow
@@ -14,6 +15,12 @@ struct ScoreView: View {
         Button("Test") {
             vm.getScore(context: viewContext)
         }
+        BarChartView(data: vm.gpaline, title: "Hello")
+        
+        LineChartView(data: vm.gpaLine, title: "GPA", rateValue: 1)
+        
+        
+        
         ScrollView(.horizontal, showsIndicators: true) {
 
             HStack{

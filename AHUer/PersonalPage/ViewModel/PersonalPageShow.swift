@@ -49,12 +49,12 @@ class PersonalPageShow: ObservableObject {
                 
                 completion(true)
                 
-                guard let result = Student.fetch(context: context, studentId: self.userID) else {return}
+                guard let result = Student.fetch(in: context, studentId: self.userID) else {return}
                 
                 if result.isEmpty{
-                    Student.insert(context: context)?.update(context: context, attributeInfo: ["studentID":self.userID,"studentName":userName])
+                    Student.insert(in: context)?.update(in: context, of: ["studentID":self.userID,"studentName":userName])
                 }else{
-                    result.forEach {$0.update(context: context, attributeInfo: ["studentID":self.userID,"studentName":userName])}
+                    result.forEach {$0.update(in: context, of: ["studentID" : self.userID, "studentName" : userName])}
                 }
                 
                 // TODO: -GetSchedule
@@ -75,14 +75,14 @@ class PersonalPageShow: ObservableObject {
         provider.netRequest(.schedule(schoolYear: Date().studyYear, schoolTerm: Date().studyTerm)) { [unowned context] respon in
             if let schedules = respon?["data"] as? [[String: Any]]{
                 for schedule in schedules{
-                    guard let scheduleName = schedule["name"] as? String, let result = Course.fetch(context: context, courseName: scheduleName) else {continue}
+                    guard let scheduleName = schedule["name"] as? String, let result = Course.fetch(in: context, courseName: scheduleName) else {continue}
                     do{
                         if result.isEmpty{
-                            let course = Course.insert(context: context)?.update(context: context, attributeInfo: schedule)
+                            let course = Course.insert(in: context)?.update(in: context, of: schedule)
                             course?.owner = Student.nowUser(context)
                             try context.save()
                         }else{
-                            result[0].update(context: context, attributeInfo: schedule)
+                            result[0].update(in: context, of: schedule)
                             result[0].owner = Student.nowUser(context)
                             try context.save()
                         }
@@ -103,7 +103,7 @@ class PersonalPageShow: ObservableObject {
     func logout(context: NSManagedObjectContext){
         provider.netRequest(.logout(type: 1)) { [unowned context] respon in
             guard let student = Student.nowUser(context) else { return }
-            student.delete(context: context)
+            student.delete(in: context)
         } error: {  [weak self] code, msg in
             self?.msg = msg
             self?.showAlert.toggle()

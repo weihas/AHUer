@@ -10,39 +10,29 @@ import SwiftUI
 import CoreData
 
 struct HomePageInfo {
-    var nextCourse: Lecture
+    var nextCourse: Course?
     var northBathroomisMen: Bool
     var gpa: (thisGrade: Double , all: Double)
     
     var buttonsInfo: [ButtonInfo]
     
     init() {
-        nextCourse = Lecture()
         northBathroomisMen = true
         gpa = (5.0,4.0)
         buttonsInfo = ButtonInfo.buttonInfos
     }
     
     mutating func fetchImmediatelyLecture(context: NSManagedObjectContext){
-        nextCourse = Lecture()
+        let today = Date()
+        //TODO: -
+        
+        let predicete = NSPredicate(format: "weekday = %@", NSNumber(value: today.weekDay))
+        
+        
         guard let user = Student.nowUser(context),
-              let courses = (user.courses?.allObjects as? [Course])?.sorted(by: {$0.startTime < $1.startTime}) else {return}
-
-        for course in courses {
-            if Date().weekDay == course.weekday, course.startTime > 0{
-                nextCourse.time = "\(course.startTime)"
-                nextCourse.name = "\(course.name ?? "")"
-                nextCourse.location = course.location ?? ""
-                break
-            }
-        }
+              let courses = Course.fetch(in: context, by: predicete)?.filter({$0.owner == user}).sorted(by: {$0.startTime < $1.startTime}) else { nextCourse = nil ; return }
+        nextCourse = courses.first
     }
-}
-
-struct Lecture {
-    var name: String = " --"
-    var location: String = "--"
-    var time: String = "--"
 }
 
 struct ButtonInfo: Identifiable{

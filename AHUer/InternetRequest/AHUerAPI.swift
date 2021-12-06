@@ -15,6 +15,7 @@ public enum AHUerAPI {
     case logout(type: Int)
     case emptyRooms(campus: Int, weekday: Int, weekNum: Int, time: Int)
     case grade
+    case examInfo(schoolYear: String, schoolTerm: Int)
 }
 
 extension AHUerAPI: TargetType {
@@ -33,6 +34,8 @@ extension AHUerAPI: TargetType {
             return "/api/emptyRoom"
         case .grade:
             return "/api/grade"
+        case .examInfo:
+            return "/api/examInfo"
         }
     }
 
@@ -47,6 +50,8 @@ extension AHUerAPI: TargetType {
         case .emptyRooms:
             return .get
         case .grade:
+            return .get
+        case .examInfo:
             return .get
         }
     }
@@ -63,6 +68,8 @@ extension AHUerAPI: TargetType {
             return .requestParameters(parameters: ["campus": campus, "weekday": weekday, "weekNum": weekNum, "time": time], encoding: URLEncoding.default)
         case .grade:
             return .requestPlain
+        case .examInfo(let schoolYear, let schoolTerm):
+            return .requestParameters(parameters: ["schoolYear": schoolYear, "schoolTerm": schoolTerm], encoding: URLEncoding.default)
         }
     }
 
@@ -87,6 +94,8 @@ extension AHUerAPI: TargetType {
             return "get emptyRooms"
         case .grade:
             return "get grade"
+        case .examInfo:
+            return "get examInfo"
         }
     }
 }
@@ -112,7 +121,7 @@ final class AHUerAlertPlugin: PluginType {
     
     func didReceive(_ result: Result<Response, MoyaError>, target: TargetType) {
         if let ahuTarget = target as? AHUerAPI, let startTime = self.startTime {
-            print("====>Receive" + ahuTarget.APILogName + " back" + "耗时" + "\(CFAbsoluteTimeGetCurrent() - startTime) s")
+            print("====>Receive" + ahuTarget.APILogName + " back " + "耗时 " + "\(CFAbsoluteTimeGetCurrent() - startTime) s")
         }
     }
 }

@@ -34,13 +34,13 @@ class TimeScheduleShow: ObservableObject{
             print(respon?["msg"] as? String ?? "")
             if let statusNum = respon?["success"] as? Bool, statusNum == true, let schedules = respon?["data"] as? [[String: Any]]{
                 for schedule in schedules{
-                    guard let scheduleName = schedule["name"] as? String, let result = Course.fetch(context: context, predicate: NSPredicate(format: "name = %@", scheduleName)) else {continue}
+                    guard let scheduleName = schedule["name"] as? String, let result = Course.fetch(in: context, by: NSPredicate(format: "name = %@", scheduleName)) else {continue}
                     if result.isEmpty{
-                        let course = Course.insert(context: context)?.update(context: context, attributeInfo: schedule)
+                        let course = Course.insert(in: context)?.update(in: context, of: schedule)
                         course?.owner = Student.nowUser(context)
                         try? context.save()
                     }else{
-                        result[0].update(context: context, attributeInfo: schedule)
+                        result[0].update(in: context, of: schedule)
                         result[0].owner = Student.nowUser(context)
                         try? context.save()
                     }

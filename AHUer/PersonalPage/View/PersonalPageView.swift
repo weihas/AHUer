@@ -172,11 +172,11 @@ extension PersonalPageView{
 
 
 
-struct PersonalPageView_Previews: PreviewProvider {
-    static var previews: some View {
-        VStack{
-            
-        }
-//        PersonalPageView(vm: PersonalPageShow(context: NSManagedObjectContext()))
-    }
-}
+//struct PersonalPageView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        VStack{
+//
+//        }
+////        PersonalPageView(vm: PersonalPageShow(context: NSManagedObjectContext()))
+//    }
+//}

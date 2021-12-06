@@ -40,7 +40,7 @@ struct HomePageView: View {
                         case 1:
                             ScoreView(vm: vm.scoreViewVM)
                         case 2:
-                            ExamSiteView()
+                            ExamSiteView(vm: vm.examSiteVM)
                         case 3:
                             BathView()
                         default:
@@ -57,12 +57,12 @@ struct HomePageView: View {
     
     private var lectureLabel: some View {
         GroupBox(label: Label("即将开始", systemImage: "note.text")) {
-            Text(vm.nextCourse.name )
+            Text(vm.nextCourse?.name ?? " -- " )
                 .font(.title2)
                 .foregroundColor(.blue)
             HStack{
-                Label(vm.nextCourse.location , systemImage: "location")
-                Label(vm.nextCourse.time , systemImage: "clock")
+                Label(vm.nextCourse?.location ?? " -- " , systemImage: "location")
+                Label("\(vm.nextCourse?.startTime ?? 0)" , systemImage: "clock")
                 Spacer()
             }
             .font(.footnote)

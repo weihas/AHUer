@@ -14,7 +14,7 @@ protocol AHUerEntityProtocol: NSManagedObject {
 }
 
 extension AHUerEntityProtocol{
-    static func insert(context: NSManagedObjectContext?) -> selfType?{
+    static func insert(in context: NSManagedObjectContext?) -> selfType?{
         if let context = context,
            let entityName = self.entity().name,
            let insetData = NSEntityDescription.insertNewObject(forEntityName: entityName, into: context) as? selfType {
@@ -25,7 +25,7 @@ extension AHUerEntityProtocol{
     }
     
     
-    static func fetch(context: NSManagedObjectContext?, predicate: NSPredicate?, sort: [String: Bool]? = nil, limit: Int? = nil) -> [selfType]? {
+    static func fetch(in context: NSManagedObjectContext?, by predicate: NSPredicate?, sort: [String: Bool]? = nil, limit: Int? = nil) -> [selfType]? {
         guard let context = context else {return nil}
         let request = self.fetchRequest()
         // predicate
@@ -48,7 +48,7 @@ extension AHUerEntityProtocol{
     }
     
     @discardableResult
-    func delete(context: NSManagedObjectContext?) -> Bool{
+    func delete(in context: NSManagedObjectContext?) -> Bool{
         guard let context = context else {return false}
         do {
             context.delete(self)
@@ -61,7 +61,7 @@ extension AHUerEntityProtocol{
     }
     
     @discardableResult
-    func update(context: NSManagedObjectContext?, attributeInfo: [String: Any?]) -> selfType?{
+    func update(in context: NSManagedObjectContext?, of attributeInfo: [String: Any?]) -> selfType?{
         guard let context = context else {return nil}
         for (key,value) in attributeInfo {
             guard let type = self.entity.attributesByName[key]?.attributeType else { continue }
@@ -97,7 +97,7 @@ extension Student: AHUerEntityProtocol {
     typealias selfType = Student
     
     
-    static func fetch(context: NSManagedObjectContext?, studentId: String) -> [Student]?{
+    static func fetch(in context: NSManagedObjectContext?, studentId: String) -> [Student]?{
         guard let context = context else {return nil}
         let request = self.fetchRequest()
         
@@ -112,9 +112,9 @@ extension Student: AHUerEntityProtocol {
     
     static func nowUser(_ context: NSManagedObjectContext?) -> Student?{
         @SetStorage(key: "AHUID", default: "") var studentID: String
-        guard var students = fetch(context: context, studentId: studentID), !students.isEmpty else { return nil }
+        guard var students = fetch(in: context, studentId: studentID), !students.isEmpty else { return nil }
         let student = students.removeFirst()
-        students.forEach({$0.delete(context: context)})
+        students.forEach({$0.delete(in: context)})
         return student
     }
     
@@ -123,9 +123,9 @@ extension Student: AHUerEntityProtocol {
 extension Course: AHUerEntityProtocol{
     typealias selfType = Course
     
-    static func fetch(context: NSManagedObjectContext?, courseName: String) -> [Course]?{
+    static func fetch(in context: NSManagedObjectContext?, courseName: String) -> [Course]?{
         let predicate = NSPredicate(format: "name = %@", courseName)
-        return fetch(context: context, predicate: predicate)
+        return fetch(in: context, by: predicate)
     }
 }
 
@@ -138,10 +138,10 @@ extension Grade: AHUerEntityProtocol{
     
     static func fetch(context: NSManagedObjectContext?, schoolYear: String, schoolTerm: String) -> [Grade]?{
         let predicate = NSPredicate(format: "schoolYear = %@ AND schoolTerm = %@", schoolYear, schoolTerm)
-        return fetch(context: context, predicate: predicate)
+        return fetch(in: context, by: predicate)
     }
 }
 
-extension Examination: AHUerEntityProtocol{
-    typealias selfType = Examination
+extension Exam: AHUerEntityProtocol{
+    typealias selfType = Exam
 }

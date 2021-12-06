@@ -12,9 +12,9 @@ import CoreData
 /// AHUerAPI容器
 struct AhuerAPIProvider{
     private static let provider = MoyaProvider<AHUerAPI>(plugins: [AHUerAlertPlugin()])
-    typealias successCallback = ([String:Any]?) -> Void
+    typealias successCallback = (_ respon: [String:Any]?) -> Void
     typealias errorCallBack =  (_ statusCode: Int, _ message: String) -> Void
-    typealias failureCallBack =  (MoyaError) ->Void
+    typealias failureCallBack =  (_ falilure: MoyaError) ->Void
     
     
     static func netRequest(_ target: AHUerAPI,
@@ -30,7 +30,7 @@ struct AhuerAPIProvider{
                     if let status = analysis["success"] as? Bool, status == true {
                         successCallback(analysis)
                     }else{
-                        errorCallBack(analysis["code"] as? Int ?? -1, msg)
+                        errorCallBack(analysis["code"] as? Int ?? -3, msg)
                     }
                 }else{
                     errorCallBack(-10, "JSON解析失败")

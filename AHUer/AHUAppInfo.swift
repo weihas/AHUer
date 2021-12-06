@@ -24,8 +24,8 @@ class AHUAppInfo: ObservableObject {
     }
     
     func cleanUp(context: NSManagedObjectContext){
-        Student.fetch(context: context, predicate: nil)?.forEach({ student in
-            student.delete(context: context)
+        Student.fetch(in: context, by: nil)?.forEach({ student in
+            student.delete(in: context)
         })
     }
     

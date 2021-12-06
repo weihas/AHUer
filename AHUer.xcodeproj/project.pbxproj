@@ -19,6 +19,8 @@
 		35607B9F26EA025B0037504E /* NewsPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35607B9E26EA025B0037504E /* NewsPageView.swift */; };
 		35607BA226EA02E00037504E /* PersonalPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35607BA126EA02E00037504E /* PersonalPageView.swift */; };
 		35607BA726EA18280037504E /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35607BA626EA18280037504E /* SettingView.swift */; };
+		357669F0275E4FC7002504B4 /* ExamSiteShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357669EF275E4FC7002504B4 /* ExamSiteShow.swift */; };
+		357669F2275E5041002504B4 /* ExamSite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357669F1275E5041002504B4 /* ExamSite.swift */; };
 		3578CA2926E8ED5E00667BEF /* AHUerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3578CA2826E8ED5E00667BEF /* AHUerApp.swift */; };
 		3578CA2D26E8ED5E00667BEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3578CA2C26E8ED5E00667BEF /* Assets.xcassets */; };
 		3578CA3026E8ED5F00667BEF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3578CA2F26E8ED5F00667BEF /* Preview Assets.xcassets */; };
@@ -71,6 +73,8 @@
 		35607B9E26EA025B0037504E /* NewsPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPageView.swift; sourceTree = "<group>"; };
 		35607BA126EA02E00037504E /* PersonalPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalPageView.swift; sourceTree = "<group>"; };
 		35607BA626EA18280037504E /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		357669EF275E4FC7002504B4 /* ExamSiteShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamSiteShow.swift; sourceTree = "<group>"; };
+		357669F1275E5041002504B4 /* ExamSite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamSite.swift; sourceTree = "<group>"; };
 		3578CA2526E8ED5E00667BEF /* AHUer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AHUer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3578CA2826E8ED5E00667BEF /* AHUerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AHUerApp.swift; sourceTree = "<group>"; };
 		3578CA2C26E8ED5E00667BEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -340,12 +344,22 @@
 			children = (
 				844023F32750D8740034B224 /* EmptyRoom */,
 				847A12CD2750DF560011428B /* Score */,
-				3586B8D026EDA31F00B42A90 /* ExamSiteView.swift */,
+				35D89495275E4F8B00A40EF8 /* ExamSite */,
 				35AA432A26E916320096724A /* BathView.swift */,
 				3586B8D826EDA3CD00B42A90 /* MoreView.swift */,
 				3586B8DC26EDAC1100B42A90 /* AddressBook */,
 			);
 			path = ButtonLinkView;
+			sourceTree = "<group>";
+		};
+		35D89495275E4F8B00A40EF8 /* ExamSite */ = {
+			isa = PBXGroup;
+			children = (
+				357669F1275E5041002504B4 /* ExamSite.swift */,
+				357669EF275E4FC7002504B4 /* ExamSiteShow.swift */,
+				3586B8D026EDA31F00B42A90 /* ExamSiteView.swift */,
+			);
+			path = ExamSite;
 			sourceTree = "<group>";
 		};
 		5B4D9D9A18BED84CA75EA87F /* Pods */ = {
@@ -511,6 +525,7 @@
 			files = (
 				35A801B32747EC68009E3D08 /* TimeScheduleAddLectureView.swift in Sources */,
 				847A12D12750E0A90011428B /* ScoreGets.swift in Sources */,
+				357669F0275E4FC7002504B4 /* ExamSiteShow.swift in Sources */,
 				35EA370626EB022C00107955 /* AddressBookView.swift in Sources */,
 				844023D4274F67860034B224 /* Popup.swift in Sources */,
 				35A578BA273E1BD40056166F /* PersonlPageInfo.swift in Sources */,
@@ -524,6 +539,7 @@
 				350710B0274A3BB8006D0587 /* Color+Extension.swift in Sources */,
 				847A12CF2750DF6E0011428B /* ScoreShow.swift in Sources */,
 				3578CA6526E9120400667BEF /* TimeSchedule.swift in Sources */,
+				357669F2275E5041002504B4 /* ExamSite.swift in Sources */,
 				351213E526ECBE7B00D62E9B /* NewsModels.swift in Sources */,
 				3578CA2926E8ED5E00667BEF /* AHUerApp.swift in Sources */,
 				35607B9F26EA025B0037504E /* NewsPageView.swift in Sources */,

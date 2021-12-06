@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ExamSiteView: View {
+    @ObservedObject var vm: ExamSiteShow
     var body: some View {
         VStack{
             Text("考试查询")
@@ -17,8 +18,14 @@ struct ExamSiteView: View {
     }
 }
 
-struct ExamSiteView_Previews: PreviewProvider {
-    static var previews: some View {
-        ExamSiteView()
-    }
-}
+
+
+
+
+
+
+//struct ExamSiteView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ExamSiteView()
+//    }
+//}
