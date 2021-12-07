@@ -46,7 +46,7 @@ struct AhuerAPIProvider{
 
 // 一些操作的包装
 extension AhuerAPIProvider{
-    typealias successNotify = (_ status: Bool) -> Void
+    typealias successNotify = () -> Void
     /// 网络请求登录
     /// - Parameters:
     static func loggin(userId: String, password: String, type: Int, in context: NSManagedObjectContext, success successNotify: @escaping successNotify, error errorCallBack: @escaping errorCallBack) {
@@ -61,7 +61,7 @@ extension AhuerAPIProvider{
                 }else{
                     result.forEach {$0.update(in: context, of: ["studentID" : userId, "studentName" : userName])}
                 }
-                successNotify(true)
+                successNotify()
             }
         } error: { statusCode, message in
             errorCallBack(statusCode, message)
@@ -86,9 +86,9 @@ extension AhuerAPIProvider{
                             result.forEach({$0.update(in: context, of: schedule)})
                         }
                     }
-                    successNotify(true)
+                    successNotify()
                 }catch{
-                    successNotify(false)
+                    print("📦CoreData Save Error")
                 }
             }
         } error: { statusCode, message in
@@ -119,9 +119,9 @@ extension AhuerAPIProvider{
                         grade?.owner = user
                         try context.save()
                     }
-                    successNotify(true)
+                    successNotify()
                 }catch{
-                    successNotify(false)
+                    print("📦CoreData Save Error")
                 }
             }
         } error: { statusCode, message in
@@ -155,10 +155,9 @@ extension AhuerAPIProvider{
                             try context.save()
                         }
                     }
-                    successNotify(true)
+                    successNotify()
                 }catch{
-                    print("CoreData Save Error")
-                    successNotify(false)
+                    print("📦CoreData Save Error")
                 }
             }
         } error: { statusCode, message in
@@ -174,7 +173,7 @@ extension AhuerAPIProvider{
             guard let student = Student.nowUser(context) else { return }
             student.delete(in: context)
             HTTPCookieStorage.deleteAHUerCookie()
-            successNotify(true)
+            successNotify()
         } error: { statusCode, message in
             errorCallBack(statusCode, message)
         } failure: { failure in

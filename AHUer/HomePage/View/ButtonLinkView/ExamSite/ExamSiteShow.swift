@@ -25,8 +25,9 @@ class ExamSiteShow: ObservableObject {
     //MARK: -Intents
     
     func freshScoreModelByInternet(in context: NSManagedObjectContext) {
-        AhuerAPIProvider.getExamination(year: "2020-2021", term: 1, in: context) { status in
-            
+        AhuerAPIProvider.getExamination(year: "2020-2021", term: 1, in: context) { [weak self, unowned context] in
+            guard let self = self else {return}
+            self.freshExamModelData(in: context)
         } error: { statusCode, message in
         }
 
@@ -37,7 +38,4 @@ class ExamSiteShow: ObservableObject {
     func freshExamModelData(in context: NSManagedObjectContext){
         model.freshExamData(in: context)
     }
-    
-    
-    
 }

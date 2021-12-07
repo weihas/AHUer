@@ -31,7 +31,7 @@ class TimeScheduleShow: ObservableObject{
     }
     
     func freshDataByInternet(context: NSManagedObjectContext){
-        AhuerAPIProvider.getSchedule(schoolYear: "2020-2021", schoolTerm: 1, in: context) { [weak self, unowned context] status in
+        AhuerAPIProvider.getSchedule(schoolYear: "2020-2021", schoolTerm: 1, in: context) { [weak self, unowned context] in
             guard let self = self else { return }
             self.freshDataOfClass(context: context)
 //            self.objectWillChange.send()

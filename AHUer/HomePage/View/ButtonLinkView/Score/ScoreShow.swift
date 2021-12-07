@@ -46,7 +46,7 @@ class ScoreShow: ObservableObject{
     }
     
     func getScoreByInternet(in context: NSManagedObjectContext){
-        AhuerAPIProvider.getScore(in: context) { status in
+        AhuerAPIProvider.getScore(in: context) {
             
         } error: { statusCode, message in
             
