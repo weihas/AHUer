@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19461" systemVersion="21A559" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19461" systemVersion="20G165" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Course" representedClassName="Course" syncable="YES" codeGenerationType="class">
         <attribute name="courseId" optional="YES" attributeType="String"/>
         <attribute name="endWeek" optional="YES" attributeType="Integer 64" minValueString="0" maxValueString="30" defaultValueString="0" usesScalarValueType="YES"/>
@@ -17,7 +17,7 @@
     <entity name="Exam" representedClassName="Exam" syncable="YES" codeGenerationType="class">
         <attribute name="course" optional="YES" attributeType="String"/>
         <attribute name="location" optional="YES" attributeType="String"/>
-        <attribute name="schoolTerm" optional="YES" attributeType="String"/>
+        <attribute name="schoolTerm" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="schoolYear" optional="YES" attributeType="String"/>
         <attribute name="seatNum" optional="YES" attributeType="String"/>
         <attribute name="time" optional="YES" attributeType="String"/>
@@ -56,7 +56,7 @@
         <element name="Course" positionX="154.36328125" positionY="-1107.27734375" width="128" height="209"/>
         <element name="Exam" positionX="57.76171875" positionY="-770.984375" width="128" height="134"/>
         <element name="GPA" positionX="0.12890625" positionY="-534.1328125" width="128" height="148"/>
-        <element name="Grade" positionX="-389.19921875" positionY="-500.5546875" width="128" height="163"/>
+        <element name="Grade" positionX="-389.19921875" positionY="-500.5546875" width="128" height="149"/>
         <element name="Student" positionX="-397.61328125" positionY="-917.22265625" width="152.84765625" height="163"/>
     </elements>
 </model>

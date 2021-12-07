@@ -30,8 +30,11 @@ struct TimeSchedule {
     }
     
     mutating func freshDataOfClass(context: NSManagedObjectContext)  {
-        guard let user = Student.nowUser(context),
-              let courses = (user.courses?.allObjects as? [Course]) else { cleanSchedule() ; return}
+        cleanSchedule()
+        guard let user = Student.nowUser(context) else {return}
+        let today = Date()
+        let predicate = NSPredicate(format: "owner = %@ AND startWeek <= %@ AND endWeek >= %@", user, NSNumber(value: today.studyWeek), NSNumber(value: today.studyWeek))
+        guard let courses = Course.fetch(in: context, by: predicate) else { return }
         
         let dic = courses.reduce([Int : [Course]]()) { partialResult, course in
             var history = partialResult
@@ -40,8 +43,6 @@ struct TimeSchedule {
             return history
         }
         
-        
-
         for (weekday, lectures) in dic {
             for course in lectures{
                 let classColor = Color.random

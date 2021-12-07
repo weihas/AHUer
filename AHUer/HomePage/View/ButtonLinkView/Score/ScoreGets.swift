@@ -31,16 +31,6 @@ struct ScoreGets {
         self.totalGradePoint = user.totalGradePoint
         self.totalCredit = user.totalCredit
         self.totalGradePointAverage = user.totalCredit
-        if let gradeScores = (user.grades?.allObjects as? [Grade])?.sorted(by: { gradeA, gradeB in
-            if gradeA.schoolYear ?? "" < gradeB.schoolYear ?? ""{
-                return true
-            }else if gradeA.schoolYear ?? "" == gradeB.schoolYear ?? ""{
-                return gradeA.schoolTerm ?? "" < gradeB.schoolTerm ?? ""
-            }else{
-                return false
-            }
-        }){
-            self.grades = gradeScores
-        }
+        self.grades = Grade.fetch(in: context, by: NSPredicate(format: "owner = %@", user), sort: ["schoolYear": true])?.sorted(by: {$0.schoolYear ?? "" <= $1.schoolYear ?? "" && $0.schoolTerm ?? "" < $1.schoolTerm ?? ""}) ?? []
     }
 }

@@ -54,11 +54,7 @@ extension PersonalPageView{
                 if appInfo.isLoggin{
                     showLoggingChoose.toggle()
                 }else{
-                    if vm.loggedUsers.isEmpty{
-                        vm.showLoggingPanel.toggle()
-                    }else{
-                        showLoggingChoose.toggle()
-                    }
+                    vm.showLoggingPanel.toggle()
                 }
             }, label: {
                 Text(appInfo.isLoggin ? vm.nowUser.userName : "登录" )
@@ -109,7 +105,6 @@ extension PersonalPageView{
                     .destructive(Text("退出")){
                         appInfo.isLoggin = false
                         vm.logout(context: viewContext)
-                        vm.nowUser = User(studentID: "", userName: "", password: "")
                     },
                     .cancel(Text("取消"))
                 ])
@@ -142,6 +137,7 @@ extension PersonalPageView{
                 Text("学号:")
                 TextField("学号", text: $vm.userID)
                     .keyboardType(.asciiCapable)
+                
             }
             .padding()
             Divider().padding(.horizontal)

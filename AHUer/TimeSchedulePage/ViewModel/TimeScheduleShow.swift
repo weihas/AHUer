@@ -27,34 +27,19 @@ class TimeScheduleShow: ObservableObject{
     
     func freshDataOfClass(context: NSManagedObjectContext){
         timetable.freshDataOfClass(context: context)
+        self.objectWillChange.send()
     }
     
-    func freshDataWithInternet(context: NSManagedObjectContext){
-        AhuerAPIProvider.netRequest(.schedule(schoolYear: Date().studyYear, schoolTerm: Date().studyTerm)) { [unowned context] respon in
-            print(respon?["msg"] as? String ?? "")
-            if let statusNum = respon?["success"] as? Bool, statusNum == true, let schedules = respon?["data"] as? [[String: Any]]{
-                for schedule in schedules{
-                    guard let scheduleName = schedule["name"] as? String, let result = Course.fetch(in: context, by: NSPredicate(format: "name = %@", scheduleName)) else {continue}
-                    if result.isEmpty{
-                        let course = Course.insert(in: context)?.update(in: context, of: schedule)
-                        course?.owner = Student.nowUser(context)
-                        try? context.save()
-                    }else{
-                        result[0].update(in: context, of: schedule)
-                        result[0].owner = Student.nowUser(context)
-                        try? context.save()
-                    }
-                }
-            }
-        } error: { code, error in
-            print(error)
-        } failure: { failure in
-            print(failure.localizedDescription)
+    func freshDataByInternet(context: NSManagedObjectContext){
+        AhuerAPIProvider.getSchedule(schoolYear: "2020-2021", schoolTerm: 1, in: context) { [weak self, unowned context] status in
+            guard let self = self else { return }
+            self.freshDataOfClass(context: context)
+//            self.objectWillChange.send()
+        } error: { statusCode, message in
+            
         }
-        timetable.freshDataOfClass(context: context)
+
     }
-    
-    
     deinit {
         print("🌀TimeTableShow released")
     }

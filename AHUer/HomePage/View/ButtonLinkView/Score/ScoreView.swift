@@ -13,11 +13,11 @@ struct ScoreView: View {
     @Environment(\.managedObjectContext) private var viewContext
     var body: some View {
         Button("Test") {
-            vm.getScore(context: viewContext)
+            vm.getScoreByInternet(in: viewContext)
         }
-        BarChartView(data: vm.gpaline, title: "Hello")
-        
-        LineChartView(data: vm.gpaLine, title: "GPA", rateValue: 1)
+//        BarChartView(data: vm.gpaline, title: "Hello")
+//        
+//        LineChartView(data: vm.gpaLine, title: "GPA", rateValue: 1)
         
         
         

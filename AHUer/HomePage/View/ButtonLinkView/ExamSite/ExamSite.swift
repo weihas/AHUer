@@ -11,9 +11,9 @@ import CoreData
 struct ExamSite{
     var exams: [Exam] = []
     
-    mutating func freshData(in context: NSManagedObjectContext, date: String){
+    mutating func freshExamData(in context: NSManagedObjectContext){
         guard let user = Student.nowUser(context),
-              let result = Exam.fetch(in: context, by: NSPredicate(format: "time BEGINSWITH %@", date)) else { return }
+              let result = Exam.fetch(in: context, by: NSPredicate(format: "owner = %@ AND schoolYear = %@ AND schoolTerm = %@", user, "2020-2021", NSNumber(value: 1)), sort: ["time": true] ) else { return }
         do {
             exams = result.reduce([Exam]()) { partialResult, exam in
                 if exam.owner == user{

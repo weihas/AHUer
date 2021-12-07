@@ -16,7 +16,7 @@ struct ClassInOneDayView: View {
     }
     
     var data: Int{
-        get { Date().day + (model.id - Date().weekDay) }
+        get { Date().adding(day: model.id - Date().weekDay)?.day ?? 0 }
     }
     
     var body: some View{

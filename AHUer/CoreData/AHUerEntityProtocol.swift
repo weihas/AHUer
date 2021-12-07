@@ -25,13 +25,24 @@ extension AHUerEntityProtocol{
     }
     
     
-    static func fetch(in context: NSManagedObjectContext?, by predicate: NSPredicate?, sort: [String: Bool]? = nil, limit: Int? = nil) -> [selfType]? {
+    static func fetch(in context: NSManagedObjectContext?, by predicate: NSPredicate?, sort: [String : Bool]? = nil, limit: Int? = nil) -> [selfType]? {
         guard let context = context else {return nil}
         let request = self.fetchRequest()
         // predicate
         if let myPredicate = predicate {
             request.predicate = myPredicate
         }
+        
+        // sort
+        if let mySort = sort {
+            var sortArr: [NSSortDescriptor] = []
+            for (key, ascending) in mySort {
+//                sortArr.append(NSSortDescriptor(keyPath: key, ascending: ascending))
+                sortArr.append(NSSortDescriptor(key: key, ascending: ascending))
+            }
+            request.sortDescriptors = sortArr
+        }
+        
         
         // limit
         if let limitNumber = limit {
@@ -42,7 +53,7 @@ extension AHUerEntityProtocol{
             guard let result = try context.fetch(request) as? [selfType] else { return nil }
             return result
         }catch {
-            NSLog("查找失败")
+            print("📦CoreData Fetch Error")
             return nil
         }
     }
@@ -55,7 +66,7 @@ extension AHUerEntityProtocol{
             try context.save()
             return true
         }catch{
-            NSLog("删除失败")
+            print("📦CoreData Delete Error")
             return false
         }
     }
@@ -84,7 +95,7 @@ extension AHUerEntityProtocol{
             try context.save()
             return self as? Self.selfType
         } catch{
-            NSLog("保存失败")
+            print("📦CoreData Save Error")
             return nil
         }
     }

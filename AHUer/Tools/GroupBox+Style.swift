@@ -47,7 +47,6 @@ struct ShortBoxStyle: GroupBoxStyle {
             }
             configuration.content
         }.padding()
-        .foregroundColor(.black)
     }
     
 }

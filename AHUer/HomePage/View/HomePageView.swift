@@ -62,7 +62,7 @@ struct HomePageView: View {
                 .foregroundColor(.blue)
             HStack{
                 Label(vm.nextCourse?.location ?? " -- " , systemImage: "location")
-                Label("\(vm.nextCourse?.startTime ?? 0)" , systemImage: "clock")
+                Label(StartTime(rawValue: Int(vm.nextCourse?.startTime ?? 0))?.des ?? " -- " , systemImage: "clock")
                 Spacer()
             }
             .font(.footnote)

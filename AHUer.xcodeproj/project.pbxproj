@@ -47,6 +47,7 @@
 		35A801B32747EC68009E3D08 /* TimeScheduleAddLectureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A801B22747EC68009E3D08 /* TimeScheduleAddLectureView.swift */; };
 		35AA432B26E916320096724A /* BathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AA432A26E916320096724A /* BathView.swift */; };
 		35AE5D6C2720461900B0DC98 /* AhuerAPIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AE5D6B2720461900B0DC98 /* AhuerAPIProvider.swift */; };
+		35CDFB7C275F74B60091E9E1 /* StartTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CDFB7B275F74B60091E9E1 /* StartTime.swift */; };
 		35CEF9F5272064CF00A4B238 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CEF9F4272064CF00A4B238 /* Persistence.swift */; };
 		35D5B16D26EA6BFD0070A23C /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D5B16C26EA6BFD0070A23C /* ScoreView.swift */; };
 		35DB74962747E72100E43B33 /* TimeScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DB74952747E72100E43B33 /* TimeScheduleCell.swift */; };
@@ -103,6 +104,7 @@
 		35A801B22747EC68009E3D08 /* TimeScheduleAddLectureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeScheduleAddLectureView.swift; sourceTree = "<group>"; };
 		35AA432A26E916320096724A /* BathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BathView.swift; sourceTree = "<group>"; };
 		35AE5D6B2720461900B0DC98 /* AhuerAPIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AhuerAPIProvider.swift; sourceTree = "<group>"; };
+		35CDFB7B275F74B60091E9E1 /* StartTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartTime.swift; sourceTree = "<group>"; };
 		35CEF9F4272064CF00A4B238 /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		35D5B16C26EA6BFD0070A23C /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 		35DB74952747E72100E43B33 /* TimeScheduleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeScheduleCell.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 			children = (
 				35607B9B26E99BFA0037504E /* Date+Helper.swift */,
 				350710AF274A3BB8006D0587 /* Color+Extension.swift */,
+				35CDFB7B275F74B60091E9E1 /* StartTime.swift */,
 				3590EDC8273E6BE20077299D /* SetStorage.swift */,
 				3519DEF9270C53CE00639531 /* RSA+Func.swift */,
 				353705A226EB6D62002E001C /* Button+Style.swift */,
@@ -544,6 +547,7 @@
 				3578CA2926E8ED5E00667BEF /* AHUerApp.swift in Sources */,
 				35607B9F26EA025B0037504E /* NewsPageView.swift in Sources */,
 				35AE5D6C2720461900B0DC98 /* AhuerAPIProvider.swift in Sources */,
+				35CDFB7C275F74B60091E9E1 /* StartTime.swift in Sources */,
 				3586B8CF26EDA17A00B42A90 /* EmptyRoomView.swift in Sources */,
 				3586B8D926EDA3CD00B42A90 /* MoreView.swift in Sources */,
 				358330EA26EC31DC005927D6 /* ThanksChildView.swift in Sources */,
@@ -699,7 +703,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"AHUer/Preview Content\"";
-				DEVELOPMENT_TEAM = NVF47AP6H6;
+				DEVELOPMENT_TEAM = 4WB3QMP893;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = AHUer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -723,7 +727,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"AHUer/Preview Content\"";
-				DEVELOPMENT_TEAM = NVF47AP6H6;
+				DEVELOPMENT_TEAM = 4WB3QMP893;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = AHUer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;

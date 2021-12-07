@@ -215,6 +215,10 @@ extension Date{
         return self.month > 1 && self.month < 9 ? 2 : 1
     }
     
+    var ChineseTime: String{
+        "\(self.year)年\(self.month)月\(self.day)日"
+    }
+    
     var studyYear: String{
         if studyTerm == 1{
             return String(year) + "-" + String(year+1)
@@ -227,23 +231,25 @@ extension Date{
         if (8..<10).contains(hour){
             return 1
         }else if (10..<12).contains(hour){
-            return 2
-        }else if (14..<16).contains(hour){
             return 3
-        }else if (16..<18).contains(hour){
-            return 4
-        }else if (19..<22).contains(hour){
+        }else if (12..<16).contains(hour){
             return 5
+        }else if (16..<18).contains(hour){
+            return 7
+        }else if (18..<22).contains(hour){
+            return 9
         }else{
             return 0
         }
     }
-    
     
     //TODO: -
     var studyWeek: Int{
         return 11
     }
     
+    var isSingel: Bool{
+        return studyWeek%2 == 1
+    }    
 }
 

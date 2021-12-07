@@ -12,7 +12,6 @@ struct TimeSchedulePageView: View {
     @ObservedObject var vm: TimeScheduleShow
     @Environment(\.managedObjectContext) private var viewContext
     
-    @State private var numOfWeek: Int = 10
     @State var addSchedule: Bool = false
     var body: some View {
         NavigationView{
@@ -37,7 +36,7 @@ struct TimeSchedulePageView: View {
                         Label("手动添加", systemImage: "plus.rectangle.on.rectangle")
                     }
                     Button {
-                        vm.freshDataWithInternet(context: self.viewContext)
+                        vm.freshDataByInternet(context: viewContext)
                     } label: {
                         Label("刷新课表", systemImage: "globe.europe.africa")
                     }
@@ -55,7 +54,7 @@ struct TimeSchedulePageView: View {
             .popover(isPresented: $addSchedule) {
                 TimeScheduleAddLectureView()
             }
-            .navigationTitle("第\(numOfWeek)周")
+            .navigationTitle("第\(Date().studyWeek)周")
         }
         .navigationViewStyle(.stack)
     }

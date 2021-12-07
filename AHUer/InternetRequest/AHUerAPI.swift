@@ -115,14 +115,25 @@ final class AHUerAlertPlugin: PluginType {
     func willSend(_ request: RequestType, target: TargetType) {
         if let ahuTarget = target as? AHUerAPI {
             startTime = CFAbsoluteTimeGetCurrent()
-            print("====>Start" + ahuTarget.APILogName)
+            print("====>🌐 Start " + ahuTarget.APILogName)
         }
     }
     
     func didReceive(_ result: Result<Response, MoyaError>, target: TargetType) {
         if let ahuTarget = target as? AHUerAPI, let startTime = self.startTime {
-            print("====>Receive" + ahuTarget.APILogName + " back " + "耗时 " + "\(CFAbsoluteTimeGetCurrent() - startTime) s")
+            print("====>🌐 Receive " + ahuTarget.APILogName + " back " + "耗时 " + "\(CFAbsoluteTimeGetCurrent() - startTime) s\n")
         }
     }
 }
 
+
+extension HTTPCookieStorage{
+    static func saveAHUerCookie(){
+        if let cookie = HTTPCookieStorage.shared.cookies(for: URL(string: "https://ahuer.cn/api")!)?.first{
+            UserDefaults.standard.setValue(cookie.name + "=" + cookie.value, forKey: "AHUCookie")
+        }
+    }
+    static func deleteAHUerCookie(){
+        UserDefaults.standard.removeObject(forKey: "AHUCookie")
+    }
+}

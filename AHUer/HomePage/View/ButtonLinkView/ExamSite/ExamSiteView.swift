@@ -9,9 +9,15 @@ import SwiftUI
 
 struct ExamSiteView: View {
     @ObservedObject var vm: ExamSiteShow
+    @Environment(\.managedObjectContext) private var viewContext
     var body: some View {
         VStack{
-            Text("考试查询")
+            Button("freshwithInternet"){
+                vm.freshScoreModelByInternet(in: viewContext)
+            }
+            Button("freshLocal"){
+                vm.freshExamModelData(in: viewContext)
+            }
         }
         .navigationTitle("考试查询")
         .navigationBarTitleDisplayMode(.inline)

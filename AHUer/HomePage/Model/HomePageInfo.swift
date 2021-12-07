@@ -25,12 +25,10 @@ struct HomePageInfo {
     mutating func fetchImmediatelyLecture(context: NSManagedObjectContext){
         let today = Date()
         //TODO: -
-        
-        let predicete = NSPredicate(format: "weekday = %@", NSNumber(value: today.weekDay))
-        
-        
-        guard let user = Student.nowUser(context),
-              let courses = Course.fetch(in: context, by: predicete)?.filter({$0.owner == user}).sorted(by: {$0.startTime < $1.startTime}) else { nextCourse = nil ; return }
+        guard let user = Student.nowUser(context) else {nextCourse = nil; return}
+//        let predicete = NSPredicate(format: "owner = %@", user)
+        let predicete = NSPredicate(format: "owner = %@ AND startWeek <= %@ AND endWeek >= %@ AND weekday = %@ AND startTime >= %@", user, NSNumber(value: today.studyWeek), NSNumber(value: today.studyWeek), NSNumber(value: today.weekDay), NSNumber(value: today.startTime ))
+        guard let courses = Course.fetch(in: context, by: predicete, sort: ["startTime" : true]) else { nextCourse = nil ; return }
         nextCourse = courses.first
     }
 }
