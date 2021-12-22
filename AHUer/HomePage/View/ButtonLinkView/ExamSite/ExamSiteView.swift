@@ -10,7 +10,6 @@ import SwiftUI
 struct ExamSiteView: View {
     @ObservedObject var vm: ExamSiteShow
     @State var point: Double = 0
-    @Environment(\.managedObjectContext) private var viewContext
     var body: some View {
         VStack{
             List(vm.exams){ exam in
@@ -30,13 +29,13 @@ struct ExamSiteView: View {
                 }
             }
             .onAppear {
-                vm.freshExamModelData(in: viewContext)
+                vm.freshExamModelData()
             }
         }
         .toolbar {
             HStack{
                 Button {
-                    vm.freshScoreModelByInternet(in: viewContext)
+                    vm.freshScoreModelByInternet()
                 } label: {
                     Image(systemName: "arrow.clockwise")
                 }

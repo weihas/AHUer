@@ -10,7 +10,6 @@ import SwiftUI
 struct HomePageView: View {
     @ObservedObject var vm: HomePageShow
     @EnvironmentObject var appInfo: AHUAppInfo
-    @Environment(\.managedObjectContext) private var viewContext
     @State var showGPA: Bool = false
     var body: some View {
         NavigationView{
@@ -21,7 +20,7 @@ struct HomePageView: View {
                     scoreLabel
                 }
                 .onAppear{
-                    vm.freshImmediatelyLecture(context: viewContext)
+                    vm.freshImmediatelyLecture()
                 }
             .navigationTitle(Text("今天"))
             .navigationBarTitleDisplayMode(.automatic)

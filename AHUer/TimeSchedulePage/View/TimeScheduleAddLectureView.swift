@@ -9,7 +9,6 @@ import SwiftUI
 
 struct TimeScheduleAddLectureView: View {
     @EnvironmentObject var appInfo: AHUAppInfo
-    @Environment(\.managedObjectContext) private var viewContext
     
     @State var name: String = ""
     @State var location: String = ""
@@ -62,20 +61,12 @@ struct TimeScheduleAddLectureView: View {
     }
     
     func addLecture(){
-        guard let result = Course.fetch(in: self.viewContext, by: NSPredicate(format: "name = %@", name)) else { return }
+        guard let user = Student.nowUser(),let result = Course.fetch(by: NSPredicate(format: "name = %@", name)) else { return }
         let attributeInfo = ["name": name, "location": location, "teacher": teacher, "weekday": weekDay, "startTime" : startTime, "length": length]
-        do{
-            if result.isEmpty{
-                let course = Course.insert(in: self.viewContext)?.update(in: self.viewContext, of: attributeInfo)
-                course?.owner = Student.nowUser(viewContext)
-                try self.viewContext.save()
-            }else{
-                result[0].update(in: self.viewContext, of: attributeInfo)
-                result[0].owner = Student.nowUser(viewContext)
-                try self.viewContext.save()
-            }
-        }catch{
-            print("error")
+        if result.isEmpty{
+            Course.insert()?.update(of: attributeInfo)?.beHolded(by: user)
+        }else{
+            result[0].update(of: attributeInfo)?.beHolded(by: user)
         }
     }
     

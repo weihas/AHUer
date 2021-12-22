@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import CoreData
 
 struct ScoreGets {
     
@@ -25,12 +24,11 @@ struct ScoreGets {
     
     
     /// 获取信息
-    /// - Parameter context: CoreDate context
-    mutating func freshTotalPoint(context: NSManagedObjectContext){
-        guard let user = Student.nowUser(context) else { return }
+    mutating func freshTotalPoint(){
+        guard let user = Student.nowUser() else { return }
         self.totalGradePoint = user.totalGradePoint
         self.totalCredit = user.totalCredit
         self.totalGradePointAverage = user.totalCredit
-        self.grades = Grade.fetch(in: context, by: NSPredicate(format: "owner = %@", user), sort: ["schoolYear": true])?.sorted(by: {$0.schoolYear ?? "" <= $1.schoolYear ?? "" && $0.schoolTerm ?? "" < $1.schoolTerm ?? ""}) ?? []
+        self.grades = Grade.fetch(by: NSPredicate(format: "owner = %@", user), sort: ["schoolYear": true])?.sorted(by: {$0.schoolYear ?? "" <= $1.schoolYear ?? "" && $0.schoolTerm ?? "" < $1.schoolTerm ?? ""}) ?? []
     }
 }

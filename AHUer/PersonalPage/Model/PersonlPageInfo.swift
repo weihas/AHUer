@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import CoreData
 
 struct PersonalPageInfo{
     @SetStorage(key: "AHUID", default: "") private var userID: String

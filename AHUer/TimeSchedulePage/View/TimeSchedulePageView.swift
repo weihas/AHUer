@@ -10,7 +10,6 @@ import SwiftUI
 struct TimeSchedulePageView: View {
     @EnvironmentObject var appInfo: AHUAppInfo
     @ObservedObject var vm: TimeScheduleShow
-    @Environment(\.managedObjectContext) private var viewContext
     
     @State var addSchedule: Bool = false
     var body: some View {
@@ -25,7 +24,7 @@ struct TimeSchedulePageView: View {
                 }
             }
             .onAppear{
-                vm.freshDataOfClass(context: viewContext)
+                vm.freshDataOfClass()
             }
             .toolbar{
                 Menu {
@@ -36,13 +35,13 @@ struct TimeSchedulePageView: View {
                         Label("手动添加", systemImage: "plus.rectangle.on.rectangle")
                     }
                     Button {
-                        vm.freshDataByInternet(context: viewContext)
+                        vm.freshDataByInternet()
                     } label: {
                         Label("刷新课表", systemImage: "globe.europe.africa")
                     }
                     Button {
-                        appInfo.cleanUp(context: self.viewContext)
-                        vm.freshDataOfClass(context: self.viewContext)
+                        appInfo.cleanUp()
+                        vm.freshDataOfClass()
                     } label: {
                         Label("清除课表", systemImage: "trash")
                     }

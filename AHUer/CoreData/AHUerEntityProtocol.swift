@@ -14,20 +14,32 @@ protocol AHUerEntityProtocol: NSManagedObject {
 }
 
 extension AHUerEntityProtocol{
-    static func insert(in context: NSManagedObjectContext?) -> selfType?{
-        if let context = context,
-           let entityName = self.entity().name,
-           let insetData = NSEntityDescription.insertNewObject(forEntityName: entityName, into: context) as? selfType {
-            return insetData
-        } else {
-            return nil
+    
+    static var context: NSManagedObjectContext{
+        get { PersistenceController.shared.container.viewContext }
+    }
+    
+    init() {
+        self.init(context: Self.context)
+    }
+    
+    static func save(){
+        guard Self.context.hasChanges else { return }
+        do {
+            try Self.context.save()
+        }catch{
+            print("📦CoreData Save Error")
         }
     }
     
+    static func insert() -> selfType?{
+        return Self(context: Self.context) as? selfType
+    }
     
-    static func fetch(in context: NSManagedObjectContext?, by predicate: NSPredicate?, sort: [String : Bool]? = nil, limit: Int? = nil) -> [selfType]? {
-        guard let context = context else {return nil}
-        let request = self.fetchRequest()
+    
+    static func fetch(by predicate: NSPredicate?, sort: [String : Bool]? = nil, limit: Int? = nil) -> [selfType]? {
+        let request = Self.fetchRequest()
+        
         // predicate
         if let myPredicate = predicate {
             request.predicate = myPredicate
@@ -59,21 +71,14 @@ extension AHUerEntityProtocol{
     }
     
     @discardableResult
-    func delete(in context: NSManagedObjectContext?) -> Bool{
-        guard let context = context else {return false}
-        do {
-            context.delete(self)
-            try context.save()
-            return true
-        }catch{
-            print("📦CoreData Delete Error")
-            return false
-        }
+    func delete() -> Bool{
+        Self.context.delete(self)
+        Self.save()
+        return true
     }
     
     @discardableResult
-    func update(in context: NSManagedObjectContext?, of attributeInfo: [String: Any?]) -> selfType?{
-        guard let context = context else {return nil}
+    func update(of attributeInfo: [String: Any?]) -> selfType?{
         for (key,value) in attributeInfo {
             guard let type = self.entity.attributesByName[key]?.attributeType else { continue }
             switch type {
@@ -91,13 +96,8 @@ extension AHUerEntityProtocol{
             }
         }
         
-        do {
-            try context.save()
-            return self as? Self.selfType
-        } catch{
-            print("📦CoreData Save Error")
-            return nil
-        }
+        Self.save()
+        return self as? Self.selfType
     }
 }
 
@@ -108,10 +108,8 @@ extension Student: AHUerEntityProtocol {
     typealias selfType = Student
     
     
-    static func fetch(in context: NSManagedObjectContext?, studentId: String) -> [Student]?{
-        guard let context = context else {return nil}
+    static func fetch(studentId: String) -> [Student]?{
         let request = self.fetchRequest()
-        
         request.predicate = NSPredicate(format: "studentID = %@", studentId)
         
         do {
@@ -121,12 +119,19 @@ extension Student: AHUerEntityProtocol {
         }
     }
     
-    static func nowUser(_ context: NSManagedObjectContext?) -> Student?{
+    static func nowUser() -> Student?{
         @SetStorage(key: "AHUID", default: "") var studentID: String
-        guard var students = fetch(in: context, studentId: studentID), !students.isEmpty else { return nil }
+        guard var students = fetch(studentId: studentID), !students.isEmpty else { return nil }
         let student = students.removeFirst()
-        students.forEach({$0.delete(in: context)})
+        students.forEach({$0.delete()})
         return student
+    }
+    
+    
+    @discardableResult
+    static func cleanUp()-> Bool{
+        guard let students = Student.fetch(by: nil) else {return false}
+        return students.map({$0.delete()}).filter({!$0}).isEmpty
     }
     
 }
@@ -134,25 +139,69 @@ extension Student: AHUerEntityProtocol {
 extension Course: AHUerEntityProtocol{
     typealias selfType = Course
     
-    static func fetch(in context: NSManagedObjectContext?, courseName: String) -> [Course]?{
+    static func fetch(courseName: String) -> [Course]?{
         let predicate = NSPredicate(format: "name = %@", courseName)
-        return fetch(in: context, by: predicate)
+        return fetch(by: predicate)
     }
+    
+    @discardableResult
+    func beHolded(by owner: Student) -> Course{
+        owner.addToCourses(self)
+        Course.save()
+        return self
+    }
+    
 }
 
 extension GPA: AHUerEntityProtocol{
     typealias selfType = GPA
+    
+    @discardableResult
+    func beHolded(by owner: Grade) -> GPA{
+        owner.addToGpas(self)
+        Self.save()
+        return self
+    }
+    
+    static func inserts(gpas: [[String:Any]?]?) -> NSSet{
+        guard let gpas = gpas else { return NSSet() }
+        var result: Set<GPA> = []
+        for gpa in gpas {
+            guard let gpa = gpa, let g = GPA.insert()?.update(of: gpa) else { continue }
+            result.insert(g)
+        }
+        return NSSet(set: result)
+    }
 }
 
 extension Grade: AHUerEntityProtocol{
     typealias selfType = Grade
     
-    static func fetch(context: NSManagedObjectContext?, schoolYear: String, schoolTerm: String) -> [Grade]?{
+    static func fetch(schoolYear: String, schoolTerm: String) -> [Grade]?{
         let predicate = NSPredicate(format: "schoolYear = %@ AND schoolTerm = %@", schoolYear, schoolTerm)
-        return fetch(in: context, by: predicate)
+        return fetch(by: predicate)
+    }
+    
+    func addGpas(gpas: NSSet){
+        self.addToGpas(gpas)
+        Self.save()
+    }
+    
+    @discardableResult
+    func beHold(of owner: Student) -> Self{
+        owner.addToGrades(self)
+        Self.save()
+        return self
     }
 }
 
 extension Exam: AHUerEntityProtocol{
     typealias selfType = Exam
+    
+    @discardableResult
+    func beHold(of owner: Student) -> Exam{
+        owner.addToExams(self)
+        Self.save()
+        return self
+    }
 }

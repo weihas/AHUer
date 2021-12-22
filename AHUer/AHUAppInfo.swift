@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import CoreData
 
 /// AHUer全应用共享参数
 class AHUAppInfo: ObservableObject {
@@ -27,10 +26,8 @@ class AHUAppInfo: ObservableObject {
         self.isLoggin = logged
     }
     
-    func cleanUp(context: NSManagedObjectContext){
-        Student.fetch(in: context, by: nil)?.forEach({ student in
-            student.delete(in: context)
-        })
+    func cleanUp(){
+        Student.cleanUp()
     }
     
     deinit{

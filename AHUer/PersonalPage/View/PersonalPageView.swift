@@ -12,7 +12,6 @@ import SwiftUI
 struct PersonalPageView: View {
     @EnvironmentObject var appInfo: AHUAppInfo
     @ObservedObject var vm: PersonalPageShow
-    @Environment(\.managedObjectContext) private var viewContext
     @State private var showLoggingChoose: Bool = false
 
     @State var isBachelor: Bool = true
@@ -104,7 +103,7 @@ extension PersonalPageView{
                 buttons: [
                     .destructive(Text("退出")){
                         appInfo.isLoggin = false
-                        vm.logout(context: viewContext)
+                        vm.logout()
                     },
                     .cancel(Text("取消"))
                 ])
@@ -149,7 +148,7 @@ extension PersonalPageView{
             Spacer()
             Button(action: {
                 print("认证")
-                vm.loggin(context: viewContext){logged in
+                vm.loggin(){logged in
                     appInfo.isLoggin = logged
                 }
             }, label: {

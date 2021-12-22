@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import CoreData
 
 class TimeScheduleShow: ObservableObject{
     @Published var timetable: TimeSchedule
@@ -25,15 +24,15 @@ class TimeScheduleShow: ObservableObject{
         return ["8:20","10:20","14:00","15:50","19:00","20:50"]
     }
     
-    func freshDataOfClass(context: NSManagedObjectContext){
-        timetable.freshDataOfClass(context: context)
+    func freshDataOfClass(){
+        timetable.freshDataOfClass()
         self.objectWillChange.send()
     }
     
-    func freshDataByInternet(context: NSManagedObjectContext){
-        AhuerAPIProvider.getSchedule(schoolYear: "2020-2021", schoolTerm: 1, in: context) { [weak self, unowned context] in
+    func freshDataByInternet(){
+        AhuerAPIProvider.getSchedule(schoolYear: "2020-2021", schoolTerm: 1) { [weak self] in
             guard let self = self else { return }
-            self.freshDataOfClass(context: context)
+            self.freshDataOfClass()
 //            self.objectWillChange.send()
         } error: { statusCode, message in
             

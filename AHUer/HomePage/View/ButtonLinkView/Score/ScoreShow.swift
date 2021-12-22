@@ -6,8 +6,7 @@
 //
 
 import Foundation
-import CoreData
-import SwiftUIChart
+//import SwiftUIChart
 
 class ScoreShow: ObservableObject{
     @Published private var model: ScoreGets
@@ -41,12 +40,12 @@ class ScoreShow: ObservableObject{
         return model.grades.map({$0.termGradePointAverage})
     }
     
-    var gpaline: ChartData {
-        return ChartData(values: model.grades.map({(($0.schoolYear ?? "") + "\n" + ($0.schoolTerm ?? "") ,$0.termTotalCredit)}))
-    }
+//    var gpaline: ChartData {
+//        return ChartData(values: model.grades.map({(($0.schoolYear ?? "") + "\n" + ($0.schoolTerm ?? "") ,$0.termTotalCredit)}))
+//    }
     
-    func getScoreByInternet(in context: NSManagedObjectContext){
-        AhuerAPIProvider.getScore(in: context) {
+    func getScoreByInternet(){
+        AhuerAPIProvider.getScore() {
             
         } error: { statusCode, message in
             
@@ -56,8 +55,8 @@ class ScoreShow: ObservableObject{
     
     
     // MARK: -Intents(s)
-    func freshmodel(context: NSManagedObjectContext){
-        model.freshTotalPoint(context: context)
+    func freshmodel(){
+        model.freshTotalPoint()
     }
     
 }

@@ -9,7 +9,6 @@ import SwiftUI
 
 struct SettingView: View {
     @EnvironmentObject var appInfo: AHUAppInfo
-    @Environment(\.managedObjectContext) private var viewContext
     @AppStorage("showOtherWeekLectures") private var showOtherWeekLectures: Bool = false
     @AppStorage("showLecture") private var showLecture: Bool = false
     
@@ -37,7 +36,7 @@ struct SettingView: View {
             Section(header: Text("其他").font(.footnote)) {
                 Button("清除缓存"){
                     print("清除缓存")
-                    appInfo.cleanUp(context: viewContext)
+                    appInfo.cleanUp()
                 }
                 .foregroundColor(.blue)
             }

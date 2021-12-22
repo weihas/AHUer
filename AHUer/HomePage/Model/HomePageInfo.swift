@@ -7,7 +7,6 @@
 
 import Foundation
 import SwiftUI
-import CoreData
 
 struct HomePageInfo {
     var nextCourse: Course?
@@ -22,13 +21,13 @@ struct HomePageInfo {
         buttonsInfo = ButtonInfo.buttonInfos
     }
     
-    mutating func fetchImmediatelyLecture(context: NSManagedObjectContext){
+    mutating func fetchImmediatelyLecture(){
         let today = Date()
         //TODO: -
-        guard let user = Student.nowUser(context) else {nextCourse = nil; return}
+        guard let user = Student.nowUser() else {nextCourse = nil; return}
 //        let predicete = NSPredicate(format: "owner = %@", user)
         let predicete = NSPredicate(format: "owner = %@ AND startWeek <= %@ AND endWeek >= %@ AND weekday = %@ AND startTime >= %@", user, NSNumber(value: today.studyWeek), NSNumber(value: today.studyWeek), NSNumber(value: today.weekDay), NSNumber(value: today.startTime ))
-        guard let courses = Course.fetch(in: context, by: predicete, sort: ["startTime" : true]) else { nextCourse = nil ; return }
+        guard let courses = Course.fetch(by: predicete, sort: ["startTime" : true]) else { nextCourse = nil ; return }
         nextCourse = courses.first
     }
 }

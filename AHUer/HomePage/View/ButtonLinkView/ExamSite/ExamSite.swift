@@ -6,14 +6,13 @@
 //
 
 import Foundation
-import CoreData
 
 struct ExamSite{
     var exams: [Exam] = []
     
-    mutating func freshExamData(in context: NSManagedObjectContext){
-        guard let user = Student.nowUser(context),
-              let result = Exam.fetch(in: context, by: NSPredicate(format: "owner = %@ AND schoolYear = %@ AND schoolTerm = %@", user, "2020-2021", NSNumber(value: 1)), sort: ["time": true] ) else { return }
+    mutating func freshExamData(){
+        guard let user = Student.nowUser(),
+              let result = Exam.fetch(by: NSPredicate(format: "owner = %@ AND schoolYear = %@ AND schoolTerm = %@", user, "2020-2021", NSNumber(value: 1)), sort: ["time": true] ) else { return }
         exams = result
     }
 }

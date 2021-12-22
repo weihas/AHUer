@@ -7,7 +7,6 @@
 
 import Foundation
 import Combine
-import CoreData
 
 class HomePageShow: ObservableObject{
     @Published private var model: HomePageInfo
@@ -34,8 +33,8 @@ class HomePageShow: ObservableObject{
         return model.gpa
     }
     
-    func freshImmediatelyLecture(context: NSManagedObjectContext) {
-        model.fetchImmediatelyLecture(context: context)
+    func freshImmediatelyLecture() {
+        model.fetchImmediatelyLecture()
     }
     
     lazy var emptyClassVM = EmptyRoomShow()

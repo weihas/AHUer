@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import CoreData
 import SwiftUI
 
 struct TimeSchedule {
@@ -29,12 +28,12 @@ struct TimeSchedule {
         self.timeSchedule = result
     }
     
-    mutating func freshDataOfClass(context: NSManagedObjectContext)  {
+    mutating func freshDataOfClass()  {
         cleanSchedule()
-        guard let user = Student.nowUser(context) else {return}
+        guard let user = Student.nowUser() else {return}
         let today = Date()
         let predicate = NSPredicate(format: "owner = %@ AND startWeek <= %@ AND endWeek >= %@", user, NSNumber(value: today.studyWeek), NSNumber(value: today.studyWeek))
-        guard let courses = Course.fetch(in: context, by: predicate) else { return }
+        guard let courses = Course.fetch(by: predicate) else { return }
         
         let dic = courses.reduce([Int : [Course]]()) { partialResult, course in
             var history = partialResult

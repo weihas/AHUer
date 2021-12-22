@@ -6,14 +6,13 @@
 //
 
 import SwiftUI
-import SwiftUIChart
+//import SwiftUIChart
 
 struct ScoreView: View {
     @ObservedObject var vm: ScoreShow
-    @Environment(\.managedObjectContext) private var viewContext
     var body: some View {
         Button("Test") {
-            vm.getScoreByInternet(in: viewContext)
+            vm.getScoreByInternet()
         }
 //        BarChartView(data: vm.gpaline, title: "Hello")
 //        
@@ -31,7 +30,7 @@ struct ScoreView: View {
             .navigationBarTitleDisplayMode(.inline)
         }
         .onAppear {
-            vm.freshmodel(context: viewContext)
+            vm.freshmodel()
         }
     }
 }

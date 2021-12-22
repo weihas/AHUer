@@ -6,13 +6,11 @@
 //
 
 import SwiftUI
-import CoreData
 
 
 /// 根视图TabView
 struct RootView: View {
     @EnvironmentObject var appInfo: AHUAppInfo
-    @Environment(\.managedObjectContext) private var viewContext
     private var rootVM = RootViewShow()
     
     var body: some View {
