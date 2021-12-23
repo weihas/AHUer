@@ -13,15 +13,15 @@ struct HomePageView: View {
     @State var showGPA: Bool = false
     var body: some View {
         NavigationView{
-                ScrollView(showsIndicators: false){
-                    buttonsLabel
-                    lectureLabel
-                    bathLabel
-                    scoreLabel
-                }
-                .onAppear{
-                    vm.freshImmediatelyLecture()
-                }
+            ScrollView(showsIndicators: false){
+                buttonsLabel
+                lectureLabel
+                bathLabel
+                scoreLabel
+            }
+            .onAppear{
+                vm.freshImmediatelyLecture()
+            }
             .navigationTitle(Text("今天"))
             .navigationBarTitleDisplayMode(.automatic)
         }
@@ -29,7 +29,7 @@ struct HomePageView: View {
     }
     
     private var buttonsLabel: some View {
-        LazyVGrid(columns: Array(repeating: GridItem(.flexible(minimum: 50, maximum: 120), spacing: 20, alignment: .bottom), count: 5)){
+        LazyVGrid(columns: Array(repeating: GridItem(.adaptive(minimum: 100, maximum: 120), spacing: 10, alignment: .center), count: 3)){
             ForEach(vm.buttonsInfo, id: \.id){ b in
                 NavigationLink {
                     Group{
@@ -48,31 +48,41 @@ struct HomePageView: View {
                     }
                 } label: {
                     ButtonCell(button: b)
+                        .frame(height: 40)
                 }
             }
         }
         .padding()
     }
-    
     private var lectureLabel: some View {
-        GroupBox(label: Label("即将开始", systemImage: "note.text")) {
-            Text(vm.nextCourse?.name ?? " -- " )
-                .font(.title2)
-                .foregroundColor(.blue)
+                GroupBox(label: Label("即将开始", systemImage: "bolt.fill")){
+                    Text(vm.nextCourse?.name ?? " -- " )
+                        .font(.title2)
+                        .foregroundColor(.blue)
+                    HStack{
+                        Label(vm.nextCourse?.location ?? " -- " , systemImage: "location")
+                        Label(StartTime(rawValue: Int(vm.nextCourse?.startTime ?? 0))?.des ?? " -- " , systemImage: "clock")
+                        Spacer()
+                    }
+                    .font(.footnote)
+                    Divider()
+                }
+                .groupBoxStyle(ShortBoxStyle(backgroundColor: .orange,opacityRate: 0.8))
+                .padding(.horizontal)
+                .shadow(radius: 10)
+                .onTapGesture {
+                    appInfo.tabItemNum = 1
+                }
+        VStack{
             HStack{
-                Label(vm.nextCourse?.location ?? " -- " , systemImage: "location")
-                Label(StartTime(rawValue: Int(vm.nextCourse?.startTime ?? 0))?.des ?? " -- " , systemImage: "clock")
+              
                 Spacer()
             }
-            .font(.footnote)
-            Divider()
+            
+
+            
         }
-        .groupBoxStyle(ShortBoxStyle(backgroundColor: .orange,opacityRate: 0.8))
-        .padding(.horizontal)
-        .shadow(radius: 10)
-        .onTapGesture {
-            appInfo.tabItemNum = 1
-        }
+
     }
     
     private var bathLabel: some View {
@@ -122,14 +132,24 @@ private struct ButtonCell: View {
     @State var showSheet: Bool = false
     var button: ButtonInfo
     var body: some View {
-        VStack{
-            Image(systemName: button.icon)
-                .font(.title)
-                .foregroundColor(button.color)
-            Spacer()
-            Text(button.name)
-                .font(.caption)
-        }
+        RoundedRectangle(cornerRadius: 15)
+            .foregroundColor(button.color)
+            .shadow(color: .secondary, radius: 3, x: 1, y: 1)
+            .opacity(0.8)
+            .overlay(
+                HStack{
+                    Spacer()
+                    Image(systemName: button.icon)
+                        .font(.system(size: 20))
+                        .foregroundColor(.white)
+                    Spacer()
+                    Text(button.name)
+                        .font(.system(size: 12, weight: .medium, design: .rounded))
+                        .lineLimit(1)
+                        .foregroundColor(Color.white)
+                    Spacer()
+                }
+            )
     }
 }
 

@@ -6,32 +6,29 @@
 //
 
 import SwiftUI
-//import SwiftUIChart
 
 struct ScoreView: View {
     @ObservedObject var vm: ScoreShow
     var body: some View {
-        Button("Test") {
-            vm.getScoreByInternet()
-        }
-//        BarChartView(data: vm.gpaline, title: "Hello")
-//        
-//        LineChartView(data: vm.gpaLine, title: "GPA", rateValue: 1)
-        
-        
-        
-        ScrollView(.horizontal, showsIndicators: true) {
-
-            HStack{
-                Text("Placeholderajcbiabaicbabcaibaiubcaicbaciabcaibaicb")
-                Text("Placeholderajcbiabaicbabcaibaiubcaicbaciabcaibaicb")
+        VStack{
+            ScrollView(.horizontal, showsIndicators: true) {
+                 
             }
-            .navigationTitle("成绩查询")
-            .navigationBarTitleDisplayMode(.inline)
+            .onAppear {
+                vm.freshmodel()
+            }
         }
-        .onAppear {
-            vm.freshmodel()
+        .toolbar {
+            Button {
+                vm.getScoreByInternet()
+            } label: {
+                Image(systemName: "arrow.clockwise")
+            }
         }
+        .navigationTitle("成绩查询")
+        .navigationBarTitleDisplayMode(.inline)
+        
+        
     }
 }
 

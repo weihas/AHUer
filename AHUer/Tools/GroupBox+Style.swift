@@ -45,8 +45,14 @@ struct ShortBoxStyle: GroupBoxStyle {
                 configuration.label
                 Spacer()
             }
-            configuration.content
-        }.padding()
+            RoundedRectangle(cornerRadius: 20)
+                .fill(Color.purple)
+                .aspectRatio(3, contentMode: .fit)
+                .padding()
+                .overlay(
+                    configuration.content
+                )
+        }
     }
     
 }

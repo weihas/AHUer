@@ -75,14 +75,7 @@ extension AhuerAPIProvider{
         AhuerAPIProvider.netRequest(.schedule(schoolYear: schoolYear, schoolTerm: schoolTerm)) { respon in
             if let statusNum = respon?["success"] as? Bool, statusNum == true, let schedules = respon?["data"] as? [[String: Any]]{
                 guard let user = Student.nowUser() else {return}
-                for schedule in schedules{
-                    guard let scheduleId = schedule["courseId"] as? String, let result = Course.fetch(by: NSPredicate(format: "owner = %@ AND courseId = %@", user, scheduleId)) else {continue}
-                    if result.isEmpty{
-                        Course.insert()?.update(of: schedule)?.beHolded(by: user)
-                    }else{
-                        result.forEach({$0.update(of: schedule)})
-                    }
-                }
+                user.updataCourses(courses: Course.inserts(courses: schedules))
                 successNotify()
             }
         } error: { statusCode, message in
@@ -121,22 +114,14 @@ extension AhuerAPIProvider{
         AhuerAPIProvider.netRequest(.examInfo(schoolYear: year, schoolTerm: term)) { respon in
             if let exams = respon?["data"] as? [[String: Any]]{
                 guard let user = Student.nowUser() else {return}
-                for exam in exams {
-                    guard let name = exam["course"] as? String else { continue }
-                    var examAttribute = exam
+
+                user.updataExams(exams: Exam.inserts(exmas: exams.map({
+                    var examAttribute = $0
                     examAttribute.updateValue(year, forKey: "schoolYear")
                     examAttribute.updateValue(term, forKey: "schoolTerm")
-                    if var result = Exam.fetch(by: NSPredicate(format: "course = %@", name)){
-                        if result.isEmpty{
-                            Exam.insert()?.update(of: examAttribute)?.beHold(of: user)
-                        }else{
-                            result.first?.update(of: examAttribute)
-                            result.first?.beHold(of: user)
-                            result.removeFirst()
-                            result.forEach({$0.delete()})
-                        }
-                    }
-                }
+                    return examAttribute
+                })))
+                
                 successNotify()
             }
         } error: { statusCode, message in

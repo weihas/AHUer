@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import UIKit
+import SwiftUI
 //import SwiftUIChart
 
 class ScoreShow: ObservableObject{
@@ -45,12 +47,11 @@ class ScoreShow: ObservableObject{
 //    }
     
     func getScoreByInternet(){
-        AhuerAPIProvider.getScore() {
-            
-        } error: { statusCode, message in
-            
-        }
-
+//        AhuerAPIProvider.getScore() {
+//
+//        } error: { statusCode, message in
+//
+//        }
     }
     
     

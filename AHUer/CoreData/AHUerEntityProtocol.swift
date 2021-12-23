@@ -20,23 +20,9 @@ extension AHUerEntityProtocol{
         get { PersistenceController.shared.container.viewContext }
     }
     
-    init() {
-        self.init(context: Self.context)
-    }
-    
-    static func save(){
-        guard Self.context.hasChanges else { return }
-        do {
-            try Self.context.save()
-        }catch{
-            print("📦CoreData Save Error")
-        }
-    }
-    
     static func insert() -> selfType?{
         return Self(context: Self.context) as? selfType
     }
-    
     
     static func fetch(by predicate: NSPredicate?, sort: [String : Bool]? = nil, limit: Int? = nil) -> [selfType]? {
         let request = Self.fetchRequest()
@@ -74,8 +60,14 @@ extension AHUerEntityProtocol{
     @discardableResult
     func delete() -> Bool{
         Self.context.delete(self)
-        Self.save()
-        return true
+        do {
+            guard Self.context.hasChanges else { return true }
+            try Self.context.save()
+            return true
+        }catch {
+            print("📦CoreData Delete Error")
+            return false
+        }
     }
     
     @discardableResult
@@ -97,14 +89,21 @@ extension AHUerEntityProtocol{
             }
         }
         
-        Self.save()
+        do {
+            if Self.context.hasChanges{
+                try Self.context.save()
+            }
+        }catch {
+            print("📦CoreData Updata Error")
+        }
+        
         return self as? Self.selfType
     }
 }
 
 
 
-
+// MARK: Student
 extension Student: AHUerEntityProtocol {
     typealias selfType = Student
     
@@ -135,8 +134,20 @@ extension Student: AHUerEntityProtocol {
         return students.map({$0.delete()}).filter({!$0}).isEmpty
     }
     
+    func updataCourses(courses: NSSet){
+        self.courses = courses
+        self.managedObjectContext?.saved()
+//        Self.context.saved()
+    }
+    
+    func updataExams(exams: NSSet){
+        self.exams = exams
+        Self.context.saved()
+    }
 }
 
+
+// MARK: Course
 extension Course: AHUerEntityProtocol{
     typealias selfType = Course
     
@@ -148,19 +159,29 @@ extension Course: AHUerEntityProtocol{
     @discardableResult
     func beHolded(by owner: Student) -> Course{
         owner.addToCourses(self)
-        Course.save()
+        Self.context.saved()
         return self
+    }
+    
+    static func inserts(courses: [[String:Any]]) -> NSSet{
+        var result: Set<Course> = []
+        for course in courses {
+            guard let c = Course.insert()?.update(of: course) else { continue }
+            result.insert(c)
+        }
+        return NSSet(set: result)
     }
     
 }
 
+// MARK: GPA
 extension GPA: AHUerEntityProtocol{
     typealias selfType = GPA
     
     @discardableResult
     func beHolded(by owner: Grade) -> GPA{
         owner.addToGpas(self)
-        Self.save()
+        Self.context.saved()
         return self
     }
     
@@ -175,6 +196,8 @@ extension GPA: AHUerEntityProtocol{
     }
 }
 
+
+// MARK: Grade
 extension Grade: AHUerEntityProtocol{
     typealias selfType = Grade
     
@@ -185,24 +208,27 @@ extension Grade: AHUerEntityProtocol{
     
     func addGpas(gpas: NSSet){
         self.addToGpas(gpas)
-        Self.save()
+        Self.context.saved()
     }
     
     @discardableResult
-    func beHold(of owner: Student) -> Self{
+    func beHold(of owner: Student) -> Grade{
         owner.addToGrades(self)
-        Self.save()
+        Self.context.saved()
         return self
     }
 }
 
+// MARK: Exam
 extension Exam: AHUerEntityProtocol{
     typealias selfType = Exam
     
-    @discardableResult
-    func beHold(of owner: Student) -> Exam{
-        owner.addToExams(self)
-        Self.save()
-        return self
+    static func inserts(exmas: [[String:Any]]) -> NSSet{
+        var result: Set<Exam> = []
+        for exam in exmas {
+            guard let e = Exam.insert()?.update(of: exam) else { continue }
+            result.insert(e)
+        }
+        return NSSet(set: result)
     }
 }

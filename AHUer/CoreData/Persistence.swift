@@ -55,3 +55,15 @@ struct PersistenceController {
         })
     }
 }
+
+extension NSManagedObjectContext{
+    
+    func saved(){
+        guard self.hasChanges else { return }
+        do {
+            try self.save()
+        }catch{
+            print("📦CoreData Save Error")
+        }
+    }
+}
