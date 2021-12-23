@@ -23,7 +23,7 @@ struct RootView: View {
                 .tag(0)
             TimeSchedulePageView(vm: rootVM.timeScheduleViewModel)
                 .tabItem {
-                    Image(systemName: "calendar")
+                    Image(systemName: "list.bullet.rectangle")
                     Text("课表")
                 }
                 .tag(1)

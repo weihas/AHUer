@@ -55,34 +55,29 @@ struct HomePageView: View {
         .padding()
     }
     private var lectureLabel: some View {
-                GroupBox(label: Label("即将开始", systemImage: "bolt.fill")){
-                    Text(vm.nextCourse?.name ?? " -- " )
-                        .font(.title2)
-                        .foregroundColor(.blue)
-                    HStack{
-                        Label(vm.nextCourse?.location ?? " -- " , systemImage: "location")
-                        Label(StartTime(rawValue: Int(vm.nextCourse?.startTime ?? 0))?.des ?? " -- " , systemImage: "clock")
-                        Spacer()
-                    }
-                    .font(.footnote)
-                    Divider()
+        GroupBox(label: Label("即将开始", systemImage: "bolt.fill")){
+            VStack(alignment: .leading){
+                Text(vm.nextCourse?.name ?? " 高等数学 " )
+                    .font(.title2)
+                    .fontWeight(.medium)
+                    .foregroundColor(.white)
+                ProgressView(value: 11.0/18.0)
+                VStack(alignment: .leading, spacing: 10){
+                    Label(StartTime(rawValue: Int(vm.nextCourse?.startTime ?? 0))?.des ?? " 8:00-10:00 " , systemImage: "clock")
+                    Label(vm.nextCourse?.teacher ?? " Cindy ", systemImage: "person")
+                    Label(vm.nextCourse?.location ?? " 博学南楼 " , systemImage: "location")
                 }
-                .groupBoxStyle(ShortBoxStyle(backgroundColor: .orange,opacityRate: 0.8))
-                .padding(.horizontal)
-                .shadow(radius: 10)
-                .onTapGesture {
-                    appInfo.tabItemNum = 1
-                }
-        VStack{
-            HStack{
-              
-                Spacer()
+                .font(.footnote)
             }
-            
-
-            
+            .foregroundColor(.white)
         }
-
+        .frame(maxHeight: 200)
+        .groupBoxStyle(ShortBoxStyle(backgroundColor: .orange,opacityRate: 0.8))
+        .padding(.horizontal)
+        .shadow(radius: 10)
+        .onTapGesture {
+            appInfo.tabItemNum = 1
+        }
     }
     
     private var bathLabel: some View {
