@@ -56,7 +56,7 @@ extension PersonalPageView{
                     vm.showLoggingPanel.toggle()
                 }
             }, label: {
-                Text(appInfo.isLoggin ? vm.nowUser.userName : "登录" )
+                Text(appInfo.isLoggin ? vm.nowUser.name : "登录" )
                     .foregroundColor(.blue)
             })
         }

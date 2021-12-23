@@ -6,31 +6,26 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct PersonalPageInfo{
-    @SetStorage(key: "AHUID", default: "") private var userID: String
-    @SetStorage(key: "AHUPassword", default: "") private var userPassWD: String
-    @SetStorage(key: "AHUName", default: "") private var userName: String
-    var user: User{
-        get {
-            User(studentID: userID, userName: userName, password: userPassWD)
-        }
-        set {
-            userID = newValue.studentID
-            userName = newValue.userName
-            userPassWD = newValue.password
-        }
+    @AppStorage("AHUID", store: .standard) private var userID = ""
+    @AppStorage("AHUPassword", store: .standard) private var userPassWD = ""
+    @AppStorage("AHUName", store: .standard) private var userName = ""
+    
+    var name: String{
+        return userName
     }
     
-    mutating func cleanUser(){
-        user = User(studentID: "", userName: "", password: "")
+    func freshData(userID: String, userPassWD: String, userName: String){
+        self.userID = userID
+        self.userPassWD = userPassWD
+        self.userName = userName
     }
     
-    var loggedUsers: [User] = []
-}
-
-struct User{
-    var studentID: String
-    var userName: String
-    var password: String
+    func cleanup(){
+        self.userID = ""
+        self.userPassWD = ""
+        self.userName = ""
+    }
 }

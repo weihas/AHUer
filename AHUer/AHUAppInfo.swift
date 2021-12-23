@@ -6,24 +6,17 @@
 //
 
 import Foundation
+import SwiftUI
 
 /// AHUer全应用共享参数
 class AHUAppInfo: ObservableObject {
-    @Published var isLoggin: Bool = false{
-        didSet {
-            logged = isLoggin
-        }
-    }
+    @AppStorage("AHULoggin", store: .standard) var isLoggin: Bool = false
     @Published var tabItemNum: Int = 0
     
-    @SetStorage(key: "AHULoggin", default: false) private var logged: Bool
+    
     
     init() {
-        freshLogginStatus()
-    }
-    
-    func freshLogginStatus(){
-        self.isLoggin = logged
+        
     }
     
     func cleanUp(){

@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreData
+import SwiftUI
 
 /// CoreData增删改查
 protocol AHUerEntityProtocol: NSManagedObject {
@@ -120,8 +121,8 @@ extension Student: AHUerEntityProtocol {
     }
     
     static func nowUser() -> Student?{
-        @SetStorage(key: "AHUID", default: "") var studentID: String
-        guard var students = fetch(studentId: studentID), !students.isEmpty else { return nil }
+        @AppStorage("AHUID", store: .standard) var userID = ""
+        guard var students = fetch(studentId: userID), !students.isEmpty else { return nil }
         let student = students.removeFirst()
         students.forEach({$0.delete()})
         return student
