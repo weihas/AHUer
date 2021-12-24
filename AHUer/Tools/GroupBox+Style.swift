@@ -19,12 +19,14 @@ struct ColorBoxStyle: GroupBoxStyle {
                 Spacer()
             }
             configuration.content
+                .font(.footnote)
                 .padding()
         }
         .foregroundColor(Color(.systemBackground))
         .background(
             RoundedRectangle(cornerRadius: 20)
                 .fill(backgroundColor)
+                .opacity(0.8)
                 .shadow(radius: 10)
             )
     }
@@ -35,19 +37,12 @@ struct ShortBoxStyle: GroupBoxStyle {
     var backgroundColor: Color
     var opacityRate: Double = 0.6
     public func makeBody(configuration: Self.Configuration) -> some View{
-        HStack{
-            configuration.label
-            Spacer()
-        }
         RoundedRectangle(cornerRadius: 20)
-            .fill(Color.purple)
+            .fill(Color.blue)
             .aspectRatio(2, contentMode: .fit)
+            .shadow(radius: 10)
             .overlay(
-                HStack{
-                    configuration.content
-                        .padding()
-                    Spacer()
-                }
+                configuration.content
             )
     }
     
