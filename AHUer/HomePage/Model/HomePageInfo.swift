@@ -33,11 +33,12 @@ struct HomePageInfo {
 }
 
 struct ButtonInfo: Identifiable{
-    static let buttonInfos: [ButtonInfo] =  [ButtonInfo(id: 0, name: "空闲教室", icon: "building.columns.fill", color: Color.green),
+    static let buttonInfos: [ButtonInfo] =  [ButtonInfo(id: 0, name: "空闲教室", icon: "building.columns.fill", color: Color.red),
                                              ButtonInfo(id: 1, name: "成绩查询", icon: "doc.text.below.ecg.fill", color: Color.orange),
-                                             ButtonInfo(id: 2, name: "考场查询", icon: "signpost.right.fill", color: Color.red),
+                                             ButtonInfo(id: 2, name: "考场查询", icon: "signpost.right.fill", color: Color.green),
                                              ButtonInfo(id: 3, name: "浴室开放", icon: "drop.fill", color: Color.purple),
-                                             ButtonInfo(id: 4, name: "更多功能", icon: "hand.point.up.braille.fill", color: Color.pink)]
+                                             ButtonInfo(id: 4, name: "成绩分布", icon: "chart.pie.fill", color: Color.meiRed),
+                                             ButtonInfo(id: 5, name: "更多功能", icon: "hand.point.up.braille.fill", color: Color.gray)]
     let id: Int
     let name: String
     let icon: String

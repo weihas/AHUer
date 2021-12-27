@@ -14,4 +14,29 @@ extension Color{
         return colors.randomElement() ?? .blue
         
     }
+    static var meiRed: Color{
+        return Color(r: 221, g: 160, b: 221)
+    }
+    
+    static var gold: Color{
+        return Color(r: 255, g: 215, b: 0)
+    }
+    
+    static var birdBlue: Color{
+        return Color(r: 51, g: 161, b: 201)
+    }
+    
+    static var skyBlue: Color{
+        return Color(r: 135, g: 206, b: 235)
+    }
+    
+    
+    static var jasoa: Color{
+        return Color(r: 160, g: 102, b: 211)
+    }
+    
+    
+    init(r: Double, g: Double, b: Double) {
+        self.init(red: r/255.0, green: g/255.0, blue: b/255.0)
+    }
 }

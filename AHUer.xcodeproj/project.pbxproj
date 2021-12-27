@@ -13,6 +13,7 @@
 		351213E526ECBE7B00D62E9B /* NewsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351213E426ECBE7B00D62E9B /* NewsModels.swift */; };
 		351213E726ECBF2D00D62E9B /* NewsPlaying.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351213E626ECBF2D00D62E9B /* NewsPlaying.swift */; };
 		3519DEFA270C53CE00639531 /* RSA+Func.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3519DEF9270C53CE00639531 /* RSA+Func.swift */; };
+		351D2FA22778644F0020FDC7 /* ScoreCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351D2FA12778644F0020FDC7 /* ScoreCardView.swift */; };
 		353705A326EB6D62002E001C /* Button+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353705A226EB6D62002E001C /* Button+Style.swift */; };
 		3552E63827219401006A6322 /* AHUerCoreModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3552E63627219401006A6322 /* AHUerCoreModel.xcdatamodeld */; };
 		35607B9C26E99BFA0037504E /* Date+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35607B9B26E99BFA0037504E /* Date+Helper.swift */; };
@@ -67,6 +68,7 @@
 		351213E426ECBE7B00D62E9B /* NewsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModels.swift; sourceTree = "<group>"; };
 		351213E626ECBF2D00D62E9B /* NewsPlaying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPlaying.swift; sourceTree = "<group>"; };
 		3519DEF9270C53CE00639531 /* RSA+Func.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RSA+Func.swift"; sourceTree = "<group>"; };
+		351D2FA12778644F0020FDC7 /* ScoreCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCardView.swift; sourceTree = "<group>"; };
 		353705A226EB6D62002E001C /* Button+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+Style.swift"; sourceTree = "<group>"; };
 		3552E63727219401006A6322 /* AHUerCoreModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AHUerCoreModel.xcdatamodel; sourceTree = "<group>"; };
 		35607B9B26E99BFA0037504E /* Date+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Helper.swift"; sourceTree = "<group>"; };
@@ -391,6 +393,7 @@
 				847A12D02750E0A90011428B /* ScoreGets.swift */,
 				847A12CE2750DF6E0011428B /* ScoreShow.swift */,
 				35D5B16C26EA6BFD0070A23C /* ScoreView.swift */,
+				351D2FA12778644F0020FDC7 /* ScoreCardView.swift */,
 			);
 			path = Score;
 			sourceTree = "<group>";
@@ -557,6 +560,7 @@
 				35A578B2273E01CD0056166F /* AHUerEntityProtocol.swift in Sources */,
 				3578CA5426E8EDB500667BEF /* RootView.swift in Sources */,
 				35A578B4273E07620056166F /* HomePageInfo.swift in Sources */,
+				351D2FA22778644F0020FDC7 /* ScoreCardView.swift in Sources */,
 				3586B8D126EDA31F00B42A90 /* ExamSiteView.swift in Sources */,
 				3595AF3526EC423B00F1354A /* Picker+Style.swift in Sources */,
 				35CEF9F5272064CF00A4B238 /* Persistence.swift in Sources */,
@@ -699,7 +703,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"AHUer/Preview Content\"";
-				DEVELOPMENT_TEAM = 4WB3QMP893;
+				DEVELOPMENT_TEAM = NVF47AP6H6;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = AHUer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -723,7 +727,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"AHUer/Preview Content\"";
-				DEVELOPMENT_TEAM = 4WB3QMP893;
+				DEVELOPMENT_TEAM = NVF47AP6H6;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = AHUer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;

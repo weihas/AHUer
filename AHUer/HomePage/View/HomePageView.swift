@@ -172,7 +172,7 @@ struct HomePageView: View {
                 }
             }
             .padding()
-            .groupBoxStyle(ColorBoxStyle(backgroundColor: .yellow))
+            .groupBoxStyle(ColorBoxStyle(backgroundColor: .green))
         }
         .foregroundColor(Color(.systemBackground))
     }
