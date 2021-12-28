@@ -53,6 +53,8 @@ struct HomePageView: View {
                                 ExamSiteView(vm: vm.examSiteVM)
                             case 3:
                                 BathView()
+                            case 4:
+                                DistributionView(vm: vm.distributionVM)
                             default:
                                 MoreView()
                             }
@@ -210,13 +212,14 @@ private struct ButtonCell: View {
 
 
 
-struct HomePageView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomePageView(vm: HomePageShow())
-            .previewDevice("iPhone 13 mini")
-            .environmentObject(AHUAppInfo())
-        HomePageView(vm: HomePageShow())
-            .environmentObject(AHUAppInfo())
-    }
-}
+//struct HomePageView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        HomePageView(vm: HomePageShow())
+//            .previewDevice("iPhone 13 mini")
+//            .environmentObject(AHUAppInfo())
+////        HomePageView(vm: HomePageShow())
+////            .previewDevice("iPad Pro (11-inch) (3rd generation)")
+////            .environmentObject(AHUAppInfo())
+//    }
+//}
 

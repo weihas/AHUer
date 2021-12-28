@@ -40,6 +40,7 @@ class HomePageShow: ObservableObject{
     lazy var emptyClassVM = EmptyRoomShow()
     lazy var scoreViewVM = ScoreShow()
     lazy var examSiteVM = ExamSiteShow()
+    lazy var distributionVM = DistributionShow()
     
     deinit {
         print("🌀HomePageShow released")

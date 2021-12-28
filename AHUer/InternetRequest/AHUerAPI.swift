@@ -16,6 +16,7 @@ public enum AHUerAPI {
     case emptyRooms(campus: Int, weekday: Int, weekNum: Int, time: Int)
     case grade
     case examInfo(schoolYear: String, schoolTerm: Int)
+    case gradeDistribution(courseName: String)
 }
 
 extension AHUerAPI: TargetType {
@@ -36,6 +37,8 @@ extension AHUerAPI: TargetType {
             return "/api/grade"
         case .examInfo:
             return "/api/examInfo"
+        case .gradeDistribution:
+            return "/api/grade/distribution"
         }
     }
 
@@ -53,6 +56,8 @@ extension AHUerAPI: TargetType {
             return .get
         case .examInfo:
             return .get
+        case .gradeDistribution:
+            return .post
         }
     }
 
@@ -70,6 +75,8 @@ extension AHUerAPI: TargetType {
             return .requestPlain
         case .examInfo(let schoolYear, let schoolTerm):
             return .requestParameters(parameters: ["schoolYear": schoolYear, "schoolTerm": schoolTerm], encoding: URLEncoding.default)
+        case .gradeDistribution(let courseName):
+            return .requestParameters(parameters: ["courseName": courseName], encoding: URLEncoding.default)
         }
     }
 
@@ -96,6 +103,8 @@ extension AHUerAPI: TargetType {
             return "get grade"
         case .examInfo:
             return "get examInfo"
+        case .gradeDistribution:
+            return "get gradeDistribution"
         }
     }
 }

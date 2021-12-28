@@ -14,6 +14,8 @@
 		351213E726ECBF2D00D62E9B /* NewsPlaying.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351213E626ECBF2D00D62E9B /* NewsPlaying.swift */; };
 		3519DEFA270C53CE00639531 /* RSA+Func.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3519DEF9270C53CE00639531 /* RSA+Func.swift */; };
 		351D2FA22778644F0020FDC7 /* ScoreCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351D2FA12778644F0020FDC7 /* ScoreCardView.swift */; };
+		3535DED0277B4A290016BD41 /* DistributionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3535DECF277B4A290016BD41 /* DistributionView.swift */; };
+		3535DED3277B4C4A0016BD41 /* DistributionShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3535DED2277B4C4A0016BD41 /* DistributionShow.swift */; };
 		353705A326EB6D62002E001C /* Button+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353705A226EB6D62002E001C /* Button+Style.swift */; };
 		3552E63827219401006A6322 /* AHUerCoreModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3552E63627219401006A6322 /* AHUerCoreModel.xcdatamodeld */; };
 		35607B9C26E99BFA0037504E /* Date+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35607B9B26E99BFA0037504E /* Date+Helper.swift */; };
@@ -69,6 +71,8 @@
 		351213E626ECBF2D00D62E9B /* NewsPlaying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPlaying.swift; sourceTree = "<group>"; };
 		3519DEF9270C53CE00639531 /* RSA+Func.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RSA+Func.swift"; sourceTree = "<group>"; };
 		351D2FA12778644F0020FDC7 /* ScoreCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCardView.swift; sourceTree = "<group>"; };
+		3535DECF277B4A290016BD41 /* DistributionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistributionView.swift; sourceTree = "<group>"; };
+		3535DED2277B4C4A0016BD41 /* DistributionShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistributionShow.swift; sourceTree = "<group>"; };
 		353705A226EB6D62002E001C /* Button+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+Style.swift"; sourceTree = "<group>"; };
 		3552E63727219401006A6322 /* AHUerCoreModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AHUerCoreModel.xcdatamodel; sourceTree = "<group>"; };
 		35607B9B26E99BFA0037504E /* Date+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Helper.swift"; sourceTree = "<group>"; };
@@ -134,6 +138,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3535DED1277B4A330016BD41 /* Distribution */ = {
+			isa = PBXGroup;
+			children = (
+				3535DED2277B4C4A0016BD41 /* DistributionShow.swift */,
+				3535DECF277B4A290016BD41 /* DistributionView.swift */,
+			);
+			path = Distribution;
+			sourceTree = "<group>";
+		};
 		35607B9D26E99C010037504E /* Tools */ = {
 			isa = PBXGroup;
 			children = (
@@ -349,6 +362,7 @@
 				847A12CD2750DF560011428B /* Score */,
 				35D89495275E4F8B00A40EF8 /* ExamSite */,
 				35AA432A26E916320096724A /* BathView.swift */,
+				3535DED1277B4A330016BD41 /* Distribution */,
 				3586B8D826EDA3CD00B42A90 /* MoreView.swift */,
 				3586B8DC26EDAC1100B42A90 /* AddressBook */,
 			);
@@ -555,6 +569,7 @@
 				351213E726ECBF2D00D62E9B /* NewsPlaying.swift in Sources */,
 				35607BA726EA18280037504E /* SettingView.swift in Sources */,
 				35607B9C26E99BFA0037504E /* Date+Helper.swift in Sources */,
+				3535DED3277B4C4A0016BD41 /* DistributionShow.swift in Sources */,
 				3578CA6326E9117E00667BEF /* TimeScheduleShow.swift in Sources */,
 				3578CA5626E8F0ED00667BEF /* HomePageView.swift in Sources */,
 				35A578B2273E01CD0056166F /* AHUerEntityProtocol.swift in Sources */,
@@ -569,6 +584,7 @@
 				35A578B7273E07DA0056166F /* HomePageShow.swift in Sources */,
 				359BEBEE26ECE2B9006FB419 /* GroupBox+Style.swift in Sources */,
 				35AA432B26E916320096724A /* BathView.swift in Sources */,
+				3535DED0277B4A290016BD41 /* DistributionView.swift in Sources */,
 				3590EDC9273E6BE20077299D /* SetStorage.swift in Sources */,
 				35607BA226EA02E00037504E /* PersonalPageView.swift in Sources */,
 				3519DEFA270C53CE00639531 /* RSA+Func.swift in Sources */,
