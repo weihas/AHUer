@@ -14,7 +14,9 @@ struct DistributionView: View {
     var body: some View {
         VStack{
             searchBar
-//            Divider()
+            List(vm.distributions){ distribution in
+                DistributionCard(content: distribution)
+            }
             Spacer()
         }
         .navigationTitle("成绩分布")
@@ -51,7 +53,7 @@ struct DistributionView: View {
             LazyVGrid(columns: Array(repeating: GridItem(.adaptive(minimum: 80), spacing: 10, alignment: .leading), count: 3)){
                 ForEach(0..<vm.tipsRegularly.count){ index in
                     Button(vm.tipsRegularly[index]) {
-                        print(index)
+                        vm.getDistribution(courseName: vm.tipsRegularly[index])
                     }
                     .lineLimit(1)
                     .padding(.horizontal)
@@ -66,6 +68,21 @@ struct DistributionView: View {
             withAnimation{
                 show = true
             }
+        }
+    }
+}
+
+fileprivate struct DistributionCard: View{
+    let content: Distribution
+    var body: some View {
+        VStack{
+            HStack{
+                Text(content.name)
+                Text(content.id)
+            }
+            Text("\(content.moreThan80)")
+            Text("\(content.between60and80)")
+            Text("\(content.moreThan60)")
         }
     }
 }
