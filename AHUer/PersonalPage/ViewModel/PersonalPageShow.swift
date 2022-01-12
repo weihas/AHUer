@@ -37,8 +37,8 @@ class PersonalPageShow: ObservableObject {
     func loggin(_ completion: @escaping completion){
         guard let pw = password.rsaCrypto() else { return }
         let id = userID
-        AhuerAPIProvider.loggin(userId: userID, password: pw, type: 1) {
-            guard let userName = Student.fetch(studentId: id)?.first?.studentName else { return }
+        AhuerAPIProvider.loggin(userId: userID, password: pw, type: 1) {[weak self] in
+            guard let self = self, let userName = Student.fetch(studentId: id)?.first?.studentName else { return }
             self.model.freshData(userID: id, userPassWD: pw, userName: userName)
             AhuerAPIProvider.getSchedule(schoolYear: Date().studyYear, schoolTerm: Date().studyTerm) { } errorCallback: { _ in }
             completion(true,nil,nil)
