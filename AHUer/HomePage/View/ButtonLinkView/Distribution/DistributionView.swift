@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DistributionView: View {
     @ObservedObject var vm: DistributionShow
+    @EnvironmentObject var appInfo: AHUAppInfo
     @State var courseName: String = ""
     @State var show: Bool = false
     var body: some View {
@@ -27,7 +28,9 @@ struct DistributionView: View {
     var searchBar: some View{
         VStack {
             TextField("输入课程名称", text: $courseName){
-                vm.getDistribution(courseName: courseName)
+                vm.getDistribution(courseName: courseName){ status, title, description in
+                    appInfo.showAlert(title: title, message: description)
+                }
             }
                 .padding()
             
@@ -37,7 +40,9 @@ struct DistributionView: View {
                     if show {
                         Spacer()
                         Button {
-                            vm.getDistribution(courseName: courseName)
+                            vm.getDistribution(courseName: courseName){status, title, description in
+                                appInfo.showAlert(title: title, message: description)
+                            }
                             withAnimation {
                                 show = false
                             }
@@ -53,7 +58,9 @@ struct DistributionView: View {
             LazyVGrid(columns: Array(repeating: GridItem(.adaptive(minimum: 80), spacing: 10, alignment: .leading), count: 3)){
                 ForEach(0..<vm.tipsRegularly.count){ index in
                     Button(vm.tipsRegularly[index]) {
-                        vm.getDistribution(courseName: vm.tipsRegularly[index])
+                        vm.getDistribution(courseName: vm.tipsRegularly[index]){status, title, description in
+                            appInfo.showAlert(title: title, message: description)
+                        }
                     }
                     .lineLimit(1)
                     .padding(.horizontal)

@@ -10,7 +10,7 @@ import Foundation
 class EmptyRoomShow: ObservableObject {
     @Published var emptyRooms: [EmptyRoomSection] = []
     
-    func search(campus: Int, weekday: Int, weekNum: Int, time: Int){
+    func search(campus: Int, weekday: Int, weekNum: Int, time: Int, _ completion: @escaping completion){
         AhuerAPIProvider.netRequest(.emptyRooms(campus: campus , weekday: weekday, weekNum: weekNum, time: time)) { [weak self] respon in
             guard let self = self else { return }
             print(respon?["msg"] as? String ?? "")
@@ -31,10 +31,8 @@ class EmptyRoomShow: ObservableObject {
                 }
                 self.emptyRooms = sections.sorted(by: {$0.name < $1.name})
             }
-        } error: { code, error in
-            print(error)
-        } failure: { failure in
-            print(failure)
+        } error: { error in
+            completion(false,"空教室查询失败", error.description)
         }
     }
     

@@ -41,6 +41,9 @@ struct RootView: View {
                 }
                 .tag(3)
         }
+        .alert(isPresented: $appInfo.alertFlag, content: {
+            Alert(title: Text(appInfo.title), message: Text(appInfo.message), dismissButton: .cancel())
+        })
         .font(.headline)
     }
 }

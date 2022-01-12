@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct EmptyRoomView: View{
+    @EnvironmentObject var appInfo: AHUAppInfo
     @ObservedObject var vm: EmptyRoomShow
     @State private var campus: Campus = .Qinyuan
     @State private var weekNum: Int = 10
@@ -36,7 +37,9 @@ struct EmptyRoomView: View{
         }
         .toolbar{
             Button {
-                vm.search(campus: campus.rawValue, weekday: weekDay.rawValue, weekNum: weekNum, time: time.rawValue)
+                vm.search(campus: campus.rawValue, weekday: weekDay.rawValue, weekNum: weekNum, time: time.rawValue){ status, title, description in
+                    appInfo.showAlert(title: title, message: description)
+                }
             } label: {
                 Label("Search", systemImage: "magnifyingglass")
             }
@@ -173,7 +176,9 @@ extension EmptyRoomView{
                     }
                 }
                 .refreshable{
-                    vm.search(campus: campus.rawValue, weekday: weekDay.rawValue, weekNum: weekNum, time: time.rawValue)
+                    vm.search(campus: campus.rawValue, weekday: weekDay.rawValue, weekNum: weekNum, time: time.rawValue){status, title, description in
+                        appInfo.showAlert(title: title, message: description)
+                    }
                 }
             } else {
                 List{

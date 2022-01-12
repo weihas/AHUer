@@ -14,7 +14,7 @@ class DistributionShow: ObservableObject{
     var tipsRegularly: [String] = ["高等数学","马基","英语","大机","物理","Python"]
     
     
-    func getDistribution(courseName: String) {
+    func getDistribution(courseName: String, _ completion: @escaping completion) {
         AhuerAPIProvider.netRequest(.gradeDistribution(courseName: courseName)) { [weak self] respon in
             guard let self = self else {return}
             var result = [Distribution]()
@@ -28,10 +28,8 @@ class DistributionShow: ObservableObject{
                 }
             }
             self.distributions = result
-        } error: { statusCode, message in
-            
-        } failure: { failure in
-            
+        } error: { error in
+            completion(false,"成绩分布查询失败",error.description)
         }
     }
 }

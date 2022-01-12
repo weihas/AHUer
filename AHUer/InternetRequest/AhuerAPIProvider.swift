@@ -12,31 +12,28 @@ import CoreData
 /// AHUerAPI容器
 struct AhuerAPIProvider{
     private static let provider = MoyaProvider<AHUerAPI>(plugins: [AHUerAlertPlugin()])
-    typealias successCallback = (_ respon: [String:Any]?) -> Void
-    typealias errorCallBack =  (_ statusCode: Int, _ message: String) -> Void
-    typealias failureCallBack =  (_ falilure: MoyaError) ->Void
+
     
     
     static func netRequest(_ target: AHUerAPI,
-                           success successCallback: @escaping successCallback,
-                           error errorCallBack: @escaping errorCallBack,
-                           failure failureCallBack: @escaping failureCallBack)
+                           success successCallback: @escaping (_ respon: [String:Any]?) -> Void,
+                           error errorCallBack: @escaping (_ error: AHUerAPIError) -> Void)
     {
         provider.request(target) { result in
             switch result {
             case .success(let respon):
                 if let analysis = try? respon.mapJSON(failsOnEmptyData: true) as? [String:Any]{
-                    let msg = analysis["msg"] as? String ?? ""
+                    let msg = analysis["msg"] as? String
                     if let status = analysis["success"] as? Bool, status == true {
                         successCallback(analysis)
                     }else{
-                        errorCallBack(analysis["code"] as? Int ?? -3, msg)
+                        errorCallBack(AHUerAPIError(code: analysis["code"] as? Int ?? -10, message: msg))
                     }
                 }else{
-                    errorCallBack(-10, "JSON解析失败")
+                    errorCallBack(AHUerAPIError(code: -10))
                 }
             case .failure(let error):
-                failureCallBack(error)
+                errorCallBack(AHUerAPIError(code: error.errorCode, message: error.localizedDescription))
             }
         }
     }
@@ -46,10 +43,11 @@ struct AhuerAPIProvider{
 
 // 一些操作的包装
 extension AhuerAPIProvider{
-    typealias successNotify = () -> Void
+    typealias success =  () -> Void
+    typealias error = (_ error: AHUerAPIError) -> Void
     /// 网络请求登录
     /// - Parameters:
-    static func loggin(userId: String, password: String, type: Int, success successNotify: @escaping successNotify, error errorCallBack: @escaping errorCallBack) {
+    static func loggin(userId: String, password: String, type: Int, successCallback: @escaping success, errorCallback: @escaping error) {
         AhuerAPIProvider.netRequest(.login(userId: userId, password: password, type: type)) { respon in
             if let statusNum = respon?["success"] as? Bool, statusNum == true, let data = respon?["data"] as? [String: Any]{
                 let userName = data["name"] as? String
@@ -61,33 +59,29 @@ extension AhuerAPIProvider{
                 }else{
                     result.forEach {$0.update(of: ["studentID" : userId, "studentName" : userName])}
                 }
-                successNotify()
+                successCallback()
             }
-        } error: { statusCode, message in
-            errorCallBack(statusCode, message)
-        } failure: { falilure in
-            errorCallBack(-1 , "错误")
+        } error: { error in
+            errorCallback(error)
         }
     }
     
     /// 网络请求课表
-    static func getSchedule(schoolYear: String, schoolTerm: Int, success successNotify: @escaping successNotify, error errorCallBack: @escaping errorCallBack){
+    static func getSchedule(schoolYear: String, schoolTerm: Int, successCallback: @escaping success, errorCallback: @escaping error){
         AhuerAPIProvider.netRequest(.schedule(schoolYear: schoolYear, schoolTerm: schoolTerm)) { respon in
             if let statusNum = respon?["success"] as? Bool, statusNum == true, let schedules = respon?["data"] as? [[String: Any]]{
                 guard let user = Student.nowUser() else {return}
                 user.updataCourses(courses: Course.inserts(courses: schedules))
-                successNotify()
+                successCallback()
             }
-        } error: { statusCode, message in
-            errorCallBack(statusCode, message)
-        } failure: { falilure in
-            errorCallBack(-1 , "错误")
+        } error: { error in
+            errorCallback(error)
         }
     }
     
     ///网络请求成绩
     ///Term --- Grade-----Gpa
-    static func getScore(success successNotify: @escaping successNotify, error errorCallBack: @escaping errorCallBack){
+    static func getScore(successCallback: @escaping success, errorCallback: @escaping error){
         AhuerAPIProvider.netRequest(.grade) { respon in
             if let grades = respon?["data"] as? [String: Any]{
                 guard let user = Student.nowUser()?.update(of: grades) else {return}
@@ -100,17 +94,15 @@ extension AhuerAPIProvider{
                     
                     Grade.insert()?.update(of: term)?.beHold(of: user).addToGpas(GPA.inserts(gpas: gpas))
                 }
-                successNotify()
+                successCallback()
             }
-        } error: { statusCode, message in
-            errorCallBack(statusCode, message)
-        } failure: { falilure in
-            errorCallBack(-1 , "错误")
+        } error: { error in
+            errorCallback(error)
         }
     }
     
     /// 网络请求考场
-    static func getExamination(year: String, term: Int, success successNotify: @escaping successNotify, error errorCallBack: @escaping errorCallBack){
+    static func getExamination(year: String, term: Int, successCallback: @escaping success, errorCallback: @escaping error){
         AhuerAPIProvider.netRequest(.examInfo(schoolYear: year, schoolTerm: term)) { respon in
             if let exams = respon?["data"] as? [[String: Any]]{
                 guard let user = Student.nowUser() else {return}
@@ -121,27 +113,22 @@ extension AhuerAPIProvider{
                     examAttribute.updateValue(term, forKey: "schoolTerm")
                     return examAttribute
                 })))
-                
-                successNotify()
+                successCallback()
             }
-        } error: { statusCode, message in
-            errorCallBack(statusCode, message)
-        } failure: { failure in
-            errorCallBack(-1 , "错误")
+        } error: { error in
+            errorCallback(error)
         }
     }
     
     /// 网络登出
-    static func logout(type: Int = 1, success successNotify: @escaping successNotify, error errorCallBack: @escaping errorCallBack){
+    static func logout(type: Int = 1, successCallback: @escaping success, errorCallback: @escaping error){
         AhuerAPIProvider.netRequest(.logout(type: type)) { respon in
             guard let student = Student.nowUser() else { return }
             student.delete()
             HTTPCookieStorage.deleteAHUerCookie()
-            successNotify()
-        } error: { statusCode, message in
-            errorCallBack(statusCode, message)
-        } failure: { failure in
-            errorCallBack(-1 , "错误")
+            successCallback()
+        } error: { error in
+            errorCallback(error)
         }
     }
     

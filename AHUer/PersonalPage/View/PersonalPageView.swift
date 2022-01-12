@@ -21,14 +21,6 @@ struct PersonalPageView: View {
                 accountSection
                 operationSection
             }
-            .alert(isPresented: $vm.showAlert) {
-                Alert(title: Text("登录失败"),
-                      message: Text(vm.msg ?? ""),
-                      primaryButton: .default(Text("重新登录")){
-                    vm.showLoggingPanel = true
-                },
-                      secondaryButton: .cancel(Text("取消")))
-            }
             .actionSheet(isPresented: $showLoggingChoose) {
                 actionSheet
             }
@@ -103,7 +95,11 @@ extension PersonalPageView{
                 buttons: [
                     .destructive(Text("退出")){
                         appInfo.isLoggin = false
-                        vm.logout()
+                        vm.logout { status, title, description in
+                            if !status{
+                                appInfo.showAlert(title: title, message: description)
+                            }
+                        }
                     },
                     .cancel(Text("取消"))
                 ])
@@ -148,8 +144,12 @@ extension PersonalPageView{
             Spacer()
             Button(action: {
                 print("认证")
-                vm.loggin(){logged in
-                    appInfo.isLoggin = logged
+                vm.loggin { status, title, description in
+                    if status {
+                        appInfo.isLoggin = status
+                    }else{
+                        appInfo.showAlert(title: title, message: description)
+                    }
                 }
             }, label: {
                 Label("认证", systemImage: "chevron.forward.square")

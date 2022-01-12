@@ -23,11 +23,11 @@ class ExamSiteShow: ObservableObject {
     
     //MARK: -Intents
     
-    func freshScoreModelByInternet() {
-        AhuerAPIProvider.getExamination(year: "2020-2021", term: 1) { [weak self] in
-            guard let self = self else {return}
+    func freshScoreModelByInternet(_ completion: @escaping completion) {
+        AhuerAPIProvider.getExamination(year: "2020-2021", term: 1) {
             self.freshExamModelData()
-        } error: { statusCode, message in
+        } errorCallback: { error in
+            completion(false, "获取考场信息失败", error.description)
         }
 
     }

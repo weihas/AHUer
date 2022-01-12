@@ -10,6 +10,8 @@ import Foundation
 class TimeScheduleShow: ObservableObject{
     @Published var timetable: TimeSchedule
     
+    typealias callback =  (_ status: Bool, _ title: String?, _ description: String?) -> Void
+    
     init(){
         timetable = TimeSchedule()
     }
@@ -29,15 +31,12 @@ class TimeScheduleShow: ObservableObject{
         self.objectWillChange.send()
     }
     
-    func freshDataByInternet(){
-        AhuerAPIProvider.getSchedule(schoolYear: "2020-2021", schoolTerm: 1) { [weak self] in
-            guard let self = self else { return }
+    func freshDataByInternet(_ completion: @escaping callback) {
+        AhuerAPIProvider.getSchedule(schoolYear: "2020-2021", schoolTerm: 1) {
             self.freshDataOfClass()
-//            self.objectWillChange.send()
-        } error: { statusCode, message in
-            
+        } errorCallback: { error in
+            completion(false, "课表获取失败" ,error.description)
         }
-
     }
     deinit {
         print("🌀TimeTableShow released")

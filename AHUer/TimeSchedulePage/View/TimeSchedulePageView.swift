@@ -35,7 +35,11 @@ struct TimeSchedulePageView: View {
                         Label("手动添加", systemImage: "plus.rectangle.on.rectangle")
                     }
                     Button {
-                        vm.freshDataByInternet()
+                        vm.freshDataByInternet { status, title, description in
+                            if !status{
+                                appInfo.showAlert(title: title, message: description)
+                            }
+                        }
                     } label: {
                         Label("刷新课表", systemImage: "globe.europe.africa")
                     }

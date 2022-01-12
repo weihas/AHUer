@@ -7,14 +7,13 @@
 
 import Foundation
 
+typealias completion =  (_ status: Bool, _ title: String?, _ description: String?) -> Void
+
 class PersonalPageShow: ObservableObject {
     @Published private var model: PersonalPageInfo
     @Published var userID: String = ""
     @Published var password: String = ""
-    @Published var showAlert: Bool = false
     @Published var showLoggingPanel: Bool = false
-    
-    var msg: String?
     
     typealias provider = AhuerAPIProvider
     
@@ -35,32 +34,28 @@ class PersonalPageShow: ObservableObject {
     
     // MARK: -Intents(s)
     
-    func loggin(completion: @escaping (Bool)-> Void){
+    func loggin(_ completion: @escaping completion){
         guard let pw = password.rsaCrypto() else { return }
         let id = userID
-        AhuerAPIProvider.loggin(userId: userID, password: pw, type: 1) { [weak self] in
-            guard let self = self else {return}
-            completion(true)
+        AhuerAPIProvider.loggin(userId: userID, password: pw, type: 1) {
             guard let userName = Student.fetch(studentId: id)?.first?.studentName else { return }
             self.model.freshData(userID: id, userPassWD: pw, userName: userName)
-            AhuerAPIProvider.getSchedule(schoolYear: Date().studyYear, schoolTerm: Date().studyTerm) {  } error: { _,_ in}
-        } error: { [weak self] statusCode, message  in
-            guard let self = self else { return }
-            self.msg = message
-            self.showAlert.toggle()
+            AhuerAPIProvider.getSchedule(schoolYear: Date().studyYear, schoolTerm: Date().studyTerm) { } errorCallback: { _ in }
+            completion(true,nil,nil)
+        } errorCallback: { error in
+            completion(false, "登录失败", error.description)
         }
         showLoggingPanel = false
     }
     
     
-    func logout(){
-        AhuerAPIProvider.logout(type: 1) { [weak self] in
+    func logout(_ completion: @escaping completion){
+        AhuerAPIProvider.logout(type:1) {[weak self] in
             guard let self = self else {return}
             self.model.cleanup()
-        } error: { [weak self] statusCode, message in
-            guard let self = self else {return}
-            self.msg = message
-            self.showAlert.toggle()
+            completion(true,nil,nil)
+        } errorCallback: { error in
+            completion(false,"登出失败", error.description)
         }
     }
     

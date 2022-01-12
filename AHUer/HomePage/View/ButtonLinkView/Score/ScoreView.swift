@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ScoreView: View {
+    @EnvironmentObject var appInfo: AHUAppInfo
     @ObservedObject var vm: ScoreShow
     @State var showDetail: Bool = false
     var body: some View {
@@ -36,7 +37,11 @@ struct ScoreView: View {
         }
         .toolbar {
             Button {
-                vm.getScoreByInternet()
+                vm.getScoreByInternet { status, title, description in
+                    if !status{
+                        appInfo.showAlert(title: title, message: description)
+                    }
+                }
             } label: {
                 Image(systemName: "arrow.clockwise")
             }

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ExamSiteView: View {
+    @EnvironmentObject var appInfo: AHUAppInfo
     @ObservedObject var vm: ExamSiteShow
     @State var point: Double = 0
     var body: some View {
@@ -35,7 +36,11 @@ struct ExamSiteView: View {
         .toolbar {
             HStack{
                 Button {
-                    vm.freshScoreModelByInternet()
+                    vm.freshScoreModelByInternet { status, title, description in
+                        if !status{
+                            appInfo.showAlert(title: title, message: description)
+                        }
+                    }
                 } label: {
                     Image(systemName: "arrow.clockwise")
                 }

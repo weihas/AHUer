@@ -50,6 +50,7 @@
 		35A801B32747EC68009E3D08 /* TimeScheduleAddLectureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A801B22747EC68009E3D08 /* TimeScheduleAddLectureView.swift */; };
 		35AA432B26E916320096724A /* BathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AA432A26E916320096724A /* BathView.swift */; };
 		35AE5D6C2720461900B0DC98 /* AhuerAPIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AE5D6B2720461900B0DC98 /* AhuerAPIProvider.swift */; };
+		35B4DDAA278EBEF400AE60D3 /* AHUerAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B4DDA9278EBEF400AE60D3 /* AHUerAPIError.swift */; };
 		35CDFB7C275F74B60091E9E1 /* StartTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CDFB7B275F74B60091E9E1 /* StartTime.swift */; };
 		35CEF9F5272064CF00A4B238 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CEF9F4272064CF00A4B238 /* Persistence.swift */; };
 		35D5B16D26EA6BFD0070A23C /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D5B16C26EA6BFD0070A23C /* ScoreView.swift */; };
@@ -109,6 +110,7 @@
 		35A801B22747EC68009E3D08 /* TimeScheduleAddLectureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeScheduleAddLectureView.swift; sourceTree = "<group>"; };
 		35AA432A26E916320096724A /* BathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BathView.swift; sourceTree = "<group>"; };
 		35AE5D6B2720461900B0DC98 /* AhuerAPIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AhuerAPIProvider.swift; sourceTree = "<group>"; };
+		35B4DDA9278EBEF400AE60D3 /* AHUerAPIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AHUerAPIError.swift; sourceTree = "<group>"; };
 		35CDFB7B275F74B60091E9E1 /* StartTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartTime.swift; sourceTree = "<group>"; };
 		35CEF9F4272064CF00A4B238 /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		35D5B16C26EA6BFD0070A23C /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
@@ -341,6 +343,7 @@
 			children = (
 				35945F51271C25C40003ABAC /* AHUerAPI.swift */,
 				35AE5D6B2720461900B0DC98 /* AhuerAPIProvider.swift */,
+				35B4DDA9278EBEF400AE60D3 /* AHUerAPIError.swift */,
 			);
 			path = InternetRequest;
 			sourceTree = "<group>";
@@ -554,6 +557,7 @@
 				3552E63827219401006A6322 /* AHUerCoreModel.xcdatamodeld in Sources */,
 				350710B0274A3BB8006D0587 /* Color+Extension.swift in Sources */,
 				847A12CF2750DF6E0011428B /* ScoreShow.swift in Sources */,
+				35B4DDAA278EBEF400AE60D3 /* AHUerAPIError.swift in Sources */,
 				3578CA6526E9120400667BEF /* TimeSchedule.swift in Sources */,
 				357669F2275E5041002504B4 /* ExamSite.swift in Sources */,
 				351213E526ECBE7B00D62E9B /* NewsModels.swift in Sources */,
@@ -719,7 +723,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"AHUer/Preview Content\"";
-				DEVELOPMENT_TEAM = NVF47AP6H6;
+				DEVELOPMENT_TEAM = 4WB3QMP893;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = AHUer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -743,7 +747,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"AHUer/Preview Content\"";
-				DEVELOPMENT_TEAM = NVF47AP6H6;
+				DEVELOPMENT_TEAM = 4WB3QMP893;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = AHUer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
