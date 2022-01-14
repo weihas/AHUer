@@ -11,6 +11,7 @@ struct HomePageView: View {
     @ObservedObject var vm: HomePageShow
     @EnvironmentObject var appInfo: AHUAppInfo
     @State var showGPA: Bool = false
+    @State var jump: Int? = 0
     var body: some View {
         NavigationView{
             ScrollView(showsIndicators: false){
@@ -22,11 +23,15 @@ struct HomePageView: View {
                         .font(.footnote)
                         .foregroundColor(.green)
                         .padding(.horizontal)
-                    lectureLabel
-                    buttonsLabel
+                    LazyVGrid(columns: [GridItem(.adaptive(minimum: 450), alignment: .top)]) {
+                        lectureLabel
+                        buttonsLabel
+                        tipsLabel
+                    }
                         .padding(.top, 10)
-                    tipsLabel
+
                 }
+                .groupBoxStyle(ModuleBoxStyle())
             }
             .onAppear{
                 vm.freshImmediatelyLecture()
@@ -34,45 +39,87 @@ struct HomePageView: View {
             .navigationTitle("今天")
             .navigationBarTitleDisplayMode(.automatic)
         }
-        .navigationViewStyle(.stack)
+        .navigationViewStyle(.automatic)
+    }
+    
+    private var lectureLabel: some View {
+        GroupBox {
+                RoundedRectangle(cornerRadius: 20)
+                    .fill(Color.blue)
+                    .aspectRatio(2, contentMode: .fit)
+                    .shadow(radius: 10)
+                    .overlay(
+                        VStack(alignment: .leading, spacing: 10){
+                            HStack {
+                                Text("\(vm.nextCourse?.name ?? " 高等数学 " )")
+                                    .font(.title2)
+                                    .fontWeight(.medium)
+                               
+                                Spacer()
+                                Button {
+                                    appInfo.tabItemNum = 1
+                                } label: {
+                                    Image(systemName: "ellipsis")
+                                }
+                            }
+                            .foregroundColor(.white)
+                            
+                            //TODO: ProgressView
+                            ProgressView(value: 11.0/18.0)
+                                .foregroundColor(.orange)
+                            Group{
+                                Label(StartTime(rawValue: Int(vm.nextCourse?.startTime ?? 0))?.des ?? " 8:00-10:00 " , systemImage: "clock")
+                                Label(vm.nextCourse?.teacher ?? " Cindy ", systemImage: "person")
+                                Label(vm.nextCourse?.location ?? " 博学南楼 " , systemImage: "location")
+                            }
+                            .font(.footnote)
+                            .foregroundColor(.white)
+                        }
+                            .padding()
+                    )
+        } label: {
+            Label("即将开始", systemImage: "bolt")
+        }
+        .padding([.horizontal,.bottom])
     }
     
     private var buttonsLabel: some View {
-        VStack(alignment: .leading){
-            Label("Func", systemImage: "lightbulb")
-            LazyVGrid(columns: Array(repeating: GridItem(.adaptive(minimum: 100, maximum: 120), spacing: 10, alignment: .center), count: 3)){
-                ForEach(vm.buttonsInfo, id: \.id){ b in
-                    NavigationLink {
-                        Group{
-                            switch b.id{
-                            case 0:
-                                EmptyRoomView(vm: vm.emptyClassVM)
-                            case 1:
-                                ScoreView(vm: vm.scoreViewVM)
-                            case 2:
-                                ExamSiteView(vm: vm.examSiteVM)
-                            case 3:
-                                BathView()
-                            case 4:
-                                DistributionView(vm: vm.distributionVM)
-                            default:
-                                MoreView()
+        VStack{
+            GroupBox {
+                LazyVGrid(columns: [GridItem(.adaptive(minimum: 100), spacing: 10)]){
+                    ForEach(vm.buttonsInfo, id: \.id){ b in
+                        NavigationLink {
+                            Group{
+                                switch b.id{
+                                case 0:
+                                    EmptyRoomView(vm: vm.emptyClassVM)
+                                case 1:
+                                    ScoreView(vm: vm.scoreViewVM)
+                                case 2:
+                                    ExamSiteView(vm: vm.examSiteVM)
+                                case 3:
+                                    BathView()
+                                case 4:
+                                    DistributionView(vm: vm.distributionVM)
+                                default:
+                                    MoreView()
+                                }
                             }
+                        } label: {
+                            ButtonCell(button: b)
+                                .frame(height: 40)
                         }
-                    } label: {
-                        ButtonCell(button: b)
-                            .frame(height: 40)
                     }
                 }
+            } label: {
+                Label("Func", systemImage: "lightbulb")
             }
         }
-        .padding(.horizontal)
+        .padding([.horizontal,.bottom])
     }
     
     private var tipsLabel: some View{
-        VStack(alignment: .leading, spacing: 10){
-            Label("Tips", systemImage: "bookmark")
-                .padding([.top, .leading, .trailing])
+        GroupBox {
             ScrollView(.horizontal,showsIndicators: false){
                 HStack{
                     bathLabel
@@ -80,48 +127,10 @@ struct HomePageView: View {
                     examLabel
                 }
             }
+        } label: {
+            Label("Tips", systemImage: "bookmark")
+                .padding(.horizontal)
         }
-    }
-    
-    private var lectureLabel: some View {
-        VStack(alignment: .leading, spacing: 10){
-            Label("即将开始", systemImage: "bolt")
-            RoundedRectangle(cornerRadius: 20)
-                .fill(Color.blue)
-                .aspectRatio(2, contentMode: .fit)
-                .shadow(radius: 10)
-                .overlay(
-                    VStack(alignment: .leading, spacing: 10){
-                        HStack {
-                            Text("\(vm.nextCourse?.name ?? " 高等数学 " )")
-                                .font(.title2)
-                                .fontWeight(.medium)
-                           
-                            Spacer()
-                            Button {
-                                appInfo.tabItemNum = 1
-                            } label: {
-                                Image(systemName: "ellipsis")
-                            }
-                        }
-                        .foregroundColor(.white)
-                        
-                        //TODO: ProgressView
-                        ProgressView(value: 11.0/18.0)
-                            .foregroundColor(.orange)
-                        Group{
-                            Label(StartTime(rawValue: Int(vm.nextCourse?.startTime ?? 0))?.des ?? " 8:00-10:00 " , systemImage: "clock")
-                            Label(vm.nextCourse?.teacher ?? " Cindy ", systemImage: "person")
-                            Label(vm.nextCourse?.location ?? " 博学南楼 " , systemImage: "location")
-                        }
-                        .font(.footnote)
-                        .foregroundColor(.white)
-                    }
-                        .padding()
-                )
-        }
-        .frame(maxWidth: 340, maxHeight: 300)
-        .padding(.horizontal)
     }
     
     private var bathLabel: some View {
@@ -132,8 +141,7 @@ struct HomePageView: View {
                     Text( "南区/蕙园: " + (vm.NorthBathroomisMen ? "女生" : "男生"))
                 }
             }
-            .padding()
-            .groupBoxStyle(ColorBoxStyle(backgroundColor: .purple))
+            .groupBoxStyle(ColorBoxStyle(.purple))
         }
     }
     
@@ -149,20 +157,19 @@ struct HomePageView: View {
                 VStack{
                     HStack{
                         Spacer()
-                        Button(action: {
+                        Button {
                             showGPA.toggle()
-                        }, label: {
+                        } label: {
                             Image(systemName: showGPA ? "eye" : "eye.slash")
-                        })
-                            .padding([.trailing,.top], 5)
+                                .foregroundColor(Color(.systemBackground))
+                        }
+                        .padding([.trailing,.top], 20)
                     }
                     Spacer()
                 }
             )
-            .padding()
-            .groupBoxStyle(ColorBoxStyle(backgroundColor: .orange))
+            .groupBoxStyle(ColorBoxStyle(.orange))
         }
-        .foregroundColor(Color(.systemBackground))
     }
     
     private var examLabel: some View {
@@ -173,10 +180,8 @@ struct HomePageView: View {
                     Text("全程绩点: " + (showGPA ? "\(vm.gpa.1)" : "*. **"))
                 }
             }
-            .padding()
-            .groupBoxStyle(ColorBoxStyle(backgroundColor: .green))
+            .groupBoxStyle(ColorBoxStyle(.green))
         }
-        .foregroundColor(Color(.systemBackground))
     }
     
     
@@ -212,14 +217,14 @@ private struct ButtonCell: View {
 
 
 
-//struct HomePageView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        HomePageView(vm: HomePageShow())
-//            .previewDevice("iPhone 13 mini")
-//            .environmentObject(AHUAppInfo())
-////        HomePageView(vm: HomePageShow())
-////            .previewDevice("iPad Pro (11-inch) (3rd generation)")
-////            .environmentObject(AHUAppInfo())
-//    }
-//}
+struct HomePageView_Previews: PreviewProvider {
+    static var previews: some View {
+        HomePageView(vm: HomePageShow())
+            .previewDevice("iPhone 13 mini")
+            .environmentObject(AHUAppInfo())
+        HomePageView(vm: HomePageShow())
+            .previewDevice("iPad Pro (11-inch) (3rd generation)")
+            .environmentObject(AHUAppInfo())
+    }
+}
 

@@ -51,7 +51,7 @@ struct LectureViewCell: View{
     var body: some View {
         GeometryReader{ geometry in
             Group{
-                RoundedRectangle(cornerRadius: geometry.size.width * 0.1)
+                RoundedRectangle(cornerRadius: geometry.size.width * 0.2)
                     .fill(lecture.isShow ? lecture.color : .clear)
                     .frame(width: geometry.size.width, height: lecture.lectureLengthIsTwo ? geometry.size.height : geometry.size.height/2)
                     .overlay(

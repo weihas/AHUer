@@ -8,20 +8,35 @@
 import Foundation
 import SwiftUI
 
+/// 用于主页的模块化方块
+struct ModuleBoxStyle: GroupBoxStyle {
+    public func makeBody(configuration: Self.Configuration) -> some View {
+        VStack(alignment: .leading){
+            configuration.label
+            configuration.content
+        }
+    }
+}
+
+
+
+/// 多彩Tips方块
 struct ColorBoxStyle: GroupBoxStyle {
     var backgroundColor: Color
-    var opacityRate: Double = 0.6
+    
+    init(_ backgroundColor: Color ) {
+        self.backgroundColor = backgroundColor
+    }
+    
     public func makeBody(configuration: Self.Configuration) -> some View{
-        VStack{
-            HStack{
-                configuration.label
-                    .padding()
-                Spacer()
-            }
+        VStack(alignment: .leading){
+            configuration.label
+                .padding()
             configuration.content
                 .font(.footnote)
                 .padding()
         }
+      
         .foregroundColor(Color(.systemBackground))
         .background(
             RoundedRectangle(cornerRadius: 20)
@@ -29,21 +44,8 @@ struct ColorBoxStyle: GroupBoxStyle {
                 .opacity(0.8)
                 .shadow(radius: 10)
             )
+        .padding()
     }
     
 }
 
-struct ShortBoxStyle: GroupBoxStyle {
-    var backgroundColor: Color
-    var opacityRate: Double = 0.6
-    public func makeBody(configuration: Self.Configuration) -> some View{
-        RoundedRectangle(cornerRadius: 20)
-            .fill(Color.blue)
-            .aspectRatio(2, contentMode: .fit)
-            .shadow(radius: 10)
-            .overlay(
-                configuration.content
-            )
-    }
-    
-}
