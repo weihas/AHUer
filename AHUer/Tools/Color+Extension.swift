@@ -30,11 +30,14 @@ extension Color{
         return Color(r: 135, g: 206, b: 235)
     }
     
-    
     static var jasoa: Color{
         return Color(r: 160, g: 102, b: 211)
     }
     
+    //If BlackModel, return white ,WhiteModel return black
+    static var background: Color{
+        return Color(.systemBackground)
+    }
     
     init(r: Double, g: Double, b: Double) {
         self.init(red: r/255.0, green: g/255.0, blue: b/255.0)
