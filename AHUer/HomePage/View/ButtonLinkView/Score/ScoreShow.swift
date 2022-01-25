@@ -46,12 +46,8 @@ class ScoreShow: ObservableObject{
 //        return ChartData(values: model.grades.map({(($0.schoolYear ?? "") + "\n" + ($0.schoolTerm ?? "") ,$0.termTotalCredit)}))
 //    }
     
-    func getScoreByInternet(_ completion: @escaping completion){
-        AhuerAPIProvider.getScore {
-            
-        } errorCallback: { error in
-            completion(false, "成绩查询失败", error.description)
-        }
+    func getScoreByInternet() async throws{
+        try await AHUerAPIInteractor.getScore()
     }
     
     

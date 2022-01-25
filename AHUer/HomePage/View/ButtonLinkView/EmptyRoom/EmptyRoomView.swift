@@ -37,8 +37,12 @@ struct EmptyRoomView: View{
         }
         .toolbar{
             Button {
-                vm.search(campus: campus.rawValue, weekday: weekDay.rawValue, weekNum: weekNum, time: time.rawValue){ status, title, description in
-                    appInfo.showAlert(title: title, message: description)
+                Task{
+                    do {
+                        try await vm.search(campus: campus.rawValue, weekday: weekDay.rawValue, weekNum: weekNum, time: time.rawValue)
+                    } catch {
+                        appInfo.showAlert(with: error)
+                    }
                 }
             } label: {
                 Label("Search", systemImage: "magnifyingglass")
@@ -176,8 +180,12 @@ extension EmptyRoomView{
                     }
                 }
                 .refreshable{
-                    vm.search(campus: campus.rawValue, weekday: weekDay.rawValue, weekNum: weekNum, time: time.rawValue){status, title, description in
-                        appInfo.showAlert(title: title, message: description)
+                    Task{
+                        do {
+                            try await vm.search(campus: campus.rawValue, weekday: weekDay.rawValue, weekNum: weekNum, time: time.rawValue)
+                        } catch {
+                            appInfo.showAlert(with: error)
+                        }
                     }
                 }
             } else {

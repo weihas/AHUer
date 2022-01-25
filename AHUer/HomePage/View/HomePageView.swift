@@ -16,13 +16,7 @@ struct HomePageView: View {
         NavigationView{
             ScrollView(showsIndicators: false){
                 VStack(alignment: .leading){
-                    Text("E01814133👋")
-                        .foregroundColor(.gray)
-                        .padding(.horizontal)
-                    Text("你一共有4节课")
-                        .font(.footnote)
-                        .foregroundColor(.green)
-                        .padding(.horizontal)
+                    helloLabel
                     LazyVGrid(columns: [GridItem(.adaptive(minimum: 450), alignment: .top)]) {
                         lectureLabel
                         buttonsLabel
@@ -40,6 +34,19 @@ struct HomePageView: View {
             .navigationBarTitleDisplayMode(.automatic)
         }
         .navigationViewStyle(.automatic)
+    }
+    
+    
+    private var helloLabel: some View {
+        VStack(alignment: .leading){
+            Text("E01814133👋")
+                .foregroundColor(.gray)
+                .padding(.horizontal)
+            Text("你一共有4节课")
+                .font(.footnote)
+                .foregroundColor(.green)
+                .padding(.horizontal)
+        }
     }
     
     private var lectureLabel: some View {

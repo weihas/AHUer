@@ -125,6 +125,30 @@ extension AHUerAPI: TargetType {
             return "get campusCardBalance"
         }
     }
+    
+    
+    public var errorHandelTitle: String{
+        switch self {
+        case .login:
+            return "登录"
+        case .schedule:
+            return "查询课表"
+        case .logout:
+            return "登出"
+        case .emptyRooms:
+            return "空教室查询"
+        case .grade:
+            return "成绩查询"
+        case .examInfo:
+            return "考场查询"
+        case .gradeDistribution:
+            return "成绩分布查询"
+        case .bathroom:
+            return "浴室查询"
+        case .campusCardBalance:
+            return "余额获取"
+        }
+    }
 }
 
 final class AHUerAlertPlugin: PluginType {
@@ -132,9 +156,6 @@ final class AHUerAlertPlugin: PluginType {
     
     func prepare(_ request: URLRequest, target: TargetType) -> URLRequest {
         var myRequest = request
-        if let cookie = UserDefaults.standard.string(forKey: "AHUCookie"){
-            myRequest.setValue(cookie, forHTTPHeaderField: "cookie")
-        }
         myRequest.timeoutInterval = 20
         return myRequest
     }
@@ -156,11 +177,20 @@ final class AHUerAlertPlugin: PluginType {
 
 extension HTTPCookieStorage{
     static func saveAHUerCookie(){
-        if let cookie = HTTPCookieStorage.shared.cookies(for: URL(string: "https://ahuer.cn/api")!)?.first{
-            UserDefaults.standard.setValue(cookie.name + "=" + cookie.value, forKey: "AHUCookie")
+        guard let cookies = shared.cookies(for: URL(string: "https://ahuer.cn/api")!) else { return }
+        for cookie in cookies{
+            guard var props = cookie.properties else { continue }
+            props[.expires] = Date().adding(day:30)
+            props[.discard] = nil
+            guard let newCookie = HTTPCookie(properties: props) else { continue }
+            shared.setCookie(newCookie)
         }
     }
+    
     static func deleteAHUerCookie(){
-        UserDefaults.standard.removeObject(forKey: "AHUCookie")
+        guard let cookies = shared.cookies(for: URL(string: "https://ahuer.cn/api")!) else { return }
+        for cookie in cookies{
+            shared.deleteCookie(cookie)
+        }
     }
 }

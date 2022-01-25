@@ -27,6 +27,13 @@ class AHUAppInfo: ObservableObject {
         alertFlag.toggle()
     }
     
+    func showAlert(with error: Error){
+        guard let error = error as? AHUerAPIError else { return }
+        self.title = error.title
+        self.message = error.description
+        alertFlag.toggle()
+    }
+    
     func cleanUp(){
         Student.cleanUp()
     }

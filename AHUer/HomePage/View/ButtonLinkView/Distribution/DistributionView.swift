@@ -28,8 +28,12 @@ struct DistributionView: View {
     var searchBar: some View{
         VStack {
             TextField("输入课程名称", text: $courseName){
-                vm.getDistribution(courseName: courseName){ status, title, description in
-                    appInfo.showAlert(title: title, message: description)
+                Task{
+                    do {
+                        try await vm.getDistribution(courseName: courseName)
+                    } catch {
+                        appInfo.showAlert(with: error)
+                    }
                 }
             }
                 .padding()
@@ -40,8 +44,12 @@ struct DistributionView: View {
                     if show {
                         Spacer()
                         Button {
-                            vm.getDistribution(courseName: courseName){status, title, description in
-                                appInfo.showAlert(title: title, message: description)
+                            Task{
+                                do {
+                                    try await vm.getDistribution(courseName: courseName)
+                                } catch {
+                                    appInfo.showAlert(with: error)
+                                }
                             }
                             withAnimation {
                                 show = false
@@ -55,11 +63,16 @@ struct DistributionView: View {
                 }
             )
             Divider()
-            LazyVGrid(columns: Array(repeating: GridItem(.adaptive(minimum: 80), spacing: 10, alignment: .leading), count: 3)){
+            LazyVGrid(columns: [GridItem(.adaptive(minimum: 80))]){
                 ForEach(0..<vm.tipsRegularly.count){ index in
-                    Button(vm.tipsRegularly[index]) {
-                        vm.getDistribution(courseName: vm.tipsRegularly[index]){status, title, description in
-                            appInfo.showAlert(title: title, message: description)
+                    let name = vm.tipsRegularly[index]
+                    Button(name) {
+                        Task{
+                            do {
+                                try await vm.getDistribution(courseName: name)
+                            } catch {
+                                appInfo.showAlert(with: error)
+                            }
                         }
                     }
                     .lineLimit(1)

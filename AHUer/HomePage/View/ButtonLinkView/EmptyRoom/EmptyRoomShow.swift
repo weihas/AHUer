@@ -10,30 +10,27 @@ import Foundation
 class EmptyRoomShow: ObservableObject {
     @Published var emptyRooms: [EmptyRoomSection] = []
     
-    func search(campus: Int, weekday: Int, weekNum: Int, time: Int, _ completion: @escaping completion){
-        AhuerAPIProvider.netRequest(.emptyRooms(campus: campus , weekday: weekday, weekNum: weekNum, time: time)) { [weak self] respon in
-            guard let self = self else { return }
-            print(respon?["msg"] as? String ?? "")
-            if let statusNum = respon?["success"] as? Bool, statusNum == true, let rooms = respon?["data"] as? [[String: String]]{
-                var result: [String :[EmptyRoom]] = [:]
-                
-                for (index,room) in rooms.enumerated(){
-                    if let seating = room["seating"], let pos = room["pos"]{
-                        let name = pos.filter({!$0.isASCII})
-                        result.updateValue((result[name] ?? []) + [EmptyRoom(id: index, seating: seating, pos: pos)], forKey: name)
-                    }
-                }
-                var sections: [EmptyRoomSection] = []
-                var id = 0
-                for (key,value) in result{
-                    sections.append(EmptyRoomSection(id: id, name: key, rooms: value.sorted(by: {$0.pos < $1.pos})))
-                    id += 1
-                }
-                self.emptyRooms = sections.sorted(by: {$0.name < $1.name})
+    func search(campus: Int, weekday: Int, weekNum: Int, time: Int) async throws{
+        let respon = try await AHUerAPIInteractor.asyncRequest(.emptyRooms(campus: campus, weekday: weekday, weekNum: weekNum, time: time))
+        print(respon?["msg"] as? String ?? "")
+        guard let statusNum = respon?["success"] as? Bool, statusNum == true,
+              let rooms = respon?["data"] as? [[String: String]] else { return }
+        
+        var result: [String :[EmptyRoom]] = [:]
+        
+        for (index,room) in rooms.enumerated(){
+            if let seating = room["seating"], let pos = room["pos"]{
+                let name = pos.filter({!$0.isASCII})
+                result.updateValue((result[name] ?? []) + [EmptyRoom(id: index, seating: seating, pos: pos)], forKey: name)
             }
-        } error: { error in
-            completion(false,"空教室查询失败", error.description)
         }
+        var sections: [EmptyRoomSection] = []
+        var id = 0
+        for (key,value) in result{
+            sections.append(EmptyRoomSection(id: id, name: key, rooms: value.sorted(by: {$0.pos < $1.pos})))
+            id += 1
+        }
+        self.emptyRooms = sections.sorted(by: {$0.name < $1.name})
     }
     
     deinit {

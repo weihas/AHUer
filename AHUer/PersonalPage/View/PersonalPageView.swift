@@ -95,9 +95,11 @@ extension PersonalPageView{
                 buttons: [
                     .destructive(Text("退出")){
                         appInfo.isLoggin = false
-                        vm.logout { status, title, description in
-                            if !status{
-                                appInfo.showAlert(title: title, message: description)
+                        Task{
+                            do {
+                                try await vm.logout(type: 1)
+                            } catch {
+                                appInfo.showAlert(with: error)
                             }
                         }
                     },
@@ -142,20 +144,19 @@ extension PersonalPageView{
             }
             .padding()
             Spacer()
-            Button(action: {
-                print("认证")
-                vm.loggin { status, title, description in
-                    if status {
-                        appInfo.isLoggin = status
-                    }else{
-                        appInfo.showAlert(title: title, message: description)
+            Button {
+                Task{
+                    do {
+                        appInfo.isLoggin = try await vm.loggin()
+                    } catch {
+                        appInfo.isLoggin = false
+                        appInfo.showAlert(with: error)
                     }
                 }
-            }, label: {
+            } label: {
                 Label("认证", systemImage: "chevron.forward.square")
-            })
+            }
             .buttonStyle(ColorButtonStyle(color: .blue))
-
             Spacer()
         }
         .padding()

@@ -14,23 +14,19 @@ class DistributionShow: ObservableObject{
     var tipsRegularly: [String] = ["高等数学","马基","英语","大机","物理","Python"]
     
     
-    func getDistribution(courseName: String, _ completion: @escaping completion) {
-        AhuerAPIProvider.netRequest(.gradeDistribution(courseName: courseName)) { [weak self] respon in
-            guard let self = self else {return}
-            var result = [Distribution]()
-            if let data = respon?["data"] as? [[String:Any]] {
-                for datum in data {
-                    guard let id = datum["courseId"] as? String,
-                          let name = datum["courseName"] as? String,
-                          let moreThan80 = datum["moreThanEighty"] as? Double,
-                          let moreThan60 = datum["moreThanSixty"] as? Double else { continue }
-                    result.append(Distribution(id: id, name: name, moreThan80: moreThan80, moreThan60: moreThan60))
-                }
+    func getDistribution(courseName: String) async throws {
+        let respon = try await AHUerAPIInteractor.asyncRequest(.gradeDistribution(courseName: courseName))
+        var result = [Distribution]()
+        if let data = respon?["data"] as? [[String:Any]] {
+            for datum in data {
+                guard let id = datum["courseId"] as? String,
+                      let name = datum["courseName"] as? String,
+                      let moreThan80 = datum["moreThanEighty"] as? Double,
+                      let moreThan60 = datum["moreThanSixty"] as? Double else { continue }
+                result.append(Distribution(id: id, name: name, moreThan80: moreThan80, moreThan60: moreThan60))
             }
-            self.distributions = result
-        } error: { error in
-            completion(false,"成绩分布查询失败",error.description)
         }
+        self.distributions = result
     }
 }
 

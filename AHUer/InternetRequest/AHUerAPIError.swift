@@ -11,6 +11,10 @@ struct AHUerAPIError: Error{
     let code: Int
     private let des: String?
     
+    /// 错误的标题
+    var title: String
+    
+    /// 错误的描述
     var description: String {
         guard let description = Self.messageForCode[code] else {
             guard let des = des else { return "发生未知错误"}
@@ -19,14 +23,16 @@ struct AHUerAPIError: Error{
         return description
     }
     
-    init(code: Int) {
+    init(code: Int, title: String) {
         self.code = code
         self.des = Self.messageForCode[code]
+        self.title = title
     }
     
-    init(code: Int, message: String? = nil) {
+    init(code: Int, title: String, message: String? = nil) {
         self.code = code
         self.des = message
+        self.title = title
     }
     
     

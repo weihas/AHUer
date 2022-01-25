@@ -31,14 +31,11 @@ class TimeScheduleShow: ObservableObject{
         self.objectWillChange.send()
     }
     
-    func freshDataByInternet(_ completion: @escaping callback) {
-        AhuerAPIProvider.getSchedule(schoolYear: "2020-2021", schoolTerm: 1) {[weak self] in
-            guard let self = self else { return }
-            self.freshDataOfClass()
-        } errorCallback: { error in
-            completion(false, "课表获取失败" ,error.description)
-        }
+    func freshDataByInternet() async throws{
+        try await AHUerAPIInteractor.getSchedule(schoolYear: "2020-2021", schoolTerm: 1)
+        self.freshDataOfClass()
     }
+    
     deinit {
         print("🌀TimeTableShow released")
     }

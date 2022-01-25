@@ -15,7 +15,6 @@ class PersonalPageShow: ObservableObject {
     @Published var password: String = ""
     @Published var showLoggingPanel: Bool = false
     
-    typealias provider = AhuerAPIProvider
     
     init(){
         model = PersonalPageInfo()
@@ -34,29 +33,22 @@ class PersonalPageShow: ObservableObject {
     
     // MARK: -Intents(s)
     
-    func loggin(_ completion: @escaping completion){
-        guard let pw = password.rsaCrypto() else { return }
+    func loggin() async throws -> Bool {
+        guard let pw = password.rsaCrypto() else { return false }
         let id = userID
-        AhuerAPIProvider.loggin(userId: userID, password: pw, type: 1) {[weak self] in
-            guard let self = self, let userName = Student.fetch(studentId: id)?.first?.studentName else { return }
+        self.showLoggingPanel.toggle()
+        if try await AHUerAPIInteractor.loggin(userId: userID, password: pw, type: 1) {
+            guard let userName = Student.fetch(studentId: id)?.first?.studentName else {return false}
             self.model.freshData(userID: id, userPassWD: pw, userName: userName)
-            AhuerAPIProvider.getSchedule(schoolYear: Date().studyYear, schoolTerm: Date().studyTerm) { } errorCallback: { _ in }
-            completion(true,nil,nil)
-        } errorCallback: { error in
-            completion(false, "登录失败", error.description)
+            try await AHUerAPIInteractor.getSchedule(schoolYear: Date().studyYear, schoolTerm: Date().studyTerm)
         }
-        showLoggingPanel = false
+        return true
     }
     
     
-    func logout(_ completion: @escaping completion){
-        AhuerAPIProvider.logout(type:1) {[weak self] in
-            guard let self = self else {return}
-            self.model.cleanup()
-            completion(true,nil,nil)
-        } errorCallback: { error in
-            completion(false,"登出失败", error.description)
-        }
+    func logout(type: Int) async throws{
+        try await AHUerAPIInteractor.logout(type: type)
+        self.model.cleanup()
     }
     
     deinit {

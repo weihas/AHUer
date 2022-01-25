@@ -8,14 +8,28 @@
 import SwiftUI
 
 struct MoreView: View {
+    @Namespace var moreView
+    @State var show: Bool = false
     var body: some View {
         VStack{
-            Text("MoreView")
+            if show{
+            ForEach(0..<10){ index in
+                CardOfMoreView()
+            }
+            }
         }
         .navigationTitle("更多功能")
         .navigationBarTitleDisplayMode(.inline)
     }
 }
+
+
+fileprivate struct CardOfMoreView: View {
+    var body: some View {
+        RoundedRectangle(cornerRadius: 10)
+    }
+}
+
 
 struct MoreView_Previews: PreviewProvider {
     static var previews: some View {

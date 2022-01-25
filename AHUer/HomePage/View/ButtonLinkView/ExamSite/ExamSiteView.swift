@@ -36,9 +36,11 @@ struct ExamSiteView: View {
         .toolbar {
             HStack{
                 Button {
-                    vm.freshScoreModelByInternet { status, title, description in
-                        if !status{
-                            appInfo.showAlert(title: title, message: description)
+                    Task{
+                        do {
+                            try await vm.freshScoreModelByInternet()
+                        } catch {
+                            appInfo.showAlert(with: error)
                         }
                     }
                 } label: {

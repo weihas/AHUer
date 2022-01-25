@@ -35,9 +35,11 @@ struct TimeSchedulePageView: View {
                         Label("手动添加", systemImage: "plus.rectangle.on.rectangle")
                     }
                     Button {
-                        vm.freshDataByInternet { status, title, description in
-                            if !status{
-                                appInfo.showAlert(title: title, message: description)
+                        Task{
+                            do {
+                                try await vm.freshDataByInternet()
+                            } catch {
+                                appInfo.showAlert(with: error)
                             }
                         }
                     } label: {

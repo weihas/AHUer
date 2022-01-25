@@ -37,9 +37,11 @@ struct ScoreView: View {
         }
         .toolbar {
             Button {
-                vm.getScoreByInternet { status, title, description in
-                    if !status{
-                        appInfo.showAlert(title: title, message: description)
+                Task{
+                    do {
+                        try await vm.getScoreByInternet()
+                    } catch {
+                        appInfo.showAlert(with: error)
                     }
                 }
             } label: {
