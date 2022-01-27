@@ -61,12 +61,13 @@ struct TimeScheduleAddLectureView: View {
     }
     
     func addLecture(){
-        guard let user = Student.nowUser(),let result = Course.fetch(by: NSPredicate(format: "name = %@", name)) else { return }
+        let context = PersistenceController.shared.container.viewContext
+        guard let user = Student.nowUser(),let result = Course.fetch(by: NSPredicate(format: "name = %@", name), in: context) else { return }
         let attributeInfo = ["name": name, "location": location, "teacher": teacher, "weekday": weekDay, "startTime" : startTime, "length": length]
         if result.isEmpty{
-            Course.insert()?.update(of: attributeInfo)?.beHolded(by: user)
+            Course.insert(in: context)?.update(of: attributeInfo)?.beHold(of: user)
         }else{
-            result[0].update(of: attributeInfo)?.beHolded(by: user)
+            result.first?.update(of: attributeInfo)?.beHold(of: user)
         }
     }
     

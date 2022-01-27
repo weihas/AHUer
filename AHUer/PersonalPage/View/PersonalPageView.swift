@@ -25,7 +25,7 @@ struct PersonalPageView: View {
                 actionSheet
             }
             .sheet(isPresented: $vm.showLoggingPanel) {
-                logginPanel
+                LogginPanelView(vm: vm)
             }
             .navigationBarTitle("个人")
         }
@@ -117,54 +117,6 @@ extension PersonalPageView{
         }
     }
 }
-
-//MARK: 登录弹窗
-extension PersonalPageView{
-    var logginPanel: some View{
-        VStack{
-            Picker(selection: $isBachelor, label: Text("Picker")) {
-                Text("本科生").tag(true)
-                Text("研究生").tag(false)
-            }
-            .padding(.top, 20)
-            .padding(.horizontal, 100)
-            .pickerStyle(SegmentedPickerStyle())
-            Spacer()
-            HStack{
-                Text("学号:")
-                TextField("学号", text: $vm.userID)
-                    .keyboardType(.asciiCapable)
-                
-            }
-            .padding()
-            Divider().padding(.horizontal)
-            HStack{
-                Text("密码:")
-                SecureField("密码", text: $vm.password)
-            }
-            .padding()
-            Spacer()
-            Button {
-                Task{
-                    do {
-                        appInfo.isLoggin = try await vm.loggin()
-                    } catch {
-                        appInfo.isLoggin = false
-                        appInfo.showAlert(with: error)
-                    }
-                }
-            } label: {
-                Label("认证", systemImage: "chevron.forward.square")
-            }
-            .buttonStyle(ColorButtonStyle(color: .blue))
-            Spacer()
-        }
-        .padding()
-        .navigationBarTitle("教务认证")
-    }
-}
-
-
 
 
 

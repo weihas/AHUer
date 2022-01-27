@@ -39,6 +39,7 @@ struct ExamSiteView: View {
                     Task{
                         do {
                             try await vm.freshScoreModelByInternet()
+                            vm.freshExamModelData()
                         } catch {
                             appInfo.showAlert(with: error)
                         }

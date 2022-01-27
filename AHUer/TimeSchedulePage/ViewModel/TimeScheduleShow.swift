@@ -27,13 +27,13 @@ class TimeScheduleShow: ObservableObject{
     }
     
     func freshDataOfClass(){
+        print("read")
         timetable.freshDataOfClass()
         self.objectWillChange.send()
     }
     
     func freshDataByInternet() async throws{
-        try await AHUerAPIInteractor.getSchedule(schoolYear: "2020-2021", schoolTerm: 1)
-        self.freshDataOfClass()
+        try await AHUerAPIProvider.getSchedule(schoolYear: "2020-2021", schoolTerm: 1)
     }
     
     deinit {

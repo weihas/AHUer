@@ -35,7 +35,7 @@ class AHUAppInfo: ObservableObject {
     }
     
     func cleanUp(){
-        Student.cleanUp()
+        Student.cleanUp(in: PersistenceController.shared.container.viewContext)
     }
     
     deinit{

@@ -38,6 +38,7 @@ struct TimeSchedulePageView: View {
                         Task{
                             do {
                                 try await vm.freshDataByInternet()
+                                vm.freshDataOfClass()
                             } catch {
                                 appInfo.showAlert(with: error)
                             }

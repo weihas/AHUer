@@ -24,8 +24,7 @@ class ExamSiteShow: ObservableObject {
     //MARK: -Intents
     
     func freshScoreModelByInternet() async throws{
-        try await AHUerAPIInteractor.getExamination(year: "2020-2021", term: 1)
-        self.freshExamModelData()
+        try await AHUerAPIProvider.getExamination(year: "2020-2021", term: 1)
     }
     
     

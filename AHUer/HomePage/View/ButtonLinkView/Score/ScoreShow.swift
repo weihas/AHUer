@@ -47,7 +47,8 @@ class ScoreShow: ObservableObject{
 //    }
     
     func getScoreByInternet() async throws{
-        try await AHUerAPIInteractor.getScore()
+        print(Thread.isMainThread)
+        try await AHUerAPIProvider.getScore()
     }
     
     

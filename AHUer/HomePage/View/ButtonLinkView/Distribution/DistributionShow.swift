@@ -15,18 +15,19 @@ class DistributionShow: ObservableObject{
     
     
     func getDistribution(courseName: String) async throws {
-        let respon = try await AHUerAPIInteractor.asyncRequest(.gradeDistribution(courseName: courseName))
+        let respon = try await AHUerAPIProvider.asyncRequest(.gradeDistribution(courseName: courseName))
         var result = [Distribution]()
-        if let data = respon?["data"] as? [[String:Any]] {
-            for datum in data {
-                guard let id = datum["courseId"] as? String,
-                      let name = datum["courseName"] as? String,
-                      let moreThan80 = datum["moreThanEighty"] as? Double,
-                      let moreThan60 = datum["moreThanSixty"] as? Double else { continue }
-                result.append(Distribution(id: id, name: name, moreThan80: moreThan80, moreThan60: moreThan60))
-            }
+        let data = respon["data"].arrayValue
+        for datum in data {
+            guard let id =  datum["courseId"].string,
+                  let name = datum["courseName"].string,
+                  let moreThan80 = datum["moreThanEighty"].double,
+                  let moreThan60 = datum["moreThanSixty"].double else { continue }
+            result.append(Distribution(id: id, name: name, moreThan80: moreThan80, moreThan60: moreThan60))
         }
+        
         self.distributions = result
+        
     }
 }
 

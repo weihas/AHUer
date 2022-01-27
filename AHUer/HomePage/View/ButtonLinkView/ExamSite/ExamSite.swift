@@ -12,7 +12,7 @@ struct ExamSite{
     
     mutating func freshExamData(){
         guard let user = Student.nowUser(),
-              let result = Exam.fetch(by: NSPredicate(format: "owner = %@ AND schoolYear = %@ AND schoolTerm = %@", user, "2020-2021", NSNumber(value: 1)), sort: ["time": true] ) else { return }
+              let result = Exam.fetch(by: NSPredicate(format: "owner = %@ AND schoolYear = %@ AND schoolTerm = %@", user, "2020-2021", NSNumber(value: 1)), sort: ["time": true], in: PersistenceController.shared.container.viewContext ) else { return }
         exams = result
     }
 }

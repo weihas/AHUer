@@ -38,8 +38,10 @@ struct ScoreView: View {
         .toolbar {
             Button {
                 Task{
+                    print(Thread.isMainThread)
                     do {
                         try await vm.getScoreByInternet()
+                        vm.freshmodel()
                     } catch {
                         appInfo.showAlert(with: error)
                     }

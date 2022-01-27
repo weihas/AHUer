@@ -11,8 +11,6 @@ typealias completion =  (_ status: Bool, _ title: String?, _ description: String
 
 class PersonalPageShow: ObservableObject {
     @Published private var model: PersonalPageInfo
-    @Published var userID: String = ""
-    @Published var password: String = ""
     @Published var showLoggingPanel: Bool = false
     
     
@@ -33,22 +31,28 @@ class PersonalPageShow: ObservableObject {
     
     // MARK: -Intents(s)
     
-    func loggin() async throws -> Bool {
+    func loggin(userID: String, password: String, type: Int) async throws -> Bool {
         guard let pw = password.rsaCrypto() else { return false }
-        let id = userID
         self.showLoggingPanel.toggle()
-        if try await AHUerAPIInteractor.loggin(userId: userID, password: pw, type: 1) {
-            guard let userName = Student.fetch(studentId: id)?.first?.studentName else {return false}
-            self.model.freshData(userID: id, userPassWD: pw, userName: userName)
-            try await AHUerAPIInteractor.getSchedule(schoolYear: Date().studyYear, schoolTerm: Date().studyTerm)
+        print(Thread.current)
+        
+        if let userName = try await AHUerAPIProvider.loggin(userId: userID, password: pw, type: 1) {
+            self.freshData(userID, pw, userName)
+            
+            try? await AHUerAPIProvider.getSchedule(schoolYear: Date().studyYear, schoolTerm: Date().studyTerm)
+            return true
         }
-        return true
+        return false
     }
     
     
     func logout(type: Int) async throws{
-        try await AHUerAPIInteractor.logout(type: type)
+        try await AHUerAPIProvider.logout(type: type)
         self.model.cleanup()
+    }
+    
+    func freshData(_ userID: String, _ password: String, _ userName: String){
+        self.model.freshData(userID: userID, userPassWD: password, userName: userName)
     }
     
     deinit {

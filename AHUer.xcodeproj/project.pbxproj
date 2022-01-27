@@ -18,6 +18,7 @@
 		3535DED3277B4C4A0016BD41 /* DistributionShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3535DED2277B4C4A0016BD41 /* DistributionShow.swift */; };
 		353705A326EB6D62002E001C /* Button+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353705A226EB6D62002E001C /* Button+Style.swift */; };
 		3552E63827219401006A6322 /* AHUerCoreModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3552E63627219401006A6322 /* AHUerCoreModel.xcdatamodeld */; };
+		35598B3327A24B72004D28FF /* LogginPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35598B3227A24B72004D28FF /* LogginPanelView.swift */; };
 		35607B9C26E99BFA0037504E /* Date+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35607B9B26E99BFA0037504E /* Date+Helper.swift */; };
 		35607B9F26EA025B0037504E /* NewsPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35607B9E26EA025B0037504E /* NewsPageView.swift */; };
 		35607BA226EA02E00037504E /* PersonalPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35607BA126EA02E00037504E /* PersonalPageView.swift */; };
@@ -42,14 +43,14 @@
 		3595AF3326EC3D7900F1354A /* AHUAppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3595AF3226EC3D7900F1354A /* AHUAppInfo.swift */; };
 		3595AF3526EC423B00F1354A /* Picker+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3595AF3426EC423B00F1354A /* Picker+Style.swift */; };
 		359BEBEE26ECE2B9006FB419 /* GroupBox+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359BEBED26ECE2B9006FB419 /* GroupBox+Style.swift */; };
-		35A578B2273E01CD0056166F /* AHUerEntityProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A578B1273E01CD0056166F /* AHUerEntityProtocol.swift */; };
+		35A578B2273E01CD0056166F /* AHUerPrimaryEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A578B1273E01CD0056166F /* AHUerPrimaryEntity.swift */; };
 		35A578B4273E07620056166F /* HomePageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A578B3273E07620056166F /* HomePageInfo.swift */; };
 		35A578B7273E07DA0056166F /* HomePageShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A578B6273E07DA0056166F /* HomePageShow.swift */; };
 		35A578BA273E1BD40056166F /* PersonlPageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A578B9273E1BD40056166F /* PersonlPageInfo.swift */; };
 		35A578BD273E1BF30056166F /* PersonalPageShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A578BC273E1BF30056166F /* PersonalPageShow.swift */; };
 		35A801B32747EC68009E3D08 /* TimeScheduleAddLectureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A801B22747EC68009E3D08 /* TimeScheduleAddLectureView.swift */; };
 		35AA432B26E916320096724A /* BathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AA432A26E916320096724A /* BathView.swift */; };
-		35AE5D6C2720461900B0DC98 /* AHUerAPIInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AE5D6B2720461900B0DC98 /* AHUerAPIInteractor.swift */; };
+		35AE5D6C2720461900B0DC98 /* AHUerAPIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AE5D6B2720461900B0DC98 /* AHUerAPIProvider.swift */; };
 		35B4DDAA278EBEF400AE60D3 /* AHUerAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B4DDA9278EBEF400AE60D3 /* AHUerAPIError.swift */; };
 		35CDFB7C275F74B60091E9E1 /* StartTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CDFB7B275F74B60091E9E1 /* StartTime.swift */; };
 		35CEF9F5272064CF00A4B238 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CEF9F4272064CF00A4B238 /* Persistence.swift */; };
@@ -76,6 +77,7 @@
 		3535DED2277B4C4A0016BD41 /* DistributionShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistributionShow.swift; sourceTree = "<group>"; };
 		353705A226EB6D62002E001C /* Button+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+Style.swift"; sourceTree = "<group>"; };
 		3552E63727219401006A6322 /* AHUerCoreModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AHUerCoreModel.xcdatamodel; sourceTree = "<group>"; };
+		35598B3227A24B72004D28FF /* LogginPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogginPanelView.swift; sourceTree = "<group>"; };
 		35607B9B26E99BFA0037504E /* Date+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Helper.swift"; sourceTree = "<group>"; };
 		35607B9E26EA025B0037504E /* NewsPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPageView.swift; sourceTree = "<group>"; };
 		35607BA126EA02E00037504E /* PersonalPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalPageView.swift; sourceTree = "<group>"; };
@@ -102,14 +104,14 @@
 		3595AF3226EC3D7900F1354A /* AHUAppInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AHUAppInfo.swift; sourceTree = "<group>"; };
 		3595AF3426EC423B00F1354A /* Picker+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Picker+Style.swift"; sourceTree = "<group>"; };
 		359BEBED26ECE2B9006FB419 /* GroupBox+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GroupBox+Style.swift"; sourceTree = "<group>"; };
-		35A578B1273E01CD0056166F /* AHUerEntityProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AHUerEntityProtocol.swift; sourceTree = "<group>"; };
+		35A578B1273E01CD0056166F /* AHUerPrimaryEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AHUerPrimaryEntity.swift; sourceTree = "<group>"; };
 		35A578B3273E07620056166F /* HomePageInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageInfo.swift; sourceTree = "<group>"; };
 		35A578B6273E07DA0056166F /* HomePageShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageShow.swift; sourceTree = "<group>"; };
 		35A578B9273E1BD40056166F /* PersonlPageInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonlPageInfo.swift; sourceTree = "<group>"; };
 		35A578BC273E1BF30056166F /* PersonalPageShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalPageShow.swift; sourceTree = "<group>"; };
 		35A801B22747EC68009E3D08 /* TimeScheduleAddLectureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeScheduleAddLectureView.swift; sourceTree = "<group>"; };
 		35AA432A26E916320096724A /* BathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BathView.swift; sourceTree = "<group>"; };
-		35AE5D6B2720461900B0DC98 /* AHUerAPIInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AHUerAPIInteractor.swift; sourceTree = "<group>"; };
+		35AE5D6B2720461900B0DC98 /* AHUerAPIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AHUerAPIProvider.swift; sourceTree = "<group>"; };
 		35B4DDA9278EBEF400AE60D3 /* AHUerAPIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AHUerAPIError.swift; sourceTree = "<group>"; };
 		35CDFB7B275F74B60091E9E1 /* StartTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartTime.swift; sourceTree = "<group>"; };
 		35CEF9F4272064CF00A4B238 /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -332,6 +334,7 @@
 			isa = PBXGroup;
 			children = (
 				35607BA126EA02E00037504E /* PersonalPageView.swift */,
+				35598B3227A24B72004D28FF /* LogginPanelView.swift */,
 				358330E926EC31DC005927D6 /* ThanksChildView.swift */,
 				35607BA626EA18280037504E /* SettingView.swift */,
 			);
@@ -342,7 +345,7 @@
 			isa = PBXGroup;
 			children = (
 				35945F51271C25C40003ABAC /* AHUerAPI.swift */,
-				35AE5D6B2720461900B0DC98 /* AHUerAPIInteractor.swift */,
+				35AE5D6B2720461900B0DC98 /* AHUerAPIProvider.swift */,
 				35B4DDA9278EBEF400AE60D3 /* AHUerAPIError.swift */,
 			);
 			path = InternetRequest;
@@ -352,7 +355,7 @@
 			isa = PBXGroup;
 			children = (
 				35CEF9F4272064CF00A4B238 /* Persistence.swift */,
-				35A578B1273E01CD0056166F /* AHUerEntityProtocol.swift */,
+				35A578B1273E01CD0056166F /* AHUerPrimaryEntity.swift */,
 				3552E63627219401006A6322 /* AHUerCoreModel.xcdatamodeld */,
 			);
 			path = CoreData;
@@ -563,7 +566,7 @@
 				351213E526ECBE7B00D62E9B /* NewsModels.swift in Sources */,
 				3578CA2926E8ED5E00667BEF /* AHUerApp.swift in Sources */,
 				35607B9F26EA025B0037504E /* NewsPageView.swift in Sources */,
-				35AE5D6C2720461900B0DC98 /* AHUerAPIInteractor.swift in Sources */,
+				35AE5D6C2720461900B0DC98 /* AHUerAPIProvider.swift in Sources */,
 				35CDFB7C275F74B60091E9E1 /* StartTime.swift in Sources */,
 				3586B8CF26EDA17A00B42A90 /* EmptyRoomView.swift in Sources */,
 				3586B8D926EDA3CD00B42A90 /* MoreView.swift in Sources */,
@@ -575,8 +578,9 @@
 				35607B9C26E99BFA0037504E /* Date+Helper.swift in Sources */,
 				3535DED3277B4C4A0016BD41 /* DistributionShow.swift in Sources */,
 				3578CA6326E9117E00667BEF /* TimeScheduleShow.swift in Sources */,
+				35598B3327A24B72004D28FF /* LogginPanelView.swift in Sources */,
 				3578CA5626E8F0ED00667BEF /* HomePageView.swift in Sources */,
-				35A578B2273E01CD0056166F /* AHUerEntityProtocol.swift in Sources */,
+				35A578B2273E01CD0056166F /* AHUerPrimaryEntity.swift in Sources */,
 				3578CA5426E8EDB500667BEF /* RootView.swift in Sources */,
 				35A578B4273E07620056166F /* HomePageInfo.swift in Sources */,
 				351D2FA22778644F0020FDC7 /* ScoreCardView.swift in Sources */,

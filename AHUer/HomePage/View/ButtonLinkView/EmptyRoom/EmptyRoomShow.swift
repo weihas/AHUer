@@ -11,15 +11,16 @@ class EmptyRoomShow: ObservableObject {
     @Published var emptyRooms: [EmptyRoomSection] = []
     
     func search(campus: Int, weekday: Int, weekNum: Int, time: Int) async throws{
-        let respon = try await AHUerAPIInteractor.asyncRequest(.emptyRooms(campus: campus, weekday: weekday, weekNum: weekNum, time: time))
-        print(respon?["msg"] as? String ?? "")
-        guard let statusNum = respon?["success"] as? Bool, statusNum == true,
-              let rooms = respon?["data"] as? [[String: String]] else { return }
+        let respon = try await AHUerAPIProvider.asyncRequest(.emptyRooms(campus: campus, weekday: weekday, weekNum: weekNum, time: time))
+        print(respon["msg"].stringValue)
+        guard respon["success"].boolValue else { return }
+        
+        let rooms = respon["data"].arrayValue
         
         var result: [String :[EmptyRoom]] = [:]
         
         for (index,room) in rooms.enumerated(){
-            if let seating = room["seating"], let pos = room["pos"]{
+            if let seating = room["seating"].string, let pos = room["pos"].string {
                 let name = pos.filter({!$0.isASCII})
                 result.updateValue((result[name] ?? []) + [EmptyRoom(id: index, seating: seating, pos: pos)], forKey: name)
             }

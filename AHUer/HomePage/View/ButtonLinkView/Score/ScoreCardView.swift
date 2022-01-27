@@ -13,7 +13,7 @@ struct GradeCard: View{
     
     var gpas: [GPA]{
         let predicate = NSPredicate(format: "owner = %@", grade)
-        guard let results = GPA.fetch(by: predicate) else {return []}
+        guard let results = GPA.fetch(by: predicate, in: PersistenceController.shared.container.viewContext) else {return []}
         return results
     }
     

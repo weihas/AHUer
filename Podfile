@@ -8,5 +8,6 @@ target 'AHUer' do
   # Pods for AHUer
   pod 'Moya', '~> 15.0'
   pod 'SwiftyRSA'
+  pod 'SwiftyJSON', '~> 4.0'
   
 end
