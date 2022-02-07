@@ -10,7 +10,7 @@ import UIKit
 import SwiftUI
 //import SwiftUIChart
 
-class ScoreShow: ObservableObject{
+class ScoreShow: ObservableObject {
     @Published private var model: ScoreGets
     
     init(){
@@ -47,7 +47,6 @@ class ScoreShow: ObservableObject{
 //    }
     
     func getScoreByInternet() async throws{
-        print(Thread.isMainThread)
         try await AHUerAPIProvider.getScore()
     }
     

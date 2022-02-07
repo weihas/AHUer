@@ -33,6 +33,10 @@ class HomePageShow: ObservableObject{
         return model.gpa
     }
     
+    var examInfo: (name: String, day: Int) {
+        return ("高等数学",9)
+    }
+    
     func freshImmediatelyLecture() {
         model.fetchImmediatelyLecture()
     }
@@ -41,6 +45,7 @@ class HomePageShow: ObservableObject{
     lazy var scoreViewVM = ScoreShow()
     lazy var examSiteVM = ExamSiteShow()
     lazy var distributionVM = DistributionShow()
+    lazy var bathInfoVM = BathOpenShow()
     
     deinit {
         print("🌀HomePageShow released")

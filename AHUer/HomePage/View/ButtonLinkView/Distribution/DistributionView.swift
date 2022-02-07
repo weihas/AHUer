@@ -100,9 +100,9 @@ fileprivate struct DistributionCard: View{
                 Text(content.name)
                 Text(content.id)
             }
-            Text("\(content.moreThan80)")
-            Text("\(content.between60and80)")
-            Text("\(content.moreThan60)")
+            Text("优秀\(content.moreThan80*100)%")
+            Text("中等\(content.between60and80*100)%")
+            Text("及格率\(content.moreThan60*100)%")
         }
     }
 }

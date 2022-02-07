@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		350710B0274A3BB8006D0587 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350710AF274A3BB8006D0587 /* Color+Extension.swift */; };
 		350710B2274A5391006D0587 /* EmptyRoomShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350710B1274A5391006D0587 /* EmptyRoomShow.swift */; };
+		350D5BD027B0C96000BAC8F9 /* BathOpenShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350D5BCF27B0C96000BAC8F9 /* BathOpenShow.swift */; };
 		3511F706275A5ADE009BD041 /* RootViewShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3511F705275A5ADE009BD041 /* RootViewShow.swift */; };
 		351213E526ECBE7B00D62E9B /* NewsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351213E426ECBE7B00D62E9B /* NewsModels.swift */; };
 		351213E726ECBF2D00D62E9B /* NewsPlaying.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351213E626ECBF2D00D62E9B /* NewsPlaying.swift */; };
@@ -68,6 +69,7 @@
 		1F13389D6105CE97CE4E0F34 /* Pods_AHUerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AHUerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		350710AF274A3BB8006D0587 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		350710B1274A5391006D0587 /* EmptyRoomShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyRoomShow.swift; sourceTree = "<group>"; };
+		350D5BCF27B0C96000BAC8F9 /* BathOpenShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BathOpenShow.swift; sourceTree = "<group>"; };
 		3511F705275A5ADE009BD041 /* RootViewShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewShow.swift; sourceTree = "<group>"; };
 		351213E426ECBE7B00D62E9B /* NewsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModels.swift; sourceTree = "<group>"; };
 		351213E626ECBF2D00D62E9B /* NewsPlaying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPlaying.swift; sourceTree = "<group>"; };
@@ -142,6 +144,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		350D5BCE27B0C94200BAC8F9 /* Bath */ = {
+			isa = PBXGroup;
+			children = (
+				35AA432A26E916320096724A /* BathView.swift */,
+				350D5BCF27B0C96000BAC8F9 /* BathOpenShow.swift */,
+			);
+			path = Bath;
+			sourceTree = "<group>";
+		};
+		351399D7279C27210095918B /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
 		3535DED1277B4A330016BD41 /* Distribution */ = {
 			isa = PBXGroup;
 			children = (
@@ -190,6 +208,7 @@
 		3578CA1C26E8ED5E00667BEF = {
 			isa = PBXGroup;
 			children = (
+				351399D7279C27210095918B /* Packages */,
 				3578CA2726E8ED5E00667BEF /* AHUer */,
 				3578CA2626E8ED5E00667BEF /* Products */,
 				5B4D9D9A18BED84CA75EA87F /* Pods */,
@@ -367,7 +386,7 @@
 				844023F32750D8740034B224 /* EmptyRoom */,
 				847A12CD2750DF560011428B /* Score */,
 				35D89495275E4F8B00A40EF8 /* ExamSite */,
-				35AA432A26E916320096724A /* BathView.swift */,
+				350D5BCE27B0C94200BAC8F9 /* Bath */,
 				3535DED1277B4A330016BD41 /* Distribution */,
 				3586B8D826EDA3CD00B42A90 /* MoreView.swift */,
 				3586B8DC26EDAC1100B42A90 /* AddressBook */,
@@ -564,6 +583,7 @@
 				3578CA6526E9120400667BEF /* TimeSchedule.swift in Sources */,
 				357669F2275E5041002504B4 /* ExamSite.swift in Sources */,
 				351213E526ECBE7B00D62E9B /* NewsModels.swift in Sources */,
+				350D5BD027B0C96000BAC8F9 /* BathOpenShow.swift in Sources */,
 				3578CA2926E8ED5E00667BEF /* AHUerApp.swift in Sources */,
 				35607B9F26EA025B0037504E /* NewsPageView.swift in Sources */,
 				35AE5D6C2720461900B0DC98 /* AHUerAPIProvider.swift in Sources */,
@@ -727,7 +747,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"AHUer/Preview Content\"";
-				DEVELOPMENT_TEAM = 4WB3QMP893;
+				DEVELOPMENT_TEAM = NVF47AP6H6;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = AHUer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -751,7 +771,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"AHUer/Preview Content\"";
-				DEVELOPMENT_TEAM = 4WB3QMP893;
+				DEVELOPMENT_TEAM = NVF47AP6H6;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = AHUer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;

@@ -105,7 +105,7 @@ struct HomePageView: View {
                                 case 2:
                                     ExamSiteView(vm: vm.examSiteVM)
                                 case 3:
-                                    BathView()
+                                    BathView(vm: vm.bathInfoVM)
                                 case 4:
                                     DistributionView(vm: vm.distributionVM)
                                 default:
@@ -141,7 +141,7 @@ struct HomePageView: View {
     }
     
     private var bathLabel: some View {
-        NavigationLink(destination: BathView()) {
+        NavigationLink(destination: BathView(vm: vm.bathInfoVM)) {
             GroupBox(label: Label("浴室开放", systemImage: "drop")){
                 VStack(alignment: .leading){
                     Text("北区: " + (vm.NorthBathroomisMen ? "男生" : "女生"))
@@ -183,8 +183,8 @@ struct HomePageView: View {
         NavigationLink(destination: ExamSiteView(vm: ExamSiteShow())) {
             GroupBox(label: Label("考试日程", systemImage: "doc.text.below.ecg")){
                 VStack(alignment: .leading){
-                    Text("学期绩点: " + (showGPA ? "\(vm.gpa.0)" : "*. **"))
-                    Text("全程绩点: " + (showGPA ? "\(vm.gpa.1)" : "*. **"))
+                    Text("距离\(vm.examInfo.name)考试")
+                    Text("还有 \(vm.examInfo.day) 天")
                 }
             }
             .groupBoxStyle(ColorBoxStyle(.green))
@@ -193,8 +193,6 @@ struct HomePageView: View {
     
     
 }
-
-
 
 
 private struct ButtonCell: View {

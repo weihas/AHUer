@@ -25,9 +25,9 @@ class DistributionShow: ObservableObject{
                   let moreThan60 = datum["moreThanSixty"].double else { continue }
             result.append(Distribution(id: id, name: name, moreThan80: moreThan80, moreThan60: moreThan60))
         }
-        
-        self.distributions = result
-        
+        await MainActor.run { [result] in
+            self.distributions = result
+        }
     }
 }
 

@@ -10,8 +10,6 @@ import Foundation
 class TimeScheduleShow: ObservableObject{
     @Published var timetable: TimeSchedule
     
-    typealias callback =  (_ status: Bool, _ title: String?, _ description: String?) -> Void
-    
     init(){
         timetable = TimeSchedule()
     }

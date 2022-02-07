@@ -8,19 +8,16 @@
 import SwiftUI
 
 struct BathView: View {
-    @State var southIsMen: Bool = false
+    @ObservedObject var vm: BathOpenShow
     var body: some View {
         VStack{
             ScrollView{
-                VStack{
-                    CardOfBathView(date: Date(), southIsMen: southIsMen, isToday: true)
+                    CardOfBathView(date: Date(), southIsMen: vm.northisMan, isToday: true)
                         .aspectRatio(1.5, contentMode: .fill)
                         .padding()
-                    CardOfBathView(date: Date().tomorrowDate!, southIsMen: !southIsMen, isToday: false)
+                    CardOfBathView(date: Date().tomorrowDate!, southIsMen: !vm.northisMan, isToday: false)
                         .aspectRatio(1.5, contentMode: .fit)
                         .padding(30)
-                    
-                }
             }
             .navigationTitle("浴室开放")
             .navigationBarTitleDisplayMode(.inline)
@@ -82,6 +79,6 @@ fileprivate struct CardOfBathView: View {
 
 struct BathView_Previews: PreviewProvider {
     static var previews: some View {
-        BathView()
+        BathView(vm: BathOpenShow())
     }
 }

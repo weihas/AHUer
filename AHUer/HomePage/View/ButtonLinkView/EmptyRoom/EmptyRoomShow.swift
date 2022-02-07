@@ -31,7 +31,9 @@ class EmptyRoomShow: ObservableObject {
             sections.append(EmptyRoomSection(id: id, name: key, rooms: value.sorted(by: {$0.pos < $1.pos})))
             id += 1
         }
-        self.emptyRooms = sections.sorted(by: {$0.name < $1.name})
+        await MainActor.run { [sections] in
+            self.emptyRooms = sections.sorted(by: {$0.name < $1.name})
+        }
     }
     
     deinit {

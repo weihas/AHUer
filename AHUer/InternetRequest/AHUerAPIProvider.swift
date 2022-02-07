@@ -110,16 +110,15 @@ extension AHUerAPIProvider{
     static func getScore() async throws{
         let respon: JSON = try await asyncRequest(.grade)
         let grades = respon["data"]
-        
-        container.performBackgroundTask { context in
-            guard let user = Student.nowUser(in: context)?.update(of: grades) else { return }
+        backgroundContext.performAndWait {
+            guard let user = Student.nowUser(in: backgroundContext)?.update(of: grades) else { return }
             
             let termGradeLists = grades["termGradeList"].arrayValue
             
             for term in termGradeLists{
                 //清空原有的数据
-                Grade.fetch(schoolYear: term["schoolYear"].stringValue, schoolTerm: term["schoolTerm"].stringValue, in: context)?.forEach({$0.delete()})
-                Grade.insert(in: context)?.update(of: term)?.beHold(of: user)?.addToGpas(GPA.pack(attributes: term["termGradeList"].arrayValue, in: context))
+                Grade.fetch(schoolYear: term["schoolYear"].stringValue, schoolTerm: term["schoolTerm"].stringValue, in: backgroundContext)?.forEach({$0.delete()})
+                Grade.insert(in: backgroundContext)?.update(of: term)?.beHold(of: user)?.addToGpas(GPA.pack(attributes: term["termGradeList"].arrayValue, in: backgroundContext))
             }
         }
     }
@@ -131,15 +130,15 @@ extension AHUerAPIProvider{
     static func getExamination(year: String, term: Int) async throws{
         let respon = try await asyncRequest(.examInfo(schoolYear: year, schoolTerm: term))
         
-        container.performBackgroundTask { context in
-            guard let user = Student.nowUser(in: context) else { return }
+        backgroundContext.performAndWait {
+            guard let user = Student.nowUser(in: backgroundContext) else { return }
             let exams = respon["data"].arrayValue.reduce([JSON]()) { partialResult, json in
                 var exam = json.dictionaryValue
                 exam.updateValue(JSON(year), forKey: "schoolYear")
                 exam.updateValue(JSON(term), forKey: "schoolTerm")
                 return partialResult + [JSON(exam)]
             }
-            user.updataCourses(courses: Exam.pack(attributes: exams, in: context))
+            user.updataExams(exams: Exam.pack(attributes: exams, in: backgroundContext))
         }
     }
     
