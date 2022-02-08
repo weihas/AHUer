@@ -1,109 +1,109 @@
 {
   "images" : [
     {
-      "filename" : "Ahuer-Notification@2x.png",
+      "filename" : "AHUer-Notification@2x.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "20x20"
     },
     {
-      "filename" : "Ahuer-Notification@3x.png",
+      "filename" : "AHUer-Notification@3x.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "20x20"
     },
     {
-      "filename" : "Ahuer-Settings@2x.png",
+      "filename" : "AHUer-Settings@2x.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "29x29"
     },
     {
-      "filename" : "Ahuer-Settings@3x.png",
+      "filename" : "AHUer-Settings@3x.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "29x29"
     },
     {
-      "filename" : "Ahuer-Spotlight-40@2x.png",
+      "filename" : "AHUer-Spotlight-40@2x~ipad.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "40x40"
     },
     {
-      "filename" : "Ahuer-Spotlight-40@3x.png",
+      "filename" : "AHUer-Spotlight-40@3x.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "40x40"
     },
     {
-      "filename" : "Ahuer-60@2x.png",
+      "filename" : "AHUer-60@2x-1.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "60x60"
     },
     {
-      "filename" : "Ahuer-60@3x.png",
+      "filename" : "AHUer-60@3x.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "60x60"
     },
     {
-      "filename" : "Ahuer-Notification~ipad-1.png",
+      "filename" : "AHUer-Notification~ipad.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "20x20"
     },
     {
-      "filename" : "Ahuer-Notification@2x ~ipad.png",
+      "filename" : "AHUer-Notification@2x ~ipad.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "20x20"
     },
     {
-      "filename" : "Ahuer-Settings~ipad.png",
+      "filename" : "AHUer-Settings~ipad.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "29x29"
     },
     {
-      "filename" : "Ahuer-Settings@2x~ipad.png",
+      "filename" : "AHUer-Settings@2x~ipad.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "29x29"
     },
     {
-      "filename" : "Ahuer-Spotlight-40~ipad.png",
+      "filename" : "AHUer-Spotlight-40~ipad.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "40x40"
     },
     {
-      "filename" : "Ahuer-Spotlight-40@2x~ipad.png",
+      "filename" : "AHUer-Spotlight-40@2x.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "40x40"
     },
     {
-      "filename" : "Ahuer-76~ipad.png",
+      "filename" : "AHUer-76~ipad.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "76x76"
     },
     {
-      "filename" : "Ahuer-76@2x~ipad.png",
+      "filename" : "AHUer-76@2x~ipad.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "76x76"
     },
     {
-      "filename" : "Ahuer-83.5@2x~ipad.png",
+      "filename" : "AHUer-83.5@2x~ipad.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "83.5x83.5"
     },
     {
-      "filename" : "Ahuerios~marketing.png",
+      "filename" : "AHUerios~marketing.png",
       "idiom" : "ios-marketing",
       "scale" : "1x",
       "size" : "1024x1024"
