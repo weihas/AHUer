@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct MoreView: View {
-    @Namespace var moreView
     @State var show: Bool = true
     
     let gridItems = Array(repeating: GridItem(.flexible(minimum: 50)), count: 4)
@@ -32,20 +31,45 @@ struct MoreView: View {
 
 
 fileprivate struct CardOfMoreView: View {
+    let cardInfo: CardInfo
     var body: some View {
-        RoundedRectangle(cornerRadius: 10)
-            .foregroundColor(.orange)
-    }
-}
-
-
-struct MoreView_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            MoreView()
-                .previewDevice("iPad Pro (11-inch) (3rd generation)")
-            MoreView()
-                .previewDevice("iPhone 13 mini")
+        NavigationLink {
+            
+        } label: {
+            RoundedRectangle(cornerRadius: 10)
+                .stroke(.orange, lineWidth: 2)
+                .overlay(Text("Hello"))
         }
     }
+    
+    @ViewBuilder
+    func distination() -> some View {
+        switch cardInfo.style{
+        case .emptyRoom :
+            EmptyRoomView(vm: cardInfo.viewModel)
+        }
+    }
+    
+    
+    
 }
+
+struct CardInfo {
+    typealias T: HomePageFunctionProtocol
+    let color: Color
+    let context: String
+    let icon: String
+    let style: FunctionStyle
+    let viewModel: T
+}
+
+//struct MoreView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Group {
+//            MoreView()
+//                .previewDevice("iPad Pro (11-inch) (3rd generation)")
+//            MoreView()
+//                .previewDevice("iPhone 13 mini")
+//        }
+//    }
+//}

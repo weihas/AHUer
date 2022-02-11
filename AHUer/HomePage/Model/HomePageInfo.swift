@@ -46,3 +46,62 @@ struct ButtonInfo: Identifiable{
     let icon: String
     let color: Color
 }
+
+enum FunctionStyle: CaseIterable {
+    case emptyRoom
+    case scoreSearch
+    case examSearh
+    case bathroom
+    case distribution
+    case more
+    case addressbook
+    
+    var funcName: String{
+        return ""
+    }
+}
+
+protocol HomePageFunctionProtocol: ObservableObject {
+    var style: FunctionStyle { get set }
+}
+
+class EmptyShow: HomePageFunctionProtocol {
+    
+    var style: FunctionStyle = .emptyRoom
+    
+    @Published var emptyRooms: [EmptyRoomSection] = []
+    
+    func search(campus: Int, weekday: Int, weekNum: Int, time: Int) async throws{
+        let respon = try await AHUerAPIProvider.asyncRequest(.emptyRooms(campus: campus, weekday: weekday, weekNum: weekNum, time: time))
+        print(respon["msg"].stringValue)
+        guard respon["success"].boolValue else { return }
+        
+        let rooms = respon["data"].arrayValue
+        
+        var result: [String :[EmptyRoom]] = [:]
+        
+        for (index,room) in rooms.enumerated(){
+            if let seating = room["seating"].string, let pos = room["pos"].string {
+                let name = pos.filter({!$0.isASCII})
+                result.updateValue((result[name] ?? []) + [EmptyRoom(id: index, seating: seating, pos: pos)], forKey: name)
+            }
+        }
+        var sections: [EmptyRoomSection] = []
+        var id = 0
+        for (key,value) in result{
+            sections.append(EmptyRoomSection(id: id, name: key, rooms: value.sorted(by: {$0.pos < $1.pos})))
+            id += 1
+        }
+        sections.sort(by: {$0.name < $1.name})
+        
+        await MainActor.run { [sections] in
+            self.emptyRooms = sections
+        }
+    }
+    
+    deinit {
+        print("🌀EmptyRoomShow released")
+    }
+    
+}
+

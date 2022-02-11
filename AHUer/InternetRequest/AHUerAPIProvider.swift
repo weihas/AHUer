@@ -47,9 +47,6 @@ extension AHUerAPIProvider{
         return PersistenceController.shared.container
     }
     
-    static var backgroundContext: NSManagedObjectContext = PersistenceController.shared.container.newBackgroundContext()
-
-    
     /// 网络请求登录（Async版）
     /// - Parameters:
     ///   - userId: 用户ID
@@ -95,6 +92,7 @@ extension AHUerAPIProvider{
         
         guard respon["success"].boolValue else { return }
         let schedules = respon["data"]
+        let backgroundContext = container.newBackgroundContext()
         
         backgroundContext.performAndWait {
             let user = Student.nowUser(in: backgroundContext)
@@ -110,6 +108,9 @@ extension AHUerAPIProvider{
     static func getScore() async throws{
         let respon: JSON = try await asyncRequest(.grade)
         let grades = respon["data"]
+        
+        let backgroundContext = container.newBackgroundContext()
+        
         backgroundContext.performAndWait {
             guard let user = Student.nowUser(in: backgroundContext)?.update(of: grades) else { return }
             
@@ -129,6 +130,8 @@ extension AHUerAPIProvider{
     ///   - term: 学期
     static func getExamination(year: String, term: Int) async throws{
         let respon = try await asyncRequest(.examInfo(schoolYear: year, schoolTerm: term))
+        
+        let backgroundContext = container.newBackgroundContext()
         
         backgroundContext.performAndWait {
             guard let user = Student.nowUser(in: backgroundContext) else { return }
