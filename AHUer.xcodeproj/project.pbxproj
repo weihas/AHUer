@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35061E6127C1037A003A38C3 /* HomePageFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35061E6027C1037A003A38C3 /* HomePageFunc.swift */; };
 		350710B0274A3BB8006D0587 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350710AF274A3BB8006D0587 /* Color+Extension.swift */; };
 		350710B2274A5391006D0587 /* EmptyRoomShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350710B1274A5391006D0587 /* EmptyRoomShow.swift */; };
 		350D5BD027B0C96000BAC8F9 /* BathOpenShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350D5BCF27B0C96000BAC8F9 /* BathOpenShow.swift */; };
@@ -38,12 +39,14 @@
 		3586B8CF26EDA17A00B42A90 /* EmptyRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586B8CE26EDA17A00B42A90 /* EmptyRoomView.swift */; };
 		3586B8D126EDA31F00B42A90 /* ExamSiteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586B8D026EDA31F00B42A90 /* ExamSiteView.swift */; };
 		3586B8D926EDA3CD00B42A90 /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586B8D826EDA3CD00B42A90 /* MoreView.swift */; };
-		3586B8DB26EDAC0C00B42A90 /* AddressBookLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586B8DA26EDAC0C00B42A90 /* AddressBookLogic.swift */; };
+		3586B8DB26EDAC0C00B42A90 /* AddressBookShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586B8DA26EDAC0C00B42A90 /* AddressBookShow.swift */; };
 		3590EDC9273E6BE20077299D /* SetStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3590EDC8273E6BE20077299D /* SetStorage.swift */; };
 		35945F52271C25C40003ABAC /* AHUerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35945F51271C25C40003ABAC /* AHUerAPI.swift */; };
 		3595AF3326EC3D7900F1354A /* AHUAppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3595AF3226EC3D7900F1354A /* AHUAppInfo.swift */; };
 		3595AF3526EC423B00F1354A /* Picker+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3595AF3426EC423B00F1354A /* Picker+Style.swift */; };
 		359BEBEE26ECE2B9006FB419 /* GroupBox+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359BEBED26ECE2B9006FB419 /* GroupBox+Style.swift */; };
+		35A259B027C26D9800C4BF1C /* MoreViewShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A259AF27C26D9800C4BF1C /* MoreViewShow.swift */; };
+		35A259B227C27C6A00C4BF1C /* AboutUSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A259B127C27C6A00C4BF1C /* AboutUSView.swift */; };
 		35A578B2273E01CD0056166F /* AHUerPrimaryEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A578B1273E01CD0056166F /* AHUerPrimaryEntity.swift */; };
 		35A578B4273E07620056166F /* HomePageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A578B3273E07620056166F /* HomePageInfo.swift */; };
 		35A578B7273E07DA0056166F /* HomePageShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A578B6273E07DA0056166F /* HomePageShow.swift */; };
@@ -67,6 +70,7 @@
 /* Begin PBXFileReference section */
 		0A9987D7B8C0A6064E501A6C /* Pods-AHUerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AHUerTests.release.xcconfig"; path = "Target Support Files/Pods-AHUerTests/Pods-AHUerTests.release.xcconfig"; sourceTree = "<group>"; };
 		1F13389D6105CE97CE4E0F34 /* Pods_AHUerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AHUerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		35061E6027C1037A003A38C3 /* HomePageFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageFunc.swift; sourceTree = "<group>"; };
 		350710AF274A3BB8006D0587 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		350710B1274A5391006D0587 /* EmptyRoomShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyRoomShow.swift; sourceTree = "<group>"; };
 		350D5BCF27B0C96000BAC8F9 /* BathOpenShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BathOpenShow.swift; sourceTree = "<group>"; };
@@ -100,12 +104,14 @@
 		3586B8CE26EDA17A00B42A90 /* EmptyRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyRoomView.swift; sourceTree = "<group>"; };
 		3586B8D026EDA31F00B42A90 /* ExamSiteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamSiteView.swift; sourceTree = "<group>"; };
 		3586B8D826EDA3CD00B42A90 /* MoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreView.swift; sourceTree = "<group>"; };
-		3586B8DA26EDAC0C00B42A90 /* AddressBookLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressBookLogic.swift; sourceTree = "<group>"; };
+		3586B8DA26EDAC0C00B42A90 /* AddressBookShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressBookShow.swift; sourceTree = "<group>"; };
 		3590EDC8273E6BE20077299D /* SetStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetStorage.swift; sourceTree = "<group>"; };
 		35945F51271C25C40003ABAC /* AHUerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AHUerAPI.swift; sourceTree = "<group>"; };
 		3595AF3226EC3D7900F1354A /* AHUAppInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AHUAppInfo.swift; sourceTree = "<group>"; };
 		3595AF3426EC423B00F1354A /* Picker+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Picker+Style.swift"; sourceTree = "<group>"; };
 		359BEBED26ECE2B9006FB419 /* GroupBox+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GroupBox+Style.swift"; sourceTree = "<group>"; };
+		35A259AF27C26D9800C4BF1C /* MoreViewShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewShow.swift; sourceTree = "<group>"; };
+		35A259B127C27C6A00C4BF1C /* AboutUSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUSView.swift; sourceTree = "<group>"; };
 		35A578B1273E01CD0056166F /* AHUerPrimaryEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AHUerPrimaryEntity.swift; sourceTree = "<group>"; };
 		35A578B3273E07620056166F /* HomePageInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageInfo.swift; sourceTree = "<group>"; };
 		35A578B6273E07DA0056166F /* HomePageShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageShow.swift; sourceTree = "<group>"; };
@@ -286,7 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				35EA370526EB022C00107955 /* AddressBookView.swift */,
-				3586B8DA26EDAC0C00B42A90 /* AddressBookLogic.swift */,
+				3586B8DA26EDAC0C00B42A90 /* AddressBookShow.swift */,
 			);
 			path = AddressBook;
 			sourceTree = "<group>";
@@ -321,6 +327,7 @@
 			isa = PBXGroup;
 			children = (
 				35A578B3273E07620056166F /* HomePageInfo.swift */,
+				35061E6027C1037A003A38C3 /* HomePageFunc.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -355,6 +362,7 @@
 				35607BA126EA02E00037504E /* PersonalPageView.swift */,
 				35598B3227A24B72004D28FF /* LogginPanelView.swift */,
 				358330E926EC31DC005927D6 /* ThanksChildView.swift */,
+				35A259B127C27C6A00C4BF1C /* AboutUSView.swift */,
 				35607BA626EA18280037504E /* SettingView.swift */,
 			);
 			path = View;
@@ -388,7 +396,7 @@
 				35D89495275E4F8B00A40EF8 /* ExamSite */,
 				350D5BCE27B0C94200BAC8F9 /* Bath */,
 				3535DED1277B4A330016BD41 /* Distribution */,
-				3586B8D826EDA3CD00B42A90 /* MoreView.swift */,
+				35EB229327C102F200182E70 /* MoreView */,
 				3586B8DC26EDAC1100B42A90 /* AddressBook */,
 			);
 			path = ButtonLinkView;
@@ -402,6 +410,15 @@
 				3586B8D026EDA31F00B42A90 /* ExamSiteView.swift */,
 			);
 			path = ExamSite;
+			sourceTree = "<group>";
+		};
+		35EB229327C102F200182E70 /* MoreView */ = {
+			isa = PBXGroup;
+			children = (
+				3586B8D826EDA3CD00B42A90 /* MoreView.swift */,
+				35A259AF27C26D9800C4BF1C /* MoreViewShow.swift */,
+			);
+			path = MoreView;
 			sourceTree = "<group>";
 		};
 		5B4D9D9A18BED84CA75EA87F /* Pods */ = {
@@ -576,6 +593,7 @@
 				3511F706275A5ADE009BD041 /* RootViewShow.swift in Sources */,
 				35DB74962747E72100E43B33 /* TimeScheduleCell.swift in Sources */,
 				3595AF3326EC3D7900F1354A /* AHUAppInfo.swift in Sources */,
+				35A259B227C27C6A00C4BF1C /* AboutUSView.swift in Sources */,
 				3552E63827219401006A6322 /* AHUerCoreModel.xcdatamodeld in Sources */,
 				350710B0274A3BB8006D0587 /* Color+Extension.swift in Sources */,
 				847A12CF2750DF6E0011428B /* ScoreShow.swift in Sources */,
@@ -591,12 +609,14 @@
 				3586B8CF26EDA17A00B42A90 /* EmptyRoomView.swift in Sources */,
 				3586B8D926EDA3CD00B42A90 /* MoreView.swift in Sources */,
 				358330EA26EC31DC005927D6 /* ThanksChildView.swift in Sources */,
-				3586B8DB26EDAC0C00B42A90 /* AddressBookLogic.swift in Sources */,
+				3586B8DB26EDAC0C00B42A90 /* AddressBookShow.swift in Sources */,
+				35A259B027C26D9800C4BF1C /* MoreViewShow.swift in Sources */,
 				350710B2274A5391006D0587 /* EmptyRoomShow.swift in Sources */,
 				351213E726ECBF2D00D62E9B /* NewsPlaying.swift in Sources */,
 				35607BA726EA18280037504E /* SettingView.swift in Sources */,
 				35607B9C26E99BFA0037504E /* Date+Helper.swift in Sources */,
 				3535DED3277B4C4A0016BD41 /* DistributionShow.swift in Sources */,
+				35061E6127C1037A003A38C3 /* HomePageFunc.swift in Sources */,
 				3578CA6326E9117E00667BEF /* TimeScheduleShow.swift in Sources */,
 				35598B3327A24B72004D28FF /* LogginPanelView.swift in Sources */,
 				3578CA5626E8F0ED00667BEF /* HomePageView.swift in Sources */,
@@ -747,7 +767,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"AHUer/Preview Content\"";
-				DEVELOPMENT_TEAM = 4WB3QMP893;
+				DEVELOPMENT_TEAM = NVF47AP6H6;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = AHUer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -771,7 +791,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"AHUer/Preview Content\"";
-				DEVELOPMENT_TEAM = 4WB3QMP893;
+				DEVELOPMENT_TEAM = NVF47AP6H6;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = AHUer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;

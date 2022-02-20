@@ -29,6 +29,10 @@ class DistributionShow: ObservableObject{
             self.distributions = result
         }
     }
+    
+    deinit {
+        print("🌀DistributionShow released")
+    }
 }
 
 struct Distribution: Identifiable{

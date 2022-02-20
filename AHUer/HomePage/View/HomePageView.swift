@@ -94,26 +94,11 @@ struct HomePageView: View {
         VStack{
             GroupBox {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 100), spacing: 10)]){
-                    ForEach(vm.buttonsInfo, id: \.id){ b in
+                    ForEach(vm.buttonsInfo){ btn in
                         NavigationLink {
-                            Group{
-                                switch b.id{
-                                case 0:
-                                    EmptyRoomView(vm: vm.emptyClassVM)
-                                case 1:
-                                    ScoreView(vm: vm.scoreViewVM)
-                                case 2:
-                                    ExamSiteView(vm: vm.examSiteVM)
-                                case 3:
-                                    BathView(vm: vm.bathInfoVM)
-                                case 4:
-                                    DistributionView(vm: vm.distributionVM)
-                                default:
-                                    MoreView()
-                                }
-                            }
+                           distinationView(style: btn)
                         } label: {
-                            ButtonCell(button: b)
+                            ButtonCell(button: btn)
                                 .frame(height: 40)
                         }
                     }
@@ -123,6 +108,24 @@ struct HomePageView: View {
             }
         }
         .padding([.horizontal,.bottom])
+    }
+    
+    @ViewBuilder
+    private func distinationView(style: HomePageFunc)  -> some View {
+        switch style {
+        case .emptyRoom :
+            EmptyRoomView(vm: vm.emptyClassVM)
+        case .scoreSearch:
+            ScoreView(vm: vm.scoreViewVM)
+        case .examSearh:
+            ExamSiteView(vm: vm.examSiteVM)
+        case .bathroom:
+            BathView(vm: vm.bathInfoVM)
+        case .distribution:
+            DistributionView(vm: vm.distributionVM)
+        default:
+            MoreView()
+        }
     }
     
     private var tipsLabel: some View{
@@ -195,9 +198,9 @@ struct HomePageView: View {
 }
 
 
-private struct ButtonCell: View {
+fileprivate struct ButtonCell: View {
     @State var showSheet: Bool = false
-    var button: ButtonInfo
+    var button: HomePageFunc
     var body: some View {
         RoundedRectangle(cornerRadius: 15)
             .foregroundColor(button.color)
@@ -206,11 +209,11 @@ private struct ButtonCell: View {
             .overlay(
                 HStack{
                     Spacer()
-                    Image(systemName: button.icon)
+                    Image(systemName: button.funcIcon)
                         .font(.system(size: 20))
                         .foregroundColor(.white)
                     Spacer()
-                    Text(button.name)
+                    Text(button.funcName)
                         .font(.system(size: 12, weight: .medium, design: .rounded))
                         .lineLimit(1)
                         .foregroundColor(Color.white)

@@ -65,15 +65,15 @@ extension PersonalPageView{
                 Label("课表设置", systemImage: "gear")
                     .padding(distance)
             }
-            NavigationLink(destination: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Destination@*/Text("Destination")/*@END_MENU_TOKEN@*/) {
-                Label("帮忙推广", systemImage: "square.and.arrow.up.on.square")
-                    .padding(distance)
-            }
-            NavigationLink(destination: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Destination@*/Text("Destination")/*@END_MENU_TOKEN@*/) {
+            
+            Button {
+                vm.sendMail()
+            } label: {
                 Label("意见反馈", systemImage: "contextualmenu.and.cursorarrow")
                     .padding(distance)
             }
-            NavigationLink(destination: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Destination@*/Text("Destination")/*@END_MENU_TOKEN@*/) {
+            
+            NavigationLink(destination: AboutUSView()) {
                 Label("关于我们", systemImage: "person.3")
                     .padding(distance)
             }
@@ -81,6 +81,29 @@ extension PersonalPageView{
                 Label("开发鸣谢", systemImage: "hammer")
                     .padding(distance)
             }
+            
+            Button {
+                vm.shareApp()
+            } label: {
+                Label("帮忙推广", systemImage: "square.and.arrow.up.on.square")
+                    .padding(distance)
+            }
+            
+//            NavigationLink(isActive: .constant(false)) {
+//
+//            } label: {
+//                HStack{
+//                    Label("帮忙推广", systemImage: "square.and.arrow.up.on.square")
+//                        .padding(distance)
+//
+//                }
+//            }
+            .onTapGesture {
+                vm.shareApp()
+            }
+
+            
+            
         }
     }
 }

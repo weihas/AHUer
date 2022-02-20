@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import SwiftUI
+import MessageUI
 
 typealias completion =  (_ status: Bool, _ title: String?, _ description: String?) -> Void
 
@@ -59,5 +61,19 @@ class PersonalPageShow: ObservableObject {
         print("🌀PersonalPageShow released")
     }
     
+    func sendMail(){
+        if MFMailComposeViewController.canSendMail() {
+            let vc = MFMailComposeViewController()
+            vc.setSubject("Hello")
+            UIApplication.shared.windows.first?.rootViewController!.present(vc, animated: true, completion: nil)
+        }
+    }
+    
+    func shareApp() {
+        let url = URL(string: "https://github.com")
+        let activityController = UIActivityViewController(activityItems: [url!], applicationActivities: nil)
+        
+        UIApplication.shared.windows.first?.rootViewController!.present(activityController, animated: true, completion: nil)
+    }
     
 }

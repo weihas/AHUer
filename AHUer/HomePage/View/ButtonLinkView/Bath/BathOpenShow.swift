@@ -19,4 +19,8 @@ class BathOpenShow: ObservableObject {
             northisMan = (north == "m")
         }
     }
+    
+    deinit {
+        print("🌀BathOpenShow released")
+    }
 }

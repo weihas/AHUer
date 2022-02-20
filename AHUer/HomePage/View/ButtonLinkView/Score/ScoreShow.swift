@@ -56,4 +56,8 @@ class ScoreShow: ObservableObject {
         model.freshTotalPoint()
     }
     
+    deinit {
+        print("🌀ScoreShow released")
+    }
+    
 }

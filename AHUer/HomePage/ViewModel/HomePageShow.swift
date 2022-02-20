@@ -25,8 +25,8 @@ class HomePageShow: ObservableObject{
         return model.northBathroomisMen
     }
     
-    var buttonsInfo: [ButtonInfo]{
-        return model.buttonsInfo
+    var buttonsInfo: [HomePageFunc]{
+        return HomePageFunc.allCases.filter({$0.tag.contains(.showInHome)})
     }
     
     var gpa: (Double,Double) {
@@ -46,6 +46,7 @@ class HomePageShow: ObservableObject{
     lazy var examSiteVM = ExamSiteShow()
     lazy var distributionVM = DistributionShow()
     lazy var bathInfoVM = BathOpenShow()
+    lazy var moreVM = MoreViewShow()
     
     deinit {
         print("🌀HomePageShow released")

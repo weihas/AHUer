@@ -1,5 +1,5 @@
 //
-//  AddressBookLogic.swift
+//  AddressBookShow.swift
 //  AHUer
 //
 //  Created by WeIHa'S on 2021/9/12.
@@ -7,8 +7,8 @@
 
 import Foundation
 
-class AddressBookLogic: ObservableObject {
-    @Published var model: [AddressBookData]
+class AddressBookShow: ObservableObject {
+    var model: [AddressBookData]
     fileprivate var sources: [String] = ["常用","教务处","团委","学生处","财务处","保卫处","宿舍","物业","校医院"]
     
     fileprivate var addresses: [[(String,String)]] = [

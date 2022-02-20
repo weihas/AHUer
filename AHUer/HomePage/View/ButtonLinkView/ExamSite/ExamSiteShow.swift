@@ -32,4 +32,8 @@ class ExamSiteShow: ObservableObject {
     func freshExamModelData(){
         model.freshExamData()
     }
+    
+    deinit {
+        print("🌀ExamSiteShow released")
+    }
 }
