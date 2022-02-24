@@ -33,7 +33,7 @@ struct HomePageView: View {
             .navigationTitle("今天")
             .navigationBarTitleDisplayMode(.automatic)
         }
-        .navigationViewStyle(.automatic)
+        .navigationViewStyle(.stack)
     }
     
     
@@ -52,7 +52,7 @@ struct HomePageView: View {
     private var lectureLabel: some View {
         GroupBox {
                 RoundedRectangle(cornerRadius: 20)
-                    .fill(Color.blue)
+                .fill(Color.blue)
                     .aspectRatio(2, contentMode: .fit)
                     .shadow(radius: 10)
                     .overlay(
@@ -71,9 +71,14 @@ struct HomePageView: View {
                             }
                             .foregroundColor(.white)
                             
-                            //TODO: ProgressView
-                            ProgressView(value: 11.0/18.0)
-                                .foregroundColor(.orange)
+                            ProgressView(value: 11.0/18.0) {
+                                Label("剩余次数 11 / 18", systemImage: "clock.badge.checkmark")
+                                    .font(.system(size: 10))
+                                    .foregroundColor(.white)
+                            }
+                            .progressViewStyle(LinearProgressViewStyle(tint: .white))
+                               
+                                
                             Group{
                                 Label(StartTime(rawValue: Int(vm.nextCourse?.startTime ?? 0))?.des ?? " 8:00-10:00 " , systemImage: "clock")
                                 Label(vm.nextCourse?.teacher ?? " Cindy ", systemImage: "person")

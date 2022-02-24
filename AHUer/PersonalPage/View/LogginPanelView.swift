@@ -27,6 +27,7 @@ struct LogginPanelView: View {
             HStack{
                 Text("学号:")
                 TextField("学号", text: $userID)
+                    .textContentType(.username)
                     .keyboardType(.asciiCapable)
                 
             }
@@ -35,6 +36,7 @@ struct LogginPanelView: View {
             HStack{
                 Text("密码:")
                 SecureField("密码", text: $password)
+                    .textContentType(.password)
             }
             .padding()
             Spacer()
