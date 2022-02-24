@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -40,6 +40,8 @@
 		3586B8D126EDA31F00B42A90 /* ExamSiteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586B8D026EDA31F00B42A90 /* ExamSiteView.swift */; };
 		3586B8D926EDA3CD00B42A90 /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586B8D826EDA3CD00B42A90 /* MoreView.swift */; };
 		3586B8DB26EDAC0C00B42A90 /* AddressBookShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586B8DA26EDAC0C00B42A90 /* AddressBookShow.swift */; };
+		3590943627C792E000830DE2 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 3590943527C792E000830DE2 /* Moya */; };
+		3590943927C792F800830DE2 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 3590943827C792F800830DE2 /* SwiftyJSON */; };
 		3590EDC9273E6BE20077299D /* SetStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3590EDC8273E6BE20077299D /* SetStorage.swift */; };
 		35945F52271C25C40003ABAC /* AHUerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35945F51271C25C40003ABAC /* AHUerAPI.swift */; };
 		3595AF3326EC3D7900F1354A /* AHUAppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3595AF3226EC3D7900F1354A /* AHUAppInfo.swift */; };
@@ -61,15 +63,12 @@
 		35D5B16D26EA6BFD0070A23C /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D5B16C26EA6BFD0070A23C /* ScoreView.swift */; };
 		35DB74962747E72100E43B33 /* TimeScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DB74952747E72100E43B33 /* TimeScheduleCell.swift */; };
 		35EA370626EB022C00107955 /* AddressBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA370526EB022C00107955 /* AddressBookView.swift */; };
-		67E7C0DA60E48F47097D7513 /* Pods_AHUer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6D63E11FEF80E42E8CEA068 /* Pods_AHUer.framework */; };
 		844023D4274F67860034B224 /* Popup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844023D3274F67860034B224 /* Popup.swift */; };
 		847A12CF2750DF6E0011428B /* ScoreShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A12CE2750DF6E0011428B /* ScoreShow.swift */; };
 		847A12D12750E0A90011428B /* ScoreGets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A12D02750E0A90011428B /* ScoreGets.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0A9987D7B8C0A6064E501A6C /* Pods-AHUerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AHUerTests.release.xcconfig"; path = "Target Support Files/Pods-AHUerTests/Pods-AHUerTests.release.xcconfig"; sourceTree = "<group>"; };
-		1F13389D6105CE97CE4E0F34 /* Pods_AHUerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AHUerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		35061E6027C1037A003A38C3 /* HomePageFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageFunc.swift; sourceTree = "<group>"; };
 		350710AF274A3BB8006D0587 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		350710B1274A5391006D0587 /* EmptyRoomShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyRoomShow.swift; sourceTree = "<group>"; };
@@ -90,7 +89,6 @@
 		35607BA626EA18280037504E /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		357669EF275E4FC7002504B4 /* ExamSiteShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamSiteShow.swift; sourceTree = "<group>"; };
 		357669F1275E5041002504B4 /* ExamSite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamSite.swift; sourceTree = "<group>"; };
-		3578CA2526E8ED5E00667BEF /* AHUer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AHUer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3578CA2826E8ED5E00667BEF /* AHUerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AHUerApp.swift; sourceTree = "<group>"; };
 		3578CA2C26E8ED5E00667BEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3578CA2F26E8ED5F00667BEF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -106,6 +104,7 @@
 		3586B8D826EDA3CD00B42A90 /* MoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreView.swift; sourceTree = "<group>"; };
 		3586B8DA26EDAC0C00B42A90 /* AddressBookShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressBookShow.swift; sourceTree = "<group>"; };
 		3590EDC8273E6BE20077299D /* SetStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetStorage.swift; sourceTree = "<group>"; };
+		3591FADF27C7940F00262618 /* AHUer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AHUer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35945F51271C25C40003ABAC /* AHUerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AHUerAPI.swift; sourceTree = "<group>"; };
 		3595AF3226EC3D7900F1354A /* AHUAppInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AHUAppInfo.swift; sourceTree = "<group>"; };
 		3595AF3426EC423B00F1354A /* Picker+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Picker+Style.swift"; sourceTree = "<group>"; };
@@ -126,16 +125,9 @@
 		35D5B16C26EA6BFD0070A23C /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 		35DB74952747E72100E43B33 /* TimeScheduleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeScheduleCell.swift; sourceTree = "<group>"; };
 		35EA370526EB022C00107955 /* AddressBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressBookView.swift; sourceTree = "<group>"; };
-		44EB32932A6D03444E77F0B9 /* Pods-AHUer-AHUerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AHUer-AHUerUITests.release.xcconfig"; path = "Target Support Files/Pods-AHUer-AHUerUITests/Pods-AHUer-AHUerUITests.release.xcconfig"; sourceTree = "<group>"; };
-		4FC326EEBFBEC7CB3AE22D18 /* Pods-AHUer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AHUer.release.xcconfig"; path = "Target Support Files/Pods-AHUer/Pods-AHUer.release.xcconfig"; sourceTree = "<group>"; };
-		51E676CCED6E24409F56C237 /* Pods-AHUerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AHUerTests.debug.xcconfig"; path = "Target Support Files/Pods-AHUerTests/Pods-AHUerTests.debug.xcconfig"; sourceTree = "<group>"; };
-		80048EC7D05829CDA7AF80FA /* Pods-AHUer-AHUerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AHUer-AHUerUITests.debug.xcconfig"; path = "Target Support Files/Pods-AHUer-AHUerUITests/Pods-AHUer-AHUerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		844023D3274F67860034B224 /* Popup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Popup.swift; sourceTree = "<group>"; };
 		847A12CE2750DF6E0011428B /* ScoreShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreShow.swift; sourceTree = "<group>"; };
 		847A12D02750E0A90011428B /* ScoreGets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreGets.swift; sourceTree = "<group>"; usesTabs = 0; };
-		B96A49697F8B0857D7633C56 /* Pods_AHUer_AHUerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AHUer_AHUerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EEEE61C8B5C2D0A929EE3173 /* Pods-AHUer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AHUer.debug.xcconfig"; path = "Target Support Files/Pods-AHUer/Pods-AHUer.debug.xcconfig"; sourceTree = "<group>"; };
-		F6D63E11FEF80E42E8CEA068 /* Pods_AHUer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AHUer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,7 +135,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				67E7C0DA60E48F47097D7513 /* Pods_AHUer.framework in Frameworks */,
+				3590943927C792F800830DE2 /* SwiftyJSON in Frameworks */,
+				3590943627C792E000830DE2 /* Moya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,18 +209,8 @@
 			children = (
 				351399D7279C27210095918B /* Packages */,
 				3578CA2726E8ED5E00667BEF /* AHUer */,
-				3578CA2626E8ED5E00667BEF /* Products */,
-				5B4D9D9A18BED84CA75EA87F /* Pods */,
-				D43DA71EB1B67F78F5C12093 /* Frameworks */,
+				3591FADF27C7940F00262618 /* AHUer.app */,
 			);
-			sourceTree = "<group>";
-		};
-		3578CA2626E8ED5E00667BEF /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				3578CA2526E8ED5E00667BEF /* AHUer.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		3578CA2726E8ED5E00667BEF /* AHUer */ = {
@@ -421,19 +404,6 @@
 			path = MoreView;
 			sourceTree = "<group>";
 		};
-		5B4D9D9A18BED84CA75EA87F /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				EEEE61C8B5C2D0A929EE3173 /* Pods-AHUer.debug.xcconfig */,
-				4FC326EEBFBEC7CB3AE22D18 /* Pods-AHUer.release.xcconfig */,
-				80048EC7D05829CDA7AF80FA /* Pods-AHUer-AHUerUITests.debug.xcconfig */,
-				44EB32932A6D03444E77F0B9 /* Pods-AHUer-AHUerUITests.release.xcconfig */,
-				51E676CCED6E24409F56C237 /* Pods-AHUerTests.debug.xcconfig */,
-				0A9987D7B8C0A6064E501A6C /* Pods-AHUerTests.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		844023F32750D8740034B224 /* EmptyRoom */ = {
 			isa = PBXGroup;
 			children = (
@@ -454,16 +424,6 @@
 			path = Score;
 			sourceTree = "<group>";
 		};
-		D43DA71EB1B67F78F5C12093 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				F6D63E11FEF80E42E8CEA068 /* Pods_AHUer.framework */,
-				B96A49697F8B0857D7633C56 /* Pods_AHUer_AHUerUITests.framework */,
-				1F13389D6105CE97CE4E0F34 /* Pods_AHUerTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -471,11 +431,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3578CA4A26E8ED5F00667BEF /* Build configuration list for PBXNativeTarget "AHUer" */;
 			buildPhases = (
-				191B181100BA4E0B7E979858 /* [CP] Check Pods Manifest.lock */,
 				3578CA2126E8ED5E00667BEF /* Sources */,
 				3578CA2226E8ED5E00667BEF /* Frameworks */,
 				3578CA2326E8ED5E00667BEF /* Resources */,
-				982CE095CD0A2217F27754FA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -483,9 +441,11 @@
 			);
 			name = AHUer;
 			packageProductDependencies = (
+				3590943527C792E000830DE2 /* Moya */,
+				3590943827C792F800830DE2 /* SwiftyJSON */,
 			);
 			productName = AHUer;
-			productReference = 3578CA2526E8ED5E00667BEF /* AHUer.app */;
+			productReference = 3591FADF27C7940F00262618 /* AHUer.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -512,8 +472,10 @@
 			);
 			mainGroup = 3578CA1C26E8ED5E00667BEF;
 			packageReferences = (
+				3590943427C792E000830DE2 /* XCRemoteSwiftPackageReference "Moya" */,
+				3590943727C792F800830DE2 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 			);
-			productRefGroup = 3578CA2626E8ED5E00667BEF /* Products */;
+			productRefGroup = 3578CA1C26E8ED5E00667BEF;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -533,48 +495,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		191B181100BA4E0B7E979858 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-AHUer-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		982CE095CD0A2217F27754FA /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AHUer/Pods-AHUer-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AHUer/Pods-AHUer-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AHUer/Pods-AHUer-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3578CA2126E8ED5E00667BEF /* Sources */ = {
@@ -760,14 +680,13 @@
 		};
 		3578CA4B26E8ED5F00667BEF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EEEE61C8B5C2D0A929EE3173 /* Pods-AHUer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"AHUer/Preview Content\"";
-				DEVELOPMENT_TEAM = NVF47AP6H6;
+				DEVELOPMENT_TEAM = 4WB3QMP893;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = AHUer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -784,14 +703,13 @@
 		};
 		3578CA4C26E8ED5F00667BEF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4FC326EEBFBEC7CB3AE22D18 /* Pods-AHUer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"AHUer/Preview Content\"";
-				DEVELOPMENT_TEAM = NVF47AP6H6;
+				DEVELOPMENT_TEAM = 4WB3QMP893;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = AHUer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -828,6 +746,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3590943427C792E000830DE2 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:weihas/Moya.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.0;
+			};
+		};
+		3590943727C792F800830DE2 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:weihas/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3590943527C792E000830DE2 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3590943427C792E000830DE2 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+		3590943827C792F800830DE2 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3590943727C792F800830DE2 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		3552E63627219401006A6322 /* AHUerCoreModel.xcdatamodeld */ = {

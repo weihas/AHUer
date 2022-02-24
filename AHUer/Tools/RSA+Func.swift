@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import SwiftyRSA
+//import SwiftyRSA
 
 extension String{
     func rsaCrypto() -> String? {
@@ -16,10 +16,11 @@ MIGJAoGBAI9fwyD3Hb5ryCjs7tR1n+SNkZgmUXxdMWl6g9L4s9xLsjsE0yjvaPeZRBIroo6Yc+laattX
 -----END RSA PUBLIC KEY-----
 """
         do {
-            let publicKey = try PublicKey(pemEncoded: key)
-            let clear = try ClearMessage(string: self, using: .utf8)
-            let encrypted = try clear.encrypted(with: publicKey, padding: .PKCS1)
-            return encrypted.base64String
+//            let publicKey = try PublicKey(pemEncoded: key)
+//            let clear = try ClearMessage(string: self, using: .utf8)
+//            let encrypted = try clear.encrypted(with: publicKey, padding: .PKCS1)
+//            return encrypted.base64String
+            return ""
         }catch{
             print("加密失败")
             return nil
