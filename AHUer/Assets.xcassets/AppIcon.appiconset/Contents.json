@@ -25,7 +25,7 @@
       "size" : "29x29"
     },
     {
-      "filename" : "AHUer-Spotlight-40@2x~ipad.png",
+      "filename" : "AHUer-Spotlight-40@2x.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "40x40"
@@ -37,7 +37,7 @@
       "size" : "40x40"
     },
     {
-      "filename" : "AHUer-60@2x-1.png",
+      "filename" : "AHUer-60@2x.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "60x60"
@@ -79,7 +79,7 @@
       "size" : "40x40"
     },
     {
-      "filename" : "AHUer-Spotlight-40@2x.png",
+      "filename" : "AHUer-Spotlight-40@2x~ipad.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "40x40"

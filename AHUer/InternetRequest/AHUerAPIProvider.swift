@@ -68,7 +68,7 @@ extension AHUerAPIProvider{
         let attribute = JSON(["studentID" : userId, "studentName" : userName])
         print(Thread.current)
 
-        container.performBackgroundTask { context in
+        await container.performBackgroundTask { context in
             if let user = Student.fetch(studentId: userId, in: context) {
                 user.update(of: attribute)
             } else {
@@ -148,7 +148,7 @@ extension AHUerAPIProvider{
     /// 网络登出
     static func logout(type: Int = 1) async throws{
         let _ = try await asyncRequest(.logout(type: type))
-        container.performBackgroundTask { context in
+        await container.performBackgroundTask { context in
             guard let student = Student.nowUser(in: context) else { return }
             student.delete()
         }
