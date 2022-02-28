@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35243B1F27CD1B0D00E90BC6 /* GalleryScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35243B1E27CD1B0D00E90BC6 /* GalleryScheduleView.swift */; };
 		35E9405027C8809D001B4070 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35E9404F27C8809D001B4070 /* Assets.xcassets */; };
 		35E9405327C8809D001B4070 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35E9405227C8809D001B4070 /* Preview Assets.xcassets */; };
 		35E9405C27C8810D001B4070 /* AHUAppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9405B27C8810D001B4070 /* AHUAppInfo.swift */; };
@@ -70,6 +71,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		35243B1E27CD1B0D00E90BC6 /* GalleryScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryScheduleView.swift; sourceTree = "<group>"; };
 		35E9404827C88099001B4070 /* AHUer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AHUer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35E9404F27C8809D001B4070 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		35E9405227C8809D001B4070 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -354,6 +356,7 @@
 			isa = PBXGroup;
 			children = (
 				35E940AC27C88149001B4070 /* TimeSchedulePageView.swift */,
+				35243B1E27CD1B0D00E90BC6 /* GalleryScheduleView.swift */,
 				35E940AD27C88149001B4070 /* TimeScheduleCell.swift */,
 				35E940AE27C88149001B4070 /* TimeScheduleAddLectureView.swift */,
 			);
@@ -559,6 +562,7 @@
 				35E940DF27C88165001B4070 /* GroupBox+Style.swift in Sources */,
 				35E9409527C8813B001B4070 /* BathView.swift in Sources */,
 				35E940DD27C88165001B4070 /* Color+Extension.swift in Sources */,
+				35243B1F27CD1B0D00E90BC6 /* GalleryScheduleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -689,7 +693,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AHUer/Preview Content\"";
-				DEVELOPMENT_TEAM = 4WB3QMP893;
+				DEVELOPMENT_TEAM = NVF47AP6H6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -719,7 +723,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AHUer/Preview Content\"";
-				DEVELOPMENT_TEAM = 4WB3QMP893;
+				DEVELOPMENT_TEAM = NVF47AP6H6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

@@ -43,7 +43,9 @@ fileprivate struct CardOfBathView: View {
         ZStack{
             RoundedRectangle(cornerRadius: 25.0, style: .continuous)
                 .foregroundColor(isToday ? .green : .pink )
-                .opacity(0.5)
+                .opacity(0.6)
+                .shadow(color: .gray, radius: 5, x: 2, y: 2)
+                
             VStack{
                 HStack{
                     Spacer()
