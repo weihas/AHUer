@@ -1,5 +1,5 @@
 //
-//  CoursesGet.swift
+//  AHUerAPI.swift
 //  AHUer
 //
 //  Created by WeIHa'S on 2021/10/17.
@@ -8,6 +8,33 @@
 
 import Foundation
 import Moya
+import AHUerAPIDetail
+
+//#warning("Because api is a private thing, I miss it over a private Github Repositories, so If you want to run other code, you must remove AHUerAPIDetail library, and use underground substitution(they are certainly wrong!, but can run)")
+
+//public enum AHUerAPIDetail: String {
+//    case login = "/**/login"
+//    case schedule = "/**/schedule"
+//    case logout = "**/logout"
+//    case emptyRooms = "/**/emptyRoom"
+//    case grade = "/**/grade"
+//    case examInfo = "/**/examInfo"
+//    case gradeDistribution = "/**/distribution"
+//    case bathroom = "/**/bathroom"
+//    case campusCardBalance = "/**/campusCardBalance"
+//}
+//
+//public extension AHUerAPIDetail {
+//
+//    static var detailBaseUrl: URL {
+//        return URL(string: "https://www.github.com/something")!
+//    }
+//
+//    static var domainUrl: URL {
+//        return URL(string: "https://www.github.com/something")!
+//    }
+//}
+
 
 public enum AHUerAPI {
     case login(userId: String, password: String, type: Int)
@@ -22,29 +49,29 @@ public enum AHUerAPI {
 }
 
 extension AHUerAPI: TargetType {
-
-    public var baseURL: URL { return URL(string: "https://ahuer.cn")! }
+    typealias detail = AHUerAPIDetail
+    public var baseURL: URL { detail.detailBaseUrl }
     
     public var path: String {
         switch self {
         case .login:
-            return "/api/login"
+            return detail.login.rawValue
         case .schedule:
-            return "/api/schedule"
+            return detail.schedule.rawValue
         case .logout:
-            return "api/logout"
+            return detail.logout.rawValue
         case .emptyRooms:
-            return "/api/emptyRoom"
+            return detail.emptyRooms.rawValue
         case .grade:
-            return "/api/grade"
+            return detail.grade.rawValue
         case .examInfo:
-            return "/api/examInfo"
+            return detail.examInfo.rawValue
         case .gradeDistribution:
-            return "/api/grade/distribution"
+            return detail.gradeDistribution.rawValue
         case .bathroom:
-            return "/api/bathroom/north"
+            return detail.bathroom.rawValue
         case .campusCardBalance:
-            return "/api/campusCardBalance"
+            return detail.campusCardBalance.rawValue
         }
     }
 
@@ -177,7 +204,7 @@ final class AHUerAlertPlugin: PluginType {
 
 extension HTTPCookieStorage{
     static func saveAHUerCookie(){
-        guard let cookies = shared.cookies(for: URL(string: "https://ahuer.cn/api")!) else { return }
+        guard let cookies = shared.cookies(for: AHUerAPIDetail.domainUrl) else { return }
         for cookie in cookies{
             guard var props = cookie.properties else { continue }
             props[.expires] = Date().adding(day:30)
@@ -188,7 +215,7 @@ extension HTTPCookieStorage{
     }
     
     static func deleteAHUerCookie(){
-        guard let cookies = shared.cookies(for: URL(string: "https://ahuer.cn/api")!) else { return }
+        guard let cookies = shared.cookies(for: AHUerAPIDetail.domainUrl) else { return }
         for cookie in cookies{
             shared.deleteCookie(cookie)
         }
