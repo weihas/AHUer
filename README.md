@@ -10,17 +10,7 @@
 
 ## This project can only run in Xcode with macOS!!!
 
-#### If you also want to learn or modify my code. Since I used cocoapods to import two libraries, you must install cocoapods. and cd the project in terminal , try to run
-
-```shell
-ahuer% pod install
-
-#wait and run
-ahuer% open AHUer.xcworkspace
-
-```
-
-#### now you can build the project
+#### If you also want to learn or modify my code. you can git clone and just run. I am use SPM to monitor Library
 
 #### Please send something to "weihas@icloud.com", if you hava any doubts.
 
