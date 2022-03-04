@@ -13,6 +13,7 @@
 		358589ED27CFBB4100D9DFF3 /* AHUerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358589EC27CFBB4100D9DFF3 /* AHUerAPI.swift */; };
 		358589F027CFBBE400D9DFF3 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 358589EF27CFBBE400D9DFF3 /* Moya */; };
 		358589F327CFBE8400D9DFF3 /* AHUerAPIDetail in Frameworks */ = {isa = PBXBuildFile; productRef = 358589F227CFBE8400D9DFF3 /* AHUerAPIDetail */; };
+		35C2AEC727D210FD003CCBE4 /* SwiftyRSA in Frameworks */ = {isa = PBXBuildFile; productRef = 35C2AEC627D210FD003CCBE4 /* SwiftyRSA */; };
 		35E9405027C8809D001B4070 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35E9404F27C8809D001B4070 /* Assets.xcassets */; };
 		35E9405327C8809D001B4070 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35E9405227C8809D001B4070 /* Preview Assets.xcassets */; };
 		35E9405C27C8810D001B4070 /* AHUAppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9405B27C8810D001B4070 /* AHUAppInfo.swift */; };
@@ -140,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				358589F327CFBE8400D9DFF3 /* AHUerAPIDetail in Frameworks */,
+				35C2AEC727D210FD003CCBE4 /* SwiftyRSA in Frameworks */,
 				358589F027CFBBE400D9DFF3 /* Moya in Frameworks */,
 				35E940E727C8822A001B4070 /* SwiftyJSON in Frameworks */,
 			);
@@ -450,6 +452,7 @@
 				35E940E627C8822A001B4070 /* SwiftyJSON */,
 				358589EF27CFBBE400D9DFF3 /* Moya */,
 				358589F227CFBE8400D9DFF3 /* AHUerAPIDetail */,
+				35C2AEC627D210FD003CCBE4 /* SwiftyRSA */,
 			);
 			productName = AHUer;
 			productReference = 35E9404827C88099001B4070 /* AHUer.app */;
@@ -483,6 +486,7 @@
 				35E940E527C8822A001B4070 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				358589EE27CFBBE400D9DFF3 /* XCRemoteSwiftPackageReference "Moya" */,
 				358589F127CFBE8400D9DFF3 /* XCRemoteSwiftPackageReference "AHUerAPIDetail" */,
+				35C2AEC527D210FD003CCBE4 /* XCRemoteSwiftPackageReference "SwiftyRSA" */,
 			);
 			productRefGroup = 35E9404927C88099001B4070 /* Products */;
 			projectDirPath = "";
@@ -697,7 +701,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AHUer/Preview Content\"";
-				DEVELOPMENT_TEAM = NVF47AP6H6;
+				DEVELOPMENT_TEAM = 4WB3QMP893;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -777,8 +781,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:weihas/Moya.git";
 			requirement = {
-				branch = master;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.0;
 			};
 		};
 		358589F127CFBE8400D9DFF3 /* XCRemoteSwiftPackageReference "AHUerAPIDetail" */ = {
@@ -787,6 +791,14 @@
 			requirement = {
 				branch = main;
 				kind = branch;
+			};
+		};
+		35C2AEC527D210FD003CCBE4 /* XCRemoteSwiftPackageReference "SwiftyRSA" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:weihas/SwiftyRSA.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
 			};
 		};
 		35E940E527C8822A001B4070 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
@@ -809,6 +821,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 358589F127CFBE8400D9DFF3 /* XCRemoteSwiftPackageReference "AHUerAPIDetail" */;
 			productName = AHUerAPIDetail;
+		};
+		35C2AEC627D210FD003CCBE4 /* SwiftyRSA */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 35C2AEC527D210FD003CCBE4 /* XCRemoteSwiftPackageReference "SwiftyRSA" */;
+			productName = SwiftyRSA;
 		};
 		35E940E627C8822A001B4070 /* SwiftyJSON */ = {
 			isa = XCSwiftPackageProductDependency;
