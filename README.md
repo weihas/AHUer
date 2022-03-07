@@ -12,6 +12,10 @@
 
 #### If you also want to learn or modify my code. you can git clone and just run. I am use SPM to monitor Library
 
+And sBecause api is a private thing, I miss it over a private Github Repositories, so If you want to run other code, you must remove AHUerAPIDetail library,  and open AHUerAPI.swift, use  substitution to  run
+
+
+
 #### Please send something to "weihas@icloud.com", if you hava any doubts.
 
 #### Have fun!
