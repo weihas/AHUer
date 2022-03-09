@@ -29,6 +29,6 @@ struct ScoreGets {
         self.totalGradePoint = user.totalGradePoint
         self.totalCredit = user.totalCredit
         self.totalGradePointAverage = user.totalCredit
-        self.grades = Grade.fetch(by: NSPredicate(format: "owner = %@", user), sort: ["schoolYear": true], in: PersistenceController.shared.container.viewContext)?.sorted(by: {$0.schoolYear ?? "" <= $1.schoolYear ?? "" && $0.schoolTerm ?? "" < $1.schoolTerm ?? ""}) ?? []
+        self.grades = Grade.fetch(by: NSPredicate(format: "owner = %@", user), sort: ["schoolYear": true])?.sorted(by: {$0.schoolYear ?? "" <= $1.schoolYear ?? "" && $0.schoolTerm ?? "" < $1.schoolTerm ?? ""}) ?? []
     }
 }

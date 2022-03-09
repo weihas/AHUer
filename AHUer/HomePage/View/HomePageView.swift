@@ -28,7 +28,7 @@ struct HomePageView: View {
                 .groupBoxStyle(ModuleBoxStyle())
             }
             .onAppear{
-                vm.freshImmediatelyLecture()
+                vm.freshModel()
             }
             .navigationTitle("今天")
             .navigationBarTitleDisplayMode(.automatic)
@@ -39,13 +39,15 @@ struct HomePageView: View {
     
     private var helloLabel: some View {
         VStack(alignment: .leading){
-            Text("E01814133👋")
+            Text(vm.welcomeTitle)
                 .foregroundColor(.gray)
                 .padding(.horizontal)
-            Text("你一共有4节课")
-                .font(.footnote)
-                .foregroundColor(.green)
-                .padding(.horizontal)
+            if let subtitle = vm.welcomeSubtitle {
+                Text(subtitle)
+                    .font(.footnote)
+                    .foregroundColor(.green)
+                    .padding(.horizontal)
+            }
         }
     }
     
@@ -148,6 +150,11 @@ struct HomePageView: View {
         }
     }
     
+    
+}
+
+extension HomePageView {
+    
     private var bathLabel: some View {
         NavigationLink(destination: BathView(vm: vm.bathInfoVM)) {
             GroupBox(label: Label("浴室开放", systemImage: "drop")){
@@ -164,8 +171,8 @@ struct HomePageView: View {
         NavigationLink(destination: ScoreView(vm: vm.scoreViewVM)) {
             GroupBox(label: Label("成绩查询", systemImage: "doc.text.below.ecg")){
                 VStack(alignment: .leading){
-                    Text("学期绩点: " + (showGPA ? "\(vm.gpa.0)" : "*. **"))
-                    Text("全程绩点: " + (showGPA ? "\(vm.gpa.1)" : "*. **"))
+                    Text("学期绩点: " + (showGPA ? vm.gpa.term : "*. **"))
+                    Text("全程绩点: " + (showGPA ? vm.gpa.global : "*. **"))
                 }
             }
             .overlay(

@@ -217,8 +217,8 @@
 		35E9407027C8813B001B4070 /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
-				35E9407127C8813B001B4070 /* ViewModel */,
 				35E9407327C8813B001B4070 /* Model */,
+				35E9407127C8813B001B4070 /* ViewModel */,
 				35E9407627C8813B001B4070 /* View */,
 			);
 			path = HomePage;
@@ -244,8 +244,8 @@
 		35E9407627C8813B001B4070 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				35E9407727C8813B001B4070 /* ButtonLinkView */,
 				35E9409027C8813B001B4070 /* HomePageView.swift */,
+				35E9407727C8813B001B4070 /* ButtonLinkView */,
 			);
 			path = View;
 			sourceTree = "<group>";

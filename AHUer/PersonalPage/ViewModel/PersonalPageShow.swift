@@ -40,8 +40,8 @@ class PersonalPageShow: ObservableObject {
         
         if let userName = try await AHUerAPIProvider.loggin(userId: userID, password: pw, type: 1) {
             self.freshData(userID, pw, userName)
-            
-            try? await AHUerAPIProvider.getSchedule(schoolYear: Date().studyYear, schoolTerm: Date().studyTerm)
+            async let _ =  try? await AHUerAPIProvider.getSchedule(schoolYear: Date().studyYear, schoolTerm: Date().studyTerm)
+            async let _ = try? await AHUerAPIProvider.getScore()
             return true
         }
         return false

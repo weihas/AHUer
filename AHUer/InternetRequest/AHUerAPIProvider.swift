@@ -113,13 +113,24 @@ extension AHUerAPIProvider{
         
         backgroundContext.performAndWait {
             guard let user = Student.nowUser(in: backgroundContext)?.update(of: grades) else { return }
+            user.totalGradePoint = grades["totalGradePoint"].doubleValue
+            user.totalCredit = grades["totalCredit"].doubleValue
+            user.totalGradePointAverage = grades["totalGradePointAverage"].doubleValue
+            
+           
             
             let termGradeLists = grades["termGradeList"].arrayValue
             
-            for term in termGradeLists{
+            for termGrade in termGradeLists{
                 //清空原有的数据
-                Grade.fetch(schoolYear: term["schoolYear"].stringValue, schoolTerm: term["schoolTerm"].stringValue, in: backgroundContext)?.forEach({$0.delete()})
-                Grade.insert(in: backgroundContext)?.update(of: term)?.beHold(of: user)?.addToGpas(GPA.pack(attributes: term["termGradeList"].arrayValue, in: backgroundContext))
+                guard let year = termGrade["schoolYear"].string, let term = termGrade["schoolTerm"].string else { continue }
+                
+                if year == Date().studyYear, term == "\(Date().studyTerm)" {
+                    user.termGradePoint = termGrade["termGradePointAverage"].doubleValue
+                }
+                
+                Grade.fetch(schoolYear: year, schoolTerm: term, in: backgroundContext)?.forEach({$0.delete()})
+                Grade.insert(in: backgroundContext)?.update(of: termGrade)?.beHold(of: user)?.addToGpas(GPA.pack(attributes: termGrade["termGradeList"].arrayValue, in: backgroundContext))
             }
         }
     }
