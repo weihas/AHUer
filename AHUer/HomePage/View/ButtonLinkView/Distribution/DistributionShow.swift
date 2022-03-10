@@ -14,21 +14,33 @@ class DistributionShow: ObservableObject{
     var tipsRegularly: [String] = ["高等数学","马基","英语","大机","物理","Python"]
     
     
-    func getDistribution(courseName: String) async throws {
-        let respon = try await AHUerAPIProvider.asyncRequest(.gradeDistribution(courseName: courseName))
-        var result = [Distribution]()
-        let data = respon["data"].arrayValue
-        for datum in data {
-            guard let id =  datum["courseId"].string,
-                  let name = datum["courseName"].string,
-                  let moreThan80 = datum["moreThanEighty"].double,
-                  let moreThan60 = datum["moreThanSixty"].double else { continue }
-            result.append(Distribution(id: id, name: name, moreThan80: moreThan80, moreThan60: moreThan60))
-        }
-        await MainActor.run { [result] in
-            self.distributions = result
+    func getDistribution(courseName: String){
+        Task{
+            do {
+                let respon = try await AHUerAPIProvider.asyncRequest(.gradeDistribution(courseName: courseName))
+                var result = [Distribution]()
+                let data = respon["data"].arrayValue
+                for datum in data {
+                    guard let id =  datum["courseId"].string,
+                          let name = datum["courseName"].string,
+                          let moreThan80 = datum["moreThanEighty"].double,
+                          let moreThan60 = datum["moreThanSixty"].double else { continue }
+                    result.append(Distribution(id: id, name: name, moreThan80: moreThan80, moreThan60: moreThan60))
+                }
+                
+                await MainActor.run { [result, weak self] in
+                    guard let self = self else { return }
+                    self.distributions = result
+                }
+                
+            } catch {
+                AlertView.showAlert(with: error)
+            }
         }
     }
+    
+    
+    
     
     deinit {
         print("🌀DistributionShow released")

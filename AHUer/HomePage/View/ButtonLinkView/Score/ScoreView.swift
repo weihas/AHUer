@@ -33,27 +33,17 @@ struct ScoreView: View {
             }
         }
         .onAppear {
-            vm.freshmodel()
+            vm.freshlocal()
         }
         .toolbar {
             Button {
-                Task{
-                    print(Thread.isMainThread)
-                    do {
-                        try await vm.getScoreByInternet()
-                        vm.freshmodel()
-                    } catch {
-                        appInfo.showAlert(with: error)
-                    }
-                }
+                vm.freshScoreData()
             } label: {
-                Image(systemName: "arrow.clockwise")
+                Label("刷新", systemImage: "arrow.clockwise")
             }
         }
         .navigationTitle("成绩查询")
         .navigationBarTitleDisplayMode(.inline)
-        
-        
     }
 }
 

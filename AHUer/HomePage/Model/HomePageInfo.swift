@@ -17,7 +17,7 @@ struct HomePageInfo {
     
     init() {
         northBathroomisMen = true
-        gpa = (5.0, 4.0)
+        gpa = (0.0, 0.0)
     }
     
     mutating func freshUser(){

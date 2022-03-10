@@ -46,13 +46,17 @@ class ScoreShow: ObservableObject {
 //        return ChartData(values: model.grades.map({(($0.schoolYear ?? "") + "\n" + ($0.schoolTerm ?? "") ,$0.termTotalCredit)}))
 //    }
     
-    func getScoreByInternet() async throws{
-        try await AHUerAPIProvider.getScore()
+    
+    
+    func freshScoreData(){
+        Task{
+            try await AHUerAPIProvider.getScore()
+            freshlocal()
+        }
     }
     
-    
     // MARK: -Intents(s)
-    func freshmodel(){
+    func freshlocal(){
         model.freshTotalPoint()
     }
     

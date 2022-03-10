@@ -37,13 +37,7 @@ struct EmptyRoomView: View{
         }
         .toolbar{
             Button {
-                Task{
-                    do {
-                        try await vm.search(campus: campus.rawValue, weekday: weekDay.rawValue, weekNum: weekNum, time: time.rawValue)
-                    } catch {
-                        appInfo.showAlert(with: error)
-                    }
-                }
+                vm.search(campus: campus.rawValue, weekday: weekDay.rawValue, weekNum: weekNum, time: time.rawValue)
             } label: {
                 Label("Search", systemImage: "magnifyingglass")
             }
@@ -156,50 +150,30 @@ extension EmptyRoomView{
 extension EmptyRoomView{
     private var searchResultList: some View{
         VStack{
-            if #available(iOS 15.0, *) {
-                List{
-                    ForEach(vm.emptyRooms){ session in
-                        Section(session.name){
-                            ForEach(session.rooms){ room in
-                                HStack{
-                                    Text(room.pos)
-                                    Spacer()
-                                    Text("座位数" + room.seating)
-                                }
-                            }
-                            
-                        }
-                    }
-                    
-                }
-                .onTapGesture{
-                    withAnimation{
-                        self.weekNumChoose = false
-                        self.timeChoose = false
-                        self.weekDayChoose = false
-                    }
-                }
-                .refreshable{
-                    Task{
-                        do {
-                            try await vm.search(campus: campus.rawValue, weekday: weekDay.rawValue, weekNum: weekNum, time: time.rawValue)
-                        } catch {
-                            appInfo.showAlert(with: error)
-                        }
-                    }
-                }
-            } else {
-                List{
-                    ForEach(vm.emptyRooms){ session in
+            List{
+                ForEach(vm.emptyRooms){ session in
+                    Section(session.name){
                         ForEach(session.rooms){ room in
                             HStack{
                                 Text(room.pos)
                                 Spacer()
-                                Text(room.seating)
+                                Text("座位数" + room.seating)
                             }
                         }
+                        
                     }
                 }
+                
+            }
+            .onTapGesture{
+                withAnimation{
+                    self.weekNumChoose = false
+                    self.timeChoose = false
+                    self.weekDayChoose = false
+                }
+            }
+            .refreshable{
+                vm.search(campus: campus.rawValue, weekday: weekDay.rawValue, weekNum: weekNum, time: time.rawValue)
             }
         }
     }

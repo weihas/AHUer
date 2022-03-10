@@ -24,15 +24,30 @@ class TimeScheduleShow: ObservableObject{
         return ["8:20","10:20","14:00","15:50","19:00","20:50"]
     }
     
-    func freshDataOfClass(){
-        print("read")
-        timetable.freshDataOfClass()
-        self.objectWillChange.send()
+    func freshDataInternet() {
+        Task{
+            do {
+                try await AHUerAPIProvider.getSchedule(schoolYear: "2020-2021", schoolTerm: 1)
+                freshDataLocal()
+            } catch {
+                AlertView.showAlert(with: error)
+            }
+        }
     }
     
-    func freshDataByInternet() async throws{
-        try await AHUerAPIProvider.getSchedule(schoolYear: "2020-2021", schoolTerm: 1)
+    func freshDataLocal(){
+        timetable.freshDataOfClass()
     }
+    
+    func cleanUp(){
+        Student.cleanUp()
+        freshDataLocal()
+    }
+    
+    func addSchedule(){
+        #warning("添加课程表")
+    }
+    
     
     deinit {
         print("🌀TimeTableShow released")

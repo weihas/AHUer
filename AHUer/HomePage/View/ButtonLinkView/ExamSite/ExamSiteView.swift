@@ -36,14 +36,7 @@ struct ExamSiteView: View {
         .toolbar {
             HStack{
                 Button {
-                    Task{
-                        do {
-                            try await vm.freshScoreModelByInternet()
-                            vm.freshExamModelData()
-                        } catch {
-                            appInfo.showAlert(with: error)
-                        }
-                    }
+                    vm.freshScore()
                 } label: {
                     Image(systemName: "arrow.clockwise")
                 }

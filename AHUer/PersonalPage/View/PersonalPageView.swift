@@ -25,7 +25,7 @@ struct PersonalPageView: View {
                 actionSheet
             }
             .sheet(isPresented: $vm.showLoggingPanel) {
-                LogginPanelView(vm: vm)
+                LogginPanelView(vm: LogginPanelShow())
             }
             .navigationBarTitle("个人")
         }
@@ -118,13 +118,7 @@ extension PersonalPageView{
                 buttons: [
                     .destructive(Text("退出")){
                         appInfo.isLoggin = false
-                        Task{
-                            do {
-                                try await vm.logout(type: 1)
-                            } catch {
-                                appInfo.showAlert(with: error)
-                            }
-                        }
+                        vm.logout(type: 1)
                     },
                     .cancel(Text("取消"))
                 ])

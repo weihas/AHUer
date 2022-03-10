@@ -28,15 +28,9 @@ struct DistributionView: View {
     var searchBar: some View{
         VStack {
             TextField("输入课程名称", text: $courseName){
-                Task{
-                    do {
-                        try await vm.getDistribution(courseName: courseName)
-                    } catch {
-                        appInfo.showAlert(with: error)
-                    }
-                }
+                vm.getDistribution(courseName: courseName)
             }
-                .padding()
+            .padding()
             
             .background(Capsule().stroke(Color.meiRed).padding(5))
             .overlay(
@@ -44,13 +38,7 @@ struct DistributionView: View {
                     if show {
                         Spacer()
                         Button {
-                            Task{
-                                do {
-                                    try await vm.getDistribution(courseName: courseName)
-                                } catch {
-                                    appInfo.showAlert(with: error)
-                                }
-                            }
+                            vm.getDistribution(courseName: courseName)
                             withAnimation {
                                 show = false
                             }
@@ -67,13 +55,7 @@ struct DistributionView: View {
                 ForEach(0..<vm.tipsRegularly.count){ index in
                     let name = vm.tipsRegularly[index]
                     Button(name) {
-                        Task{
-                            do {
-                                try await vm.getDistribution(courseName: name)
-                            } catch {
-                                appInfo.showAlert(with: error)
-                            }
-                        }
+                        vm.getDistribution(courseName: name)
                     }
                     .lineLimit(1)
                     .padding(.horizontal)

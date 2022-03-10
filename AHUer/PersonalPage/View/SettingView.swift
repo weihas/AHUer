@@ -35,14 +35,17 @@ struct SettingView: View {
             }
             Section(header: Text("其他").font(.footnote)) {
                 Button("清除缓存"){
-                    print("清除缓存")
-                    appInfo.cleanUp()
+                    cleanUp()
                 }
                 .foregroundColor(.blue)
             }
             
         }
         .navigationBarTitle("设置")
+    }
+    
+    func cleanUp(){
+        Student.cleanUp()
     }
 }
 

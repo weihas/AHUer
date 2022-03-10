@@ -23,12 +23,22 @@ class ExamSiteShow: ObservableObject {
     
     //MARK: -Intents
     
-    func freshScoreModelByInternet() async throws{
-        try await AHUerAPIProvider.getExamination(year: "2020-2021", term: 1)
+    
+    /// 刷新数据
+    func freshScore() {
+        Task{
+            do {
+                try await AHUerAPIProvider.getExamination(year: "2020-2021", term: 1)
+                freshExamModelData()
+            } catch {
+                AlertView.showAlert(with: error)
+            }
+        }
     }
     
     
     
+    /// 刷新本地数据
     func freshExamModelData(){
         model.freshExamData()
     }

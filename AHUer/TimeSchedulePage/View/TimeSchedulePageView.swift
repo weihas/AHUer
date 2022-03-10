@@ -24,31 +24,23 @@ struct TimeSchedulePageView: View {
                 }
             }
             .onAppear{
-                vm.freshDataOfClass()
+                vm.freshDataLocal()
             }
             .toolbar{
                 Menu {
                     // TODO: 课表
                     Button {
-                        addSchedule.toggle()
+                        vm.addSchedule()
                     } label: {
                         Label("手动添加", systemImage: "plus.rectangle.on.rectangle")
                     }
                     Button {
-                        Task{
-                            do {
-                                try await vm.freshDataByInternet()
-                                vm.freshDataOfClass()
-                            } catch {
-                                appInfo.showAlert(with: error)
-                            }
-                        }
+                        vm.freshDataInternet()
                     } label: {
                         Label("刷新课表", systemImage: "globe.europe.africa")
                     }
                     Button {
-                        appInfo.cleanUp()
-                        vm.freshDataOfClass()
+                        vm.cleanUp()
                     } label: {
                         Label("清除课表", systemImage: "trash")
                     }

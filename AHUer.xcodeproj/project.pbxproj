@@ -13,6 +13,8 @@
 		358589ED27CFBB4100D9DFF3 /* AHUerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358589EC27CFBB4100D9DFF3 /* AHUerAPI.swift */; };
 		358589F027CFBBE400D9DFF3 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 358589EF27CFBBE400D9DFF3 /* Moya */; };
 		358589F327CFBE8400D9DFF3 /* AHUerAPIDetail in Frameworks */ = {isa = PBXBuildFile; productRef = 358589F227CFBE8400D9DFF3 /* AHUerAPIDetail */; };
+		35BE038227D9E95F00753940 /* PresentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BE038127D9E95F00753940 /* PresentView.swift */; };
+		35BE038527D9F69300753940 /* LogginPanelShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BE038427D9F69300753940 /* LogginPanelShow.swift */; };
 		35C2AEC727D210FD003CCBE4 /* SwiftyRSA in Frameworks */ = {isa = PBXBuildFile; productRef = 35C2AEC627D210FD003CCBE4 /* SwiftyRSA */; };
 		35E9405027C8809D001B4070 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35E9404F27C8809D001B4070 /* Assets.xcassets */; };
 		35E9405327C8809D001B4070 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35E9405227C8809D001B4070 /* Preview Assets.xcassets */; };
@@ -77,6 +79,8 @@
 		358589E827CFB93F00D9DFF3 /* AHUerAPIProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHUerAPIProvider.swift; sourceTree = "<group>"; };
 		358589EA27CFBAB800D9DFF3 /* AHUerAPIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHUerAPIError.swift; sourceTree = "<group>"; };
 		358589EC27CFBB4100D9DFF3 /* AHUerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AHUerAPI.swift; sourceTree = "<group>"; };
+		35BE038127D9E95F00753940 /* PresentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentView.swift; sourceTree = "<group>"; };
+		35BE038427D9F69300753940 /* LogginPanelShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogginPanelShow.swift; sourceTree = "<group>"; };
 		35E9404827C88099001B4070 /* AHUer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AHUer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35E9404F27C8809D001B4070 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		35E9405227C8809D001B4070 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -150,6 +154,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		35BE038027D9E90C00753940 /* Helps */ = {
+			isa = PBXGroup;
+			children = (
+				35E940D427C88165001B4070 /* Color+Extension.swift */,
+				35E940D527C88165001B4070 /* RSA+Func.swift */,
+				35E940D727C88165001B4070 /* Date+Helper.swift */,
+			);
+			path = Helps;
+			sourceTree = "<group>";
+		};
+		35BE038327D9F66100753940 /* LoginPanel */ = {
+			isa = PBXGroup;
+			children = (
+				35BE038427D9F69300753940 /* LogginPanelShow.swift */,
+				35E940C627C88158001B4070 /* LogginPanelView.swift */,
+			);
+			path = LoginPanel;
+			sourceTree = "<group>";
+		};
 		35E9403F27C88099001B4070 = {
 			isa = PBXGroup;
 			children = (
@@ -173,6 +196,7 @@
 				35E9405B27C8810D001B4070 /* AHUAppInfo.swift */,
 				35E9405D27C88116001B4070 /* RootView.swift */,
 				35E9405F27C8811B001B4070 /* RootViewShow.swift */,
+				35BE038027D9E90C00753940 /* Helps */,
 				35E940CF27C88165001B4070 /* Tools */,
 				35E9406127C88128001B4070 /* CoreData */,
 				35E9406927C88132001B4070 /* InternetRequest */,
@@ -410,7 +434,6 @@
 				35E940C327C88158001B4070 /* AboutUSView.swift */,
 				35E940C427C88158001B4070 /* ThanksChildView.swift */,
 				35E940C527C88158001B4070 /* PersonalPageView.swift */,
-				35E940C627C88158001B4070 /* LogginPanelView.swift */,
 				35E940C727C88158001B4070 /* SettingView.swift */,
 			);
 			path = View;
@@ -419,15 +442,14 @@
 		35E940CF27C88165001B4070 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				35E940D227C88165001B4070 /* SetStorage.swift */,
 				35E940D027C88165001B4070 /* Picker+Style.swift */,
 				35E940D127C88165001B4070 /* Button+Style.swift */,
-				35E940D227C88165001B4070 /* SetStorage.swift */,
-				35E940D327C88165001B4070 /* StartTime.swift */,
-				35E940D427C88165001B4070 /* Color+Extension.swift */,
-				35E940D527C88165001B4070 /* RSA+Func.swift */,
 				35E940D627C88165001B4070 /* GroupBox+Style.swift */,
-				35E940D727C88165001B4070 /* Date+Helper.swift */,
+				35E940D327C88165001B4070 /* StartTime.swift */,
 				35E940D827C88165001B4070 /* Popup.swift */,
+				35BE038127D9E95F00753940 /* PresentView.swift */,
+				35BE038327D9F66100753940 /* LoginPanel */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -520,6 +542,7 @@
 				35E9409B27C8813B001B4070 /* EmptyRoomShow.swift in Sources */,
 				35E940DA27C88165001B4070 /* Button+Style.swift in Sources */,
 				35E940B927C88151001B4070 /* NewsModels.swift in Sources */,
+				35BE038527D9F69300753940 /* LogginPanelShow.swift in Sources */,
 				35E940CC27C88158001B4070 /* PersonalPageView.swift in Sources */,
 				35E9409127C8813B001B4070 /* HomePageShow.swift in Sources */,
 				358589ED27CFBB4100D9DFF3 /* AHUerAPI.swift in Sources */,
@@ -569,6 +592,7 @@
 				35E9409D27C8813B001B4070 /* DistributionShow.swift in Sources */,
 				35E940DF27C88165001B4070 /* GroupBox+Style.swift in Sources */,
 				35E9409527C8813B001B4070 /* BathView.swift in Sources */,
+				35BE038227D9E95F00753940 /* PresentView.swift in Sources */,
 				35E940DD27C88165001B4070 /* Color+Extension.swift in Sources */,
 				35243B1F27CD1B0D00E90BC6 /* GalleryScheduleView.swift in Sources */,
 			);
@@ -715,7 +739,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.weiha.AHUer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.weihas.AHUer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

@@ -10,29 +10,37 @@ import Foundation
 class EmptyRoomShow: ObservableObject {
     @Published var emptyRooms: [EmptyRoomSection] = []
     
-    func search(campus: Int, weekday: Int, weekNum: Int, time: Int) async throws{
-        let respon = try await AHUerAPIProvider.asyncRequest(.emptyRooms(campus: campus, weekday: weekday, weekNum: weekNum, time: time))
-        print(respon["msg"].stringValue)
-        guard respon["success"].boolValue else { return }
+    func search(campus: Int, weekday: Int, weekNum: Int, time: Int){
         
-        let rooms = respon["data"].arrayValue
-        
-        var result: [String :[EmptyRoom]] = [:]
-        
-        for (index,room) in rooms.enumerated(){
-            if let seating = room["seating"].string, let pos = room["pos"].string {
-                let name = pos.filter({!$0.isASCII})
-                result.updateValue((result[name] ?? []) + [EmptyRoom(id: index, seating: seating, pos: pos)], forKey: name)
+        Task{
+            do {
+                let respon = try await AHUerAPIProvider.asyncRequest(.emptyRooms(campus: campus, weekday: weekday, weekNum: weekNum, time: time))
+                print(respon["msg"].stringValue)
+                guard respon["success"].boolValue else { return }
+                
+                let rooms = respon["data"].arrayValue
+                
+                var result: [String :[EmptyRoom]] = [:]
+                
+                for (index,room) in rooms.enumerated(){
+                    if let seating = room["seating"].string, let pos = room["pos"].string {
+                        let name = pos.filter({!$0.isASCII})
+                        result.updateValue((result[name] ?? []) + [EmptyRoom(id: index, seating: seating, pos: pos)], forKey: name)
+                    }
+                }
+                var sections: [EmptyRoomSection] = []
+                var id = 0
+                for (key,value) in result{
+                    sections.append(EmptyRoomSection(id: id, name: key, rooms: value.sorted(by: {$0.pos < $1.pos})))
+                    id += 1
+                }
+                await MainActor.run { [sections] in
+                    self.emptyRooms = sections.sorted(by: {$0.name < $1.name})
+                }
+                
+            } catch {
+                AlertView.showAlert(with: error)
             }
-        }
-        var sections: [EmptyRoomSection] = []
-        var id = 0
-        for (key,value) in result{
-            sections.append(EmptyRoomSection(id: id, name: key, rooms: value.sorted(by: {$0.pos < $1.pos})))
-            id += 1
-        }
-        await MainActor.run { [sections] in
-            self.emptyRooms = sections.sorted(by: {$0.name < $1.name})
         }
     }
     

@@ -9,14 +9,10 @@ import SwiftUI
 
 struct LogginPanelView: View {
     @EnvironmentObject var appInfo: AHUAppInfo
-    @ObservedObject var vm: PersonalPageShow
-    @State var isBachelor: Bool = false
-    @State var userID: String = "E01814133"
-    @State var password: String = "Whw,0917"
-    @State var logginType: Int = 1
+    @StateObject var vm: LogginPanelShow
     var body: some View {
         VStack{
-            Picker(selection: $isBachelor, label: Text("Picker")) {
+            Picker(selection: $vm.isBachelor, label: Text("Picker")) {
                 Text("本科生").tag(true)
                 Text("研究生").tag(false)
             }
@@ -26,7 +22,7 @@ struct LogginPanelView: View {
             Spacer()
             HStack{
                 Text("学号:")
-                TextField("学号", text: $userID)
+                TextField("学号", text: $vm.userID)
                     .textContentType(.username)
                     .keyboardType(.asciiCapable)
                 
@@ -35,20 +31,13 @@ struct LogginPanelView: View {
             Divider().padding(.horizontal)
             HStack{
                 Text("密码:")
-                SecureField("密码", text: $password)
+                SecureField("密码", text: $vm.password)
                     .textContentType(.password)
             }
             .padding()
             Spacer()
             Button {
-                Task{
-                    do {
-                        appInfo.isLoggin = try await vm.loggin(userID: userID, password: password, type: logginType)
-                    } catch {
-                        appInfo.isLoggin = false
-                        appInfo.showAlert(with: error)
-                    }
-                }
+                vm.loggin()
             } label: {
                 Label("认证", systemImage: "chevron.forward.square")
             }
