@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct ExamSiteView: View {
-    @EnvironmentObject var appInfo: AHUAppInfo
     @ObservedObject var vm: ExamSiteShow
-    @State var point: Double = 0
+    
     var body: some View {
         VStack{
             List(vm.exams){ exam in
@@ -29,20 +28,24 @@ struct ExamSiteView: View {
                     .font(.subheadline)
                 }
             }
+            .refreshable {
+                vm.freshExamData()
+            }
             .onAppear {
-                vm.freshExamModelData()
+                vm.freshExamDataLocol()
             }
         }
         .toolbar {
             HStack{
                 Button {
-                    vm.freshScore()
+                    vm.freshExamData()
                 } label: {
                     Image(systemName: "arrow.clockwise")
                 }
                 
                 Button {
                     //TODO: -
+                    #warning("导入到系统日历")
                     print("导入到系统日历")
                 } label: {
                     Image(systemName: "calendar.badge.plus")

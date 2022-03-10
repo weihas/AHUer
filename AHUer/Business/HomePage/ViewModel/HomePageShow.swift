@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import Combine
+import SwiftUI
 
 class HomePageShow: ObservableObject {
     @Published private var model: HomePageInfo
@@ -32,7 +32,8 @@ class HomePageShow: ObservableObject {
         return model.northBathroomisMen
     }
     
-    var buttonsInfo: [HomePageFunc]{
+    //显示在主页面的Button
+    var homeButtons: [HomePageFunc]{
         return HomePageFunc.allCases.filter({$0.tag.contains(.showInHome)})
     }
     
@@ -43,6 +44,7 @@ class HomePageShow: ObservableObject {
     }
     
     var examInfo: (name: String, day: Int) {
+        #warning("考试待做")
         return ("高等数学",9)
     }
     

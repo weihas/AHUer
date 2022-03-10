@@ -27,6 +27,7 @@ struct RootView: View {
                     Text("课表")
                 }
                 .tag(1)
+            
 //            NewsPageView(newsVM: NewsPlaying())
 //                .tabItem {
 //                    Image(systemName: "newspaper")

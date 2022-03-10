@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		35243B1F27CD1B0D00E90BC6 /* GalleryScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35243B1E27CD1B0D00E90BC6 /* GalleryScheduleView.swift */; };
+		3568A10027DA4AB100FE3E9B /* UserDefaults+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3568A0FF27DA4AB100FE3E9B /* UserDefaults+.swift */; };
 		358589E927CFB93F00D9DFF3 /* AHUerAPIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358589E827CFB93F00D9DFF3 /* AHUerAPIProvider.swift */; };
 		358589EB27CFBAB800D9DFF3 /* AHUerAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358589EA27CFBAB800D9DFF3 /* AHUerAPIError.swift */; };
 		358589ED27CFBB4100D9DFF3 /* AHUerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358589EC27CFBB4100D9DFF3 /* AHUerAPI.swift */; };
@@ -32,7 +33,6 @@
 		35E9409627C8813B001B4070 /* MoreViewShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9407C27C8813B001B4070 /* MoreViewShow.swift */; };
 		35E9409727C8813B001B4070 /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9407D27C8813B001B4070 /* MoreView.swift */; };
 		35E9409827C8813B001B4070 /* ExamSiteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9407F27C8813B001B4070 /* ExamSiteView.swift */; };
-		35E9409927C8813B001B4070 /* ExamSite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9408027C8813B001B4070 /* ExamSite.swift */; };
 		35E9409A27C8813B001B4070 /* ExamSiteShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9408127C8813B001B4070 /* ExamSiteShow.swift */; };
 		35E9409B27C8813B001B4070 /* EmptyRoomShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9408327C8813B001B4070 /* EmptyRoomShow.swift */; };
 		35E9409C27C8813B001B4070 /* EmptyRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9408427C8813B001B4070 /* EmptyRoomView.swift */; };
@@ -76,6 +76,7 @@
 
 /* Begin PBXFileReference section */
 		35243B1E27CD1B0D00E90BC6 /* GalleryScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryScheduleView.swift; sourceTree = "<group>"; };
+		3568A0FF27DA4AB100FE3E9B /* UserDefaults+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+.swift"; sourceTree = "<group>"; };
 		358589E827CFB93F00D9DFF3 /* AHUerAPIProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHUerAPIProvider.swift; sourceTree = "<group>"; };
 		358589EA27CFBAB800D9DFF3 /* AHUerAPIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHUerAPIError.swift; sourceTree = "<group>"; };
 		358589EC27CFBB4100D9DFF3 /* AHUerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AHUerAPI.swift; sourceTree = "<group>"; };
@@ -98,7 +99,6 @@
 		35E9407C27C8813B001B4070 /* MoreViewShow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreViewShow.swift; sourceTree = "<group>"; };
 		35E9407D27C8813B001B4070 /* MoreView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreView.swift; sourceTree = "<group>"; };
 		35E9407F27C8813B001B4070 /* ExamSiteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamSiteView.swift; sourceTree = "<group>"; };
-		35E9408027C8813B001B4070 /* ExamSite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamSite.swift; sourceTree = "<group>"; };
 		35E9408127C8813B001B4070 /* ExamSiteShow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamSiteShow.swift; sourceTree = "<group>"; };
 		35E9408327C8813B001B4070 /* EmptyRoomShow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyRoomShow.swift; sourceTree = "<group>"; };
 		35E9408427C8813B001B4070 /* EmptyRoomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyRoomView.swift; sourceTree = "<group>"; };
@@ -154,6 +154,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3568A0FE27DA452C00FE3E9B /* Business */ = {
+			isa = PBXGroup;
+			children = (
+				35E9407027C8813B001B4070 /* HomePage */,
+				35E940A627C88149001B4070 /* TimeSchedulePage */,
+				35E940B427C88151001B4070 /* NewsPage */,
+				35E940BD27C88158001B4070 /* PersonalPage */,
+			);
+			path = Business;
+			sourceTree = "<group>";
+		};
 		35BE038027D9E90C00753940 /* Helps */ = {
 			isa = PBXGroup;
 			children = (
@@ -200,10 +211,7 @@
 				35E940CF27C88165001B4070 /* Tools */,
 				35E9406127C88128001B4070 /* CoreData */,
 				35E9406927C88132001B4070 /* InternetRequest */,
-				35E9407027C8813B001B4070 /* HomePage */,
-				35E940A627C88149001B4070 /* TimeSchedulePage */,
-				35E940B427C88151001B4070 /* NewsPage */,
-				35E940BD27C88158001B4070 /* PersonalPage */,
+				3568A0FE27DA452C00FE3E9B /* Business */,
 				35E9404F27C8809D001B4070 /* Assets.xcassets */,
 				35E9405127C8809D001B4070 /* Preview Content */,
 			);
@@ -310,7 +318,6 @@
 			isa = PBXGroup;
 			children = (
 				35E9407F27C8813B001B4070 /* ExamSiteView.swift */,
-				35E9408027C8813B001B4070 /* ExamSite.swift */,
 				35E9408127C8813B001B4070 /* ExamSiteShow.swift */,
 			);
 			path = ExamSite;
@@ -443,6 +450,7 @@
 			isa = PBXGroup;
 			children = (
 				35E940D227C88165001B4070 /* SetStorage.swift */,
+				3568A0FF27DA4AB100FE3E9B /* UserDefaults+.swift */,
 				35E940D027C88165001B4070 /* Picker+Style.swift */,
 				35E940D127C88165001B4070 /* Button+Style.swift */,
 				35E940D627C88165001B4070 /* GroupBox+Style.swift */,
@@ -555,7 +563,6 @@
 				35E940B227C88149001B4070 /* TimeScheduleCell.swift in Sources */,
 				35E940CB27C88158001B4070 /* ThanksChildView.swift in Sources */,
 				35E940E927C883AF001B4070 /* AHUerApp.swift in Sources */,
-				35E9409927C8813B001B4070 /* ExamSite.swift in Sources */,
 				35E940E027C88165001B4070 /* Date+Helper.swift in Sources */,
 				35E940A027C8813B001B4070 /* ScoreShow.swift in Sources */,
 				35E940A527C8813B001B4070 /* HomePageView.swift in Sources */,
@@ -588,6 +595,7 @@
 				358589EB27CFBAB800D9DFF3 /* AHUerAPIError.swift in Sources */,
 				35E9409827C8813B001B4070 /* ExamSiteView.swift in Sources */,
 				35E940DB27C88165001B4070 /* SetStorage.swift in Sources */,
+				3568A10027DA4AB100FE3E9B /* UserDefaults+.swift in Sources */,
 				35E940A227C8813B001B4070 /* ScoreView.swift in Sources */,
 				35E9409D27C8813B001B4070 /* DistributionShow.swift in Sources */,
 				35E940DF27C88165001B4070 /* GroupBox+Style.swift in Sources */,

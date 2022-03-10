@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct TimeSchedulePageView: View {
-    @EnvironmentObject var appInfo: AHUAppInfo
     @ObservedObject var vm: TimeScheduleShow
     
     @State var addSchedule: Bool = false
@@ -24,7 +23,7 @@ struct TimeSchedulePageView: View {
                 }
             }
             .onAppear{
-                vm.freshDataLocal()
+                vm.freshScheduleLocal()
             }
             .toolbar{
                 Menu {
@@ -35,7 +34,7 @@ struct TimeSchedulePageView: View {
                         Label("手动添加", systemImage: "plus.rectangle.on.rectangle")
                     }
                     Button {
-                        vm.freshDataInternet()
+                        vm.freshScheduleInternet()
                     } label: {
                         Label("刷新课表", systemImage: "globe.europe.africa")
                     }

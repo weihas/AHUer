@@ -10,6 +10,7 @@ import SwiftUI
 struct LogginPanelView: View {
     @EnvironmentObject var appInfo: AHUAppInfo
     @StateObject var vm: LogginPanelShow
+    @Environment(\.presentationMode) var present
     var body: some View {
         VStack{
             Picker(selection: $vm.isBachelor, label: Text("Picker")) {
@@ -38,6 +39,7 @@ struct LogginPanelView: View {
             Spacer()
             Button {
                 vm.loggin()
+                present.wrappedValue.dismiss()
             } label: {
                 Label("认证", systemImage: "chevron.forward.square")
             }

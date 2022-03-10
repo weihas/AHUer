@@ -12,7 +12,7 @@ import SwiftyJSON
 
 /// CoreData增删改查
 protocol AHUerPrimaryEntity: NSManagedObject {
-    associatedtype selfType: AHUerPrimaryEntity
+    
 }
 
 extension AHUerPrimaryEntity{
@@ -22,18 +22,19 @@ extension AHUerPrimaryEntity{
     }
     
     /// 增
-    static func insert(in context: NSManagedObjectContext = defaultcontext) -> selfType?{
-        return Self(context: context) as? selfType
+    static func insert(in context: NSManagedObjectContext = defaultcontext) -> Self? {
+        return Self(context: context)
     }
     
 
     /// 查
     /// - Parameters:
-    ///   - predicate: 谓词，用于查询
-    ///   - sort: 排序
-    ///   - limit: 限制
+    ///   - predicate: 谓词
+    ///   - sort: 排序规则
+    ///   - limit: 限制个数
+    ///   - context: 查询上下文
     /// - Returns: 查询结果
-    static func fetch(by predicate: NSPredicate?, sort: [String : Bool]? = nil, limit: Int? = nil, in context: NSManagedObjectContext = defaultcontext) -> [selfType]? {
+    static func fetch(by predicate: NSPredicate?, sort: [String : Bool]? = nil, limit: Int? = nil, in context: NSManagedObjectContext = defaultcontext) -> [Self]? {
         let request = Self.fetchRequest()
         
         // predicate
@@ -58,7 +59,7 @@ extension AHUerPrimaryEntity{
         }
         
         do {
-            guard let result = try context.fetch(request) as? [selfType] else { return nil }
+            guard let result = try context.fetch(request) as? [Self] else { return nil }
             return result
         }catch {
             print("📦CoreData Fetch Error")
@@ -70,7 +71,7 @@ extension AHUerPrimaryEntity{
     /// 删
     /// - Returns: 删除结果
     @discardableResult
-    func delete() -> Bool{
+    func delete() -> Bool {
         guard let context = self.managedObjectContext else { return false }
         context.delete(self)
         do {
@@ -87,8 +88,8 @@ extension AHUerPrimaryEntity{
    
     /// 改
     @discardableResult
-    func update(of attributeInfo: JSON) -> selfType?{
-        guard let context =  self.managedObjectContext else { return self as? Self.selfType }
+    func update(of attributeInfo: JSON) -> Self? {
+        guard let context = self.managedObjectContext else { return self }
         for (key,value) in attributeInfo.dictionaryValue {
             guard let type = self.entity.attributesByName[key]?.attributeType else { continue }
             switch type {
@@ -115,11 +116,11 @@ extension AHUerPrimaryEntity{
         }catch {
             print("📦CoreData Update Error")
         }
-        return self as? Self.selfType
+        return self
     }
     
     @discardableResult
-    func update(of attributeInfo: [String:Any]) -> selfType?{
+    func update(of attributeInfo: [String:Any]) -> Self?{
         let json = JSON(attributeInfo)
         return update(of: json)
     }
@@ -129,9 +130,9 @@ extension AHUerPrimaryEntity{
     /// - Parameter attributes: 原始参数json
     /// - Returns: 打包结果集合
     static func pack(attributes: [JSON], in context: NSManagedObjectContext) -> NSSet {
-        var result: Set<selfType> = []
+        var result: Set<Self> = []
         for attribute in attributes {
-            guard let A = Self.insert(in: context)?.update(of: attribute) as? selfType else { continue }
+            guard let A = Self.insert(in: context)?.update(of: attribute) else { continue }
             result.insert(A)
         }
         
@@ -152,30 +153,27 @@ extension AHUerPrimaryEntity{
 
 }
 
-protocol AHUerChildEntity: AHUerPrimaryEntity{
+protocol AHUerChildEntity: AHUerPrimaryEntity {
     associatedtype ownerType: NSManagedObject
     var owner: ownerType? { get set }
 }
 
 extension AHUerChildEntity {
     @discardableResult
-    func beHold(of owner: ownerType) -> selfType?{
+    func beHold(of owner: ownerType) -> Self?{
         self.owner = owner
         toSaved()
-        return self as? selfType
+        return self
     }
 }
 
 
 // MARK: Student
 extension Student: AHUerPrimaryEntity {
-    typealias selfType = Student
-    
 
-    static func fetch(studentId: String, in context: NSManagedObjectContext = defaultcontext) -> Student?{
+    static func fetch(studentId: String, in context: NSManagedObjectContext = defaultcontext) -> Student? {
         let request = self.fetchRequest()
         request.predicate = NSPredicate(format: "studentID = %@", studentId)
-        print(Thread.current)
         do {
             let students = try context.fetch(request)
             for (index,student) in students.enumerated() where index != 0 {
@@ -187,10 +185,8 @@ extension Student: AHUerPrimaryEntity {
         }
     }
     
-    static func nowUser(in context: NSManagedObjectContext = defaultcontext) -> Student?{
-        @AppStorage("AHUID", store: .standard) var userID = ""
-        print(Thread.isMainThread)
-        print(userID)
+    static func nowUser(in context: NSManagedObjectContext = defaultcontext) -> Student? {
+        @AppStorage(UserDefaultsKey.AHUID.rawValue, store: .standard) var userID = ""
         return fetch(studentId: userID, in: context)
     }
     
@@ -214,20 +210,19 @@ extension Student: AHUerPrimaryEntity {
 
 
 // MARK: Course
-extension Course: AHUerChildEntity{
-    typealias selfType = Course
+extension Course: AHUerChildEntity {
     typealias ownerType = Student
-    
+
     static func fetch(courseName: String, in context: NSManagedObjectContext = defaultcontext) -> [Course]?{
         let predicate = NSPredicate(format: "name = %@", courseName)
         return fetch(by: predicate, in: context)
     }
+    
 }
 
 
 // MARK: GPA
 extension GPA: AHUerChildEntity{
-    typealias selfType = GPA
     typealias ownerType = Grade
 }
 
@@ -235,7 +230,6 @@ extension GPA: AHUerChildEntity{
 
 // MARK: Grade
 extension Grade: AHUerChildEntity{
-    typealias selfType = Grade
     typealias ownerType = Student
     
     static func fetch(schoolYear: String, schoolTerm: String, in context: NSManagedObjectContext = defaultcontext) -> [Grade]?{
@@ -246,6 +240,5 @@ extension Grade: AHUerChildEntity{
 
 // MARK: Exam
 extension Exam: AHUerChildEntity{
-    typealias selfType = Exam
     typealias ownerType = Student
 }

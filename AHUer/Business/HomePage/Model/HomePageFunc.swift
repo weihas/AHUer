@@ -107,7 +107,6 @@ extension HomePageFunc {
             return .gray
         case .addressbook:
             return .birdBlue
-
         }
     }
 }

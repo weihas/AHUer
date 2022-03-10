@@ -19,6 +19,12 @@ struct BathView: View {
                         .aspectRatio(1.5, contentMode: .fit)
                         .padding(30)
             }
+            .onAppear{
+                vm.freshLocal()
+            }
+            .refreshable {
+                vm.freshBathroom()
+            }
             .navigationTitle("浴室开放")
             .navigationBarTitleDisplayMode(.inline)
         }
@@ -40,41 +46,40 @@ fileprivate struct CardOfBathView: View {
     }
     
     var body: some View {
-        ZStack{
-            RoundedRectangle(cornerRadius: 25.0, style: .continuous)
-                .foregroundColor(isToday ? .green : .pink )
-                .opacity(0.6)
-                .shadow(color: .gray, radius: 5, x: 2, y: 2)
-                
-            VStack{
-                HStack{
-                    Spacer()
-                    VStack(alignment: .trailing, spacing: nil){
-                        Text(todayOfWeek)
-                        Text(dateString)
-                        Text(timeScope)
+        RoundedRectangle(cornerRadius: 25.0, style: .continuous)
+            .foregroundColor(isToday ? .green : .pink )
+            .opacity(0.6)
+            .shadow(color: .gray, radius: 5, x: 2, y: 2)
+            .overlay {
+                VStack{
+                    HStack{
+                        Spacer()
+                        VStack(alignment: .trailing, spacing: nil){
+                            Text(todayOfWeek)
+                            Text(dateString)
+                            Text(timeScope)
+                        }
+                        .padding()
                     }
-                    .padding()
-                }
-                HStack{
-                    VStack{
-                        Text(southIsMen ? "南区/蕙园" : "北区")
-                            .font(.title)
-                        Text("男生")
-                            .padding()
+                    HStack{
+                        VStack{
+                            Text(southIsMen ? "南区/蕙园" : "北区")
+                                .font(.title)
+                            Text("男生")
+                                .padding()
+                        }
+                        .padding()
+                        Spacer()
+                        VStack{
+                            Text(southIsMen ? "北区" : "南区/蕙园")
+                                .font(.title)
+                            Text("女生")
+                                .padding()
+                        }
+                        .padding()
                     }
-                    .padding()
-                    Spacer()
-                    VStack{
-                        Text(southIsMen ? "北区" : "南区/蕙园")
-                            .font(.title)
-                        Text("女生")
-                            .padding()
-                    }
-                    .padding()
                 }
             }
-        }
     }
 }
 

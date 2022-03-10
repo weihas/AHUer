@@ -37,7 +37,7 @@ struct AHUerAPIError: Error{
     
     
     fileprivate static let messageForCode: [Int:String] = [
-        -10: "JSON解析失败",
+        -23: "JSON解析失败",
          -9: "尚未登录",
          6: "网络连接失败，请检查互联网连接",
          0: "OK",

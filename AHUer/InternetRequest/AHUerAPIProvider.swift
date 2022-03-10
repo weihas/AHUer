@@ -14,21 +14,27 @@ import SwiftyJSON
 struct AHUerAPIProvider{
     private static let provider = MoyaProvider<AHUerAPI>(plugins: [AHUerAlertPlugin()])
     
+    private init(){}
+    
     static func asyncRequest(_ target: AHUerAPI) async throws -> JSON {
         return try await withCheckedThrowingContinuation{ continuation in
             provider.request(target) { result in
                 switch result {
                 case .success(let respon):
-                    if let analysis = try? JSON(data: respon.data){
-                        let msg = analysis["msg"].stringValue
-                        if analysis["success"].boolValue {
-                            continuation.resume(returning: analysis)
-                        }else{
-                            continuation.resume(throwing: AHUerAPIError(code: analysis["code"].int ?? -10, title: target.errorHandelTitle, message: msg))
-                        }
-                    }else{
+                    //如果JSON序列化失败直接抛出错误
+                    guard let analysis = try? JSON(data: respon.data) else {
                         continuation.resume(throwing: AHUerAPIError(code: -10, title: target.errorHandelTitle))
+                        return
                     }
+                    //如果分析结果["success"]为真
+                    if analysis["success"].boolValue {
+                        //返回JSON
+                        continuation.resume(returning: analysis)
+                    } else {
+                        //抛出错误
+                        continuation.resume(throwing: AHUerAPIError(code: analysis["code"].int ?? -10, title: target.errorHandelTitle, message: analysis["msg"].stringValue))
+                    }
+                    
                 case .failure(let error):
                     continuation.resume(throwing: AHUerAPIError(code: error.errorCode, title: target.errorHandelTitle, message: error.localizedDescription))
                 }
@@ -47,26 +53,29 @@ extension AHUerAPIProvider{
         return PersistenceController.shared.container
     }
     
-    /// 网络请求登录（Async版）
+    ///
     /// - Parameters:
     ///   - userId: 用户ID
     ///   - password: 密码
     ///   - type: 登录目标
     /// - Returns: 是否成功
+
+    /// 网络请求登录（Async版）
+    /// - Parameters:
+    ///   - userId: 用户ID
+    ///   - password: 密码
+    ///   - type: 登录目标
+    /// - Returns: 用户名(不为空则成功)
     @discardableResult
     static func loggin(userId: String, password: String, type: Int) async throws -> String? {
-        print(Thread.current)
-        let respon = try await asyncRequest(.login(userId: userId, password: password, type: type))
+        let respon: JSON = try await asyncRequest(.login(userId: userId, password: password, type: type))
         
-        guard respon["success"].boolValue,
-              let userName = respon["data"]["name"].string
-        else { throw AHUerAPIError(code: -10, title: "登录失败") }
+        guard let userName = respon["data"]["name"].string else { throw AHUerAPIError(code: -10, title: "登录失败") }
         
         //cookie存储
         HTTPCookieStorage.saveAHUerCookie()
         
         let attribute = JSON(["studentID" : userId, "studentName" : userName])
-        print(Thread.current)
 
         await container.performBackgroundTask { context in
             if let user = Student.fetch(studentId: userId, in: context) {
@@ -88,15 +97,15 @@ extension AHUerAPIProvider{
     /// - Returns: 请求结果
     /// 此函数的返回的时候coredata很可能还未存储
     static func getSchedule(schoolYear: String, schoolTerm: Int) async throws{
-        let respon = try await asyncRequest(.schedule(schoolYear: schoolYear, schoolTerm: schoolTerm))
+        let respon: JSON = try await asyncRequest(.schedule(schoolYear: schoolYear, schoolTerm: schoolTerm))
         
-        guard respon["success"].boolValue else { return }
-        let schedules = respon["data"]
+        let schedules = respon["data"].arrayValue
+        
         let backgroundContext = container.newBackgroundContext()
         
         backgroundContext.performAndWait {
             let user = Student.nowUser(in: backgroundContext)
-            user?.updataCourses(courses: Course.pack(attributes: schedules.arrayValue, in: backgroundContext))
+            user?.updataCourses(courses: Course.pack(attributes: schedules, in: backgroundContext))
         }
         
     }
@@ -112,7 +121,7 @@ extension AHUerAPIProvider{
         let backgroundContext = container.newBackgroundContext()
         
         backgroundContext.performAndWait {
-            guard let user = Student.nowUser(in: backgroundContext)?.update(of: grades) else { return }
+            guard let user = Student.nowUser(in: backgroundContext) else { return }
             user.totalGradePoint = grades["totalGradePoint"].doubleValue
             user.totalCredit = grades["totalCredit"].doubleValue
             user.totalGradePointAverage = grades["totalGradePointAverage"].doubleValue
@@ -140,7 +149,7 @@ extension AHUerAPIProvider{
     ///   - year: 年
     ///   - term: 学期
     static func getExamination(year: String, term: Int) async throws{
-        let respon = try await asyncRequest(.examInfo(schoolYear: year, schoolTerm: term))
+        let respon: JSON = try await asyncRequest(.examInfo(schoolYear: year, schoolTerm: term))
         
         let backgroundContext = container.newBackgroundContext()
         

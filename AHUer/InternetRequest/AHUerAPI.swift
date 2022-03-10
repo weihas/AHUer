@@ -12,30 +12,6 @@ import AHUerAPIDetail
 
 //#warning("Because api is a private thing, I miss it over a private Github Repositories, so If you want to run other code, you must remove AHUerAPIDetail library, and use underground substitution(they are certainly wrong!, but can run)")
 
-//public enum AHUerAPIDetail: String {
-//    case login = "/**/login"
-//    case schedule = "/**/schedule"
-//    case logout = "**/logout"
-//    case emptyRooms = "/**/emptyRoom"
-//    case grade = "/**/grade"
-//    case examInfo = "/**/examInfo"
-//    case gradeDistribution = "/**/distribution"
-//    case bathroom = "/**/bathroom"
-//    case campusCardBalance = "/**/campusCardBalance"
-//}
-//
-//public extension AHUerAPIDetail {
-//
-//    static var detailBaseUrl: URL {
-//        return URL(string: "https://www.github.com/something")!
-//    }
-//
-//    static var domainUrl: URL {
-//        return URL(string: "https://www.github.com/something")!
-//    }
-//}
-
-
 public enum AHUerAPI {
     case login(userId: String, password: String, type: Int)
     case schedule(schoolYear: String, schoolTerm: Int)
@@ -221,3 +197,28 @@ extension HTTPCookieStorage{
         }
     }
 }
+
+
+
+//public enum AHUerAPIDetail: String {
+//    case login = "/**/login"
+//    case schedule = "/**/schedule"
+//    case logout = "**/logout"
+//    case emptyRooms = "/**/emptyRoom"
+//    case grade = "/**/grade"
+//    case examInfo = "/**/examInfo"
+//    case gradeDistribution = "/**/distribution"
+//    case bathroom = "/**/bathroom"
+//    case campusCardBalance = "/**/campusCardBalance"
+//}
+//
+//public extension AHUerAPIDetail {
+//
+//    static var detailBaseUrl: URL {
+//        return URL(string: "https://www.github.com/something")!
+//    }
+//
+//    static var domainUrl: URL {
+//        return URL(string: "https://www.github.com/something")!
+//    }
+//}

@@ -9,10 +9,15 @@ import Foundation
 import SwiftUI
 
 struct PresentView {
+    
     private init(){}
+    
     static func show(vc: UIViewController, completion: @escaping (()->Void) = {}) {
         if let firstScene = UIApplication.shared.connectedScenes.first(where: {$0.activationState == .foregroundActive}) as? UIWindowScene {
-            firstScene.keyWindow?.rootViewController?.present(vc, animated: true, completion: completion)
+            DispatchQueue.main.async {[weak firstScene] in
+                firstScene?.keyWindow?.rootViewController?.present(vc, animated: true, completion: completion)
+            }
+           
         }
     }
 }

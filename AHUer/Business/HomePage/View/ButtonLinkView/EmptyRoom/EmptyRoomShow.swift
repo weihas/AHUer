@@ -15,12 +15,10 @@ class EmptyRoomShow: ObservableObject {
         Task{
             do {
                 let respon = try await AHUerAPIProvider.asyncRequest(.emptyRooms(campus: campus, weekday: weekday, weekNum: weekNum, time: time))
-                print(respon["msg"].stringValue)
-                guard respon["success"].boolValue else { return }
                 
                 let rooms = respon["data"].arrayValue
                 
-                var result: [String :[EmptyRoom]] = [:]
+                var result: [String : [EmptyRoom]] = [:]
                 
                 for (index,room) in rooms.enumerated(){
                     if let seating = room["seating"].string, let pos = room["pos"].string {
@@ -37,7 +35,6 @@ class EmptyRoomShow: ObservableObject {
                 await MainActor.run { [sections] in
                     self.emptyRooms = sections.sorted(by: {$0.name < $1.name})
                 }
-                
             } catch {
                 AlertView.showAlert(with: error)
             }

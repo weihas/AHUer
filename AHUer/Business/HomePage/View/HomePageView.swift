@@ -8,10 +8,9 @@
 import SwiftUI
 
 struct HomePageView: View {
-    @ObservedObject var vm: HomePageShow
     @EnvironmentObject var appInfo: AHUAppInfo
+    @ObservedObject var vm: HomePageShow
     @State var showGPA: Bool = false
-    @State var jump: Int? = 0
     var body: some View {
         NavigationView{
             ScrollView(showsIndicators: false){
@@ -22,8 +21,8 @@ struct HomePageView: View {
                         buttonsLabel
                         tipsLabel
                     }
-                        .padding(.top, 10)
-
+                    .padding(.top, 10)
+                    
                 }
                 .groupBoxStyle(ModuleBoxStyle())
             }
@@ -101,7 +100,7 @@ struct HomePageView: View {
         VStack{
             GroupBox {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 100), spacing: 10)]){
-                    ForEach(vm.buttonsInfo){ btn in
+                    ForEach(vm.homeButtons){ btn in
                         NavigationLink {
                            distinationView(style: btn)
                         } label: {
