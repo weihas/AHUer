@@ -51,7 +51,7 @@ struct DistributionView: View {
                 }
             )
             Divider()
-            LazyVGrid(columns: [GridItem(.adaptive(minimum: 80))]){
+            LazyVGrid(columns: [GridItem(.adaptive(minimum: 100))]){
                 ForEach(0..<vm.tipsRegularly.count){ index in
                     let name = vm.tipsRegularly[index]
                     Button(name) {
@@ -74,6 +74,7 @@ struct DistributionView: View {
     }
 }
 
+#warning("完成成绩分布的新List Cell UI制作")
 fileprivate struct DistributionCard: View{
     let content: Distribution
     var body: some View {

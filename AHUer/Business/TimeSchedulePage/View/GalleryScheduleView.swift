@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+#warning("课程表Gallery模式")
 struct GalleryScheduleView: View {
     var body: some View {
         ScrollView{

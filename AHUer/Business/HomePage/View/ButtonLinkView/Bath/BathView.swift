@@ -19,11 +19,18 @@ struct BathView: View {
                         .aspectRatio(1.5, contentMode: .fit)
                         .padding(30)
             }
+            .toolbar {
+                ToolbarItem(placement: .automatic) {
+                    Button {
+                        vm.freshBathroom()
+                    } label: {
+                        Label("刷新", systemImage: "arrow.clockwise")
+                    }
+
+                }
+            }
             .onAppear{
                 vm.freshLocal()
-            }
-            .refreshable {
-                vm.freshBathroom()
             }
             .navigationTitle("浴室开放")
             .navigationBarTitleDisplayMode(.inline)

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35073C8F27DB85A600AC037B /* NextLectureLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35073C8E27DB85A600AC037B /* NextLectureLabel.swift */; };
+		35073C9127DB89B700AC037B /* NextLectureLabelShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35073C9027DB89B700AC037B /* NextLectureLabelShow.swift */; };
 		35243B1F27CD1B0D00E90BC6 /* GalleryScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35243B1E27CD1B0D00E90BC6 /* GalleryScheduleView.swift */; };
 		3568A10027DA4AB100FE3E9B /* UserDefaults+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3568A0FF27DA4AB100FE3E9B /* UserDefaults+.swift */; };
 		358589E927CFB93F00D9DFF3 /* AHUerAPIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358589E827CFB93F00D9DFF3 /* AHUerAPIProvider.swift */; };
@@ -75,6 +77,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		35073C8E27DB85A600AC037B /* NextLectureLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextLectureLabel.swift; sourceTree = "<group>"; };
+		35073C9027DB89B700AC037B /* NextLectureLabelShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextLectureLabelShow.swift; sourceTree = "<group>"; };
 		35243B1E27CD1B0D00E90BC6 /* GalleryScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryScheduleView.swift; sourceTree = "<group>"; };
 		3568A0FF27DA4AB100FE3E9B /* UserDefaults+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+.swift"; sourceTree = "<group>"; };
 		358589E827CFB93F00D9DFF3 /* AHUerAPIProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHUerAPIProvider.swift; sourceTree = "<group>"; };
@@ -154,10 +158,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		35073C9227DB89E000AC037B /* NextLectureLabel */ = {
+			isa = PBXGroup;
+			children = (
+				35073C9027DB89B700AC037B /* NextLectureLabelShow.swift */,
+				35073C8E27DB85A600AC037B /* NextLectureLabel.swift */,
+			);
+			path = NextLectureLabel;
+			sourceTree = "<group>";
+		};
 		3568A0FE27DA452C00FE3E9B /* Business */ = {
 			isa = PBXGroup;
 			children = (
-				35BE038327D9F66100753940 /* LoginPanel */,
 				35E9407027C8813B001B4070 /* HomePage */,
 				35E940A627C88149001B4070 /* TimeSchedulePage */,
 				35E940B427C88151001B4070 /* NewsPage */,
@@ -287,6 +299,7 @@
 			isa = PBXGroup;
 			children = (
 				35E9409027C8813B001B4070 /* HomePageView.swift */,
+				35073C9227DB89E000AC037B /* NextLectureLabel */,
 				35E9407727C8813B001B4070 /* ButtonLinkView */,
 			);
 			path = View;
@@ -424,6 +437,7 @@
 			children = (
 				35E940BE27C88158001B4070 /* ViewModel */,
 				35E940C227C88158001B4070 /* View */,
+				35BE038327D9F66100753940 /* LoginPanel */,
 			);
 			path = PersonalPage;
 			sourceTree = "<group>";
@@ -548,6 +562,7 @@
 				35E9409C27C8813B001B4070 /* EmptyRoomView.swift in Sources */,
 				35E940B327C88149001B4070 /* TimeScheduleAddLectureView.swift in Sources */,
 				35E9409B27C8813B001B4070 /* EmptyRoomShow.swift in Sources */,
+				35073C8F27DB85A600AC037B /* NextLectureLabel.swift in Sources */,
 				35E940DA27C88165001B4070 /* Button+Style.swift in Sources */,
 				35E940B927C88151001B4070 /* NewsModels.swift in Sources */,
 				35BE038527D9F69300753940 /* LogginPanelShow.swift in Sources */,
@@ -583,6 +598,7 @@
 				35E9406627C88128001B4070 /* Persistence.swift in Sources */,
 				35E9409327C8813B001B4070 /* HomePageInfo.swift in Sources */,
 				35E9409427C8813B001B4070 /* BathOpenShow.swift in Sources */,
+				35073C9127DB89B700AC037B /* NextLectureLabelShow.swift in Sources */,
 				35E940A127C8813B001B4070 /* ScoreCardView.swift in Sources */,
 				35E9409627C8813B001B4070 /* MoreViewShow.swift in Sources */,
 				35E940E127C88165001B4070 /* Popup.swift in Sources */,
@@ -733,7 +749,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AHUer/Preview Content\"";
-				DEVELOPMENT_TEAM = 4WB3QMP893;
+				DEVELOPMENT_TEAM = GJ4WQU9362;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

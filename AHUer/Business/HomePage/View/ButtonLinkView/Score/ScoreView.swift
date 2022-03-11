@@ -18,6 +18,8 @@ struct ScoreView: View {
                     .frame(width: 400, height: 600)
                     .transition(.scale)
             }
+            
+            #warning("成绩查询的表格UI制作")
             ScrollView(.horizontal, showsIndicators: true) {
                 LazyHStack{
                     ForEach(vm.grades) { grade in

@@ -3,10 +3,9 @@
 //  AHUer
 //
 //  Created by WeIHa'S on 2021/9/9.
-//
+//56
 
 import SwiftUI
-import ConfettiSwiftUI
 
 
 /// 个人操作界面

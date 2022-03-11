@@ -10,14 +10,18 @@ import SwiftUI
 struct HomePageView: View {
     @EnvironmentObject var appInfo: AHUAppInfo
     @ObservedObject var vm: HomePageShow
+    @ObservedObject var lectureLabelvm = NextLectureLabelShow()
     @State var showGPA: Bool = false
     var body: some View {
         NavigationView{
             ScrollView(showsIndicators: false){
                 VStack(alignment: .leading){
                     helloLabel
+                        .onTapGesture {
+                            appInfo.tabItemNum = 3
+                        }
                     LazyVGrid(columns: [GridItem(.adaptive(minimum: 450), alignment: .top)]) {
-                        lectureLabel
+                        NextLectureLabel(vm: lectureLabelvm)
                         buttonsLabel
                         tipsLabel
                     }
@@ -28,6 +32,7 @@ struct HomePageView: View {
             }
             .onAppear{
                 vm.freshModel()
+                lectureLabelvm.freshUser()
             }
             .navigationTitle("今天")
             .navigationBarTitleDisplayMode(.automatic)
@@ -38,62 +43,16 @@ struct HomePageView: View {
     
     private var helloLabel: some View {
         VStack(alignment: .leading){
-            Text(vm.welcomeTitle)
+            Text(lectureLabelvm.welcomeTitle)
                 .foregroundColor(.gray)
                 .padding(.horizontal)
-            if let subtitle = vm.welcomeSubtitle {
+            if let subtitle = lectureLabelvm.welcomeSubtitle {
                 Text(subtitle)
                     .font(.footnote)
                     .foregroundColor(.green)
                     .padding(.horizontal)
             }
         }
-    }
-    
-    private var lectureLabel: some View {
-        GroupBox {
-                RoundedRectangle(cornerRadius: 20)
-                .fill(Color.blue)
-                    .aspectRatio(2, contentMode: .fit)
-                    .shadow(radius: 10)
-                    .overlay(
-                        VStack(alignment: .leading, spacing: 10){
-                            HStack {
-                                Text("\(vm.nextCourse?.name ?? " 高等数学 " )")
-                                    .font(.title2)
-                                    .fontWeight(.medium)
-                               
-                                Spacer()
-                                Button {
-                                    appInfo.tabItemNum = 1
-                                } label: {
-                                    Image(systemName: "ellipsis")
-                                }
-                            }
-                            .foregroundColor(.white)
-                            
-                            ProgressView(value: 11.0/18.0) {
-                                Label("剩余次数 11 / 18", systemImage: "clock.badge.checkmark")
-                                    .font(.system(size: 10))
-                                    .foregroundColor(.white)
-                            }
-                            .progressViewStyle(LinearProgressViewStyle(tint: .white))
-                               
-                                
-                            Group{
-                                Label(StartTime(rawValue: Int(vm.nextCourse?.startTime ?? 0))?.des ?? " 8:00-10:00 " , systemImage: "clock")
-                                Label(vm.nextCourse?.teacher ?? " Cindy ", systemImage: "person")
-                                Label(vm.nextCourse?.location ?? " 博学南楼 " , systemImage: "location")
-                            }
-                            .font(.footnote)
-                            .foregroundColor(.white)
-                        }
-                            .padding()
-                    )
-        } label: {
-            Label("即将开始", systemImage: "bolt")
-        }
-        .padding([.horizontal,.bottom])
     }
     
     private var buttonsLabel: some View {
@@ -194,11 +153,11 @@ extension HomePageView {
     }
     
     private var examLabel: some View {
-        NavigationLink(destination: ExamSiteView(vm: ExamSiteShow())) {
+        NavigationLink(destination: ExamSiteView(vm: vm.examSiteVM)) {
             GroupBox(label: Label("考试日程", systemImage: "doc.text.below.ecg")){
                 VStack(alignment: .leading){
-                    Text("距离\(vm.examInfo.name)考试")
-                    Text("还有 \(vm.examInfo.day) 天")
+                    Text(vm.examInfo.title)
+                    Text(vm.examInfo.subtitle)
                 }
             }
             .groupBoxStyle(ColorBoxStyle(.green))
@@ -215,7 +174,7 @@ fileprivate struct ButtonCell: View {
     var body: some View {
         RoundedRectangle(cornerRadius: 15)
             .foregroundColor(button.color)
-            .shadow(color: .secondary, radius: 3, x: 1, y: 1)
+            .shadow(radius: 2, x: 1, y: 1)
             .opacity(0.8)
             .overlay(
                 HStack{
@@ -235,15 +194,14 @@ fileprivate struct ButtonCell: View {
 }
 
 
-
-struct HomePageView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomePageView(vm: HomePageShow())
-            .previewDevice("iPhone 13 mini")
-            .environmentObject(AHUAppInfo())
-        HomePageView(vm: HomePageShow())
-            .previewDevice("iPad Pro (11-inch) (3rd generation)")
-            .environmentObject(AHUAppInfo())
-    }
-}
+//struct HomePageView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        HomePageView(vm: HomePageShow())
+//            .previewDevice("iPhone 13 mini")
+//            .environmentObject(AHUAppInfo())
+//        HomePageView(vm: HomePageShow())
+//            .previewDevice("iPad Pro (11-inch) (3rd generation)")
+//            .environmentObject(AHUAppInfo())
+//    }
+//}
 

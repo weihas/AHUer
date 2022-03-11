@@ -22,7 +22,7 @@ class PersonalPageShow: ObservableObject {
     
     
     func logginMessage(isLoggin: Bool) -> String {
-        return isLoggin ? Student.nowUser()?.studentName ?? "---Error" : "请登录"
+        return isLoggin ? Student.nowUser()?.studentName ?? "---Error" : "登录"
     }
     
     

@@ -67,7 +67,6 @@ public struct Popup<T: View>: ViewModifier {
                                 .padding(5)
                         )
                         .transition(.move(edge: .bottom))
-                        .animation(.default)
                         .frame(maxWidth: .infinity, maxHeight: height, alignment: .bottom)
                 }
         }

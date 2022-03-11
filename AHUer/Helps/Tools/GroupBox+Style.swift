@@ -42,10 +42,20 @@ struct ColorBoxStyle: GroupBoxStyle {
             RoundedRectangle(cornerRadius: 20)
                 .fill(backgroundColor)
                 .opacity(0.8)
-                .shadow(radius: 10)
+                .shadow(radius: 8)
             )
         .padding()
     }
     
 }
 
+struct MoreBoxStyle: GroupBoxStyle {
+    
+    public func makeBody(configuration: Configuration) -> some View {
+        VStack(alignment: .leading){
+            configuration.label
+            configuration.content
+        }
+        .padding()
+    }
+}

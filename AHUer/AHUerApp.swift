@@ -19,3 +19,5 @@ struct AHUerApp: App {
         }
     }
 }
+
+#warning("接入SiriKit")

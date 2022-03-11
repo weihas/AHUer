@@ -24,10 +24,6 @@ class HomePageShow: ObservableObject {
     
     // MARK: - Access to Model
     
-    var nextCourse: Course?{
-        return model.nextCourse
-    }
-    
     var NorthBathroomisMen: Bool{
         return model.northBathroomisMen
     }
@@ -43,30 +39,17 @@ class HomePageShow: ObservableObject {
         return (thisTerm, global)
     }
     
-    var examInfo: (name: String, day: Int) {
-        #warning("考试待做")
-        return ("高等数学",9)
-    }
-    
-    
-    var welcomeTitle: String {
-        guard let id = model.myId else { return "请登录" }
-        return "\(id)👋"
-    }
-    
-    var welcomeSubtitle: String? {
-        guard model.myId != nil else { return nil }
-        if model.courseCount < 1 {
-            return "你今天没有课"
+    var examInfo: (title: String, subtitle: String) {
+        if let exam = model.exam {
+            return (title: "距离\(exam.name)考试", subtitle: "还有\(exam.time)天")
+        } else {
+            return (title: "暂无考试", subtitle: "")
         }
-        return "你今天还有\(model.courseCount)节课"
     }
     
     // MARK: -Intent(s)
     
     func freshModel() {
-        model.freshUser()
-        model.fetchImmediatelyLecture()
         model.fetchMyScore()
     }
     
