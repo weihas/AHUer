@@ -50,12 +50,18 @@ class ScoreShow: ObservableObject {
     
     func freshScoreData(){
         Task{
-            try await AHUerAPIProvider.getScore()
-            freshlocal()
+            do {
+                try await AHUerAPIProvider.getScore()
+                await freshlocal()
+            } catch {
+                await AlertView.showAlert(with: error)
+            }
         }
     }
     
     // MARK: -Intents(s)
+    
+    @MainActor
     func freshlocal(){
         model.freshTotalPoint()
     }

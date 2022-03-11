@@ -15,21 +15,29 @@ class LogginPanelShow: ObservableObject {
     @Published var password: String = "Whw,0917"
     @Published var isBachelor: Bool = false
     @Published var logginType: Int = 1
+    @AppStorage(AHUerDefaultsKey.AHUID.rawValue, store: .standard) var localID: String = ""
     
     
     //MARK: -Intents
     
-    func loggin(){
-        Task{
-            do {
-                guard let pw = password.rsaCrypto() else { throw AHUerAPIError(code: -10, title: "密码加密失败") }
-                if (try await AHUerAPIProvider.loggin(userId: userID, password: pw, type: logginType) != nil) {
-                    await freshAppStatus()
-                }
-            } catch {
-                AlertView.showAlert(with: error)
-            }
+    func loggin() async -> Bool {
+        do {
+            guard let pw = try password.rsaCrypto() else { return false }
+            
+            try await AHUerAPIProvider.loggin(userId: userID, password: pw, type: logginType)
+            await syncStatus()
+            await freshAppStatus()
+            
+            return true
+        } catch {
+            await AlertView.showAlert(with: error)
         }
+        return false
+    }
+    
+    @MainActor
+    func syncStatus(){
+        localID = userID
     }
 
     func freshAppStatus() async {

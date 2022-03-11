@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 class BathOpenShow: ObservableObject {
-    @AppStorage(UserDefaultsKey.BathRoom.rawValue, store: .standard) private var northStatus: Bool = false
+    @AppStorage(AHUerDefaultsKey.BathRoom.rawValue, store: .standard) private var northStatus: Bool = false
     @Published var northisMan: Bool = false
     
     init(){
@@ -24,7 +24,7 @@ class BathOpenShow: ObservableObject {
                     freshLocal()
                 }
             } catch {
-                AlertView.showAlert(with: error)
+                await AlertView.showAlert(with: error)
             }
         }
     }

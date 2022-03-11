@@ -6,13 +6,14 @@
 //
 
 import SwiftUI
+import ConfettiSwiftUI
 
 
 /// 个人操作界面
 struct PersonalPageView: View {
     @EnvironmentObject var appInfo: AHUAppInfo
     @ObservedObject var vm: PersonalPageShow
-    @State private var showLoggingChoose: Bool = false
+    
 
     @State var isBachelor: Bool = true
     var body: some View {
@@ -21,7 +22,7 @@ struct PersonalPageView: View {
                 accountSection
                 operationSection
             }
-            .actionSheet(isPresented: $showLoggingChoose) {
+            .actionSheet(isPresented: $vm.showLoggingChoose) {
                 actionSheet
             }
             .sheet(isPresented: $vm.showLoggingPanel) {
@@ -37,20 +38,14 @@ struct PersonalPageView: View {
 //MARK: 列表的Section
 extension PersonalPageView{
     private var accountSection: some View{
-        Section(header:  Label("账号", systemImage: "person") ,
-                footer: Text(appInfo.isLoggin ? "退出教务系统认证" : "教务系统登录认证以使用课表等功能")
-                    .font(.footnote)
-                    .padding(.horizontal)){
-            Button(action: {
-                if appInfo.isLoggin{
-                    showLoggingChoose.toggle()
-                }else{
-                    vm.showLoggingPanel.toggle()
-                }
-            }, label: {
-                Text(appInfo.isLoggin ? vm.nowUser.name : "登录" )
+        Section(header: Label("账号", systemImage: "person") ,
+                footer: Text(appInfo.isLoggin ? "退出教务系统认证" : "教务系统登录认证以使用课表等功能").font(.footnote).padding(.horizontal)) {
+            Button {
+                vm.logginButtonTap(isLoggin: appInfo.isLoggin)
+            } label: {
+                Text(vm.logginMessage(isLoggin: appInfo.isLoggin))
                     .foregroundColor(.blue)
-            })
+            }
         }
     }
     
@@ -101,9 +96,6 @@ extension PersonalPageView{
             .onTapGesture {
                 vm.shareApp()
             }
-
-            
-            
         }
     }
 }

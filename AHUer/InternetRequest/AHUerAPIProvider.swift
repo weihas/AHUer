@@ -36,7 +36,7 @@ struct AHUerAPIProvider{
                     }
                     
                 case .failure(let error):
-                    continuation.resume(throwing: AHUerAPIError(code: error.errorCode, title: target.errorHandelTitle, message: error.localizedDescription))
+                    continuation.resume(throwing: AHUerAPIError(code: error.errorCode, title: target.errorHandelTitle, message: error.errorDescription))
                 }
             }
         }
@@ -66,11 +66,10 @@ extension AHUerAPIProvider{
     ///   - password: 密码
     ///   - type: 登录目标
     /// - Returns: 用户名(不为空则成功)
-    @discardableResult
-    static func loggin(userId: String, password: String, type: Int) async throws -> String? {
+    static func loggin(userId: String, password: String, type: Int) async throws {
         let respon: JSON = try await asyncRequest(.login(userId: userId, password: password, type: type))
         
-        guard let userName = respon["data"]["name"].string else { throw AHUerAPIError(code: -10, title: "登录失败") }
+        guard let userName = respon["data"]["name"].string, userName != "" else { throw AHUerAPIError(code: -10, title: "登录") }
         
         //cookie存储
         HTTPCookieStorage.saveAHUerCookie()
@@ -84,8 +83,6 @@ extension AHUerAPIProvider{
                 Student.insert(in: context)?.update(of: attribute)
             }
         }
-        
-        return userName
     }
     
     

@@ -12,47 +12,48 @@ import MessageUI
 typealias completion =  (_ status: Bool, _ title: String?, _ description: String?) -> Void
 
 class PersonalPageShow: ObservableObject {
-    @Published private var model: PersonalPageInfo
+    @AppStorage(AHUerDefaultsKey.AHUID.rawValue, store: .standard) private var userID: String = ""
     @Published var showLoggingPanel: Bool = false
+    @Published var showLoggingChoose: Bool = false
     
-    
-    init(){
-        model = PersonalPageInfo()
-    }
+    init(){}
     
     // MARK: -Access to the model
     
-    var nowUser: PersonalPageInfo{
-        get { model }
-    }
     
-//    var loggedUsers: [User]{
-//        return model.loggedUsers
-//    }
+    func logginMessage(isLoggin: Bool) -> String {
+        return isLoggin ? Student.nowUser()?.studentName ?? "---Error" : "请登录"
+    }
     
     
     // MARK: -Intents(s)
     
-    func showLogginPanel(){
-        
+    func logginButtonTap(isLoggin: Bool){
+        if isLoggin {
+            showLoggingChoose.toggle()
+        } else {
+            showLoggingPanel.toggle()
+        }
     }
     
-    func logout(type: Int){
+    
+    func logout(type: Int) {
         Task{
             do {
                 try await AHUerAPIProvider.logout(type: type)
-                self.model.cleanup()
+                await cleanUp()
             } catch {
-                AlertView.showAlert(with: error)
+                await AlertView.showAlert(with: error)
             }
         }
     }
     
-    func freshData(_ userID: String, _ password: String, _ userName: String){
-        self.model.freshData(userID: userID, userPassWD: password, userName: userName)
+    @MainActor func cleanUp(){
+        userID = ""
     }
+    
 
-    func sendMail(){
+    @MainActor func sendMail(){
         if MFMailComposeViewController.canSendMail() {
             let vc = MFMailComposeViewController()
             vc.setSubject("Hello")
@@ -60,7 +61,7 @@ class PersonalPageShow: ObservableObject {
         }
     }
     
-    func shareApp() {
+    @MainActor func shareApp() {
         let url = URL(string: "https://github.com")
         let activityController = UIActivityViewController(activityItems: [url!], applicationActivities: nil)
         PresentView.show(vc: activityController)

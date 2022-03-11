@@ -9,7 +9,7 @@ import Foundation
 import SwiftyRSA
 
 extension String{
-    func rsaCrypto() -> String? {
+    func rsaCrypto() throws -> String? {
         let key = """
 -----BEGIN RSA PUBLIC KEY-----
 MIGJAoGBAI9fwyD3Hb5ryCjs7tR1n+SNkZgmUXxdMWl6g9L4s9xLsjsE0yjvaPeZRBIroo6Yc+laattX0WhTonMtAI/hP6/4G/ImBSsYUBilHL9BRQjXo7pfh02G93SycNxsOtLtatHJkSmDWjzj76RJypjpaBaMOIwMlU87pvaeX5d/gXorAgMBAAE=
@@ -21,8 +21,7 @@ MIGJAoGBAI9fwyD3Hb5ryCjs7tR1n+SNkZgmUXxdMWl6g9L4s9xLsjsE0yjvaPeZRBIroo6Yc+laattX
             let encrypted = try clear.encrypted(with: publicKey, padding: .PKCS1)
             return encrypted.base64String
         }catch{
-            print("加密失败")
-            return nil
+            throw AHUerAPIError(code: -19, title: "登录失败", message: "密码加密失败")
         }
     }
 }

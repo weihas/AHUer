@@ -43,6 +43,9 @@ struct RootView: View {
                 .tag(3)
         }
         .font(.headline)
+        .onAppear {
+            appInfo.freshLogginStatus()
+        }
     }
 }
 

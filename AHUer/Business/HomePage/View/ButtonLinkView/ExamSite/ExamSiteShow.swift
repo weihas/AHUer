@@ -31,7 +31,7 @@ class ExamSiteShow: ObservableObject {
                 try await AHUerAPIProvider.getExamination(year: "2020-2021", term: 1)
                 await freshExamDataLocol()
             } catch {
-                AlertView.showAlert(with: error)
+                await AlertView.showAlert(with: error)
             }
         }
     }

@@ -32,7 +32,7 @@ class TimeScheduleShow: ObservableObject{
                     freshScheduleLocal()
                 }
             } catch {
-                AlertView.showAlert(with: error)
+                await AlertView.showAlert(with: error)
             }
         }
     }

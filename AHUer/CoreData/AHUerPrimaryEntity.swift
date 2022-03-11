@@ -186,7 +186,7 @@ extension Student: AHUerPrimaryEntity {
     }
     
     static func nowUser(in context: NSManagedObjectContext = defaultcontext) -> Student? {
-        @AppStorage(UserDefaultsKey.AHUID.rawValue, store: .standard) var userID = ""
+        @AppStorage(AHUerDefaultsKey.AHUID.rawValue, store: .standard) var userID = ""
         return fetch(studentId: userID, in: context)
     }
     

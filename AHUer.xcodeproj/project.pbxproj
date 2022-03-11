@@ -16,6 +16,7 @@
 		358589F327CFBE8400D9DFF3 /* AHUerAPIDetail in Frameworks */ = {isa = PBXBuildFile; productRef = 358589F227CFBE8400D9DFF3 /* AHUerAPIDetail */; };
 		35BE038227D9E95F00753940 /* PresentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BE038127D9E95F00753940 /* PresentView.swift */; };
 		35BE038527D9F69300753940 /* LogginPanelShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BE038427D9F69300753940 /* LogginPanelShow.swift */; };
+		35BE038827DAF29100753940 /* Environment+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BE038727DAF29100753940 /* Environment+Extension.swift */; };
 		35C2AEC727D210FD003CCBE4 /* SwiftyRSA in Frameworks */ = {isa = PBXBuildFile; productRef = 35C2AEC627D210FD003CCBE4 /* SwiftyRSA */; };
 		35E9405027C8809D001B4070 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35E9404F27C8809D001B4070 /* Assets.xcassets */; };
 		35E9405327C8809D001B4070 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35E9405227C8809D001B4070 /* Preview Assets.xcassets */; };
@@ -55,7 +56,6 @@
 		35E940BB27C88151001B4070 /* NewsPlaying.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E940B727C88151001B4070 /* NewsPlaying.swift */; };
 		35E940BC27C88151001B4070 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E940B827C88151001B4070 /* NewsModel.swift */; };
 		35E940C827C88158001B4070 /* PersonalPageShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E940BF27C88158001B4070 /* PersonalPageShow.swift */; };
-		35E940C927C88158001B4070 /* PersonlPageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E940C127C88158001B4070 /* PersonlPageInfo.swift */; };
 		35E940CA27C88158001B4070 /* AboutUSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E940C327C88158001B4070 /* AboutUSView.swift */; };
 		35E940CB27C88158001B4070 /* ThanksChildView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E940C427C88158001B4070 /* ThanksChildView.swift */; };
 		35E940CC27C88158001B4070 /* PersonalPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E940C527C88158001B4070 /* PersonalPageView.swift */; };
@@ -82,6 +82,7 @@
 		358589EC27CFBB4100D9DFF3 /* AHUerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AHUerAPI.swift; sourceTree = "<group>"; };
 		35BE038127D9E95F00753940 /* PresentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentView.swift; sourceTree = "<group>"; };
 		35BE038427D9F69300753940 /* LogginPanelShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogginPanelShow.swift; sourceTree = "<group>"; };
+		35BE038727DAF29100753940 /* Environment+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Environment+Extension.swift"; sourceTree = "<group>"; };
 		35E9404827C88099001B4070 /* AHUer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AHUer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35E9404F27C8809D001B4070 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		35E9405227C8809D001B4070 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -121,7 +122,6 @@
 		35E940B727C88151001B4070 /* NewsPlaying.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsPlaying.swift; sourceTree = "<group>"; };
 		35E940B827C88151001B4070 /* NewsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
 		35E940BF27C88158001B4070 /* PersonalPageShow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalPageShow.swift; sourceTree = "<group>"; };
-		35E940C127C88158001B4070 /* PersonlPageInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonlPageInfo.swift; sourceTree = "<group>"; };
 		35E940C327C88158001B4070 /* AboutUSView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUSView.swift; sourceTree = "<group>"; };
 		35E940C427C88158001B4070 /* ThanksChildView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThanksChildView.swift; sourceTree = "<group>"; };
 		35E940C527C88158001B4070 /* PersonalPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalPageView.swift; sourceTree = "<group>"; };
@@ -157,6 +157,7 @@
 		3568A0FE27DA452C00FE3E9B /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				35BE038327D9F66100753940 /* LoginPanel */,
 				35E9407027C8813B001B4070 /* HomePage */,
 				35E940A627C88149001B4070 /* TimeSchedulePage */,
 				35E940B427C88151001B4070 /* NewsPage */,
@@ -165,14 +166,15 @@
 			path = Business;
 			sourceTree = "<group>";
 		};
-		35BE038027D9E90C00753940 /* Helps */ = {
+		35BE038027D9E90C00753940 /* Extenison */ = {
 			isa = PBXGroup;
 			children = (
 				35E940D427C88165001B4070 /* Color+Extension.swift */,
 				35E940D527C88165001B4070 /* RSA+Func.swift */,
 				35E940D727C88165001B4070 /* Date+Helper.swift */,
+				35BE038727DAF29100753940 /* Environment+Extension.swift */,
 			);
-			path = Helps;
+			path = Extenison;
 			sourceTree = "<group>";
 		};
 		35BE038327D9F66100753940 /* LoginPanel */ = {
@@ -182,6 +184,15 @@
 				35E940C627C88158001B4070 /* LogginPanelView.swift */,
 			);
 			path = LoginPanel;
+			sourceTree = "<group>";
+		};
+		35BE038627DAEF2000753940 /* Helps */ = {
+			isa = PBXGroup;
+			children = (
+				35BE038027D9E90C00753940 /* Extenison */,
+				35E940CF27C88165001B4070 /* Tools */,
+			);
+			path = Helps;
 			sourceTree = "<group>";
 		};
 		35E9403F27C88099001B4070 = {
@@ -207,8 +218,7 @@
 				35E9405B27C8810D001B4070 /* AHUAppInfo.swift */,
 				35E9405D27C88116001B4070 /* RootView.swift */,
 				35E9405F27C8811B001B4070 /* RootViewShow.swift */,
-				35BE038027D9E90C00753940 /* Helps */,
-				35E940CF27C88165001B4070 /* Tools */,
+				35BE038627DAEF2000753940 /* Helps */,
 				35E9406127C88128001B4070 /* CoreData */,
 				35E9406927C88132001B4070 /* InternetRequest */,
 				3568A0FE27DA452C00FE3E9B /* Business */,
@@ -413,7 +423,6 @@
 			isa = PBXGroup;
 			children = (
 				35E940BE27C88158001B4070 /* ViewModel */,
-				35E940C027C88158001B4070 /* Model */,
 				35E940C227C88158001B4070 /* View */,
 			);
 			path = PersonalPage;
@@ -427,20 +436,12 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		35E940C027C88158001B4070 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				35E940C127C88158001B4070 /* PersonlPageInfo.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		35E940C227C88158001B4070 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				35E940C527C88158001B4070 /* PersonalPageView.swift */,
 				35E940C327C88158001B4070 /* AboutUSView.swift */,
 				35E940C427C88158001B4070 /* ThanksChildView.swift */,
-				35E940C527C88158001B4070 /* PersonalPageView.swift */,
 				35E940C727C88158001B4070 /* SettingView.swift */,
 			);
 			path = View;
@@ -457,7 +458,6 @@
 				35E940D327C88165001B4070 /* StartTime.swift */,
 				35E940D827C88165001B4070 /* Popup.swift */,
 				35BE038127D9E95F00753940 /* PresentView.swift */,
-				35BE038327D9F66100753940 /* LoginPanel */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -563,6 +563,7 @@
 				35E940B227C88149001B4070 /* TimeScheduleCell.swift in Sources */,
 				35E940CB27C88158001B4070 /* ThanksChildView.swift in Sources */,
 				35E940E927C883AF001B4070 /* AHUerApp.swift in Sources */,
+				35BE038827DAF29100753940 /* Environment+Extension.swift in Sources */,
 				35E940E027C88165001B4070 /* Date+Helper.swift in Sources */,
 				35E940A027C8813B001B4070 /* ScoreShow.swift in Sources */,
 				35E940A527C8813B001B4070 /* HomePageView.swift in Sources */,
@@ -576,7 +577,6 @@
 				35E9405C27C8810D001B4070 /* AHUAppInfo.swift in Sources */,
 				35E9409A27C8813B001B4070 /* ExamSiteShow.swift in Sources */,
 				35E940BC27C88151001B4070 /* NewsModel.swift in Sources */,
-				35E940C927C88158001B4070 /* PersonlPageInfo.swift in Sources */,
 				35E940DE27C88165001B4070 /* RSA+Func.swift in Sources */,
 				35E940CD27C88158001B4070 /* LogginPanelView.swift in Sources */,
 				35E940B127C88149001B4070 /* TimeSchedulePageView.swift in Sources */,

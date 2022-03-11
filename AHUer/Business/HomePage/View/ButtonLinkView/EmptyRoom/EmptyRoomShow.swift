@@ -36,7 +36,7 @@ class EmptyRoomShow: ObservableObject {
                     self.emptyRooms = sections.sorted(by: {$0.name < $1.name})
                 }
             } catch {
-                AlertView.showAlert(with: error)
+                await AlertView.showAlert(with: error)
             }
         }
     }

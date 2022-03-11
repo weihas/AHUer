@@ -34,7 +34,7 @@ class DistributionShow: ObservableObject{
                 }
                 
             } catch {
-                AlertView.showAlert(with: error)
+                await AlertView.showAlert(with: error)
             }
         }
     }

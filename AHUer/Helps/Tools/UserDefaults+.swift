@@ -7,7 +7,9 @@
 
 import Foundation
 
-enum UserDefaultsKey: String {
+enum AHUerDefaultsKey: String {
     case AHUID = "AHUID"
     case BathRoom = "BathRoom"
+    case Username = "UserName"
+    case Loggin = "IsLoggin"
 }

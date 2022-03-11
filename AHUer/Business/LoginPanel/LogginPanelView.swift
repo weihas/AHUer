@@ -20,25 +20,13 @@ struct LogginPanelView: View {
             .padding(.top, 20)
             .padding(.horizontal, 100)
             .pickerStyle(SegmentedPickerStyle())
-            Spacer()
-            HStack{
-                Text("学号:")
-                TextField("学号", text: $vm.userID)
-                    .textContentType(.username)
-                    .keyboardType(.asciiCapable)
-                
-            }
-            .padding()
-            Divider().padding(.horizontal)
-            HStack{
-                Text("密码:")
-                SecureField("密码", text: $vm.password)
-                    .textContentType(.password)
-            }
-            .padding()
+            logginTextFiled
+                .padding(.vertical , 100)
             Spacer()
             Button {
-                vm.loggin()
+                Task {
+                    appInfo.isLoggin = await vm.loggin()
+                }
                 present.wrappedValue.dismiss()
             } label: {
                 Label("认证", systemImage: "chevron.forward.square")
@@ -49,6 +37,24 @@ struct LogginPanelView: View {
         .padding()
         .navigationBarTitle("教务认证")
     }
+    
+    
+    var logginTextFiled: some View {
+        VStack{
+            TextField("学号", text: $vm.userID)
+                .textContentType(.username)
+                .keyboardType(.asciiCapable)
+                .padding()
+                .background(Capsule().stroke(Color.blue).padding(5))
+            SecureField("密码", text: $vm.password)
+                .textContentType(.password)
+                .padding()
+                .background(Capsule().stroke(Color.blue).padding(5))
+        }
+    }
+    
+    
+    
 }
 
 //struct LogginPanelView_Previews: PreviewProvider {
