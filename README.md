@@ -1,5 +1,7 @@
 # AHUer(dev1.0.0)
 
+[English](README.md) | [中文](README_CN.md)
+
 ## Hello, Welcome to Ahuer  🎉🎉🎉
 
 #### This is my biggest project so far, a project for my college. Because I'm learning iOS development, In this project, I tried the latest SwiftUI, so it is actually a pure SwiftUI application as well.
