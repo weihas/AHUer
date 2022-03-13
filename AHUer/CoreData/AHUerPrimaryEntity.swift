@@ -221,12 +221,6 @@ extension Course: AHUerChildEntity {
 }
 
 
-// MARK: GPA
-extension GPA: AHUerChildEntity{
-    typealias ownerType = Grade
-}
-
-
 
 // MARK: Grade
 extension Grade: AHUerChildEntity{
@@ -237,6 +231,7 @@ extension Grade: AHUerChildEntity{
         return fetch(by: predicate,in: context)
     }
 }
+
 
 // MARK: Exam
 extension Exam: AHUerChildEntity{

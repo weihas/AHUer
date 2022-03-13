@@ -11,6 +11,7 @@
 		35073C9127DB89B700AC037B /* NextLectureLabelShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35073C9027DB89B700AC037B /* NextLectureLabelShow.swift */; };
 		35243B1F27CD1B0D00E90BC6 /* GalleryScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35243B1E27CD1B0D00E90BC6 /* GalleryScheduleView.swift */; };
 		3568A10027DA4AB100FE3E9B /* UserDefaults+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3568A0FF27DA4AB100FE3E9B /* UserDefaults+.swift */; };
+		3572FF6D27DDC0E800921C58 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3572FF6C27DDC0E800921C58 /* Array+Extension.swift */; };
 		358589E927CFB93F00D9DFF3 /* AHUerAPIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358589E827CFB93F00D9DFF3 /* AHUerAPIProvider.swift */; };
 		358589EB27CFBAB800D9DFF3 /* AHUerAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358589EA27CFBAB800D9DFF3 /* AHUerAPIError.swift */; };
 		358589ED27CFBB4100D9DFF3 /* AHUerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358589EC27CFBB4100D9DFF3 /* AHUerAPI.swift */; };
@@ -43,7 +44,6 @@
 		35E9409E27C8813B001B4070 /* DistributionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9408727C8813B001B4070 /* DistributionView.swift */; };
 		35E9409F27C8813B001B4070 /* ScoreGets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9408927C8813B001B4070 /* ScoreGets.swift */; };
 		35E940A027C8813B001B4070 /* ScoreShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9408A27C8813B001B4070 /* ScoreShow.swift */; };
-		35E940A127C8813B001B4070 /* ScoreCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9408B27C8813B001B4070 /* ScoreCardView.swift */; };
 		35E940A227C8813B001B4070 /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9408C27C8813B001B4070 /* ScoreView.swift */; };
 		35E940A327C8813B001B4070 /* AddressBookShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9408E27C8813B001B4070 /* AddressBookShow.swift */; };
 		35E940A427C8813B001B4070 /* AddressBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9408F27C8813B001B4070 /* AddressBookView.swift */; };
@@ -74,6 +74,7 @@
 		35E940E127C88165001B4070 /* Popup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E940D827C88165001B4070 /* Popup.swift */; };
 		35E940E727C8822A001B4070 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 35E940E627C8822A001B4070 /* SwiftyJSON */; };
 		35E940E927C883AF001B4070 /* AHUerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E940E827C883AF001B4070 /* AHUerApp.swift */; };
+		35F6451027DDE384001F24E9 /* ScoreAnalyse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F6450F27DDE384001F24E9 /* ScoreAnalyse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +82,7 @@
 		35073C9027DB89B700AC037B /* NextLectureLabelShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextLectureLabelShow.swift; sourceTree = "<group>"; };
 		35243B1E27CD1B0D00E90BC6 /* GalleryScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryScheduleView.swift; sourceTree = "<group>"; };
 		3568A0FF27DA4AB100FE3E9B /* UserDefaults+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+.swift"; sourceTree = "<group>"; };
+		3572FF6C27DDC0E800921C58 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		358589E827CFB93F00D9DFF3 /* AHUerAPIProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHUerAPIProvider.swift; sourceTree = "<group>"; };
 		358589EA27CFBAB800D9DFF3 /* AHUerAPIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHUerAPIError.swift; sourceTree = "<group>"; };
 		358589EC27CFBB4100D9DFF3 /* AHUerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AHUerAPI.swift; sourceTree = "<group>"; };
@@ -111,7 +113,6 @@
 		35E9408727C8813B001B4070 /* DistributionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistributionView.swift; sourceTree = "<group>"; };
 		35E9408927C8813B001B4070 /* ScoreGets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreGets.swift; sourceTree = "<group>"; };
 		35E9408A27C8813B001B4070 /* ScoreShow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreShow.swift; sourceTree = "<group>"; };
-		35E9408B27C8813B001B4070 /* ScoreCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreCardView.swift; sourceTree = "<group>"; };
 		35E9408C27C8813B001B4070 /* ScoreView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 		35E9408E27C8813B001B4070 /* AddressBookShow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressBookShow.swift; sourceTree = "<group>"; };
 		35E9408F27C8813B001B4070 /* AddressBookView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressBookView.swift; sourceTree = "<group>"; };
@@ -141,6 +142,7 @@
 		35E940D727C88165001B4070 /* Date+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Helper.swift"; sourceTree = "<group>"; };
 		35E940D827C88165001B4070 /* Popup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Popup.swift; sourceTree = "<group>"; };
 		35E940E827C883AF001B4070 /* AHUerApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHUerApp.swift; sourceTree = "<group>"; };
+		35F6450F27DDE384001F24E9 /* ScoreAnalyse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreAnalyse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +187,7 @@
 				35E940D527C88165001B4070 /* RSA+Func.swift */,
 				35E940D727C88165001B4070 /* Date+Helper.swift */,
 				35BE038727DAF29100753940 /* Environment+Extension.swift */,
+				3572FF6C27DDC0E800921C58 /* Array+Extension.swift */,
 			);
 			path = Extenison;
 			sourceTree = "<group>";
@@ -369,8 +372,8 @@
 			children = (
 				35E9408927C8813B001B4070 /* ScoreGets.swift */,
 				35E9408A27C8813B001B4070 /* ScoreShow.swift */,
-				35E9408B27C8813B001B4070 /* ScoreCardView.swift */,
 				35E9408C27C8813B001B4070 /* ScoreView.swift */,
+				35F6450F27DDE384001F24E9 /* ScoreAnalyse.swift */,
 			);
 			path = Score;
 			sourceTree = "<group>";
@@ -558,6 +561,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35F6451027DDE384001F24E9 /* ScoreAnalyse.swift in Sources */,
 				35E940BB27C88151001B4070 /* NewsPlaying.swift in Sources */,
 				35E9409C27C8813B001B4070 /* EmptyRoomView.swift in Sources */,
 				35E940B327C88149001B4070 /* TimeScheduleAddLectureView.swift in Sources */,
@@ -595,11 +599,11 @@
 				35E940DE27C88165001B4070 /* RSA+Func.swift in Sources */,
 				35E940CD27C88158001B4070 /* LogginPanelView.swift in Sources */,
 				35E940B127C88149001B4070 /* TimeSchedulePageView.swift in Sources */,
+				3572FF6D27DDC0E800921C58 /* Array+Extension.swift in Sources */,
 				35E9406627C88128001B4070 /* Persistence.swift in Sources */,
 				35E9409327C8813B001B4070 /* HomePageInfo.swift in Sources */,
 				35E9409427C8813B001B4070 /* BathOpenShow.swift in Sources */,
 				35073C9127DB89B700AC037B /* NextLectureLabelShow.swift in Sources */,
-				35E940A127C8813B001B4070 /* ScoreCardView.swift in Sources */,
 				35E9409627C8813B001B4070 /* MoreViewShow.swift in Sources */,
 				35E940E127C88165001B4070 /* Popup.swift in Sources */,
 				35E9409727C8813B001B4070 /* MoreView.swift in Sources */,
@@ -749,7 +753,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AHUer/Preview Content\"";
-				DEVELOPMENT_TEAM = GJ4WQU9362;
+				DEVELOPMENT_TEAM = NVF47AP6H6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -763,7 +767,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.weihas.AHUer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.weiha.AHUer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

@@ -6,12 +6,12 @@
 //
 
 import Foundation
-import UIKit
 import SwiftUI
 //import SwiftUIChart
 
 class ScoreShow: ObservableObject {
     @Published private var model: ScoreGets
+    @Published var showTerm: Int = 0
     
     init(){
         model = ScoreGets()
@@ -19,34 +19,25 @@ class ScoreShow: ObservableObject {
     
     // MARK: -Access to the model
     
-    /// 总学分绩点和
-    var totalGradePoint: Double{
-        return model.totalGradePoint
-    }
-   
-    /// 总学分
-    var totalCredit: Double {
-        return model.totalCredit
+    var termNow: TermGrade? {
+        if model.terms.indices.contains(showTerm){
+            return model.terms[showTerm]
+        } else {
+            return nil
+        }
     }
     
-    /// 总绩点
-    var totalGradePointAverage: Double{
+    var termList: [TermGrade] {
+        return model.terms
+    }
+    
+    var totalGpa: Double {
         return model.totalGradePointAverage
     }
     
-    var grades: [Grade]{
-        return model.grades
+    var totalCredit: Double {
+        return model.totalCredit
     }
-    
-    var gpaLine: [Double]{
-        return model.grades.map({$0.termGradePointAverage})
-    }
-    
-//    var gpaline: ChartData {
-//        return ChartData(values: model.grades.map({(($0.schoolYear ?? "") + "\n" + ($0.schoolTerm ?? "") ,$0.termTotalCredit)}))
-//    }
-    
-    
     
     func freshScoreData(){
         Task{
@@ -63,7 +54,8 @@ class ScoreShow: ObservableObject {
     
     @MainActor
     func freshlocal(){
-        model.freshTotalPoint()
+        model.freshLocalGrade()
+        showTerm = model.terms.last?.id ?? -1
     }
     
     deinit {

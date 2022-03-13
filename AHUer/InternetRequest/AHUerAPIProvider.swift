@@ -109,7 +109,6 @@ extension AHUerAPIProvider{
     
 
     /// 网络请求成绩
-    /// Term --- Grade-----Gpa
     /// - Returns: 请求结果
     static func getScore() async throws{
         let respon: JSON = try await asyncRequest(.grade)
@@ -123,20 +122,24 @@ extension AHUerAPIProvider{
             user.totalCredit = grades["totalCredit"].doubleValue
             user.totalGradePointAverage = grades["totalGradePointAverage"].doubleValue
             
-           
             
-            let termGradeLists = grades["termGradeList"].arrayValue
-            
-            for termGrade in termGradeLists{
-                //清空原有的数据
+            for termGrade in grades["termGradeList"].arrayValue {
                 guard let year = termGrade["schoolYear"].string, let term = termGrade["schoolTerm"].string else { continue }
                 
                 if year == Date().studyYear, term == "\(Date().studyTerm)" {
                     user.termGradePoint = termGrade["termGradePointAverage"].doubleValue
                 }
-                
+                //清空原有的数据
                 Grade.fetch(schoolYear: year, schoolTerm: term, in: backgroundContext)?.forEach({$0.delete()})
-                Grade.insert(in: backgroundContext)?.update(of: termGrade)?.beHold(of: user)?.addToGpas(GPA.pack(attributes: termGrade["termGradeList"].arrayValue, in: backgroundContext))
+                
+                for grade in termGrade["termGradeList"].arrayValue {
+                    guard var insertGrade = grade.dictionaryObject else { continue }
+                    insertGrade.updateValue(year, forKey: "schoolYear")
+                    insertGrade.updateValue(term, forKey: "schoolTerm")
+                    Grade.insert(in: backgroundContext)?.update(of: insertGrade)?.beHold(of: user)
+                }
+                
+                
             }
         }
     }
