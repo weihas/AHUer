@@ -10,7 +10,7 @@ import SwiftUI
 struct ScoreView: View {
     @EnvironmentObject var appInfo: AHUAppInfo
     @ObservedObject var vm: ScoreShow
-    @State var timeChooseShow: Bool = false
+    @State var showTimeChoose: Bool = false
     @State var showAnalyse: Bool = false
     
     var body: some View {
@@ -36,11 +36,13 @@ struct ScoreView: View {
         HStack{
             Button {
                 showAnalyse.toggle()
+                showTimeChoose = false
             } label: {
                 Label("分析", systemImage: "chart.pie")
             }
             Button {
                 vm.freshScoreData()
+                showTimeChoose = false
             } label: {
                 Label("刷新", systemImage: "arrow.clockwise")
             }
@@ -52,18 +54,18 @@ struct ScoreView: View {
             Text(vm.termNow?.showTitle ?? " 刷新数据以获取成绩 ")
                 .padding(7)
                 .background(RoundedRectangle(cornerRadius: 7).fill(Color(red: 0.93, green: 0.93, blue: 0.93)))
-                .foregroundColor(timeChooseShow ? .blue : .black)
+                .foregroundColor(showTimeChoose ? .blue : .black)
                 .onTapGesture{
                     withAnimation {
                         if vm.termNow == nil {
                             vm.freshScoreData()
                         } else {
-                            timeChooseShow.toggle()
+                            showTimeChoose.toggle()
                         }
                     }
                 }
             
-            if timeChooseShow {
+            if showTimeChoose {
                 Picker(selection: $vm.showTerm) {
                     ForEach(vm.termList) { term in
                         Text("\(term.showTitle)")
@@ -104,7 +106,7 @@ struct ScoreView: View {
         }
         .onTapGesture {
             withAnimation {
-                timeChooseShow = false
+                showTimeChoose = false
             }
         }
     }

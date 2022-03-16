@@ -7,7 +7,7 @@
 
 import Foundation
 import SwiftUI
-//import SwiftUIChart
+import SwiftUICharts
 
 class ScoreShow: ObservableObject {
     @Published private var model: ScoreGets
@@ -38,6 +38,11 @@ class ScoreShow: ObservableObject {
     var totalCredit: Double {
         return model.totalCredit
     }
+    
+    var analyseData: ChartData {
+        return ChartData(values: model.terms.map({($0.showTitle,$0.totalCredit)}))
+    }
+    
     
     func freshScoreData(){
         Task{

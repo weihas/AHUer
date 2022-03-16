@@ -10,6 +10,7 @@
 		35073C8F27DB85A600AC037B /* NextLectureLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35073C8E27DB85A600AC037B /* NextLectureLabel.swift */; };
 		35073C9127DB89B700AC037B /* NextLectureLabelShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35073C9027DB89B700AC037B /* NextLectureLabelShow.swift */; };
 		35243B1F27CD1B0D00E90BC6 /* GalleryScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35243B1E27CD1B0D00E90BC6 /* GalleryScheduleView.swift */; };
+		35525B9427DE3BCE009B58BA /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 35525B9327DE3BCE009B58BA /* SwiftUICharts */; };
 		3568A10027DA4AB100FE3E9B /* UserDefaults+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3568A0FF27DA4AB100FE3E9B /* UserDefaults+.swift */; };
 		3572FF6D27DDC0E800921C58 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3572FF6C27DDC0E800921C58 /* Array+Extension.swift */; };
 		358589E927CFB93F00D9DFF3 /* AHUerAPIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358589E827CFB93F00D9DFF3 /* AHUerAPIProvider.swift */; };
@@ -154,6 +155,7 @@
 				35C2AEC727D210FD003CCBE4 /* SwiftyRSA in Frameworks */,
 				358589F027CFBBE400D9DFF3 /* Moya in Frameworks */,
 				35E940E727C8822A001B4070 /* SwiftyJSON in Frameworks */,
+				35525B9427DE3BCE009B58BA /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -500,6 +502,7 @@
 				358589EF27CFBBE400D9DFF3 /* Moya */,
 				358589F227CFBE8400D9DFF3 /* AHUerAPIDetail */,
 				35C2AEC627D210FD003CCBE4 /* SwiftyRSA */,
+				35525B9327DE3BCE009B58BA /* SwiftUICharts */,
 			);
 			productName = AHUer;
 			productReference = 35E9404827C88099001B4070 /* AHUer.app */;
@@ -534,6 +537,7 @@
 				358589EE27CFBBE400D9DFF3 /* XCRemoteSwiftPackageReference "Moya" */,
 				358589F127CFBE8400D9DFF3 /* XCRemoteSwiftPackageReference "AHUerAPIDetail" */,
 				35C2AEC527D210FD003CCBE4 /* XCRemoteSwiftPackageReference "SwiftyRSA" */,
+				35525B9227DE3BCE009B58BA /* XCRemoteSwiftPackageReference "SwiftUICharts" */,
 			);
 			productRefGroup = 35E9404927C88099001B4070 /* Products */;
 			projectDirPath = "";
@@ -829,6 +833,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		35525B9227DE3BCE009B58BA /* XCRemoteSwiftPackageReference "SwiftUICharts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:weihas/SwiftUICharts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.1;
+			};
+		};
 		358589EE27CFBBE400D9DFF3 /* XCRemoteSwiftPackageReference "Moya" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:weihas/Moya.git";
@@ -864,6 +876,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		35525B9327DE3BCE009B58BA /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 35525B9227DE3BCE009B58BA /* XCRemoteSwiftPackageReference "SwiftUICharts" */;
+			productName = SwiftUICharts;
+		};
 		358589EF27CFBBE400D9DFF3 /* Moya */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 358589EE27CFBBE400D9DFF3 /* XCRemoteSwiftPackageReference "Moya" */;

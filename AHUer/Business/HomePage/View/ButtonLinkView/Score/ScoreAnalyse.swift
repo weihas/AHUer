@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
+import SwiftUICharts
 
 struct ScoreAnalyse: View {
     @ObservedObject var vm: ScoreShow
     var body: some View {
         NavigationView{
             VStack{
+                BarChartView(data: vm.analyseData, title: "学期学分获取", legend: "学期")
+                    .aspectRatio(0.5, contentMode: .fit)
+                Spacer()
                 Text("总绩点: \(vm.totalGpa)")
                 Text("总学分: \(vm.totalCredit)")
             }
