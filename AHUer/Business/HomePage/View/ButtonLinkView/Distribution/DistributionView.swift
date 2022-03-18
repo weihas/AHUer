@@ -32,7 +32,7 @@ struct DistributionView: View {
             }
             .padding()
             
-            .background(Capsule().stroke(Color.meiRed).padding(5))
+            .background(Capsule().stroke(Color.meiRed).padding(10))
             .overlay(
                 HStack{
                     if show {
@@ -52,7 +52,7 @@ struct DistributionView: View {
             )
             Divider()
             LazyVGrid(columns: [GridItem(.adaptive(minimum: 100))]){
-                ForEach(0..<vm.tipsRegularly.count){ index in
+                ForEach(0..<vm.tipsRegularly.count, id: \.self){ index in
                     let name = vm.tipsRegularly[index]
                     Button(name) {
                         vm.getDistribution(courseName: name)
@@ -78,20 +78,25 @@ struct DistributionView: View {
 fileprivate struct DistributionCard: View{
     let content: Distribution
     var body: some View {
-        VStack{
+        VStack(alignment: .leading){
             HStack{
-                Text(content.name)
                 Text(content.id)
+                Text(content.name)
             }
-            Text("优秀\(content.moreThan80*100)%")
-            Text("中等\(content.between60and80*100)%")
-            Text("及格率\(content.moreThan60*100)%")
+            .font(.headline)
+            Text("优秀\(content.moreThan80*100, specifier: "%.2f")%")
+            Text("中等\(content.between60and80*100, specifier: "%.2f")%")
+            Text("及格率\(content.moreThan60*100, specifier: "%.2f")%")
+                .underline()
         }
     }
 }
 
 struct DistributionView_Previews: PreviewProvider {
     static var previews: some View {
-        DistributionView(vm: DistributionShow())
+        var vm = DistributionShow()
+        vm.distributions = [Distribution(id: "CG12345", name: "高等数学", moreThan80: 0.45, moreThan60: 0.90),
+                            Distribution(id: "CG12345", name: "这是一个测试", moreThan80: 0.45, moreThan60: 0.90)]
+        return DistributionView(vm: vm)
     }
 }

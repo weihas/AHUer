@@ -24,6 +24,10 @@ struct NextLectureLabel: View {
             Label("即将开始", systemImage: "bolt")
         }
         .padding([.horizontal,.bottom])
+        .onAppear {
+            vm.freshUser()
+            vm.fetchImmediatelyLecture()
+        }
     }
     
     var haveNextLecture: some View {

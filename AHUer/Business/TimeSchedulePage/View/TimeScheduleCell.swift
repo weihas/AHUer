@@ -54,17 +54,23 @@ struct LectureViewCell: View{
                 RoundedRectangle(cornerRadius: geometry.size.width * 0.2)
                     .fill(lecture.isShow ? lecture.color : .clear)
                     .frame(width: geometry.size.width, height: lecture.lectureLengthIsTwo ? geometry.size.height : geometry.size.height/2)
+                    .shadow(radius: 3)
                     .overlay(
                         VStack{
                             Text(lecture.name)
+                                .padding(5)
                                 .font(.system(size: 16))
                                 .minimumScaleFactor(0.8)
-                            Text(lecture.lectureLengthIsTwo ? lecture.location : lecture.isShow ? "..." : "")
-                                .font(.system(size: 13))
-                                .minimumScaleFactor(0.5)
+                            
+                            if lecture.lectureLengthIsTwo {
+                                Text(lecture.lectureLengthIsTwo ? lecture.location : lecture.isShow ? "..." : "")
+                                    .font(.system(size: 10))
+                                    .minimumScaleFactor(0.5)
+                            }
                         }
                             .foregroundColor(.white)
                     )
+                    
             }
             .contextMenu{
                 Button(lecture.name){}

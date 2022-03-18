@@ -12,9 +12,7 @@ class NextLectureLabelShow: ObservableObject{
     @Published var courseCount: Int = -1
     var myId: String?
     
-    init(){
-        freshUser()
-    }
+    init(){}
     
      // MARK: -Access to the model
     
@@ -81,7 +79,7 @@ class NextLectureLabelShow: ObservableObject{
         guard let user = Student.nowUser() else { nextCourse = nil; courseCount = 0; return }
         //        let predicete = NSPredicate(format: "owner = %@", user)
         let predicete = NSPredicate(format: "owner = %@ AND startWeek <= %@ AND endWeek >= %@ AND weekday = %@ AND startTime >= %@", user, NSNumber(value: today.studyWeek), NSNumber(value: today.studyWeek), NSNumber(value: today.weekDay), NSNumber(value: today.startTime ))
-        guard let courses = Course.fetch(by: predicete, sort: ["startTime" : true]) else { nextCourse = nil; courseCount = 0 ; return }
+        guard let courses = Course.fetch(by: predicete, sort: ["startTime" : true])?.filter({$0.startTime + $0.length > Date().startTime}) else { nextCourse = nil; courseCount = 0 ; return }
         nextCourse = courses.first
         courseCount = courses.count
     }

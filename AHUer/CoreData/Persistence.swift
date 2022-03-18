@@ -14,11 +14,21 @@ struct PersistenceController {
     static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
-        for _ in 0..<5 {
-            let student = Student(context: viewContext)
-            student.studentID = "E01814133"
-            student.studentName = "whw"
-        }
+        
+        let user = Student.insert(in: viewContext)?.update(of: ["studentName":"WHW",
+                                      "studentID":"E01814133",
+                                      "southisMen":"true"
+                                     ])
+        
+        Exam.insert(in: viewContext)?.update(of: ["course":"高等数学",
+                                   "location":"博北A408",
+                                   "seatNum":"45",
+                                   "time":"8:00-10:00",
+                                   "schoolYear":"2020-2021",
+                                   "schoolTerm":1
+                                                 ])?.beHold(of: user!)
+        
+        
         do {
             try viewContext.save()
         } catch {

@@ -227,8 +227,10 @@ extension Date{
         }
     }
     
-    var startTime: Int{
-        if (8..<10).contains(hour){
+    var startTime: Int {
+        if hour < 8{
+            return 0
+        }else if (8..<10).contains(hour){
             return 1
         }else if (10..<12).contains(hour){
             return 3
@@ -238,6 +240,8 @@ extension Date{
             return 7
         }else if (18..<22).contains(hour){
             return 9
+        }else if hour > 22{
+            return 10
         }else{
             return 0
         }

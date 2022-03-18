@@ -313,12 +313,12 @@
 		35E9407727C8813B001B4070 /* ButtonLinkView */ = {
 			isa = PBXGroup;
 			children = (
-				35E9407827C8813B001B4070 /* Bath */,
-				35E9407B27C8813B001B4070 /* MoreView */,
-				35E9407E27C8813B001B4070 /* ExamSite */,
 				35E9408227C8813B001B4070 /* EmptyRoom */,
-				35E9408527C8813B001B4070 /* Distribution */,
 				35E9408827C8813B001B4070 /* Score */,
+				35E9407E27C8813B001B4070 /* ExamSite */,
+				35E9407827C8813B001B4070 /* Bath */,
+				35E9408527C8813B001B4070 /* Distribution */,
+				35E9407B27C8813B001B4070 /* MoreView */,
 				35E9408D27C8813B001B4070 /* AddressBook */,
 			);
 			path = ButtonLinkView;
@@ -345,8 +345,8 @@
 		35E9407E27C8813B001B4070 /* ExamSite */ = {
 			isa = PBXGroup;
 			children = (
-				35E9407F27C8813B001B4070 /* ExamSiteView.swift */,
 				35E9408127C8813B001B4070 /* ExamSiteShow.swift */,
+				35E9407F27C8813B001B4070 /* ExamSiteView.swift */,
 			);
 			path = ExamSite;
 			sourceTree = "<group>";

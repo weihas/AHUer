@@ -20,15 +20,14 @@ class BathOpenShow: ObservableObject {
             do {
                 let north = try await AHUerAPIProvider.asyncRequest(.bathroom).stringValue
                 northStatus = (north == "m")
-                await MainActor.run {
-                    freshLocal()
-                }
+                await freshLocal()
             } catch {
                 await AlertView.showAlert(with: error)
             }
         }
     }
     
+    @MainActor
     func freshLocal() {
         northisMan = northStatus
     }

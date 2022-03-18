@@ -14,7 +14,7 @@ struct CapsulePickStyle: View {
     var dataSource: [String]
     var body: some View{
         HStack{
-            ForEach(dataSource.indices){ index in
+            ForEach(dataSource.indices, id: \.self){ index in
                 Spacer()
                 Button(dataSource[index]){
                     selectNum = index

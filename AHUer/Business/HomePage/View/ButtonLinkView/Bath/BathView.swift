@@ -9,19 +9,39 @@ import SwiftUI
 
 struct BathView: View {
     @ObservedObject var vm: BathOpenShow
+    @State var show: Bool = false
     var body: some View {
         VStack{
             ScrollView{
+                ZStack{
                     CardOfBathView(date: Date(), southIsMen: vm.northisMan, isToday: true)
-                        .aspectRatio(1.5, contentMode: .fill)
+                        .aspectRatio(1.5, contentMode: .fit)
                         .padding()
-                    CardOfBathView(date: Date().tomorrowDate!, southIsMen: !vm.northisMan, isToday: false)
+                        .zIndex(1)
+                    
+                    CardOfBathView(date: Date().adding(day: 1)!, southIsMen: !vm.northisMan, isToday: false)
                         .aspectRatio(1.5, contentMode: .fit)
                         .padding(30)
+                        .zIndex(-1)
+                        .rotationEffect(show ? .degrees(30) : .zero)
+                        .offset(y: show ? 200 : 0)
+                    
+                    ForEach(2..<5) { index in
+                        CardOfBathView(date: Date().adding(day: index)!, southIsMen: index%2 == 0, isToday: index%2 == 0)
+                            .aspectRatio(1.5, contentMode: .fit)
+                            .padding(30)
+                            .zIndex(Double(-index))
+                            .rotationEffect(show ? .degrees(Double.random(in: 0...300)) : .zero)
+                            .offset(show ? CGSize(width: Double.random(in: -100...100), height: Double.random(in: 0...50) + 80*Double(index)) : .zero)
+                    }
+                }
             }
             .toolbar {
                 ToolbarItem(placement: .automatic) {
                     Button {
+                        withAnimation {
+                            show = false
+                        }
                         vm.freshBathroom()
                     } label: {
                         Label("刷新", systemImage: "arrow.clockwise")
@@ -30,6 +50,9 @@ struct BathView: View {
                 }
             }
             .onAppear{
+                withAnimation(.spring()) {
+                    show.toggle()
+                }
                 vm.freshLocal()
             }
             .navigationTitle("浴室开放")
@@ -41,7 +64,7 @@ struct BathView: View {
 fileprivate struct CardOfBathView: View {
     var todayOfWeek: String
     var dateString: String
-    var timeScope: String =  "10:30-21:00"
+    var timeScope: String = "10:30-21:00"
     var southIsMen: Bool
     var isToday: Bool
     
@@ -55,8 +78,8 @@ fileprivate struct CardOfBathView: View {
     var body: some View {
         RoundedRectangle(cornerRadius: 25.0, style: .continuous)
             .foregroundColor(isToday ? .green : .pink )
-            .opacity(0.6)
-            .shadow(color: .gray, radius: 5, x: 2, y: 2)
+//            .opacity(0.6)
+            .shadow(radius: 8)
             .overlay {
                 VStack{
                     HStack{
@@ -86,13 +109,14 @@ fileprivate struct CardOfBathView: View {
                         .padding()
                     }
                 }
+                .foregroundColor(.white)
             }
     }
 }
 
 
-struct BathView_Previews: PreviewProvider {
-    static var previews: some View {
-        BathView(vm: BathOpenShow())
-    }
-}
+//struct BathView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        BathView(vm: BathOpenShow())
+//    }
+//}

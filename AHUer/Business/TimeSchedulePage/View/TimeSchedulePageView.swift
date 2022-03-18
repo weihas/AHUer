@@ -62,7 +62,7 @@ struct TimeSchedulePageView: View {
                 .font(.footnote)
             Text(" ")
                 .padding(5)
-            ForEach(0..<vm.timeline.count){ index in
+            ForEach(0..<vm.timeline.count, id: \.self){ index in
                 Rectangle()
                     .fill(.clear)
                     .aspectRatio(0.5, contentMode: .fill)
