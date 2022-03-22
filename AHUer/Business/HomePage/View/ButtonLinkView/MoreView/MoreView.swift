@@ -48,6 +48,7 @@ fileprivate struct CardOfMoreView: View {
         } label: {
             RoundedRectangle(cornerRadius: 20)
                 .fill(info.color.opacity(0.2))
+                .shadow(radius: 5)
                 .overlay(
                     VStack{
                         Image(systemName: info.funcIcon)

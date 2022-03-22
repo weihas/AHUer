@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftUICharts
 
 struct DistributionView: View {
     @ObservedObject var vm: DistributionShow
@@ -13,17 +14,22 @@ struct DistributionView: View {
     @State var courseName: String = ""
     @State var show: Bool = false
     var body: some View {
-        VStack{
+        ScrollView {
             searchBar
-            List(vm.distributions){ distribution in
-                DistributionCard(content: distribution)
-            }
+            bodyCards
             Spacer()
         }
         .navigationTitle("成绩分布")
         .navigationBarTitleDisplayMode(.inline)
     }
     
+    var bodyCards: some View {
+        LazyVGrid(columns: [GridItem(.adaptive(minimum: 160), spacing: 10)]) {
+            ForEach(vm.distributions) { distribution in
+                DistributionCard2(content: distribution)
+            }
+        }
+    }
     
     var searchBar: some View{
         VStack {
@@ -91,6 +97,18 @@ fileprivate struct DistributionCard: View{
         }
     }
 }
+
+fileprivate struct DistributionCard2: View{
+    let content: Distribution
+    var body: some View {
+        PieChartView(data: content.showForPie, title: content.title, legend: content.legend, colors: [.skyBlue, .blue, .red])
+            .frame(width: 160)
+            .aspectRatio(0.8, contentMode: .fit)
+            .shadow(radius: 5)
+    }
+}
+
+
 
 struct DistributionView_Previews: PreviewProvider {
     static var previews: some View {

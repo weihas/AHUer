@@ -90,6 +90,7 @@
 		35BE038127D9E95F00753940 /* PresentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentView.swift; sourceTree = "<group>"; };
 		35BE038427D9F69300753940 /* LogginPanelShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogginPanelShow.swift; sourceTree = "<group>"; };
 		35BE038727DAF29100753940 /* Environment+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Environment+Extension.swift"; sourceTree = "<group>"; };
+		35D2643027E9B977005B7D4E /* SwiftUICharts */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SwiftUICharts; path = ../../Desktop/SwiftUICharts; sourceTree = "<group>"; };
 		35E9404827C88099001B4070 /* AHUer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AHUer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35E9404F27C8809D001B4070 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		35E9405227C8809D001B4070 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -212,9 +213,18 @@
 			path = Helps;
 			sourceTree = "<group>";
 		};
+		35D2642F27E9B977005B7D4E /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				35D2643027E9B977005B7D4E /* SwiftUICharts */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
 		35E9403F27C88099001B4070 = {
 			isa = PBXGroup;
 			children = (
+				35D2642F27E9B977005B7D4E /* Packages */,
 				35E9404A27C88099001B4070 /* AHUer */,
 				35E9404927C88099001B4070 /* Products */,
 			);
@@ -757,7 +767,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AHUer/Preview Content\"";
-				DEVELOPMENT_TEAM = NVF47AP6H6;
+				DEVELOPMENT_TEAM = 4WB3QMP893;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

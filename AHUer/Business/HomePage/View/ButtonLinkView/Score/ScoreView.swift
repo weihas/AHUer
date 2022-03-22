@@ -24,7 +24,7 @@ struct ScoreView: View {
         .toolbar {
             toolBarContext
         }
-        .popover(isPresented: $showAnalyse) {
+        .sheet(isPresented: $showAnalyse) {
             ScoreAnalyse(vm: vm)
         }
         .navigationTitle("成绩查询")

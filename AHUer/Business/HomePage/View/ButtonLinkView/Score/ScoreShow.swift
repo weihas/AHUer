@@ -43,6 +43,10 @@ class ScoreShow: ObservableObject {
         return ChartData(values: model.terms.map({($0.showTitle,$0.totalCredit)}))
     }
     
+    var gpaData: ChartData {
+        return ChartData(values: model.terms.map({$0.GPA}))
+    }
+    
     
     func freshScoreData(){
         Task{

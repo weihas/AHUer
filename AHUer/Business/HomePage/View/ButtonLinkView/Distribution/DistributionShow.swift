@@ -56,4 +56,21 @@ struct Distribution: Identifiable{
     var between60and80: Double{
         return moreThan60-moreThan80
     }
+    
+    var showForPie: [Double] {
+        let high = moreThan80
+        let mid = moreThan60-moreThan80
+        let low = 1-moreThan60
+        
+        return [high, mid, low]
+    }
+    
+    var title: String {
+        return id + name
+    }
+    
+    var legend: String {
+        return "及格率" + String(format:"%.2f", moreThan60 * 100.0) + "%"
+    }
+    
 }
