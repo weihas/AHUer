@@ -9,7 +9,15 @@ import SwiftUI
 
 struct NextLectureLabel: View {
     @EnvironmentObject var appInfo: AHUAppInfo
-    @StateObject var vm: NextLectureLabelShow
+    var courseName: String
+    
+    var courseProgress: (progress: Double, label: String)
+    
+    var startTime: String
+    
+    var teacher: String
+    
+    var location: String
     
     var body: some View {
         GroupBox {
@@ -24,16 +32,12 @@ struct NextLectureLabel: View {
             Label("即将开始", systemImage: "bolt")
         }
         .padding([.horizontal,.bottom])
-        .onAppear {
-            vm.freshUser()
-            vm.fetchImmediatelyLecture()
-        }
     }
     
     var haveNextLecture: some View {
         VStack(alignment: .leading, spacing: 10){
             HStack {
-                Text(vm.nextCouseName)
+                Text(courseName)
                     .font(.title2)
                     .fontWeight(.medium)
                 Spacer()
@@ -45,17 +49,17 @@ struct NextLectureLabel: View {
             }
             .foregroundColor(.white)
             
-            ProgressView(value: vm.nextCourseProcess.value) {
-                Label(vm.nextCourseProcess.label, systemImage: "clock.badge.checkmark")
+            ProgressView(value: courseProgress.progress) {
+                Label(courseProgress.label, systemImage: "clock.badge.checkmark")
                     .font(.system(size: 10))
                     .foregroundColor(.white)
             }
             .progressViewStyle(LinearProgressViewStyle(tint: .white))
             
             Group{
-                Label(vm.startTime , systemImage: "clock")
-                Label(vm.teacherName, systemImage: "person")
-                Label(vm.location, systemImage: "location")
+                Label(startTime , systemImage: "clock")
+                Label(teacher, systemImage: "person")
+                Label(location, systemImage: "location")
             }
             .font(.footnote)
             .foregroundColor(.white)
@@ -64,9 +68,10 @@ struct NextLectureLabel: View {
     }
 }
 
-
+#if DEBUG
 struct NextLectureLabel_Previews: PreviewProvider {
     static var previews: some View {
-        NextLectureLabel(vm: NextLectureLabelShow())
+        NextLectureLabel(courseName: "高等数学", courseProgress: (0.8, "剩余次数: 11/18"), startTime: "8:20 - 10:00", teacher: "Lucy", location: "博北某地")
     }
 }
+#endif

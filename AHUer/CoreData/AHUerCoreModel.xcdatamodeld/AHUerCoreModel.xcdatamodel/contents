@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="21D62" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21E230" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Course" representedClassName="Course" syncable="YES" codeGenerationType="class">
         <attribute name="courseId" optional="YES" attributeType="String"/>
         <attribute name="endWeek" optional="YES" attributeType="Integer 64" minValueString="0" maxValueString="30" defaultValueString="0" usesScalarValueType="YES"/>
@@ -35,7 +35,7 @@
         <relationship name="owner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Student" inverseName="grades" inverseEntity="Student"/>
     </entity>
     <entity name="Student" representedClassName="Student" syncable="YES" codeGenerationType="class">
-        <attribute name="southisMen" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="northisMen" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="studentID" optional="YES" attributeType="String"/>
         <attribute name="studentName" optional="YES" attributeType="String"/>
         <attribute name="termGradePoint" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>

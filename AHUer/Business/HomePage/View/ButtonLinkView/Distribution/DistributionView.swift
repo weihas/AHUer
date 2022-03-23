@@ -26,7 +26,7 @@ struct DistributionView: View {
     var bodyCards: some View {
         LazyVGrid(columns: [GridItem(.adaptive(minimum: 160), spacing: 10)]) {
             ForEach(vm.distributions) { distribution in
-                DistributionCard2(content: distribution)
+                DistributionCard(content: distribution)
             }
         }
     }
@@ -66,7 +66,8 @@ struct DistributionView: View {
                     .lineLimit(1)
                     .padding(.horizontal)
                     .padding(.vertical,5)
-                    .background(Capsule().fill(Color.skyBlue))
+                    .background(Capsule().fill(Color.skyBlue).shadow(radius: 2))
+                    
                 }
             }
             .padding()
@@ -80,25 +81,7 @@ struct DistributionView: View {
     }
 }
 
-#warning("完成成绩分布的新List Cell UI制作")
 fileprivate struct DistributionCard: View{
-    let content: Distribution
-    var body: some View {
-        VStack(alignment: .leading){
-            HStack{
-                Text(content.id)
-                Text(content.name)
-            }
-            .font(.headline)
-            Text("优秀\(content.moreThan80*100, specifier: "%.2f")%")
-            Text("中等\(content.between60and80*100, specifier: "%.2f")%")
-            Text("及格率\(content.moreThan60*100, specifier: "%.2f")%")
-                .underline()
-        }
-    }
-}
-
-fileprivate struct DistributionCard2: View{
     let content: Distribution
     var body: some View {
         PieChartView(data: content.showForPie, title: content.title, legend: content.legend, colors: [.skyBlue, .blue, .red])
@@ -112,7 +95,7 @@ fileprivate struct DistributionCard2: View{
 
 struct DistributionView_Previews: PreviewProvider {
     static var previews: some View {
-        var vm = DistributionShow()
+        let vm = DistributionShow()
         vm.distributions = [Distribution(id: "CG12345", name: "高等数学", moreThan80: 0.45, moreThan60: 0.90),
                             Distribution(id: "CG12345", name: "这是一个测试", moreThan80: 0.45, moreThan60: 0.90)]
         return DistributionView(vm: vm)

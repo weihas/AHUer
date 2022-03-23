@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		35073C8F27DB85A600AC037B /* NextLectureLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35073C8E27DB85A600AC037B /* NextLectureLabel.swift */; };
-		35073C9127DB89B700AC037B /* NextLectureLabelShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35073C9027DB89B700AC037B /* NextLectureLabelShow.swift */; };
 		35218F3A27EB135900E0D7F0 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 35218F3927EB135900E0D7F0 /* SwiftyJSON */; };
 		35218F4027EB13B400E0D7F0 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 35218F3F27EB13B400E0D7F0 /* Moya */; };
 		35218F4327EB13DB00E0D7F0 /* SwiftyRSA in Frameworks */ = {isa = PBXBuildFile; productRef = 35218F4227EB13DB00E0D7F0 /* SwiftyRSA */; };
 		35218F4627EB140B00E0D7F0 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 35218F4527EB140B00E0D7F0 /* SwiftUICharts */; };
+		3523340B27EB5CFB0054C0AD /* HomePageNextLecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3523340A27EB5CFB0054C0AD /* HomePageNextLecture.swift */; };
 		35243B1F27CD1B0D00E90BC6 /* GalleryScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35243B1E27CD1B0D00E90BC6 /* GalleryScheduleView.swift */; };
 		3568A10027DA4AB100FE3E9B /* UserDefaults+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3568A0FF27DA4AB100FE3E9B /* UserDefaults+.swift */; };
 		3572FF6D27DDC0E800921C58 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3572FF6C27DDC0E800921C58 /* Array+Extension.swift */; };
@@ -33,7 +33,7 @@
 		35E9406827C88128001B4070 /* AHUerCoreModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 35E9406427C88128001B4070 /* AHUerCoreModel.xcdatamodeld */; };
 		35E9409127C8813B001B4070 /* HomePageShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9407227C8813B001B4070 /* HomePageShow.swift */; };
 		35E9409227C8813B001B4070 /* HomePageFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9407427C8813B001B4070 /* HomePageFunc.swift */; };
-		35E9409327C8813B001B4070 /* HomePageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9407527C8813B001B4070 /* HomePageInfo.swift */; };
+		35E9409327C8813B001B4070 /* HomePageTips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9407527C8813B001B4070 /* HomePageTips.swift */; };
 		35E9409427C8813B001B4070 /* BathOpenShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9407927C8813B001B4070 /* BathOpenShow.swift */; };
 		35E9409527C8813B001B4070 /* BathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9407A27C8813B001B4070 /* BathView.swift */; };
 		35E9409627C8813B001B4070 /* MoreViewShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9407C27C8813B001B4070 /* MoreViewShow.swift */; };
@@ -80,7 +80,7 @@
 
 /* Begin PBXFileReference section */
 		35073C8E27DB85A600AC037B /* NextLectureLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextLectureLabel.swift; sourceTree = "<group>"; };
-		35073C9027DB89B700AC037B /* NextLectureLabelShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextLectureLabelShow.swift; sourceTree = "<group>"; };
+		3523340A27EB5CFB0054C0AD /* HomePageNextLecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageNextLecture.swift; sourceTree = "<group>"; };
 		35243B1E27CD1B0D00E90BC6 /* GalleryScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryScheduleView.swift; sourceTree = "<group>"; };
 		3568A0FF27DA4AB100FE3E9B /* UserDefaults+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+.swift"; sourceTree = "<group>"; };
 		3572FF6C27DDC0E800921C58 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
@@ -101,7 +101,7 @@
 		35E9406527C88128001B4070 /* AHUerCoreModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AHUerCoreModel.xcdatamodel; sourceTree = "<group>"; };
 		35E9407227C8813B001B4070 /* HomePageShow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageShow.swift; sourceTree = "<group>"; };
 		35E9407427C8813B001B4070 /* HomePageFunc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageFunc.swift; sourceTree = "<group>"; };
-		35E9407527C8813B001B4070 /* HomePageInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageInfo.swift; sourceTree = "<group>"; };
+		35E9407527C8813B001B4070 /* HomePageTips.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageTips.swift; sourceTree = "<group>"; };
 		35E9407927C8813B001B4070 /* BathOpenShow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BathOpenShow.swift; sourceTree = "<group>"; };
 		35E9407A27C8813B001B4070 /* BathView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BathView.swift; sourceTree = "<group>"; };
 		35E9407C27C8813B001B4070 /* MoreViewShow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreViewShow.swift; sourceTree = "<group>"; };
@@ -162,15 +162,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		35073C9227DB89E000AC037B /* NextLectureLabel */ = {
-			isa = PBXGroup;
-			children = (
-				35073C9027DB89B700AC037B /* NextLectureLabelShow.swift */,
-				35073C8E27DB85A600AC037B /* NextLectureLabel.swift */,
-			);
-			path = NextLectureLabel;
-			sourceTree = "<group>";
-		};
 		3568A0FE27DA452C00FE3E9B /* Business */ = {
 			isa = PBXGroup;
 			children = (
@@ -294,8 +285,9 @@
 		35E9407327C8813B001B4070 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3523340A27EB5CFB0054C0AD /* HomePageNextLecture.swift */,
 				35E9407427C8813B001B4070 /* HomePageFunc.swift */,
-				35E9407527C8813B001B4070 /* HomePageInfo.swift */,
+				35E9407527C8813B001B4070 /* HomePageTips.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -304,7 +296,7 @@
 			isa = PBXGroup;
 			children = (
 				35E9409027C8813B001B4070 /* HomePageView.swift */,
-				35073C9227DB89E000AC037B /* NextLectureLabel */,
+				35073C8E27DB85A600AC037B /* NextLectureLabel.swift */,
 				35E9407727C8813B001B4070 /* ButtonLinkView */,
 			);
 			path = View;
@@ -571,6 +563,7 @@
 				35E940B327C88149001B4070 /* TimeScheduleAddLectureView.swift in Sources */,
 				35E9409B27C8813B001B4070 /* EmptyRoomShow.swift in Sources */,
 				35073C8F27DB85A600AC037B /* NextLectureLabel.swift in Sources */,
+				3523340B27EB5CFB0054C0AD /* HomePageNextLecture.swift in Sources */,
 				35E940DA27C88165001B4070 /* Button+Style.swift in Sources */,
 				35E940B927C88151001B4070 /* NewsModels.swift in Sources */,
 				35BE038527D9F69300753940 /* LogginPanelShow.swift in Sources */,
@@ -605,9 +598,8 @@
 				35E940B127C88149001B4070 /* TimeSchedulePageView.swift in Sources */,
 				3572FF6D27DDC0E800921C58 /* Array+Extension.swift in Sources */,
 				35E9406627C88128001B4070 /* Persistence.swift in Sources */,
-				35E9409327C8813B001B4070 /* HomePageInfo.swift in Sources */,
+				35E9409327C8813B001B4070 /* HomePageTips.swift in Sources */,
 				35E9409427C8813B001B4070 /* BathOpenShow.swift in Sources */,
-				35073C9127DB89B700AC037B /* NextLectureLabelShow.swift in Sources */,
 				35E9409627C8813B001B4070 /* MoreViewShow.swift in Sources */,
 				35E940E127C88165001B4070 /* Popup.swift in Sources */,
 				35E9409727C8813B001B4070 /* MoreView.swift in Sources */,
@@ -757,7 +749,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AHUer/Preview Content\"";
-				DEVELOPMENT_TEAM = 4WB3QMP893;
+				DEVELOPMENT_TEAM = NVF47AP6H6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

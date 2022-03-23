@@ -9,6 +9,7 @@ import SwiftUI
 
 struct EmptyRoomView: View{
     @EnvironmentObject var appInfo: AHUAppInfo
+    @Environment(\.colorScheme) var colorScheme
     @ObservedObject var vm: EmptyRoomShow
     @State private var campus: Campus = .Qinyuan
     @State private var weekNum: Int = 10
@@ -57,8 +58,8 @@ extension EmptyRoomView{
             HStack{
                 Text("第 \(weekNum) 周")
                     .padding(7)
-                    .background(RoundedRectangle(cornerRadius: 7).fill(Color(red: 0.93, green: 0.93, blue: 0.93)))
-                    .foregroundColor(weekNumChoose ? .blue : .black)
+                    .background(RoundedRectangle(cornerRadius: 7).fill(colorScheme.isLight ? Color.lightGray : Color.darkGray))
+                    .foregroundColor(weekNumChoose ? .blue : .primary)
                     .onTapGesture{
                         withAnimation {
                             weekNumChoose.toggle()
@@ -68,8 +69,8 @@ extension EmptyRoomView{
                     }
                 Text(weekDay.description)
                     .padding(7)
-                    .background(RoundedRectangle(cornerRadius: 7).fill(Color(red: 0.93, green: 0.93, blue: 0.93)))
-                    .foregroundColor(weekDayChoose ? .blue : .black)
+                    .background(RoundedRectangle(cornerRadius: 7).fill(colorScheme.isLight ? Color.lightGray : Color.darkGray))
+                    .foregroundColor(weekDayChoose ? .blue : .primary)
                     .onTapGesture {
                         withAnimation{
                             weekNumChoose = false
@@ -80,8 +81,8 @@ extension EmptyRoomView{
                 
                 Text(time.description)
                     .padding(7)
-                    .background(RoundedRectangle(cornerRadius: 7).fill(Color(red: 0.93, green: 0.93, blue: 0.93)))
-                    .foregroundColor(timeChoose ? .blue : .black)
+                    .background(RoundedRectangle(cornerRadius: 7).fill(colorScheme.isLight ? Color.lightGray : Color.darkGray))
+                    .foregroundColor(timeChoose ? .blue : .primary)
                     .onTapGesture {
                         withAnimation{
                             weekNumChoose = false

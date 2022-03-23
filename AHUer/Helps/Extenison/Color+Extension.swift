@@ -34,6 +34,14 @@ extension Color{
         return Color(r: 160, g: 102, b: 211)
     }
     
+    static var darkGray: Color {
+        return Color(r: 91, g: 90, b: 96)
+    }
+    
+    static var lightGray: Color {
+        return Color(r: 238, g: 238, b: 238)
+    }
+    
     //If BlackModel, return white ,WhiteModel return black
     static var background: Color{
         return Color(.systemBackground)
@@ -41,5 +49,11 @@ extension Color{
     
     init(r: Double, g: Double, b: Double) {
         self.init(red: r/255.0, green: g/255.0, blue: b/255.0)
+    }
+}
+
+extension ColorScheme {
+    var isLight: Bool {
+        return self == .light
     }
 }

@@ -8,18 +8,13 @@
 import Foundation
 import SwiftUI
 
-struct HomePageInfo {
-    var northBathroomisMen: Bool
-    var gpa: (thisterm: Double , all: Double)
-    var exam: (name: String, time: String)?
+struct HomePageTips {
+    private(set) var southisMen: Bool = true
+    private(set) var gpa: (thisterm: Double , all: Double) = (0.0, 0.0)
+    private(set) var exam: (name: String, time: String)?
     
-    init() {
-        northBathroomisMen = true
-        gpa = (0.0, 0.0)
-        exam = nil
-    }
     
-    mutating func fetchMyExam(){
+    private mutating func fetchMyExam(){
         guard let user = Student.nowUser(),
               let nextExam = Exam.fetch(by: NSPredicate(format: "owner = %@ AND schoolYear = %@ AND schoolTerm = %@", user, "2020-2021", NSNumber(value: 1)), sort: ["time": true])?.first,
               let name = nextExam.course,
@@ -31,8 +26,22 @@ struct HomePageInfo {
         exam = (name,time)
     }
     
-    mutating func fetchMyScore(){
+    private mutating func fetchMyBath(){
+        guard let user = Student.nowUser() else { return }
+        self.southisMen = user.northisMen
+    }
+    
+    
+    private mutating func fetchMyScore(){
         guard let user = Student.nowUser() else { gpa = (0.0, 0.0) ; return }
         gpa = (user.termGradePoint , user.totalGradePointAverage)
     }
+    
+    @MainActor
+    mutating func fetchModel() {
+        fetchMyExam()
+        fetchMyBath()
+        fetchMyScore()
+    }
+
 }

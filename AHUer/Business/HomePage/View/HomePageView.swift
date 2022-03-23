@@ -10,7 +10,6 @@ import SwiftUI
 struct HomePageView: View {
     @EnvironmentObject var appInfo: AHUAppInfo
     @ObservedObject var vm: HomePageShow
-    @ObservedObject var lectureLabelvm = NextLectureLabelShow()
     @State var showGPA: Bool = false
     var body: some View {
         NavigationView{
@@ -21,7 +20,13 @@ struct HomePageView: View {
                             appInfo.tabItemNum = 3
                         }
                     LazyVGrid(columns: [GridItem(.adaptive(minimum: 450), alignment: .top)]) {
-                        NextLectureLabel(vm: lectureLabelvm)
+                        NextLectureLabel(
+                            courseName: vm.nextCourseName,
+                            courseProgress: vm.nextCourseProgress,
+                            startTime: vm.nextCourseStartTime,
+                            teacher: vm.nextCourseTeacher,
+                            location: vm.nextCourseLocation
+                        )
                         buttonsLabel
                         tipsLabel
                     }
@@ -31,8 +36,7 @@ struct HomePageView: View {
                 .groupBoxStyle(ModuleBoxStyle())
             }
             .onAppear{
-                vm.freshModel()
-                lectureLabelvm.freshUser()
+                vm.freshModels()
             }
             .navigationTitle("今天")
             .navigationBarTitleDisplayMode(.automatic)
@@ -43,10 +47,10 @@ struct HomePageView: View {
     
     private var helloLabel: some View {
         VStack(alignment: .leading){
-            Text(lectureLabelvm.welcomeTitle)
+            Text(vm.welcomeTitle)
                 .foregroundColor(.gray)
                 .padding(.horizontal)
-            if let subtitle = lectureLabelvm.welcomeSubtitle {
+            if let subtitle = vm.welcomeSubtitle {
                 Text(subtitle)
                     .font(.footnote)
                     .foregroundColor(.green)
@@ -117,8 +121,8 @@ extension HomePageView {
         NavigationLink(destination: BathView(vm: vm.bathInfoVM)) {
             GroupBox(label: Label("浴室开放", systemImage: "drop")){
                 VStack(alignment: .leading){
-                    Text("北区: " + (vm.NorthBathroomisMen ? "男生" : "女生"))
-                    Text( "南区/蕙园: " + (vm.NorthBathroomisMen ? "女生" : "男生"))
+                    Text("北区: " + (vm.northBathisMen ? "男生" : "女生"))
+                    Text( "南区/蕙园: " + (vm.northBathisMen ? "女生" : "男生"))
                 }
             }
             .groupBoxStyle(ColorBoxStyle(.purple))

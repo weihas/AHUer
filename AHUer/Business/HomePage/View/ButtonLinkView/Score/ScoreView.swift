@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ScoreView: View {
     @EnvironmentObject var appInfo: AHUAppInfo
+    @Environment(\.colorScheme) var colorScheme
     @ObservedObject var vm: ScoreShow
     @State var showTimeChoose: Bool = false
     @State var showAnalyse: Bool = false
@@ -53,8 +54,8 @@ struct ScoreView: View {
         VStack{
             Text(vm.termNow?.showTitle ?? " 刷新数据以获取成绩 ")
                 .padding(7)
-                .background(RoundedRectangle(cornerRadius: 7).fill(Color(red: 0.93, green: 0.93, blue: 0.93)))
-                .foregroundColor(showTimeChoose ? .blue : .black)
+                .background(RoundedRectangle(cornerRadius: 7).fill(colorScheme.isLight ? Color.lightGray : Color.darkGray))
+                .foregroundColor(showTimeChoose ? .blue : .primary)
                 .onTapGesture{
                     withAnimation {
                         if vm.termNow == nil {
