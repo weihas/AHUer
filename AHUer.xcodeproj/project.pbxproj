@@ -9,19 +9,20 @@
 /* Begin PBXBuildFile section */
 		35073C8F27DB85A600AC037B /* NextLectureLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35073C8E27DB85A600AC037B /* NextLectureLabel.swift */; };
 		35073C9127DB89B700AC037B /* NextLectureLabelShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35073C9027DB89B700AC037B /* NextLectureLabelShow.swift */; };
+		35218F3A27EB135900E0D7F0 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 35218F3927EB135900E0D7F0 /* SwiftyJSON */; };
+		35218F4027EB13B400E0D7F0 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 35218F3F27EB13B400E0D7F0 /* Moya */; };
+		35218F4327EB13DB00E0D7F0 /* SwiftyRSA in Frameworks */ = {isa = PBXBuildFile; productRef = 35218F4227EB13DB00E0D7F0 /* SwiftyRSA */; };
+		35218F4627EB140B00E0D7F0 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 35218F4527EB140B00E0D7F0 /* SwiftUICharts */; };
 		35243B1F27CD1B0D00E90BC6 /* GalleryScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35243B1E27CD1B0D00E90BC6 /* GalleryScheduleView.swift */; };
-		35525B9427DE3BCE009B58BA /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 35525B9327DE3BCE009B58BA /* SwiftUICharts */; };
 		3568A10027DA4AB100FE3E9B /* UserDefaults+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3568A0FF27DA4AB100FE3E9B /* UserDefaults+.swift */; };
 		3572FF6D27DDC0E800921C58 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3572FF6C27DDC0E800921C58 /* Array+Extension.swift */; };
 		358589E927CFB93F00D9DFF3 /* AHUerAPIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358589E827CFB93F00D9DFF3 /* AHUerAPIProvider.swift */; };
 		358589EB27CFBAB800D9DFF3 /* AHUerAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358589EA27CFBAB800D9DFF3 /* AHUerAPIError.swift */; };
 		358589ED27CFBB4100D9DFF3 /* AHUerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358589EC27CFBB4100D9DFF3 /* AHUerAPI.swift */; };
-		358589F027CFBBE400D9DFF3 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 358589EF27CFBBE400D9DFF3 /* Moya */; };
 		358589F327CFBE8400D9DFF3 /* AHUerAPIDetail in Frameworks */ = {isa = PBXBuildFile; productRef = 358589F227CFBE8400D9DFF3 /* AHUerAPIDetail */; };
 		35BE038227D9E95F00753940 /* PresentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BE038127D9E95F00753940 /* PresentView.swift */; };
 		35BE038527D9F69300753940 /* LogginPanelShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BE038427D9F69300753940 /* LogginPanelShow.swift */; };
 		35BE038827DAF29100753940 /* Environment+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BE038727DAF29100753940 /* Environment+Extension.swift */; };
-		35C2AEC727D210FD003CCBE4 /* SwiftyRSA in Frameworks */ = {isa = PBXBuildFile; productRef = 35C2AEC627D210FD003CCBE4 /* SwiftyRSA */; };
 		35E9405027C8809D001B4070 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35E9404F27C8809D001B4070 /* Assets.xcassets */; };
 		35E9405327C8809D001B4070 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35E9405227C8809D001B4070 /* Preview Assets.xcassets */; };
 		35E9405C27C8810D001B4070 /* AHUAppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9405B27C8810D001B4070 /* AHUAppInfo.swift */; };
@@ -73,7 +74,6 @@
 		35E940DF27C88165001B4070 /* GroupBox+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E940D627C88165001B4070 /* GroupBox+Style.swift */; };
 		35E940E027C88165001B4070 /* Date+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E940D727C88165001B4070 /* Date+Helper.swift */; };
 		35E940E127C88165001B4070 /* Popup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E940D827C88165001B4070 /* Popup.swift */; };
-		35E940E727C8822A001B4070 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 35E940E627C8822A001B4070 /* SwiftyJSON */; };
 		35E940E927C883AF001B4070 /* AHUerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E940E827C883AF001B4070 /* AHUerApp.swift */; };
 		35F6451027DDE384001F24E9 /* ScoreAnalyse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F6450F27DDE384001F24E9 /* ScoreAnalyse.swift */; };
 /* End PBXBuildFile section */
@@ -90,7 +90,6 @@
 		35BE038127D9E95F00753940 /* PresentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentView.swift; sourceTree = "<group>"; };
 		35BE038427D9F69300753940 /* LogginPanelShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogginPanelShow.swift; sourceTree = "<group>"; };
 		35BE038727DAF29100753940 /* Environment+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Environment+Extension.swift"; sourceTree = "<group>"; };
-		35D2643027E9B977005B7D4E /* SwiftUICharts */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SwiftUICharts; path = ../../Desktop/SwiftUICharts; sourceTree = "<group>"; };
 		35E9404827C88099001B4070 /* AHUer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AHUer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35E9404F27C8809D001B4070 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		35E9405227C8809D001B4070 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -152,11 +151,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35218F3A27EB135900E0D7F0 /* SwiftyJSON in Frameworks */,
 				358589F327CFBE8400D9DFF3 /* AHUerAPIDetail in Frameworks */,
-				35C2AEC727D210FD003CCBE4 /* SwiftyRSA in Frameworks */,
-				358589F027CFBBE400D9DFF3 /* Moya in Frameworks */,
-				35E940E727C8822A001B4070 /* SwiftyJSON in Frameworks */,
-				35525B9427DE3BCE009B58BA /* SwiftUICharts in Frameworks */,
+				35218F4027EB13B400E0D7F0 /* Moya in Frameworks */,
+				35218F4627EB140B00E0D7F0 /* SwiftUICharts in Frameworks */,
+				35218F4327EB13DB00E0D7F0 /* SwiftyRSA in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,18 +212,9 @@
 			path = Helps;
 			sourceTree = "<group>";
 		};
-		35D2642F27E9B977005B7D4E /* Packages */ = {
-			isa = PBXGroup;
-			children = (
-				35D2643027E9B977005B7D4E /* SwiftUICharts */,
-			);
-			name = Packages;
-			sourceTree = "<group>";
-		};
 		35E9403F27C88099001B4070 = {
 			isa = PBXGroup;
 			children = (
-				35D2642F27E9B977005B7D4E /* Packages */,
 				35E9404A27C88099001B4070 /* AHUer */,
 				35E9404927C88099001B4070 /* Products */,
 			);
@@ -508,11 +498,11 @@
 			);
 			name = AHUer;
 			packageProductDependencies = (
-				35E940E627C8822A001B4070 /* SwiftyJSON */,
-				358589EF27CFBBE400D9DFF3 /* Moya */,
 				358589F227CFBE8400D9DFF3 /* AHUerAPIDetail */,
-				35C2AEC627D210FD003CCBE4 /* SwiftyRSA */,
-				35525B9327DE3BCE009B58BA /* SwiftUICharts */,
+				35218F3927EB135900E0D7F0 /* SwiftyJSON */,
+				35218F3F27EB13B400E0D7F0 /* Moya */,
+				35218F4227EB13DB00E0D7F0 /* SwiftyRSA */,
+				35218F4527EB140B00E0D7F0 /* SwiftUICharts */,
 			);
 			productName = AHUer;
 			productReference = 35E9404827C88099001B4070 /* AHUer.app */;
@@ -543,11 +533,11 @@
 			);
 			mainGroup = 35E9403F27C88099001B4070;
 			packageReferences = (
-				35E940E527C8822A001B4070 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
-				358589EE27CFBBE400D9DFF3 /* XCRemoteSwiftPackageReference "Moya" */,
 				358589F127CFBE8400D9DFF3 /* XCRemoteSwiftPackageReference "AHUerAPIDetail" */,
-				35C2AEC527D210FD003CCBE4 /* XCRemoteSwiftPackageReference "SwiftyRSA" */,
-				35525B9227DE3BCE009B58BA /* XCRemoteSwiftPackageReference "SwiftUICharts" */,
+				35218F3827EB135900E0D7F0 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				35218F3E27EB13B400E0D7F0 /* XCRemoteSwiftPackageReference "Moya" */,
+				35218F4127EB13DB00E0D7F0 /* XCRemoteSwiftPackageReference "SwiftyRSA" */,
+				35218F4427EB140B00E0D7F0 /* XCRemoteSwiftPackageReference "SwiftUIcharts" */,
 			);
 			productRefGroup = 35E9404927C88099001B4070 /* Products */;
 			projectDirPath = "";
@@ -843,20 +833,36 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		35525B9227DE3BCE009B58BA /* XCRemoteSwiftPackageReference "SwiftUICharts" */ = {
+		35218F3827EB135900E0D7F0 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:weihas/SwiftUICharts.git";
+			repositoryURL = "https://github.com/weihas/SwiftyJSON.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.0.1;
+				minimumVersion = 5.0.0;
 			};
 		};
-		358589EE27CFBBE400D9DFF3 /* XCRemoteSwiftPackageReference "Moya" */ = {
+		35218F3E27EB13B400E0D7F0 /* XCRemoteSwiftPackageReference "Moya" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:weihas/Moya.git";
+			repositoryURL = "https://github.com/weihas/Moya.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 15.0.0;
+			};
+		};
+		35218F4127EB13DB00E0D7F0 /* XCRemoteSwiftPackageReference "SwiftyRSA" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/weihas/SwiftyRSA.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		35218F4427EB140B00E0D7F0 /* XCRemoteSwiftPackageReference "SwiftUIcharts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/weihas/SwiftUIcharts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.1;
 			};
 		};
 		358589F127CFBE8400D9DFF3 /* XCRemoteSwiftPackageReference "AHUerAPIDetail" */ = {
@@ -867,49 +873,33 @@
 				kind = branch;
 			};
 		};
-		35C2AEC527D210FD003CCBE4 /* XCRemoteSwiftPackageReference "SwiftyRSA" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:weihas/SwiftyRSA.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-		35E940E527C8822A001B4070 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:weihas/SwiftyJSON.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		35525B9327DE3BCE009B58BA /* SwiftUICharts */ = {
+		35218F3927EB135900E0D7F0 /* SwiftyJSON */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 35525B9227DE3BCE009B58BA /* XCRemoteSwiftPackageReference "SwiftUICharts" */;
-			productName = SwiftUICharts;
+			package = 35218F3827EB135900E0D7F0 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
 		};
-		358589EF27CFBBE400D9DFF3 /* Moya */ = {
+		35218F3F27EB13B400E0D7F0 /* Moya */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 358589EE27CFBBE400D9DFF3 /* XCRemoteSwiftPackageReference "Moya" */;
+			package = 35218F3E27EB13B400E0D7F0 /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = Moya;
+		};
+		35218F4227EB13DB00E0D7F0 /* SwiftyRSA */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 35218F4127EB13DB00E0D7F0 /* XCRemoteSwiftPackageReference "SwiftyRSA" */;
+			productName = SwiftyRSA;
+		};
+		35218F4527EB140B00E0D7F0 /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 35218F4427EB140B00E0D7F0 /* XCRemoteSwiftPackageReference "SwiftUIcharts" */;
+			productName = SwiftUICharts;
 		};
 		358589F227CFBE8400D9DFF3 /* AHUerAPIDetail */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 358589F127CFBE8400D9DFF3 /* XCRemoteSwiftPackageReference "AHUerAPIDetail" */;
 			productName = AHUerAPIDetail;
-		};
-		35C2AEC627D210FD003CCBE4 /* SwiftyRSA */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 35C2AEC527D210FD003CCBE4 /* XCRemoteSwiftPackageReference "SwiftyRSA" */;
-			productName = SwiftyRSA;
-		};
-		35E940E627C8822A001B4070 /* SwiftyJSON */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 35E940E527C8822A001B4070 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
-			productName = SwiftyJSON;
 		};
 /* End XCSwiftPackageProductDependency section */
 
