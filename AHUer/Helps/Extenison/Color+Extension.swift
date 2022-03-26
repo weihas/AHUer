@@ -50,6 +50,22 @@ extension Color{
     init(r: Double, g: Double, b: Double) {
         self.init(red: r/255.0, green: g/255.0, blue: b/255.0)
     }
+    
+    static func courseColor(courseId: String) -> Color {
+        if courseId.contains("ZH") {
+            return .red
+        } else if courseId.contains("ZX") {
+            return .blue
+        } else if courseId.contains("ZJ") {
+            return .purple
+        } else if courseId.contains("GG") {
+            return .green
+        } else if courseId.contains("TY") {
+            return .yellow
+        } else {
+            return .orange
+        }
+    }
 }
 
 extension ColorScheme {

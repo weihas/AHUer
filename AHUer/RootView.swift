@@ -21,7 +21,7 @@ struct RootView: View {
                     Text("主页")
                 }
                 .tag(0)
-            TimeSchedulePageView(vm: rootVM.timeScheduleViewModel)
+            ScheduleView(vm: rootVM.timeScheduleViewModel)
                 .tabItem {
                     Image(systemName: "list.bullet.rectangle")
                     Text("课表")

@@ -123,13 +123,13 @@ extension EmptyRoomView{
     @ViewBuilder
     private func weekDayChooseSegment() -> some View{
         Divider()
-        Picker("周几选择", selection: $weekDay){
-            ForEach(Weekday.allCases){ weeday in
-                Text(weeday.description).tag(weeday)
-            }
-        }
-        .pickerStyle(InlinePickerStyle())
-        .transition(.opacity)
+//        Picker("周几选择", selection: $weekDay){
+//            ForEach(Weekday.allCases){ weeday in
+//                Text(weeday.description).tag(weeday)
+//            }
+//        }
+//        .pickerStyle(InlinePickerStyle())
+//        .transition(.opacity)
         
     }
     

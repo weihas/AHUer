@@ -15,8 +15,8 @@ class RootViewShow {
         return HomePageShow()
     }()
     
-    lazy var timeScheduleViewModel: TimeScheduleShow = {
-        return TimeScheduleShow()
+    lazy var timeScheduleViewModel: ScheduleShow = {
+        return ScheduleShow()
     }()
     
     lazy var PersonalPageViewModel: PersonalPageShow = {

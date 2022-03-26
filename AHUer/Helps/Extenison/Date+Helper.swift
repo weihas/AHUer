@@ -91,19 +91,19 @@ public extension Date {
         var day: String = ""
         switch Calendar.current.component(.weekday, from: self){
         case 1:
-            day = "周日"
+            day = "日"
         case 2:
-            day = "周一"
+            day = "一"
         case 3:
-            day = "周二"
+            day = "二"
         case 4:
-            day = "周三"
+            day = "三"
         case 5:
-            day = "周四"
+            day = "四"
         case 6:
-            day = "周五"
+            day = "五"
         default:
-            day = "周六"
+            day = "六"
         }
         return day
     }

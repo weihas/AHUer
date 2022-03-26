@@ -13,16 +13,27 @@
 		35218F4327EB13DB00E0D7F0 /* SwiftyRSA in Frameworks */ = {isa = PBXBuildFile; productRef = 35218F4227EB13DB00E0D7F0 /* SwiftyRSA */; };
 		35218F4627EB140B00E0D7F0 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 35218F4527EB140B00E0D7F0 /* SwiftUICharts */; };
 		3523340B27EB5CFB0054C0AD /* HomePageNextLecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3523340A27EB5CFB0054C0AD /* HomePageNextLecture.swift */; };
-		35243B1F27CD1B0D00E90BC6 /* GalleryScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35243B1E27CD1B0D00E90BC6 /* GalleryScheduleView.swift */; };
 		3568A10027DA4AB100FE3E9B /* UserDefaults+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3568A0FF27DA4AB100FE3E9B /* UserDefaults+.swift */; };
 		3572FF6D27DDC0E800921C58 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3572FF6C27DDC0E800921C58 /* Array+Extension.swift */; };
 		358589E927CFB93F00D9DFF3 /* AHUerAPIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358589E827CFB93F00D9DFF3 /* AHUerAPIProvider.swift */; };
 		358589EB27CFBAB800D9DFF3 /* AHUerAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358589EA27CFBAB800D9DFF3 /* AHUerAPIError.swift */; };
 		358589ED27CFBB4100D9DFF3 /* AHUerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358589EC27CFBB4100D9DFF3 /* AHUerAPI.swift */; };
 		358589F327CFBE8400D9DFF3 /* AHUerAPIDetail in Frameworks */ = {isa = PBXBuildFile; productRef = 358589F227CFBE8400D9DFF3 /* AHUerAPIDetail */; };
+		35A2637F27EF481E00F28859 /* ScheduleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A2637E27EF481E00F28859 /* ScheduleStyle.swift */; };
+		35A2638127EF543100F28859 /* ScheduleCourseInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A2638027EF543100F28859 /* ScheduleCourseInfo.swift */; };
+		35A2638327EF68E000F28859 /* ScheduleGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A2638227EF68E000F28859 /* ScheduleGalleryView.swift */; };
+		35A2638727EF77AF00F28859 /* TimeStripsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A2638627EF77AF00F28859 /* TimeStripsView.swift */; };
 		35BE038227D9E95F00753940 /* PresentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BE038127D9E95F00753940 /* PresentView.swift */; };
 		35BE038527D9F69300753940 /* LogginPanelShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BE038427D9F69300753940 /* LogginPanelShow.swift */; };
 		35BE038827DAF29100753940 /* Environment+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BE038727DAF29100753940 /* Environment+Extension.swift */; };
+		35C08DF927EE135800490DD9 /* ScheduleShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C08DF827EE135800490DD9 /* ScheduleShow.swift */; };
+		35C08DFB27EE136700490DD9 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C08DFA27EE136700490DD9 /* Schedule.swift */; };
+		35C08DFF27EE13B600490DD9 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C08DFC27EE13B600490DD9 /* ScheduleView.swift */; };
+		35C08E0027EE13B600490DD9 /* ScheduleDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C08DFD27EE13B600490DD9 /* ScheduleDayView.swift */; };
+		35C08E0127EE13B600490DD9 /* LectureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C08DFE27EE13B600490DD9 /* LectureCell.swift */; };
+		35C08E0527EE13F900490DD9 /* ScheduleTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C08E0327EE13F900490DD9 /* ScheduleTime.swift */; };
+		35C08E0627EE13F900490DD9 /* WeedDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C08E0427EE13F900490DD9 /* WeedDay.swift */; };
+		35C08E0827EE196000490DD9 /* Course+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C08E0727EE196000490DD9 /* Course+Extension.swift */; };
 		35E9405027C8809D001B4070 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35E9404F27C8809D001B4070 /* Assets.xcassets */; };
 		35E9405327C8809D001B4070 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35E9405227C8809D001B4070 /* Preview Assets.xcassets */; };
 		35E9405C27C8810D001B4070 /* AHUAppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9405B27C8810D001B4070 /* AHUAppInfo.swift */; };
@@ -50,10 +61,6 @@
 		35E940A327C8813B001B4070 /* AddressBookShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9408E27C8813B001B4070 /* AddressBookShow.swift */; };
 		35E940A427C8813B001B4070 /* AddressBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9408F27C8813B001B4070 /* AddressBookView.swift */; };
 		35E940A527C8813B001B4070 /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9409027C8813B001B4070 /* HomePageView.swift */; };
-		35E940AF27C88149001B4070 /* TimeScheduleShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E940A827C88149001B4070 /* TimeScheduleShow.swift */; };
-		35E940B027C88149001B4070 /* TimeSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E940AA27C88149001B4070 /* TimeSchedule.swift */; };
-		35E940B127C88149001B4070 /* TimeSchedulePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E940AC27C88149001B4070 /* TimeSchedulePageView.swift */; };
-		35E940B227C88149001B4070 /* TimeScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E940AD27C88149001B4070 /* TimeScheduleCell.swift */; };
 		35E940B327C88149001B4070 /* TimeScheduleAddLectureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E940AE27C88149001B4070 /* TimeScheduleAddLectureView.swift */; };
 		35E940B927C88151001B4070 /* NewsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E940B527C88151001B4070 /* NewsModels.swift */; };
 		35E940BA27C88151001B4070 /* NewsPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E940B627C88151001B4070 /* NewsPageView.swift */; };
@@ -81,15 +88,26 @@
 /* Begin PBXFileReference section */
 		35073C8E27DB85A600AC037B /* NextLectureLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextLectureLabel.swift; sourceTree = "<group>"; };
 		3523340A27EB5CFB0054C0AD /* HomePageNextLecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageNextLecture.swift; sourceTree = "<group>"; };
-		35243B1E27CD1B0D00E90BC6 /* GalleryScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryScheduleView.swift; sourceTree = "<group>"; };
 		3568A0FF27DA4AB100FE3E9B /* UserDefaults+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+.swift"; sourceTree = "<group>"; };
 		3572FF6C27DDC0E800921C58 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		358589E827CFB93F00D9DFF3 /* AHUerAPIProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHUerAPIProvider.swift; sourceTree = "<group>"; };
 		358589EA27CFBAB800D9DFF3 /* AHUerAPIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHUerAPIError.swift; sourceTree = "<group>"; };
 		358589EC27CFBB4100D9DFF3 /* AHUerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AHUerAPI.swift; sourceTree = "<group>"; };
+		35A2637E27EF481E00F28859 /* ScheduleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleStyle.swift; sourceTree = "<group>"; };
+		35A2638027EF543100F28859 /* ScheduleCourseInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleCourseInfo.swift; sourceTree = "<group>"; };
+		35A2638227EF68E000F28859 /* ScheduleGalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleGalleryView.swift; sourceTree = "<group>"; };
+		35A2638627EF77AF00F28859 /* TimeStripsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStripsView.swift; sourceTree = "<group>"; };
 		35BE038127D9E95F00753940 /* PresentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentView.swift; sourceTree = "<group>"; };
 		35BE038427D9F69300753940 /* LogginPanelShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogginPanelShow.swift; sourceTree = "<group>"; };
 		35BE038727DAF29100753940 /* Environment+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Environment+Extension.swift"; sourceTree = "<group>"; };
+		35C08DF827EE135800490DD9 /* ScheduleShow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleShow.swift; sourceTree = "<group>"; };
+		35C08DFA27EE136700490DD9 /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
+		35C08DFC27EE13B600490DD9 /* ScheduleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
+		35C08DFD27EE13B600490DD9 /* ScheduleDayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleDayView.swift; sourceTree = "<group>"; };
+		35C08DFE27EE13B600490DD9 /* LectureCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LectureCell.swift; sourceTree = "<group>"; };
+		35C08E0327EE13F900490DD9 /* ScheduleTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleTime.swift; sourceTree = "<group>"; };
+		35C08E0427EE13F900490DD9 /* WeedDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeedDay.swift; sourceTree = "<group>"; };
+		35C08E0727EE196000490DD9 /* Course+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Course+Extension.swift"; sourceTree = "<group>"; };
 		35E9404827C88099001B4070 /* AHUer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AHUer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35E9404F27C8809D001B4070 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		35E9405227C8809D001B4070 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -118,10 +136,6 @@
 		35E9408E27C8813B001B4070 /* AddressBookShow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressBookShow.swift; sourceTree = "<group>"; };
 		35E9408F27C8813B001B4070 /* AddressBookView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressBookView.swift; sourceTree = "<group>"; };
 		35E9409027C8813B001B4070 /* HomePageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
-		35E940A827C88149001B4070 /* TimeScheduleShow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeScheduleShow.swift; sourceTree = "<group>"; };
-		35E940AA27C88149001B4070 /* TimeSchedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSchedule.swift; sourceTree = "<group>"; };
-		35E940AC27C88149001B4070 /* TimeSchedulePageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSchedulePageView.swift; sourceTree = "<group>"; };
-		35E940AD27C88149001B4070 /* TimeScheduleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeScheduleCell.swift; sourceTree = "<group>"; };
 		35E940AE27C88149001B4070 /* TimeScheduleAddLectureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeScheduleAddLectureView.swift; sourceTree = "<group>"; };
 		35E940B527C88151001B4070 /* NewsModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsModels.swift; sourceTree = "<group>"; };
 		35E940B627C88151001B4070 /* NewsPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsPageView.swift; sourceTree = "<group>"; };
@@ -173,10 +187,29 @@
 			path = Business;
 			sourceTree = "<group>";
 		};
+		35A2638427EF6C6100F28859 /* ScheduleListView */ = {
+			isa = PBXGroup;
+			children = (
+				35C08DFD27EE13B600490DD9 /* ScheduleDayView.swift */,
+				35C08DFE27EE13B600490DD9 /* LectureCell.swift */,
+			);
+			path = ScheduleListView;
+			sourceTree = "<group>";
+		};
+		35A2638527EF6C7200F28859 /* ScheduleGalleryView */ = {
+			isa = PBXGroup;
+			children = (
+				35A2638227EF68E000F28859 /* ScheduleGalleryView.swift */,
+				35A2638627EF77AF00F28859 /* TimeStripsView.swift */,
+			);
+			path = ScheduleGalleryView;
+			sourceTree = "<group>";
+		};
 		35BE038027D9E90C00753940 /* Extenison */ = {
 			isa = PBXGroup;
 			children = (
 				35E940D427C88165001B4070 /* Color+Extension.swift */,
+				35C08E0727EE196000490DD9 /* Course+Extension.swift */,
 				35E940D527C88165001B4070 /* RSA+Func.swift */,
 				35E940D727C88165001B4070 /* Date+Helper.swift */,
 				35BE038727DAF29100753940 /* Environment+Extension.swift */,
@@ -197,10 +230,20 @@
 		35BE038627DAEF2000753940 /* Helps */ = {
 			isa = PBXGroup;
 			children = (
+				35C08E0227EE13EE00490DD9 /* Public */,
 				35BE038027D9E90C00753940 /* Extenison */,
 				35E940CF27C88165001B4070 /* Tools */,
 			);
 			path = Helps;
+			sourceTree = "<group>";
+		};
+		35C08E0227EE13EE00490DD9 /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				35C08E0327EE13F900490DD9 /* ScheduleTime.swift */,
+				35C08E0427EE13F900490DD9 /* WeedDay.swift */,
+			);
+			path = Public;
 			sourceTree = "<group>";
 		};
 		35E9403F27C88099001B4070 = {
@@ -384,8 +427,8 @@
 		35E940A627C88149001B4070 /* TimeSchedulePage */ = {
 			isa = PBXGroup;
 			children = (
-				35E940A727C88149001B4070 /* ViewModel */,
 				35E940A927C88149001B4070 /* Model */,
+				35E940A727C88149001B4070 /* ViewModel */,
 				35E940AB27C88149001B4070 /* View */,
 			);
 			path = TimeSchedulePage;
@@ -394,7 +437,7 @@
 		35E940A727C88149001B4070 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				35E940A827C88149001B4070 /* TimeScheduleShow.swift */,
+				35C08DF827EE135800490DD9 /* ScheduleShow.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -402,7 +445,9 @@
 		35E940A927C88149001B4070 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				35E940AA27C88149001B4070 /* TimeSchedule.swift */,
+				35A2637E27EF481E00F28859 /* ScheduleStyle.swift */,
+				35A2638027EF543100F28859 /* ScheduleCourseInfo.swift */,
+				35C08DFA27EE136700490DD9 /* Schedule.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -410,9 +455,9 @@
 		35E940AB27C88149001B4070 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				35E940AC27C88149001B4070 /* TimeSchedulePageView.swift */,
-				35243B1E27CD1B0D00E90BC6 /* GalleryScheduleView.swift */,
-				35E940AD27C88149001B4070 /* TimeScheduleCell.swift */,
+				35C08DFC27EE13B600490DD9 /* ScheduleView.swift */,
+				35A2638527EF6C7200F28859 /* ScheduleGalleryView */,
+				35A2638427EF6C6100F28859 /* ScheduleListView */,
 				35E940AE27C88149001B4070 /* TimeScheduleAddLectureView.swift */,
 			);
 			path = View;
@@ -558,6 +603,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				35F6451027DDE384001F24E9 /* ScoreAnalyse.swift in Sources */,
+				35A2638727EF77AF00F28859 /* TimeStripsView.swift in Sources */,
 				35E940BB27C88151001B4070 /* NewsPlaying.swift in Sources */,
 				35E9409C27C8813B001B4070 /* EmptyRoomView.swift in Sources */,
 				35E940B327C88149001B4070 /* TimeScheduleAddLectureView.swift in Sources */,
@@ -573,12 +619,13 @@
 				35E940CE27C88158001B4070 /* SettingView.swift in Sources */,
 				35E940DC27C88165001B4070 /* StartTime.swift in Sources */,
 				35E9406827C88128001B4070 /* AHUerCoreModel.xcdatamodeld in Sources */,
-				35E940B027C88149001B4070 /* TimeSchedule.swift in Sources */,
+				35A2638327EF68E000F28859 /* ScheduleGalleryView.swift in Sources */,
+				35A2637F27EF481E00F28859 /* ScheduleStyle.swift in Sources */,
 				35E940C827C88158001B4070 /* PersonalPageShow.swift in Sources */,
 				35E9409227C8813B001B4070 /* HomePageFunc.swift in Sources */,
-				35E940B227C88149001B4070 /* TimeScheduleCell.swift in Sources */,
 				35E940CB27C88158001B4070 /* ThanksChildView.swift in Sources */,
 				35E940E927C883AF001B4070 /* AHUerApp.swift in Sources */,
+				35C08DFB27EE136700490DD9 /* Schedule.swift in Sources */,
 				35BE038827DAF29100753940 /* Environment+Extension.swift in Sources */,
 				35E940E027C88165001B4070 /* Date+Helper.swift in Sources */,
 				35E940A027C8813B001B4070 /* ScoreShow.swift in Sources */,
@@ -588,14 +635,15 @@
 				35E940BA27C88151001B4070 /* NewsPageView.swift in Sources */,
 				35E9406027C8811B001B4070 /* RootViewShow.swift in Sources */,
 				35E940D927C88165001B4070 /* Picker+Style.swift in Sources */,
+				35C08DF927EE135800490DD9 /* ScheduleShow.swift in Sources */,
 				35E940A427C8813B001B4070 /* AddressBookView.swift in Sources */,
-				35E940AF27C88149001B4070 /* TimeScheduleShow.swift in Sources */,
 				35E9405C27C8810D001B4070 /* AHUAppInfo.swift in Sources */,
+				35C08DFF27EE13B600490DD9 /* ScheduleView.swift in Sources */,
+				35A2638127EF543100F28859 /* ScheduleCourseInfo.swift in Sources */,
 				35E9409A27C8813B001B4070 /* ExamSiteShow.swift in Sources */,
 				35E940BC27C88151001B4070 /* NewsModel.swift in Sources */,
 				35E940DE27C88165001B4070 /* RSA+Func.swift in Sources */,
 				35E940CD27C88158001B4070 /* LogginPanelView.swift in Sources */,
-				35E940B127C88149001B4070 /* TimeSchedulePageView.swift in Sources */,
 				3572FF6D27DDC0E800921C58 /* Array+Extension.swift in Sources */,
 				35E9406627C88128001B4070 /* Persistence.swift in Sources */,
 				35E9409327C8813B001B4070 /* HomePageTips.swift in Sources */,
@@ -610,15 +658,19 @@
 				35E9409E27C8813B001B4070 /* DistributionView.swift in Sources */,
 				358589EB27CFBAB800D9DFF3 /* AHUerAPIError.swift in Sources */,
 				35E9409827C8813B001B4070 /* ExamSiteView.swift in Sources */,
+				35C08E0827EE196000490DD9 /* Course+Extension.swift in Sources */,
+				35C08E0027EE13B600490DD9 /* ScheduleDayView.swift in Sources */,
 				35E940DB27C88165001B4070 /* SetStorage.swift in Sources */,
 				3568A10027DA4AB100FE3E9B /* UserDefaults+.swift in Sources */,
+				35C08E0127EE13B600490DD9 /* LectureCell.swift in Sources */,
 				35E940A227C8813B001B4070 /* ScoreView.swift in Sources */,
 				35E9409D27C8813B001B4070 /* DistributionShow.swift in Sources */,
 				35E940DF27C88165001B4070 /* GroupBox+Style.swift in Sources */,
 				35E9409527C8813B001B4070 /* BathView.swift in Sources */,
 				35BE038227D9E95F00753940 /* PresentView.swift in Sources */,
+				35C08E0527EE13F900490DD9 /* ScheduleTime.swift in Sources */,
 				35E940DD27C88165001B4070 /* Color+Extension.swift in Sources */,
-				35243B1F27CD1B0D00E90BC6 /* GalleryScheduleView.swift in Sources */,
+				35C08E0627EE13F900490DD9 /* WeedDay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

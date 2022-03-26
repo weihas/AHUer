@@ -97,35 +97,3 @@ enum LectureTime: Int, CaseIterable, Identifiable{
         }
     }
 }
-
-enum Weekday: Int, CaseIterable,Identifiable {
-    case Mon = 1
-    case Tues
-    case Wed
-    case Thur
-    case Fri
-    case Sat
-    case Sun
-    
-    var id: Int{
-        return self.rawValue
-    }
-    var description: String{
-        switch self {
-        case .Mon:
-            return "周一"
-        case .Tues:
-            return "周二"
-        case .Wed:
-            return "周三"
-        case .Thur:
-            return "周四"
-        case .Fri:
-            return "周五"
-        case .Sat:
-            return "周六"
-        case .Sun:
-            return "周日"
-        }
-    }
-}
