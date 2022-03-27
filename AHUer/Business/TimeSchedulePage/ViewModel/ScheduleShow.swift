@@ -10,9 +10,12 @@ import SwiftUI
 class ScheduleShow: ObservableObject {
     @Published private var models: [ScheduleDay]
     @Published var showTimeLine: Bool = false
+    @Published var skimModelisList: Bool = false
+    @Published var selectedData: Weekday?
     
     init() {
         models = Weekday.allCases.map({ScheduleDay(weekday: $0)})
+        
     }
     
     //MARK: -Access to Model
@@ -36,7 +39,9 @@ class ScheduleShow: ObservableObject {
     
     
     var galleryDay: ScheduleDay {
-        return models.first ?? .timeLine
+        guard let index = selectedData?.rawValue else { return models.first ?? .timeLine }
+
+        return models[index - 1]
     }
     
     var items: [GridItem] {
@@ -50,6 +55,7 @@ class ScheduleShow: ObservableObject {
         for index in models.indices {
             models[index].fetchModel()
         }
+        reduce()
     }
     
     func addSchedule(){
@@ -58,6 +64,28 @@ class ScheduleShow: ObservableObject {
     
     func cleanUp() {
         
+    }
+    
+    
+    @MainActor
+    func changeSkimModel() {
+        self.skimModelisList.toggle()
+        if skimModelisList{
+            reduce()
+        }
+    }
+    
+    @MainActor
+    func selectedDay(day: Weekday) {
+        if !self.skimModelisList {
+        self.selectedData = day
+        }
+    }
+    
+    
+    @MainActor
+    func reduce() {
+        self.selectedData = Weekday(rawValue: Date().weekDay)
     }
     
     func freshScheduleInternet() {

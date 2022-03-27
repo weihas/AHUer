@@ -10,11 +10,11 @@ import SwiftUI
 struct ScheduleView: View {
     @ObservedObject var vm: ScheduleShow
     @Namespace var changenameSpace
-    @State var skimModelisList: Bool = false
     var body: some View {
         NavigationView {
             ScrollView(.vertical, showsIndicators: false) {
-                if skimModelisList {
+              dateLineView
+                if vm.skimModelisList {
                     scheduleListView
                 } else {
                     ScheduleGalleryView(namespace: changenameSpace, day: vm.galleryDay)
@@ -22,7 +22,7 @@ struct ScheduleView: View {
             }
             .onTapGesture {
                 withAnimation {
-                    if skimModelisList {
+                    if vm.skimModelisList {
                         vm.showTimeLine.toggle()
                     }
                 }
@@ -39,13 +39,50 @@ struct ScheduleView: View {
         .navigationViewStyle(.stack)
     }
     
- 
+    private var dateLineView: some View {
+        LazyVGrid(columns: vm.items) {
+            ForEach(vm.weekdays, id: \.id) { day in
+                VStack {
+                    if day.isTimeLine {
+                        timeLinetitle
+                    } else {
+                        Group{
+                            Text(day.weekday.description)
+                            ZStack{
+                                Circle()
+                                    .fill(day.weekday == vm.selectedData ? Color.primary : Color.clear)
+                                Text("\(day.date.day)")
+                                    .foregroundColor(day.weekday == vm.selectedData ? Color(UIColor.systemBackground) : Color.primary)
+                                    .padding(3)
+                            }
+                        }
+                        .onTapGesture {
+                            withAnimation {
+                                vm.selectedDay(day: day.weekday)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .padding(.horizontal)
+    }
+    
+    private var timeLinetitle: some View {
+        VStack {
+            Text("Time")
+            Image(systemName: "clock")
+                .padding(5)
+        }
+    }
+
+    
     
     private var toolbarContent: some View {
         HStack{
             Button {
                 withAnimation {
-                    skimModelisList.toggle()
+                    vm.changeSkimModel()
                 }
             } label: {
                 Label("模式切换", systemImage: "square.on.circle")

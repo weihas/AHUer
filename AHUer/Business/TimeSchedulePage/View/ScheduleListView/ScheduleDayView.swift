@@ -12,11 +12,6 @@ struct ScheduleDayView: View {
     var namespace: Namespace.ID
     var body: some View {
         VStack {
-            if day.isTimeLine {
-                timeLinetitle
-            } else {
-                title
-            }
             ForEach(day.courses) { course in
                 if course.shouldPadding {
                     Divider()
@@ -29,30 +24,6 @@ struct ScheduleDayView: View {
             }
         }
     }
-    
-    var title: some View {
-        VStack {
-            Text(day.weekday.description)
-            Text("\(day.date.day)")
-                .foregroundColor(day.date.day == Date().day ? Color(UIColor.systemBackground) : Color.primary)
-                .padding(5)
-                .background {
-                    Circle()
-                        .fill(day.date.day == Date().day ? Color.primary : Color.clear)
-                }
-            
-        }
-    }
-    
-    var timeLinetitle: some View {
-        VStack {
-            Text("Time")
-            Image(systemName: "clock")
-                .padding(5)
-        }
-    }
-    
-    
 }
 
 //#if DEBUG
