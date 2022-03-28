@@ -77,4 +77,27 @@ extension ScheduleTime: Identifiable {
         }
     }
     
+    func overTime(add length: Int) -> String {
+        let result = Double(self.rawValue) + Double(length)/2
+        if result == 1 {
+            return "10:00"
+        } else if result == 1.5 {
+            return "11:05"
+        } else if result == 2 {
+            return "12:00"
+        } else if result == 3 {
+            return "15:40"
+        } else if result == 3.5 {
+            return "16:35"
+        } else if result == 4 {
+            return "17:30"
+        } else if result == 5 {
+            return "20:40"
+        } else if result == 5.5 {
+            return "21:35"
+        } else {
+            return "??:??"
+        }
+    }
+    
 }

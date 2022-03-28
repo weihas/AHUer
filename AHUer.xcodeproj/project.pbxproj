@@ -20,14 +20,14 @@
 		358589ED27CFBB4100D9DFF3 /* AHUerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358589EC27CFBB4100D9DFF3 /* AHUerAPI.swift */; };
 		358589F327CFBE8400D9DFF3 /* AHUerAPIDetail in Frameworks */ = {isa = PBXBuildFile; productRef = 358589F227CFBE8400D9DFF3 /* AHUerAPIDetail */; };
 		35A2637F27EF481E00F28859 /* ScheduleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A2637E27EF481E00F28859 /* ScheduleStyle.swift */; };
-		35A2638127EF543100F28859 /* ScheduleCourseInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A2638027EF543100F28859 /* ScheduleCourseInfo.swift */; };
+		35A2638127EF543100F28859 /* ScheduleInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A2638027EF543100F28859 /* ScheduleInfo.swift */; };
 		35A2638327EF68E000F28859 /* ScheduleGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A2638227EF68E000F28859 /* ScheduleGalleryView.swift */; };
 		35A2638727EF77AF00F28859 /* TimeStripsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A2638627EF77AF00F28859 /* TimeStripsView.swift */; };
 		35BE038227D9E95F00753940 /* PresentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BE038127D9E95F00753940 /* PresentView.swift */; };
 		35BE038527D9F69300753940 /* LogginPanelShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BE038427D9F69300753940 /* LogginPanelShow.swift */; };
 		35BE038827DAF29100753940 /* Environment+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BE038727DAF29100753940 /* Environment+Extension.swift */; };
 		35C08DF927EE135800490DD9 /* ScheduleShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C08DF827EE135800490DD9 /* ScheduleShow.swift */; };
-		35C08DFB27EE136700490DD9 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C08DFA27EE136700490DD9 /* Schedule.swift */; };
+		35C08DFB27EE136700490DD9 /* ScheduleDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C08DFA27EE136700490DD9 /* ScheduleDay.swift */; };
 		35C08DFF27EE13B600490DD9 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C08DFC27EE13B600490DD9 /* ScheduleView.swift */; };
 		35C08E0027EE13B600490DD9 /* ScheduleDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C08DFD27EE13B600490DD9 /* ScheduleDayView.swift */; };
 		35C08E0127EE13B600490DD9 /* LectureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C08DFE27EE13B600490DD9 /* LectureCell.swift */; };
@@ -94,14 +94,14 @@
 		358589EA27CFBAB800D9DFF3 /* AHUerAPIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHUerAPIError.swift; sourceTree = "<group>"; };
 		358589EC27CFBB4100D9DFF3 /* AHUerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AHUerAPI.swift; sourceTree = "<group>"; };
 		35A2637E27EF481E00F28859 /* ScheduleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleStyle.swift; sourceTree = "<group>"; };
-		35A2638027EF543100F28859 /* ScheduleCourseInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleCourseInfo.swift; sourceTree = "<group>"; };
+		35A2638027EF543100F28859 /* ScheduleInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleInfo.swift; sourceTree = "<group>"; };
 		35A2638227EF68E000F28859 /* ScheduleGalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleGalleryView.swift; sourceTree = "<group>"; };
 		35A2638627EF77AF00F28859 /* TimeStripsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStripsView.swift; sourceTree = "<group>"; };
 		35BE038127D9E95F00753940 /* PresentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentView.swift; sourceTree = "<group>"; };
 		35BE038427D9F69300753940 /* LogginPanelShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogginPanelShow.swift; sourceTree = "<group>"; };
 		35BE038727DAF29100753940 /* Environment+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Environment+Extension.swift"; sourceTree = "<group>"; };
 		35C08DF827EE135800490DD9 /* ScheduleShow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleShow.swift; sourceTree = "<group>"; };
-		35C08DFA27EE136700490DD9 /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
+		35C08DFA27EE136700490DD9 /* ScheduleDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleDay.swift; sourceTree = "<group>"; };
 		35C08DFC27EE13B600490DD9 /* ScheduleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		35C08DFD27EE13B600490DD9 /* ScheduleDayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleDayView.swift; sourceTree = "<group>"; };
 		35C08DFE27EE13B600490DD9 /* LectureCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LectureCell.swift; sourceTree = "<group>"; };
@@ -446,8 +446,8 @@
 			isa = PBXGroup;
 			children = (
 				35A2637E27EF481E00F28859 /* ScheduleStyle.swift */,
-				35A2638027EF543100F28859 /* ScheduleCourseInfo.swift */,
-				35C08DFA27EE136700490DD9 /* Schedule.swift */,
+				35A2638027EF543100F28859 /* ScheduleInfo.swift */,
+				35C08DFA27EE136700490DD9 /* ScheduleDay.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -625,7 +625,7 @@
 				35E9409227C8813B001B4070 /* HomePageFunc.swift in Sources */,
 				35E940CB27C88158001B4070 /* ThanksChildView.swift in Sources */,
 				35E940E927C883AF001B4070 /* AHUerApp.swift in Sources */,
-				35C08DFB27EE136700490DD9 /* Schedule.swift in Sources */,
+				35C08DFB27EE136700490DD9 /* ScheduleDay.swift in Sources */,
 				35BE038827DAF29100753940 /* Environment+Extension.swift in Sources */,
 				35E940E027C88165001B4070 /* Date+Helper.swift in Sources */,
 				35E940A027C8813B001B4070 /* ScoreShow.swift in Sources */,
@@ -639,7 +639,7 @@
 				35E940A427C8813B001B4070 /* AddressBookView.swift in Sources */,
 				35E9405C27C8810D001B4070 /* AHUAppInfo.swift in Sources */,
 				35C08DFF27EE13B600490DD9 /* ScheduleView.swift in Sources */,
-				35A2638127EF543100F28859 /* ScheduleCourseInfo.swift in Sources */,
+				35A2638127EF543100F28859 /* ScheduleInfo.swift in Sources */,
 				35E9409A27C8813B001B4070 /* ExamSiteShow.swift in Sources */,
 				35E940BC27C88151001B4070 /* NewsModel.swift in Sources */,
 				35E940DE27C88165001B4070 /* RSA+Func.swift in Sources */,

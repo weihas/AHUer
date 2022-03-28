@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Grid 模式下的Style
 enum ScheduleStyle: Equatable {
     case hide
     case spacer(length: Int)

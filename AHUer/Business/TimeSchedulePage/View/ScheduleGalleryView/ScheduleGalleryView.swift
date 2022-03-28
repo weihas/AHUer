@@ -13,8 +13,9 @@ struct ScheduleGalleryView: View {
     var body: some View {
         VStack{
             ForEach(day.solidCourse) { course in
-                LectureCard(course: course)
+                LectureCard(course: course, isToday: day.weekday?.rawValue == Date().weekDay)
                     .matchedGeometryEffect(id: course.geometryID, in: namespace)
+                    .padding(.vertical, 8)
             }
         }
     }
@@ -23,16 +24,19 @@ struct ScheduleGalleryView: View {
 
 struct LectureCard: View {
     var course: ScheduleInfo
+    var isToday: Bool = false
     var body: some View {
-        HStack{
+        HStack {
             timeLine
-            RoundedRectangle(cornerRadius: 10)
+            RoundedRectangle(cornerRadius: 20)
                 .fill(course.color)
+                .shadow(radius: 5)
                 .aspectRatio(2, contentMode: .fit)
                 .padding()
+                .scaleEffect(isNow ? 1 : 0.9, anchor: .leading)
                 .overlay(alignment: .leading){
                     VStack(alignment: .leading){
-                        Text(course.name ?? "")
+                        Text((course.name ?? "") + "x\(course.length)")
                             .font(.title2)
                             .fontWeight(.medium)
                             .padding()
@@ -43,19 +47,23 @@ struct LectureCard: View {
                         }
                         .padding(.leading)
                         .font(.footnote)
-                        
-                        
                     }
+                    .padding(.bottom)
                     .foregroundColor(.white)
                     .padding()
                 }
         }
     }
     
+    var isNow: Bool {
+//        Date().startTime == course.time.rawValue
+        isToday && course.time == .third
+    }
     
     var timeLine: some View {
-        TimeStripsView(color: .blue, isNow: true)
-            .transition(.scale)
+        TimeStripsView(color: .blue, startTime: course.time, length: course.length, isNow: isNow)
+            .padding(.horizontal)
+            .animation(.easeOut.delay(Double(course.id) * 0.05))
     }
 }
 

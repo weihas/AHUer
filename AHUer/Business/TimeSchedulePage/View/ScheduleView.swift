@@ -14,19 +14,25 @@ struct ScheduleView: View {
         NavigationView {
             ScrollView(.vertical, showsIndicators: false) {
               dateLineView
-                if vm.skimModelisList {
-                    scheduleListView
+                if vm.gridModel {
+                    scheduleGridView
                 } else {
-                    ScheduleGalleryView(namespace: changenameSpace, day: vm.galleryDay)
+                    scheduleListView
+                }
+            }
+            .onTapGesture(count: 2) {
+                withAnimation {
+                    vm.gridModel.toggle()
                 }
             }
             .onTapGesture {
                 withAnimation {
-                    if vm.skimModelisList {
+                    if vm.gridModel {
                         vm.showTimeLine.toggle()
                     }
                 }
             }
+
             .onAppear {
                 vm.freshModel()
             }
@@ -39,6 +45,7 @@ struct ScheduleView: View {
         .navigationViewStyle(.stack)
     }
     
+    //日期视图
     private var dateLineView: some View {
         LazyVGrid(columns: vm.items) {
             ForEach(vm.weekdays, id: \.id) { day in
@@ -47,18 +54,19 @@ struct ScheduleView: View {
                         timeLinetitle
                     } else {
                         Group{
-                            Text(day.weekday.description)
+                            Text(day.weekday?.description ?? "Time")
                             ZStack{
                                 Circle()
-                                    .fill(day.weekday == vm.selectedData ? Color.primary : Color.clear)
+                                    .fill(day.weekday == vm.selectedDay ? Color.primary : Color.clear)
                                 Text("\(day.date.day)")
-                                    .foregroundColor(day.weekday == vm.selectedData ? Color(UIColor.systemBackground) : Color.primary)
+                                    .foregroundColor(day.weekday == vm.selectedDay ? Color(UIColor.systemBackground) : Color.primary)
                                     .padding(3)
                             }
                         }
                         .onTapGesture {
                             withAnimation {
-                                vm.selectedDay(day: day.weekday)
+                                guard let weekday = day.weekday else { return }
+                                vm.selectedDay(day: weekday)
                             }
                         }
                     }
@@ -71,12 +79,11 @@ struct ScheduleView: View {
     private var timeLinetitle: some View {
         VStack {
             Text("Time")
+                .fixedSize()
             Image(systemName: "clock")
-                .padding(5)
+                .padding(3)
         }
     }
-
-    
     
     private var toolbarContent: some View {
         HStack{
@@ -112,7 +119,7 @@ struct ScheduleView: View {
         }
     }
     
-    private var scheduleListView: some View {
+    private var scheduleGridView: some View {
         LazyVGrid(columns: vm.items) {
             ForEach(vm.weekdays) { weekday in
                 ScheduleDayView(day: weekday, namespace: changenameSpace)
@@ -122,6 +129,10 @@ struct ScheduleView: View {
             vm.showTimeLine = false
         }
         .padding(.horizontal)
+    }
+    
+    private var scheduleListView: some View {
+        ScheduleGalleryView(namespace: changenameSpace, day: vm.galleryDay)
     }
 }
 

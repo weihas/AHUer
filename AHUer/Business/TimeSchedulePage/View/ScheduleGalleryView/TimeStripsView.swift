@@ -9,10 +9,18 @@ import SwiftUI
 
 struct TimeStripsView: View {
     var color: Color = .blue
+    var startTime: ScheduleTime
+    var length: Int
     var isNow: Bool = false
     var body: some View {
         HStack(alignment: .top){
-            Text("9:30")
+            VStack{
+                Text(startTime.description)
+                Spacer()
+                Text(startTime.overTime(add: length))
+                    .padding(.vertical, 30)
+            }
+            .frame(width: 50)
             VStack{
                 Group {
                     if isNow {
@@ -24,6 +32,7 @@ struct TimeStripsView: View {
                     .frame(width: 15, height: 15)
                 VerticalLine()
                     .stroke(Color.blue, lineWidth: 2)
+                    .background(Color.clear)
                     .frame(width: 20)
             }
         }
@@ -57,8 +66,8 @@ struct VerticalLine: Shape {
 }
 
 
-struct TimeLineView_Previews: PreviewProvider {
-    static var previews: some View {
-        TimeStripsView()
-    }
-}
+//struct TimeLineView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TimeStripsView()
+//    }
+//}

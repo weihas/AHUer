@@ -1,5 +1,5 @@
 //
-//  ScheduleCourseInfo.swift
+//  ScheduleInfo.swift
 //  AHUer
 //
 //  Created by WeIHa'S on 2022/3/26.
@@ -14,6 +14,7 @@ struct ScheduleInfo: Identifiable {
     var teacher: String?
     var location: String?
     var courseID: String?
+    var length: Int = 2
     
     var isTimeLine: Bool = false
     
@@ -33,7 +34,8 @@ struct ScheduleInfo: Identifiable {
     var time: ScheduleTime {
         return ScheduleTime(rawValue: id) ?? .sixth
     }
-        
+    
+    //中午和傍晚要padding
     var shouldPadding: Bool {
         return id == 2 || id == 4
     }

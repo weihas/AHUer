@@ -1,5 +1,5 @@
 //
-//  AHUer.swift
+//  ScheduleDay.swift
 //  AHUer
 //
 //  Created by WeIHa'S on 2022/3/25.
@@ -10,12 +10,12 @@ import SwiftUI
 
 struct ScheduleDay {
     static var timeLine: ScheduleDay {
-        ScheduleDay(weekday: .Mon,
+        ScheduleDay(weekday: nil,
                     courses: ScheduleTime.allCases.map({ScheduleInfo(id: $0.id, isTimeLine: true, style: $0.timeLineShowStyle)})
         )
     }
     
-    let weekday: Weekday
+    let weekday: Weekday?
     
     var courses: [ScheduleInfo] = []
     
@@ -29,8 +29,12 @@ struct ScheduleDay {
     
     
     mutating func fetchModel() {
+       //如果weekday为空，说明是timeline，不要刷新
+        guard let weekday = weekday else { return }
         //刷新当天
         cleanData()
+        
+
         
         guard let user = Student.nowUser() else { return }
         let today = Date()
@@ -42,7 +46,7 @@ struct ScheduleDay {
         for course in courses {
             let courseIndex = (course.startTimeInt-1)/2
             if self.courses.indices.contains(courseIndex) {
-                self.courses[courseIndex] = ScheduleInfo(id: courseIndex, name: course.name, teacher: course.teacher, location: course.location, courseID: course.courseId ,style: .getStyle(length: course.length) )
+                self.courses[courseIndex] = ScheduleInfo(id: courseIndex, name: course.name, teacher: course.teacher, location: course.location, courseID: course.courseId, length: Int(course.length) ,style: .getStyle(length: course.length) )
             }
         }
         pack()
@@ -77,18 +81,18 @@ struct ScheduleDay {
 
 extension ScheduleDay: Identifiable {
     var id: Int {
-        return weekday.rawValue
+        return weekday?.rawValue ?? -1
     }
     
     var date: Date {
-        return weekday.date
+        return weekday?.date ?? .now
     }
     
     var isTimeLine: Bool {
         guard let firstCourse = self.courses.first else { return false }
-        return self.weekday == .Mon && firstCourse.isTimeLine
+        return self.weekday == nil && firstCourse.isTimeLine
     }
-    
+    //一天之中有效的课
     var solidCourse: [ScheduleInfo] {
         return self.courses.filter({$0.teacher != nil})
     }

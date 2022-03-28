@@ -10,18 +10,17 @@ import SwiftUI
 class ScheduleShow: ObservableObject {
     @Published private var models: [ScheduleDay]
     @Published var showTimeLine: Bool = false
-    @Published var skimModelisList: Bool = false
-    @Published var selectedData: Weekday?
+    @Published var gridModel: Bool = false
+    @Published var selectedDay: Weekday?
     
     init() {
-        models = Weekday.allCases.map({ScheduleDay(weekday: $0)})
-        
+        models = [ScheduleDay.timeLine] + Weekday.allCases.map({ScheduleDay(weekday: $0)})
     }
     
     //MARK: -Access to Model
     
     var hideWeekends: Bool {
-        if models.count == 7 {
+        if models.count == 8 {
 //            return !models[5].isModify && !models[6].isModify
             return false
         }
@@ -30,22 +29,18 @@ class ScheduleShow: ObservableObject {
     
     
     var weekdays: [ScheduleDay] {
-        var result = models
-        if showTimeLine, result.count > 0 {
-            result[0] = .timeLine
-        }
-        return result
+        models.suffix(showTimeLine ? 8 : 7)
     }
     
     
     var galleryDay: ScheduleDay {
-        guard let index = selectedData?.rawValue else { return models.first ?? .timeLine }
+        guard let index = selectedDay?.rawValue else { return models.first ?? .timeLine }
 
-        return models[index - 1]
+        return models[index]
     }
     
     var items: [GridItem] {
-        Array(repeating: GridItem(.flexible(minimum: 20), spacing: 10, alignment: .top), count: hideWeekends ? 5 : 7)
+        Array(repeating: GridItem(.flexible(minimum: 20), spacing: 10, alignment: .top), count: showTimeLine ? 8 : 7  )
     }
     
     //MARK: -Intent(s)
@@ -69,23 +64,25 @@ class ScheduleShow: ObservableObject {
     
     @MainActor
     func changeSkimModel() {
-        self.skimModelisList.toggle()
-        if skimModelisList{
+        self.gridModel.toggle()
+        if gridModel {
             reduce()
+        } else {
+            showTimeLine = false
         }
     }
     
     @MainActor
     func selectedDay(day: Weekday) {
-        if !self.skimModelisList {
-        self.selectedData = day
+        if !self.gridModel {
+        self.selectedDay = day
         }
     }
     
     
     @MainActor
     func reduce() {
-        self.selectedData = Weekday(rawValue: Date().weekDay)
+        self.selectedDay = Weekday(rawValue: Date().weekDay)
     }
     
     func freshScheduleInternet() {
