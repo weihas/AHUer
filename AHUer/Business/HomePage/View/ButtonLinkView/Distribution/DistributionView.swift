@@ -19,6 +19,9 @@ struct DistributionView: View {
             bodyCards
             Spacer()
         }
+        .onDisappear {
+            vm.clearModel()
+        }
         .navigationTitle("成绩分布")
         .navigationBarTitleDisplayMode(.inline)
     }

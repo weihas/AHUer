@@ -11,19 +11,13 @@ import SwiftUI
 struct HomePageTips {
     private(set) var southisMen: Bool = true
     private(set) var gpa: (thisterm: Double , all: Double) = (0.0, 0.0)
-    private(set) var exam: (name: String, time: String)?
+    private(set) var exam: Exam?
     
     
     private mutating func fetchMyExam(){
         guard let user = Student.nowUser(),
-              let nextExam = Exam.fetch(by: NSPredicate(format: "owner = %@ AND schoolYear = %@ AND schoolTerm = %@", user, "2020-2021", NSNumber(value: 1)), sort: ["time": true])?.first,
-              let name = nextExam.course,
-              let time = nextExam.time else {
-                  exam = nil
-                  return
-              }
-        
-        exam = (name,time)
+              let nextExam = Exam.fetch(by: NSPredicate(format: "owner = %@ AND schoolYear = %@ AND schoolTerm = %@", user, "2020-2021", NSNumber(value: 1)), sort: ["time": true])?.first else { return }
+        exam = nextExam
     }
     
     private mutating func fetchMyBath(){

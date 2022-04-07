@@ -80,8 +80,8 @@ class HomePageShow: ObservableObject {
     }
     
     var examInfo: (title: String, subtitle: String) {
-        if let exam = tipsModel.exam {
-            return (title: "距离\(exam.name)考试", subtitle: "还有\(exam.time)天")
+        if let exam = tipsModel.exam, let name = exam.course, let time = exam.time {
+            return (title: "距离\(name)考试", subtitle: "还有\(time)天")
         } else {
             return (title: "暂无考试", subtitle: "")
         }

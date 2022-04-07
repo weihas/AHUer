@@ -9,8 +9,6 @@ import Foundation
 import SwiftUI
 import MessageUI
 
-typealias completion =  (_ status: Bool, _ title: String?, _ description: String?) -> Void
-
 class PersonalPageShow: ObservableObject {
     @AppStorage(AHUerDefaultsKey.AHUID.rawValue, store: .standard) private var userID: String = ""
     @Published var showLoggingPanel: Bool = false

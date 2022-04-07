@@ -19,7 +19,7 @@ class ScoreShow: ObservableObject {
     
     // MARK: -Access to the model
     
-    var termNow: TermGrade? {
+    var termNow: ScoreGets.TermGrade? {
         if model.terms.indices.contains(showTerm){
             return model.terms[showTerm]
         } else {
@@ -27,7 +27,7 @@ class ScoreShow: ObservableObject {
         }
     }
     
-    var termList: [TermGrade] {
+    var termList: [ScoreGets.TermGrade] {
         return model.terms
     }
     

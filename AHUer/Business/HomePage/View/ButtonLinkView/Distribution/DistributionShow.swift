@@ -39,6 +39,10 @@ class DistributionShow: ObservableObject{
         }
     }
     
+    @MainActor
+    func clearModel() {
+        distributions.removeAll()
+    }
     
     
     

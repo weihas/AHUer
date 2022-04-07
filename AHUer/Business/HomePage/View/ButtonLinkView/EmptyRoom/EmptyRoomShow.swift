@@ -18,12 +18,12 @@ class EmptyRoomShow: ObservableObject {
                 
                 let rooms = respon["data"].arrayValue
                 
-                var result: [String : [EmptyRoom]] = [:]
+                var result: [String : [EmptyRoomSection.EmptyRoom]] = [:]
                 
                 for (index,room) in rooms.enumerated(){
                     if let seating = room["seating"].string, let pos = room["pos"].string {
                         let name = pos.filter({!$0.isASCII})
-                        result.updateValue((result[name] ?? []) + [EmptyRoom(id: index, seating: seating, pos: pos)], forKey: name)
+                        result.updateValue((result[name] ?? []) + [EmptyRoomSection.EmptyRoom(id: index, seating: seating, pos: pos)], forKey: name)
                     }
                 }
                 var sections: [EmptyRoomSection] = []
@@ -44,29 +44,22 @@ class EmptyRoomShow: ObservableObject {
     deinit {
         print("🌀EmptyRoomShow released")
     }
-}
-
-struct EmptyRoomSection: Identifiable {
-    var id: Int
-    var name: String
-    var rooms: [EmptyRoom]
-}
-
-
-struct EmptyRoom: Identifiable{
-    var id: Int
     
-    var seating: String
-    var pos: String
+    struct EmptyRoomSection: Identifiable {
+        var id: Int
+        var name: String
+        var rooms: [EmptyRoom]
+        
+        struct EmptyRoom: Identifiable{
+            var id: Int
+            
+            var seating: String
+            var pos: String
+        }
+    }
+
 }
 
-enum Campus: Int {
-    case Qinyuan = 1, LongHe = 2, Shushan = 5
-    var id: Int{
-        return self.rawValue
-    }
-  
-}
 
 enum LectureTime: Int, CaseIterable, Identifiable{
     var id: Int{
@@ -96,4 +89,14 @@ enum LectureTime: Int, CaseIterable, Identifiable{
             return "全天"
         }
     }
+}
+
+
+
+enum Campus: Int {
+    case Qinyuan = 1, LongHe = 2, Shushan = 5
+    var id: Int{
+        return self.rawValue
+    }
+  
 }
