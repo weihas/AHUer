@@ -42,6 +42,22 @@ extension Color{
         return Color(r: 238, g: 238, b: 238)
     }
     
+    static var HeHuanRed: Color {
+        return Color(r: 240, g: 161, b: 168)
+    }
+    
+    static var babyPuerple: Color {
+        return Color(r: 200, g: 136, b: 232)
+    }
+    
+    static var meiOrange: Color {
+        return Color(r: 253, g: 178, b: 81)
+    }
+    
+    static var silver: Color {
+        return Color(r: 200, g: 200, b: 200)
+    }
+    
     //If BlackModel, return white ,WhiteModel return black
     static var background: Color{
         return Color(.systemBackground)

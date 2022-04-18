@@ -26,6 +26,7 @@ enum HomePageFunc: Int, Identifiable, CaseIterable {
     case distribution
     case more
     case addressbook
+    case cardBalance
     
     var tag: Set<HomePageFuncTag> {
         switch self {
@@ -42,6 +43,8 @@ enum HomePageFunc: Int, Identifiable, CaseIterable {
         case .more:
             return [.showInHome]
         case .addressbook:
+            return [.life, .showInMore]
+        case .cardBalance:
             return [.life, .showInMore]
         }
     }
@@ -67,6 +70,8 @@ extension HomePageFunc {
             return "校园电话"
         case .more:
             return "更多功能"
+        case .cardBalance:
+            return "饭卡余额"
         }
         
     }
@@ -87,7 +92,8 @@ extension HomePageFunc {
             return "hand.point.up.braille.fill"
         case .addressbook:
             return "phone.circle.fill"
-
+        case .cardBalance:
+            return "creditcard.fill"
         }
     }
     
@@ -107,6 +113,8 @@ extension HomePageFunc {
             return .gray
         case .addressbook:
             return .birdBlue
+        case .cardBalance:
+            return .yellow
         }
     }
 }

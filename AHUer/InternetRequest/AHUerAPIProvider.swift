@@ -52,13 +52,6 @@ extension AHUerAPIProvider{
     static var container: NSPersistentContainer{
         return PersistenceController.shared.container
     }
-    
-    ///
-    /// - Parameters:
-    ///   - userId: 用户ID
-    ///   - password: 密码
-    ///   - type: 登录目标
-    /// - Returns: 是否成功
 
     /// 网络请求登录（Async版）
     /// - Parameters:

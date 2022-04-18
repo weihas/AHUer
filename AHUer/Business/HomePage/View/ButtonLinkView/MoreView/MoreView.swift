@@ -49,13 +49,15 @@ fileprivate struct CardOfMoreView: View {
             RoundedRectangle(cornerRadius: 20)
                 .fill(info.color.opacity(0.2))
                 .shadow(radius: 5)
-                .overlay(
-                    VStack{
+                .overlay(alignment: .bottom) {
+                    VStack {
                         Image(systemName: info.funcIcon)
-                            .font(.largeTitle)
+                            .font(.title)
                         Text(info.funcName)
-                    }.foregroundColor(info.color)
-                )
+                            .padding(.bottom, 30)
+                    }
+                    .foregroundColor(info.color)
+                }
         }
     }
     
@@ -74,6 +76,8 @@ fileprivate struct CardOfMoreView: View {
             DistributionView(vm: viewModel.distributionVM)
         case .addressbook:
             AddressBookView(vm: viewModel.addressBookVM)
+        case .cardBalance:
+            CardBalanceView()
         default:
             fatalError("Shoud never dirveIn")
         }

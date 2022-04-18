@@ -137,21 +137,15 @@ extension HomePageView {
                     Text("全程绩点: " + (showGPA ? vm.gpa.global : "*. **"))
                 }
             }
-            .overlay(
-                VStack{
-                    HStack{
-                        Spacer()
-                        Button {
-                            showGPA.toggle()
-                        } label: {
-                            Image(systemName: showGPA ? "eye" : "eye.slash")
-                                .foregroundColor(Color(.systemBackground))
-                        }
-                        .padding([.trailing,.top], 20)
-                    }
-                    Spacer()
+            .overlay(alignment: .topTrailing) {
+                Button {
+                    showGPA.toggle()
+                } label: {
+                    Image(systemName: showGPA ? "eye" : "eye.slash")
+                        .foregroundColor(Color(.systemBackground))
                 }
-            )
+                .padding(20)
+            }
             .groupBoxStyle(ColorBoxStyle(.orange))
         }
     }

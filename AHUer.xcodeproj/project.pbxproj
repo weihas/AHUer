@@ -13,8 +13,8 @@
 		35218F4327EB13DB00E0D7F0 /* SwiftyRSA in Frameworks */ = {isa = PBXBuildFile; productRef = 35218F4227EB13DB00E0D7F0 /* SwiftyRSA */; };
 		35218F4627EB140B00E0D7F0 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 35218F4527EB140B00E0D7F0 /* SwiftUICharts */; };
 		3523340B27EB5CFB0054C0AD /* HomePageNextLecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3523340A27EB5CFB0054C0AD /* HomePageNextLecture.swift */; };
+		35611A50280BF53300981F18 /* CardBalanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35611A4F280BF53300981F18 /* CardBalanceView.swift */; };
 		3568A10027DA4AB100FE3E9B /* UserDefaults+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3568A0FF27DA4AB100FE3E9B /* UserDefaults+.swift */; };
-		3572FF6D27DDC0E800921C58 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3572FF6C27DDC0E800921C58 /* Array+Extension.swift */; };
 		358589E927CFB93F00D9DFF3 /* AHUerAPIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358589E827CFB93F00D9DFF3 /* AHUerAPIProvider.swift */; };
 		358589EB27CFBAB800D9DFF3 /* AHUerAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358589EA27CFBAB800D9DFF3 /* AHUerAPIError.swift */; };
 		358589ED27CFBB4100D9DFF3 /* AHUerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358589EC27CFBB4100D9DFF3 /* AHUerAPI.swift */; };
@@ -88,8 +88,8 @@
 /* Begin PBXFileReference section */
 		35073C8E27DB85A600AC037B /* NextLectureLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextLectureLabel.swift; sourceTree = "<group>"; };
 		3523340A27EB5CFB0054C0AD /* HomePageNextLecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageNextLecture.swift; sourceTree = "<group>"; };
+		35611A4F280BF53300981F18 /* CardBalanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBalanceView.swift; sourceTree = "<group>"; };
 		3568A0FF27DA4AB100FE3E9B /* UserDefaults+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+.swift"; sourceTree = "<group>"; };
-		3572FF6C27DDC0E800921C58 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		358589E827CFB93F00D9DFF3 /* AHUerAPIProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHUerAPIProvider.swift; sourceTree = "<group>"; };
 		358589EA27CFBAB800D9DFF3 /* AHUerAPIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHUerAPIError.swift; sourceTree = "<group>"; };
 		358589EC27CFBB4100D9DFF3 /* AHUerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AHUerAPI.swift; sourceTree = "<group>"; };
@@ -176,6 +176,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		35611A51280BF53D00981F18 /* CardBalance */ = {
+			isa = PBXGroup;
+			children = (
+				35611A4F280BF53300981F18 /* CardBalanceView.swift */,
+			);
+			path = CardBalance;
+			sourceTree = "<group>";
+		};
 		3568A0FE27DA452C00FE3E9B /* Business */ = {
 			isa = PBXGroup;
 			children = (
@@ -213,7 +221,6 @@
 				35E940D527C88165001B4070 /* RSA+Func.swift */,
 				35E940D727C88165001B4070 /* Date+Helper.swift */,
 				35BE038727DAF29100753940 /* Environment+Extension.swift */,
-				3572FF6C27DDC0E800921C58 /* Array+Extension.swift */,
 			);
 			path = Extenison;
 			sourceTree = "<group>";
@@ -354,6 +361,7 @@
 				35E9407827C8813B001B4070 /* Bath */,
 				35E9408527C8813B001B4070 /* Distribution */,
 				35E9407B27C8813B001B4070 /* MoreView */,
+				35611A51280BF53D00981F18 /* CardBalance */,
 				35E9408D27C8813B001B4070 /* AddressBook */,
 			);
 			path = ButtonLinkView;
@@ -644,7 +652,6 @@
 				35E940BC27C88151001B4070 /* NewsModel.swift in Sources */,
 				35E940DE27C88165001B4070 /* RSA+Func.swift in Sources */,
 				35E940CD27C88158001B4070 /* LogginPanelView.swift in Sources */,
-				3572FF6D27DDC0E800921C58 /* Array+Extension.swift in Sources */,
 				35E9406627C88128001B4070 /* Persistence.swift in Sources */,
 				35E9409327C8813B001B4070 /* HomePageTips.swift in Sources */,
 				35E9409427C8813B001B4070 /* BathOpenShow.swift in Sources */,
@@ -661,6 +668,7 @@
 				35C08E0827EE196000490DD9 /* Course+Extension.swift in Sources */,
 				35C08E0027EE13B600490DD9 /* ScheduleDayView.swift in Sources */,
 				35E940DB27C88165001B4070 /* SetStorage.swift in Sources */,
+				35611A50280BF53300981F18 /* CardBalanceView.swift in Sources */,
 				3568A10027DA4AB100FE3E9B /* UserDefaults+.swift in Sources */,
 				35C08E0127EE13B600490DD9 /* LectureCell.swift in Sources */,
 				35E940A227C8813B001B4070 /* ScoreView.swift in Sources */,
@@ -801,7 +809,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AHUer/Preview Content\"";
-				DEVELOPMENT_TEAM = 4WB3QMP893;
+				DEVELOPMENT_TEAM = NVF47AP6H6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
