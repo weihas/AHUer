@@ -44,7 +44,7 @@ struct NextLectureLabel: View {
                 Button {
                     appInfo.tabItemNum = 1
                 } label: {
-                    Image(systemName: "ellipsis")
+                    Image(systemName: "align.horizontal.left")
                 }
             }
             .foregroundColor(.white)

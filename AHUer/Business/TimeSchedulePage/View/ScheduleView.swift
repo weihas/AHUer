@@ -39,6 +39,16 @@ struct ScheduleView: View {
             .toolbar{
                 toolbarContent
             }
+            .toolbar(content: {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Picker(selection: $vm.selectedTerm, label: Text(vm.selectedTerm.title)) {
+                        ForEach(ScheduleShow.LearningTerm.allCases) { term in
+                            Text(term.title).tag(term)
+                        }
+                    }
+                    .pickerStyle(.menu)
+                }
+            })
             .navigationTitle("第\(Date().studyWeek)周")
            
         }
@@ -94,6 +104,7 @@ struct ScheduleView: View {
             } label: {
                 Label("模式切换", systemImage: "square.on.circle")
             }
+
             
             Menu {
                 // TODO: 课表
@@ -107,6 +118,7 @@ struct ScheduleView: View {
                 } label: {
                     Label("刷新课表", systemImage: "globe.europe.africa")
                 }
+
                 Button {
                     vm.cleanUp()
                 } label: {

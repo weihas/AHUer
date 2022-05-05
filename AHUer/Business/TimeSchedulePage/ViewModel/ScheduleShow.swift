@@ -8,7 +8,43 @@
 import SwiftUI
 
 class ScheduleShow: ObservableObject {
+    enum LearningTerm: Int, CaseIterable, Identifiable {
+        var id: Int {
+            return self.rawValue
+        }
+        
+        case one
+        case two
+        case three
+        case four
+        case five
+        case six
+        case seven
+        case eight
+        
+        var schoolYear: String {
+            let nowYear = 2018 + (self.rawValue/2)
+            return "\(nowYear)" + "-" + "\(nowYear+1)"
+        }
+        
+        var term: Int {
+            return (self.rawValue)%2+1
+        }
+        
+        var title: String {
+            return schoolYear + " ~ " + "\(term)"
+        }
+    }
+    
+    
     @Published private var models: [ScheduleDay]
+    @Published var selectedTerm: LearningTerm = .eight {
+        didSet {
+            withAnimation {
+                freshScheduleInternet()
+            }
+        }
+    }
     @Published var showTimeLine: Bool = false
     @Published var gridModel: Bool = false
     @Published var selectedDay: Weekday?
@@ -88,7 +124,7 @@ class ScheduleShow: ObservableObject {
     func freshScheduleInternet() {
         Task{
             do {
-                try await AHUerAPIProvider.getSchedule(schoolYear: "2020-2021", schoolTerm: 1)
+                try await AHUerAPIProvider.getSchedule(schoolYear: selectedTerm.schoolYear, schoolTerm: selectedTerm.term)
                 await freshModel()
             } catch {
                 await AlertView.showAlert(with: error)

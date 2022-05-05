@@ -14,7 +14,7 @@ class LogginPanelShow: ObservableObject {
     @Published var userID: String = "E01814133"
     @Published var password: String = "Whw,0917"
     @Published var isBachelor: Bool = false
-    @Published var logginType: Int = 1
+    @Published var logginType: Int = 2
     @AppStorage(AHUerDefaultsKey.AHUID.rawValue, store: .standard) var localID: String = ""
     
     
