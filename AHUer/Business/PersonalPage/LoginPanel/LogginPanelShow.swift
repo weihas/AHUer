@@ -13,8 +13,7 @@ import SwiftUI
 class LogginPanelShow: ObservableObject {
     @Published var userID: String = "E01814133"
     @Published var password: String = "Whw,0917"
-    @Published var isBachelor: Bool = false
-    @Published var logginType: Int = 2
+    @Published var logginType: Bool = false
     @AppStorage(AHUerDefaultsKey.AHUID.rawValue, store: .standard) var localID: String = ""
     
     
@@ -24,7 +23,7 @@ class LogginPanelShow: ObservableObject {
         do {
             guard let pw = try password.rsaCrypto() else { return false }
             
-            try await AHUerAPIProvider.loggin(userId: userID, password: pw, type: logginType)
+            try await AHUerAPIProvider.loggin(userId: userID, password: pw, type: logginType ? 2 : 1)
             await syncStatus()
             await freshAppStatus()
             
@@ -43,6 +42,7 @@ class LogginPanelShow: ObservableObject {
     func freshAppStatus() async {
         async let _ =  try? await AHUerAPIProvider.getSchedule(schoolYear: Date().studyYear, schoolTerm: Date().studyTerm)
         async let _ = try? await AHUerAPIProvider.getScore()
+        async let _ = try? await AHUerAPIProvider.cardBalance()
     }
     
     

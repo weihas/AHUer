@@ -14,15 +14,10 @@ class HomePageShow: ObservableObject {
     
     
     init() {
-        tipsModel = HomePageTips()
         nextCourseModel = HomePageNextLecture()
+        tipsModel = HomePageTips()
     }
     
-    lazy var emptyClassVM = EmptyRoomShow()
-    lazy var scoreViewVM = ScoreShow()
-    lazy var examSiteVM = ExamSiteShow()
-    lazy var distributionVM = DistributionShow()
-    lazy var bathInfoVM = BathOpenShow()
     lazy var moreVM = MoreViewShow()
     
     // MARK: - Access to Model
@@ -81,7 +76,7 @@ class HomePageShow: ObservableObject {
     
     var examInfo: (title: String, subtitle: String) {
         if let exam = tipsModel.exam, let name = exam.course, let time = exam.time {
-            return (title: "距离\(name)考试", subtitle: "还有\(time)天")
+            return (title: "\(name)考试", subtitle: "将开始于\(time)")
         } else {
             return (title: "暂无考试", subtitle: "")
         }

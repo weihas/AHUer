@@ -11,6 +11,8 @@ struct SettingView: View {
     @EnvironmentObject var appInfo: AHUAppInfo
     @AppStorage("showOtherWeekLectures") private var showOtherWeekLectures: Bool = false
     @AppStorage("showLecture") private var showLecture: Bool = false
+    @AppStorage(AHUerDefaultsKey.Schedule_IsGridModel.rawValue, store: .standard) var scheduleisGridModel: Bool = false
+    @AppStorage(AHUerDefaultsKey.Schedule_HideWeekend.rawValue, store: .standard) var scheduleHideWeekend: Bool = false
     
     var body: some View {
         Form{
@@ -20,10 +22,11 @@ struct SettingView: View {
                     //TODO: 导入课表
                 }
                 NavigationLink("手动添加课表", destination: Text("hello") )
+               
             }
-            Section(header: Text("皮肤").font(.footnote)) {
-                Text("更换皮肤")
-                Text("自定义皮肤")
+            Section(header: Text("界面").font(.footnote)) {
+                Toggle("网格模式", isOn: $scheduleisGridModel)
+                Toggle("隐藏周末", isOn: $scheduleHideWeekend)
             }
             Section(header: Text("显示").font(.footnote)) {
                 Toggle(isOn: $showOtherWeekLectures) {

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		35073C8F27DB85A600AC037B /* NextLectureLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35073C8E27DB85A600AC037B /* NextLectureLabel.swift */; };
+		351F9909282505C700E9E6A0 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351F9908282505C700E9E6A0 /* String+Extension.swift */; };
+		351F990B2825061D00E9E6A0 /* CardBalanceShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351F990A2825061D00E9E6A0 /* CardBalanceShow.swift */; };
 		35218F3A27EB135900E0D7F0 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 35218F3927EB135900E0D7F0 /* SwiftyJSON */; };
 		35218F4027EB13B400E0D7F0 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 35218F3F27EB13B400E0D7F0 /* Moya */; };
 		35218F4327EB13DB00E0D7F0 /* SwiftyRSA in Frameworks */ = {isa = PBXBuildFile; productRef = 35218F4227EB13DB00E0D7F0 /* SwiftyRSA */; };
@@ -87,6 +89,8 @@
 
 /* Begin PBXFileReference section */
 		35073C8E27DB85A600AC037B /* NextLectureLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextLectureLabel.swift; sourceTree = "<group>"; };
+		351F9908282505C700E9E6A0 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		351F990A2825061D00E9E6A0 /* CardBalanceShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBalanceShow.swift; sourceTree = "<group>"; };
 		3523340A27EB5CFB0054C0AD /* HomePageNextLecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageNextLecture.swift; sourceTree = "<group>"; };
 		35611A4F280BF53300981F18 /* CardBalanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBalanceView.swift; sourceTree = "<group>"; };
 		3568A0FF27DA4AB100FE3E9B /* UserDefaults+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+.swift"; sourceTree = "<group>"; };
@@ -176,9 +180,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		351F990C28250FC100E9E6A0 /* ChildView */ = {
+			isa = PBXGroup;
+			children = (
+				35E940C727C88158001B4070 /* SettingView.swift */,
+				35E940C327C88158001B4070 /* AboutUSView.swift */,
+				35E940C427C88158001B4070 /* ThanksChildView.swift */,
+			);
+			path = ChildView;
+			sourceTree = "<group>";
+		};
 		35611A51280BF53D00981F18 /* CardBalance */ = {
 			isa = PBXGroup;
 			children = (
+				351F990A2825061D00E9E6A0 /* CardBalanceShow.swift */,
 				35611A4F280BF53300981F18 /* CardBalanceView.swift */,
 			);
 			path = CardBalance;
@@ -217,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				35E940D427C88165001B4070 /* Color+Extension.swift */,
+				351F9908282505C700E9E6A0 /* String+Extension.swift */,
 				35C08E0727EE196000490DD9 /* Course+Extension.swift */,
 				35E940D527C88165001B4070 /* RSA+Func.swift */,
 				35E940D727C88165001B4070 /* Date+Helper.swift */,
@@ -504,9 +520,7 @@
 			isa = PBXGroup;
 			children = (
 				35E940C527C88158001B4070 /* PersonalPageView.swift */,
-				35E940C327C88158001B4070 /* AboutUSView.swift */,
-				35E940C427C88158001B4070 /* ThanksChildView.swift */,
-				35E940C727C88158001B4070 /* SettingView.swift */,
+				351F990C28250FC100E9E6A0 /* ChildView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -618,6 +632,7 @@
 				35E9409B27C8813B001B4070 /* EmptyRoomShow.swift in Sources */,
 				35073C8F27DB85A600AC037B /* NextLectureLabel.swift in Sources */,
 				3523340B27EB5CFB0054C0AD /* HomePageNextLecture.swift in Sources */,
+				351F9909282505C700E9E6A0 /* String+Extension.swift in Sources */,
 				35E940DA27C88165001B4070 /* Button+Style.swift in Sources */,
 				35E940B927C88151001B4070 /* NewsModels.swift in Sources */,
 				35BE038527D9F69300753940 /* LogginPanelShow.swift in Sources */,
@@ -677,6 +692,7 @@
 				35E9409527C8813B001B4070 /* BathView.swift in Sources */,
 				35BE038227D9E95F00753940 /* PresentView.swift in Sources */,
 				35C08E0527EE13F900490DD9 /* ScheduleTime.swift in Sources */,
+				351F990B2825061D00E9E6A0 /* CardBalanceShow.swift in Sources */,
 				35E940DD27C88165001B4070 /* Color+Extension.swift in Sources */,
 				35C08E0627EE13F900490DD9 /* WeedDay.swift in Sources */,
 			);

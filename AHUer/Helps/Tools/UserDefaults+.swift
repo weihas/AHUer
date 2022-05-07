@@ -8,8 +8,10 @@
 import Foundation
 
 enum AHUerDefaultsKey: String {
-    case AHUID = "AHUID"
-    case BathRoom = "BathRoom"
-    case Username = "UserName"
+    case AHUID
+    case BathRoom
+    case Username
     case Loggin = "IsLoggin"
+    case Schedule_IsGridModel
+    case Schedule_HideWeekend
 }

@@ -32,14 +32,16 @@ struct ScheduleView: View {
                     }
                 }
             }
-
+            .sheet(isPresented: $vm.showAddLecture) {
+                TimeScheduleAddLectureView()
+            }
             .onAppear {
                 vm.freshModel()
             }
             .toolbar{
                 toolbarContent
             }
-            .toolbar(content: {
+            .toolbar{
                 ToolbarItem(placement: .navigationBarLeading) {
                     Picker(selection: $vm.selectedTerm, label: Text(vm.selectedTerm.title)) {
                         ForEach(ScheduleShow.LearningTerm.allCases) { term in
@@ -48,7 +50,7 @@ struct ScheduleView: View {
                     }
                     .pickerStyle(.menu)
                 }
-            })
+            }
             .navigationTitle("第\(Date().studyWeek)周")
            
         }
@@ -102,7 +104,7 @@ struct ScheduleView: View {
                     vm.changeSkimModel()
                 }
             } label: {
-                Label("模式切换", systemImage: "square.on.circle")
+                Label("模式切换", systemImage: vm.gridModel ? "tablecells.fill" : "tablecells")
             }
 
             

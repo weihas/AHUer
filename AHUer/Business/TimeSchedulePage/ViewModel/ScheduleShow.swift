@@ -9,10 +9,6 @@ import SwiftUI
 
 class ScheduleShow: ObservableObject {
     enum LearningTerm: Int, CaseIterable, Identifiable {
-        var id: Int {
-            return self.rawValue
-        }
-        
         case one
         case two
         case three
@@ -21,6 +17,10 @@ class ScheduleShow: ObservableObject {
         case six
         case seven
         case eight
+        
+        var id: Int {
+            return self.rawValue
+        }
         
         var schoolYear: String {
             let nowYear = 2018 + (self.rawValue/2)
@@ -36,7 +36,7 @@ class ScheduleShow: ObservableObject {
         }
     }
     
-    
+    // [Time Mon Tue Wed Thr Fri Sta Sun]
     @Published private var models: [ScheduleDay]
     @Published var selectedTerm: LearningTerm = .eight {
         didSet {
@@ -46,8 +46,10 @@ class ScheduleShow: ObservableObject {
         }
     }
     @Published var showTimeLine: Bool = false
-    @Published var gridModel: Bool = false
+    @AppStorage(AHUerDefaultsKey.Schedule_IsGridModel.rawValue, store: .standard) var gridModel:  Bool = false
+    @AppStorage(AHUerDefaultsKey.Schedule_HideWeekend.rawValue, store: .standard) var hideWeekend:  Bool = false
     @Published var selectedDay: Weekday?
+    @Published var showAddLecture: Bool = false
     
     init() {
         models = [ScheduleDay.timeLine] + Weekday.allCases.map({ScheduleDay(weekday: $0)})
@@ -55,17 +57,19 @@ class ScheduleShow: ObservableObject {
     
     //MARK: -Access to Model
     
-    var hideWeekends: Bool {
-        if models.count == 8 {
-//            return !models[5].isModify && !models[6].isModify
-            return false
-        }
-        return false
-    }
-    
     
     var weekdays: [ScheduleDay] {
-        models.suffix(showTimeLine ? 8 : 7)
+        var result = models
+        
+        //如果不展示时间表。去掉第一个
+        if !showTimeLine {
+            result.removeFirst()
+        }
+        //如果隐藏周末
+        if hideWeekend {
+            result.removeLast(2)
+        }
+        return result
     }
     
     
@@ -76,7 +80,7 @@ class ScheduleShow: ObservableObject {
     }
     
     var items: [GridItem] {
-        Array(repeating: GridItem(.flexible(minimum: 20), spacing: 10, alignment: .top), count: showTimeLine ? 8 : 7  )
+        Array(repeating: GridItem(.flexible(minimum: 20), spacing: 10, alignment: .top), count: weekdays.count)
     }
     
     //MARK: -Intent(s)
@@ -89,8 +93,9 @@ class ScheduleShow: ObservableObject {
         reduce()
     }
     
+    @MainActor
     func addSchedule(){
-#warning("添加课程表")
+        self.showAddLecture.toggle()
     }
     
     func cleanUp() {
@@ -100,7 +105,7 @@ class ScheduleShow: ObservableObject {
     
     @MainActor
     func changeSkimModel() {
-        self.gridModel.toggle()
+        gridModel.toggle()
         if gridModel {
             reduce()
         } else {
@@ -110,7 +115,7 @@ class ScheduleShow: ObservableObject {
     
     @MainActor
     func selectedDay(day: Weekday) {
-        if !self.gridModel {
+        if !gridModel {
         self.selectedDay = day
         }
     }

@@ -22,11 +22,11 @@ struct AHUerAPIError: Error{
         }
         
         if let des = des {
-            if code == -1 {
-                let begin = des.index(des.startIndex, offsetBy: 2)
-                let end = des.index(des.endIndex, offsetBy: -3)
-                return String(des[begin...end])
-            }
+//            if code == -1 {
+//                let begin = des.index(des.startIndex, offsetBy: 2)
+//                let end = des.index(des.endIndex, offsetBy: -3)
+//                return String(des[begin...end])
+//            }
             return des
         }
         

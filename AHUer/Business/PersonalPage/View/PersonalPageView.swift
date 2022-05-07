@@ -17,7 +17,7 @@ struct PersonalPageView: View {
     @State var isBachelor: Bool = true
     var body: some View {
         NavigationView{
-            Form{
+            Form {
                 accountSection
                 operationSection
             }
@@ -82,16 +82,6 @@ extension PersonalPageView{
                 Label("帮忙推广", systemImage: "square.and.arrow.up.on.square")
                     .padding(distance)
             }
-            
-//            NavigationLink(isActive: .constant(false)) {
-//
-//            } label: {
-//                HStack{
-//                    Label("帮忙推广", systemImage: "square.and.arrow.up.on.square")
-//                        .padding(distance)
-//
-//                }
-//            }
             .onTapGesture {
                 vm.shareApp()
             }

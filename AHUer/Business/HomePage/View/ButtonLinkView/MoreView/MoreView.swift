@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MoreView: View {
-    @ObservedObject var vm = MoreViewShow()
+    @ObservedObject var vm: MoreViewShow
     let gridItems = Array(repeating: GridItem(.flexible(minimum: 50)), count: 4)
     
     var body: some View {
@@ -77,7 +77,7 @@ fileprivate struct CardOfMoreView: View {
         case .addressbook:
             AddressBookView(vm: viewModel.addressBookVM)
         case .cardBalance:
-            CardBalanceView()
+            CardBalanceView(vm: viewModel.cardbalanceVM)
         default:
             fatalError("Shoud never dirveIn")
         }
@@ -86,13 +86,13 @@ fileprivate struct CardOfMoreView: View {
 
 
 
-struct MoreView_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
+//struct MoreView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Group {
+////            MoreView()
+////                .previewDevice("iPad Pro (11-inch) (3rd generation)")
 //            MoreView()
-//                .previewDevice("iPad Pro (11-inch) (3rd generation)")
-            MoreView()
-                .previewDevice("iPhone 13 mini")
-        }
-    }
-}
+//                .previewDevice("iPhone 13 mini")
+//        }
+//    }
+//}

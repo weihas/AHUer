@@ -83,17 +83,17 @@ struct HomePageView: View {
     private func distinationView(style: HomePageFunc)  -> some View {
         switch style {
         case .emptyRoom :
-            EmptyRoomView(vm: vm.emptyClassVM)
+            EmptyRoomView(vm: vm.moreVM.emptyClassVM)
         case .scoreSearch:
-            ScoreView(vm: vm.scoreViewVM)
+            ScoreView(vm: vm.moreVM.scoreViewVM)
         case .examSearh:
-            ExamSiteView(vm: vm.examSiteVM)
+            ExamSiteView(vm: vm.moreVM.examSiteVM)
         case .bathroom:
-            BathView(vm: vm.bathInfoVM)
+            BathView(vm: vm.moreVM.bathInfoVM)
         case .distribution:
-            DistributionView(vm: vm.distributionVM)
+            DistributionView(vm: vm.moreVM.distributionVM)
         default:
-            MoreView()
+            MoreView(vm: vm.moreVM)
         }
     }
     
@@ -118,7 +118,7 @@ struct HomePageView: View {
 extension HomePageView {
     
     private var bathLabel: some View {
-        NavigationLink(destination: BathView(vm: vm.bathInfoVM)) {
+        NavigationLink(destination: BathView(vm: vm.moreVM.bathInfoVM)) {
             GroupBox(label: Label("浴室开放", systemImage: "drop")){
                 VStack(alignment: .leading){
                     Text("北区: " + (vm.northBathisMen ? "男生" : "女生"))
@@ -130,7 +130,7 @@ extension HomePageView {
     }
     
     private var scoreLabel: some View {
-        NavigationLink(destination: ScoreView(vm: vm.scoreViewVM)) {
+        NavigationLink(destination: ScoreView(vm: vm.moreVM.scoreViewVM)) {
             GroupBox(label: Label("成绩查询", systemImage: "doc.text.below.ecg")){
                 VStack(alignment: .leading){
                     Text("学期绩点: " + (showGPA ? vm.gpa.term : "*. **"))
@@ -151,10 +151,11 @@ extension HomePageView {
     }
     
     private var examLabel: some View {
-        NavigationLink(destination: ExamSiteView(vm: vm.examSiteVM)) {
-            GroupBox(label: Label("考试日程", systemImage: "doc.text.below.ecg")){
+        NavigationLink(destination: ExamSiteView(vm: vm.moreVM.examSiteVM)) {
+            GroupBox(label: Label("考试日程", systemImage: "signpost.right.fill")){
                 VStack(alignment: .leading){
                     Text(vm.examInfo.title)
+                        .lineLimit(2)
                     Text(vm.examInfo.subtitle)
                 }
             }
@@ -162,6 +163,18 @@ extension HomePageView {
         }
     }
     
+    private var balanceLabel: some View {
+        NavigationLink(destination: CardBalanceView(vm: vm.moreVM.cardbalanceVM)) {
+            GroupBox(label: Label("考试日程", systemImage: "signpost.right.fill")){
+                VStack(alignment: .leading){
+                    Text(vm.examInfo.title)
+                        .lineLimit(2)
+                    Text(vm.examInfo.subtitle)
+                }
+            }
+            .groupBoxStyle(ColorBoxStyle(.green))
+        }
+    }
     
 }
 

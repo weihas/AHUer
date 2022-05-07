@@ -11,11 +11,12 @@ struct LogginPanelView: View {
     @EnvironmentObject var appInfo: AHUAppInfo
     @StateObject var vm: LogginPanelShow
     @Environment(\.presentationMode) var present
+    @Environment(\.editMode) var editmode
     var body: some View {
         VStack{
-            Picker(selection: $vm.isBachelor, label: Text("Picker")) {
-                Text("本科生").tag(true)
-                Text("研究生").tag(false)
+            Picker(selection: $vm.logginType, label: Text("Picker")) {
+                Text("教务系统").tag(false)
+                Text("智慧安大").tag(true)
             }
             .padding(.top, 20)
             .padding(.horizontal, 100)

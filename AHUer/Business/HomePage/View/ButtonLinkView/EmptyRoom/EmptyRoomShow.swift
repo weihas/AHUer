@@ -10,6 +10,10 @@ import Foundation
 class EmptyRoomShow: ObservableObject {
     @Published var emptyRooms: [EmptyRoomSection] = []
     
+    init() {
+        print("🎈 EmptyRoomShow init")
+    }
+    
     func search(campus: Int, weekday: Int, weekNum: Int, time: Int){
         
         Task{

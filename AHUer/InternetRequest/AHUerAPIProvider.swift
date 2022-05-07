@@ -169,12 +169,21 @@ extension AHUerAPIProvider{
     }
     
     
-    /// 网络登出
+    /// 浴室
     static func bathroom() async throws{
         let respon: JSON = try await asyncRequest(.bathroom)
         await container.performBackgroundTask { context in
             guard let student = Student.nowUser(in: context) else { return }
             student.northisMen = (respon.stringValue == "m")
+        }
+    }
+    
+    /// 浴室
+    static func cardBalance() async throws{
+        let respon: JSON = try await asyncRequest(.campusCardBalance)
+        await container.performBackgroundTask { context in
+            guard let student = Student.nowUser(in: context) else { return }
+            student.cardBalance = respon["data"]["balance"].doubleValue
         }
     }
 }

@@ -14,8 +14,10 @@ class MoreViewShow: ObservableObject{
     lazy var distributionVM = DistributionShow()
     lazy var bathInfoVM = BathOpenShow()
     lazy var addressBookVM = AddressBookShow()
+    lazy var cardbalanceVM = CardBalanceShow()
     
     init() {
+        print("🎈 MoreViewShow init")
     }
     
     var model: [HomePageFunc] = HomePageFunc.allCases.filter({$0.tag.contains(.showInMore)})

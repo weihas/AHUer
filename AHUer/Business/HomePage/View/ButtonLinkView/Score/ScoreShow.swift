@@ -15,6 +15,7 @@ class ScoreShow: ObservableObject {
     
     init(){
         model = ScoreGets()
+        print("🎈 ScoreShow init")
     }
     
     // MARK: -Access to the model
