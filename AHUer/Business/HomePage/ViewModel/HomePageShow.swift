@@ -44,7 +44,7 @@ class HomePageShow: ObservableObject {
     }
     
     var nextCourseStartTime: String {
-        return StartTime(rawValue: Int(nextCourseModel.nextCourse?.startTime ?? 0))?.des ?? " Time "
+        return StartTime(rawValue: Int(nextCourseModel.nextCourse?.startTime ?? 0))?.timeSegemnt ?? " Time "
     }
     
     var nextCourseTeacher: String {

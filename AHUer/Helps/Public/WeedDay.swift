@@ -19,7 +19,10 @@ enum Weekday: Int, CaseIterable {
 
 }
 
-extension Weekday {
+extension Weekday: Identifiable {
+    var id: Int {
+        return self.rawValue
+    }
     
     var date: Date {
         let today = Date()
@@ -48,5 +51,9 @@ extension Weekday {
         case .Sun:
             return "日"
         }
+    }
+    
+    var completeDescription: String {
+        return "周" + description
     }
 }

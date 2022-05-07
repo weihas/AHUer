@@ -53,10 +53,24 @@ struct LectureCell: View {
     
     var contextMenu: some View {
         Group{
-            Button(course.courseID ?? "") {}
-            Button(course.name ?? "") {}
-            Button(course.teacher ?? "") {}
-            Button(course.location ?? "") {}
+            Text(course.courseID ?? "")
+            Text(course.name ?? "")
+            Text(course.teacher ?? "")
+            Text(course.location ?? "")
+            Divider()
+            Button(role: .destructive) {
+                #warning("删除课程")
+            } label: {
+                Text("Remove")
+            }
+
+//            Button {
+//                print("remove")
+//            } label: {
+//                Text("Remove")
+//                    .foregroundColor(.red)
+//            }
+           
         }
     }
     

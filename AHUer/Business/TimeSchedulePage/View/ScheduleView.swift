@@ -98,38 +98,30 @@ struct ScheduleView: View {
     }
     
     private var toolbarContent: some View {
-        HStack{
+        Menu {
+            // TODO: 课表
             Button {
-                withAnimation {
-                    vm.changeSkimModel()
-                }
+                vm.showAddLecture.toggle()
             } label: {
-                Label("模式切换", systemImage: vm.gridModel ? "tablecells.fill" : "tablecells")
+                Label("手动添加", systemImage: "plus.rectangle.on.rectangle")
             }
-
+            Button {
+                vm.freshScheduleInternet()
+            } label: {
+                Label("刷新课表", systemImage: "globe.europe.africa")
+            }
             
-            Menu {
-                // TODO: 课表
-                Button {
-                    vm.addSchedule()
-                } label: {
-                    Label("手动添加", systemImage: "plus.rectangle.on.rectangle")
-                }
-                Button {
-                    vm.freshScheduleInternet()
-                } label: {
-                    Label("刷新课表", systemImage: "globe.europe.africa")
-                }
-
-                Button {
-                    vm.cleanUp()
-                } label: {
-                    Label("清除课表", systemImage: "trash")
-                }
-
+            Button {
+                vm.cleanUp()
             } label: {
-                Label("More", systemImage: "ellipsis")
+                Label("清除课表", systemImage: "trash")
             }
+            Divider()
+            Toggle(isOn: $vm.gridModel) {
+                Label("网格模式", systemImage: "tablecells")
+            }
+        } label: {
+            Label("More", systemImage: "tablecells.badge.ellipsis")
         }
     }
     

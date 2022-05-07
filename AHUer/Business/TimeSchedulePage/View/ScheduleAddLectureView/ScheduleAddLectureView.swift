@@ -8,46 +8,52 @@
 import SwiftUI
 
 struct ScheduleAddLectureView: View {
-    @ObservedObject var vm: ScheduleAddLectureShow = .init()
+    @StateObject var vm: ScheduleAddLectureShow = .init()
+    @Environment(\.colorScheme) var colorScheme
+    @State private var weekNumChoose: Bool = false
+    @State private var weekDayChoose: Bool = false
+    @State private var timeChoose: Bool = false
+    @State private var lengthChoose: Bool = false
+    
     var body: some View {
-        VStack{
+        Group {
             TextField("name", text: $vm.name)
             TextField("location", text: $vm.location)
             TextField("teacher", text: $vm.teacher)
-            ScrollView{
-                Picker(selection: $vm.startTime, label: Text("开始时间")) {
-                    Text("8:20").tag("1")
-                    Text("10:20").tag("3")
-                    Text("14:00").tag("5")
-                    Text("15:50").tag("7")
-                    Text("19:00").tag("9")
-                    Text("20:50").tag("11")
-                }
-                .pickerStyle(.segmented)
-                
-                Picker(selection: $vm.weekDay, label: Text("星期几")) {
-                    Text("周一").tag("1")
-                    Text("周二").tag("2")
-                    Text("周三").tag("3")
-                    Text("周四").tag("4")
-                    Text("周五").tag("5")
-                    Text("周六").tag("6")
-                    Text("周日").tag("7")
-                }
-                .pickerStyle(.segmented)
-                
-                Picker(selection: $vm.startTime, label: Text("时长")) {
-                    Text("1").tag("1")
-                    Text("2").tag("2")
-                    Text("3").tag("3")
-                    Text("4").tag("4")
-                }
-                .pickerStyle(.segmented)
-            }
-            Button("保存") {
-                vm.addLecture()
-            }
+               
         }
+        .textFieldStyle(.roundedBorder)
+        .padding()
+        context
+        Spacer()
+        Button("ADD") {
+            vm.addLecture()
+        }
+    }
+    
+    var context: some View {
+        HStack{
+            Picker(selection: $vm.startTime, label: Text("开始时间")) {
+                ForEach(StartTime.allCases) { time in
+                    Text(time.description).tag(time)
+                }
+            }
+            
+            Picker(selection: $vm.weekDay, label: Text("星期几")) {
+                ForEach(Weekday.allCases) { day in
+                    Text(day.completeDescription).tag(day)
+                }
+            }
+            
+            Picker(selection: $vm.length, label: Text("时长")) {
+                Text("1").tag(1)
+                Text("2").tag(2)
+                Text("3").tag(3)
+                Text("4").tag(4)
+            }
+           
+        }
+        .pickerStyle(.menu)
         .padding()
     }
 }

@@ -8,39 +8,37 @@
 import SwiftUI
 
 class ScheduleAddLectureShow: ObservableObject {
-    @Published var name: String = ""
-    @Published var location: String = ""
-    @Published var teacher: String = ""
+    @Published var name: String = "Test"
+    @Published var location: String = "ADc"
+    @Published var teacher: String = "asdfgf"
     
     @Published var length: Int = 2
     @Published var singleDouble: Bool = false
     @Published var startTime: StartTime = .one
-    @Published var startWeek: String = ""
-    @Published var endWeek: String = ""
+    @Published var startWeek: Int = 1
+    @Published var endWeek: Int = 18
     @Published var weekDay: Weekday = .Mon
 
     
     //MARK: -Access to Model
     
     var lecturetoAdd: [String:Any] {
-        let courseId = "ADD" + UUID().description.prefix(10)
-        let attributeInfo = ["name": name, "location": location, "teacher": teacher, "weekday": weekDay.description, "startTime" : startTime.des, "length": "\(length)", "courseId": courseId]
+        let courseId = "ADD" + UUID().description.prefix(8)
+        let attributeInfo = ["name": name, "location": location, "teacher": teacher, "weekday": weekDay.rawValue, "startTime" : startTime.rawValue, "length": "\(length)", "courseId": courseId, "startWeek": startWeek, "endWeek": endWeek] as [String : Any]
         return attributeInfo
     }
     
     //MARK: -Intent(s)
     
     func addLecture(){
-        guard let user = Student.nowUser(),
-              let result = Course.fetch(by: NSPredicate(format: "name = %@", name)) else { return }
+        guard let user = Student.nowUser() else { return }
         
-        let lecture = lecturetoAdd
-        
-        if result.isEmpty{
-            Course.insert()?.update(of: lecture)?.beHold(of: user)
-        }else{
-            result.first?.update(of: lecture)?.beHold(of: user)
+        if let result = Course.fetch(by: NSPredicate(format: "name = %@", name)), !result.isEmpty {
+            result.first?.update(of: lecturetoAdd)?.beHold(of: user)
+            return
         }
+        
+        Course.insert()?.update(of: lecturetoAdd)?.beHold(of: user)
     }
 }
 

@@ -49,7 +49,7 @@ class ScheduleShow: ObservableObject {
     @AppStorage(AHUerDefaultsKey.Schedule_IsGridModel.rawValue, store: .standard) var gridModel:  Bool = false
     @AppStorage(AHUerDefaultsKey.Schedule_HideWeekend.rawValue, store: .standard) var hideWeekend:  Bool = false
     @Published var selectedDay: Weekday?
-    @Published var showAddLecture: Bool = false
+    @Published var showAddLecture: Bool = true
     
     init() {
         models = [ScheduleDay.timeLine] + Weekday.allCases.map({ScheduleDay(weekday: $0)})
