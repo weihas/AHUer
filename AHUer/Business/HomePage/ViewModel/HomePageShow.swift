@@ -35,11 +35,6 @@ class HomePageShow: ObservableObject {
         return "你今天还有\(nextCourseModel.courseCount)节课"
     }
     
-    var northBathisMen: Bool{
-        return tipsModel.southisMen
-    }
-    
-    
     var nextCourseName: String {
         return nextCourseModel.nextCourse?.name ?? "暂无课程"
     }
@@ -57,9 +52,15 @@ class HomePageShow: ObservableObject {
     }
     
     var nextCourseLocation: String {
-        return nextCourseModel.nextCourse?.location  ?? "Teacher"
+        return nextCourseModel.nextCourse?.location  ?? "Location"
     }
     
+    var bathTipsContext: (north: String, south: String) {
+
+        let north = "北区: " + (tipsModel.northisMen ? "男生" : "女生")
+        let south = "南区/蕙园: " + (tipsModel.northisMen ? "女生" : "男生")
+        return (north, south)
+    }
     
     
     

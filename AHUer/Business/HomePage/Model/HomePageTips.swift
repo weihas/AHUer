@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct HomePageTips {
-    private(set) var southisMen: Bool = true
+    private(set) var northisMen: Bool = true
     private(set) var gpa: (thisterm: Double , all: Double) = (0.0, 0.0)
     private(set) var exam: Exam?
     
@@ -22,7 +22,7 @@ struct HomePageTips {
     
     private mutating func fetchMyBath(){
         guard let user = Student.nowUser() else { return }
-        self.southisMen = user.northisMen
+        self.northisMen = user.northisMen
     }
     
     

@@ -17,7 +17,7 @@ struct PersistenceController {
         
         let user = Student.insert(in: viewContext)?.update(of: ["studentName":"WHW",
                                       "studentID":"E01814133",
-                                      "southisMen":"true"
+                                      "northisMen":"true"
                                      ])
         
         Exam.insert(in: viewContext)?.update(of: ["course":"高等数学",

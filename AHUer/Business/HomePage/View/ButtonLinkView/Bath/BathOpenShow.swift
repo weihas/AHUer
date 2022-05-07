@@ -9,18 +9,13 @@ import Foundation
 import SwiftUI
 
 class BathOpenShow: ObservableObject {
-    @AppStorage(AHUerDefaultsKey.BathRoom.rawValue, store: .standard) private var northStatus: Bool = false
-    @Published var northisMan: Bool = false
-    
-    init(){
-    }
+    @AppStorage(AHUerDefaultsKey.BathRoom.rawValue, store: .standard)  var northisMen: Bool = false
     
     func freshBathroom() {
         Task{
             do {
                 let north = try await AHUerAPIProvider.asyncRequest(.bathroom).stringValue
-                northStatus = (north == "m")
-                await freshLocal()
+                await updateState(state: north == "m")
             } catch {
                 await AlertView.showAlert(with: error)
             }
@@ -28,8 +23,16 @@ class BathOpenShow: ObservableObject {
     }
     
     @MainActor
-    func freshLocal() {
-        northisMan = northStatus
+    func freshModel() {
+        guard let user = Student.nowUser() else { return }
+        northisMen = user.northisMen
+    }
+    
+    @MainActor
+    private func updateState(state: Bool) {
+        northisMen = state
+        guard let user = Student.nowUser() else { return }
+        user.northisMen = state
     }
     
     deinit {

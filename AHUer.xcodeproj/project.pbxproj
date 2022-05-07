@@ -10,6 +10,7 @@
 		35073C8F27DB85A600AC037B /* NextLectureLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35073C8E27DB85A600AC037B /* NextLectureLabel.swift */; };
 		351F9909282505C700E9E6A0 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351F9908282505C700E9E6A0 /* String+Extension.swift */; };
 		351F990B2825061D00E9E6A0 /* CardBalanceShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351F990A2825061D00E9E6A0 /* CardBalanceShow.swift */; };
+		351F990F28261FEA00E9E6A0 /* ScheduleAddLectureShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351F990E28261FEA00E9E6A0 /* ScheduleAddLectureShow.swift */; };
 		35218F3A27EB135900E0D7F0 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 35218F3927EB135900E0D7F0 /* SwiftyJSON */; };
 		35218F4027EB13B400E0D7F0 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 35218F3F27EB13B400E0D7F0 /* Moya */; };
 		35218F4327EB13DB00E0D7F0 /* SwiftyRSA in Frameworks */ = {isa = PBXBuildFile; productRef = 35218F4227EB13DB00E0D7F0 /* SwiftyRSA */; };
@@ -63,7 +64,7 @@
 		35E940A327C8813B001B4070 /* AddressBookShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9408E27C8813B001B4070 /* AddressBookShow.swift */; };
 		35E940A427C8813B001B4070 /* AddressBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9408F27C8813B001B4070 /* AddressBookView.swift */; };
 		35E940A527C8813B001B4070 /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9409027C8813B001B4070 /* HomePageView.swift */; };
-		35E940B327C88149001B4070 /* TimeScheduleAddLectureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E940AE27C88149001B4070 /* TimeScheduleAddLectureView.swift */; };
+		35E940B327C88149001B4070 /* ScheduleAddLectureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E940AE27C88149001B4070 /* ScheduleAddLectureView.swift */; };
 		35E940B927C88151001B4070 /* NewsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E940B527C88151001B4070 /* NewsModels.swift */; };
 		35E940BA27C88151001B4070 /* NewsPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E940B627C88151001B4070 /* NewsPageView.swift */; };
 		35E940BB27C88151001B4070 /* NewsPlaying.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E940B727C88151001B4070 /* NewsPlaying.swift */; };
@@ -91,6 +92,7 @@
 		35073C8E27DB85A600AC037B /* NextLectureLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextLectureLabel.swift; sourceTree = "<group>"; };
 		351F9908282505C700E9E6A0 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		351F990A2825061D00E9E6A0 /* CardBalanceShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBalanceShow.swift; sourceTree = "<group>"; };
+		351F990E28261FEA00E9E6A0 /* ScheduleAddLectureShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleAddLectureShow.swift; sourceTree = "<group>"; };
 		3523340A27EB5CFB0054C0AD /* HomePageNextLecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageNextLecture.swift; sourceTree = "<group>"; };
 		35611A4F280BF53300981F18 /* CardBalanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBalanceView.swift; sourceTree = "<group>"; };
 		3568A0FF27DA4AB100FE3E9B /* UserDefaults+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+.swift"; sourceTree = "<group>"; };
@@ -140,7 +142,7 @@
 		35E9408E27C8813B001B4070 /* AddressBookShow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressBookShow.swift; sourceTree = "<group>"; };
 		35E9408F27C8813B001B4070 /* AddressBookView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressBookView.swift; sourceTree = "<group>"; };
 		35E9409027C8813B001B4070 /* HomePageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
-		35E940AE27C88149001B4070 /* TimeScheduleAddLectureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeScheduleAddLectureView.swift; sourceTree = "<group>"; };
+		35E940AE27C88149001B4070 /* ScheduleAddLectureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleAddLectureView.swift; sourceTree = "<group>"; };
 		35E940B527C88151001B4070 /* NewsModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsModels.swift; sourceTree = "<group>"; };
 		35E940B627C88151001B4070 /* NewsPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsPageView.swift; sourceTree = "<group>"; };
 		35E940B727C88151001B4070 /* NewsPlaying.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsPlaying.swift; sourceTree = "<group>"; };
@@ -188,6 +190,15 @@
 				35E940C427C88158001B4070 /* ThanksChildView.swift */,
 			);
 			path = ChildView;
+			sourceTree = "<group>";
+		};
+		351F990D28261ECB00E9E6A0 /* ScheduleAddLectureView */ = {
+			isa = PBXGroup;
+			children = (
+				351F990E28261FEA00E9E6A0 /* ScheduleAddLectureShow.swift */,
+				35E940AE27C88149001B4070 /* ScheduleAddLectureView.swift */,
+			);
+			path = ScheduleAddLectureView;
 			sourceTree = "<group>";
 		};
 		35611A51280BF53D00981F18 /* CardBalance */ = {
@@ -482,7 +493,7 @@
 				35C08DFC27EE13B600490DD9 /* ScheduleView.swift */,
 				35A2638527EF6C7200F28859 /* ScheduleGalleryView */,
 				35A2638427EF6C6100F28859 /* ScheduleListView */,
-				35E940AE27C88149001B4070 /* TimeScheduleAddLectureView.swift */,
+				351F990D28261ECB00E9E6A0 /* ScheduleAddLectureView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -628,7 +639,7 @@
 				35A2638727EF77AF00F28859 /* TimeStripsView.swift in Sources */,
 				35E940BB27C88151001B4070 /* NewsPlaying.swift in Sources */,
 				35E9409C27C8813B001B4070 /* EmptyRoomView.swift in Sources */,
-				35E940B327C88149001B4070 /* TimeScheduleAddLectureView.swift in Sources */,
+				35E940B327C88149001B4070 /* ScheduleAddLectureView.swift in Sources */,
 				35E9409B27C8813B001B4070 /* EmptyRoomShow.swift in Sources */,
 				35073C8F27DB85A600AC037B /* NextLectureLabel.swift in Sources */,
 				3523340B27EB5CFB0054C0AD /* HomePageNextLecture.swift in Sources */,
@@ -650,6 +661,7 @@
 				35E940E927C883AF001B4070 /* AHUerApp.swift in Sources */,
 				35C08DFB27EE136700490DD9 /* ScheduleDay.swift in Sources */,
 				35BE038827DAF29100753940 /* Environment+Extension.swift in Sources */,
+				351F990F28261FEA00E9E6A0 /* ScheduleAddLectureShow.swift in Sources */,
 				35E940E027C88165001B4070 /* Date+Helper.swift in Sources */,
 				35E940A027C8813B001B4070 /* ScoreShow.swift in Sources */,
 				35E940A527C8813B001B4070 /* HomePageView.swift in Sources */,
@@ -825,7 +837,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AHUer/Preview Content\"";
-				DEVELOPMENT_TEAM = NVF47AP6H6;
+				DEVELOPMENT_TEAM = 4WB3QMP893;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -855,7 +867,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AHUer/Preview Content\"";
-				DEVELOPMENT_TEAM = NVF47AP6H6;
+				DEVELOPMENT_TEAM = 4WB3QMP893;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

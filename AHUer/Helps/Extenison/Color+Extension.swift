@@ -78,6 +78,8 @@ extension Color{
             return .green
         } else if courseId.contains("TY") {
             return .yellow
+        } else if courseId.contains("ADD") {
+            return .skyBlue
         } else {
             return .orange
         }

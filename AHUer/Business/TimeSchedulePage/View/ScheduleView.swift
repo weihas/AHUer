@@ -33,7 +33,7 @@ struct ScheduleView: View {
                 }
             }
             .sheet(isPresented: $vm.showAddLecture) {
-                TimeScheduleAddLectureView()
+                ScheduleAddLectureView()
             }
             .onAppear {
                 vm.freshModel()
