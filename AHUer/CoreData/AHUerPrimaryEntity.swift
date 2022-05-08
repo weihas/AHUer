@@ -218,6 +218,10 @@ extension Course: AHUerChildEntity {
         return fetch(by: predicate, in: context)
     }
     
+    static func fetch(courseId: String, in context: NSManagedObjectContext = defaultcontext) -> [Course]?{
+        let predicate = NSPredicate(format: "courseId = %@", courseId)
+        return fetch(by: predicate, in: context)
+    }
 }
 
 

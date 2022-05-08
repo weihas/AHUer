@@ -8,34 +8,6 @@
 import SwiftUI
 
 class ScheduleShow: ObservableObject {
-    enum LearningTerm: Int, CaseIterable, Identifiable {
-        case one
-        case two
-        case three
-        case four
-        case five
-        case six
-        case seven
-        case eight
-        
-        var id: Int {
-            return self.rawValue
-        }
-        
-        var schoolYear: String {
-            let nowYear = 2018 + (self.rawValue/2)
-            return "\(nowYear)" + "-" + "\(nowYear+1)"
-        }
-        
-        var term: Int {
-            return (self.rawValue)%2+1
-        }
-        
-        var title: String {
-            return schoolYear + " ~ " + "\(term)"
-        }
-    }
-    
     // [Time Mon Tue Wed Thr Fri Sta Sun]
     @Published private var models: [ScheduleDay]
     @Published var selectedTerm: LearningTerm = .eight {
@@ -49,7 +21,8 @@ class ScheduleShow: ObservableObject {
     @AppStorage(AHUerDefaultsKey.Schedule_IsGridModel.rawValue, store: .standard) var gridModel:  Bool = false
     @AppStorage(AHUerDefaultsKey.Schedule_HideWeekend.rawValue, store: .standard) var hideWeekend:  Bool = false
     @Published var selectedDay: Weekday?
-    @Published var showAddLecture: Bool = true
+    @Published var showEditView: Bool = true
+    @Published var editLecture: ScheduleInfo?
     
     init() {
         models = [ScheduleDay.timeLine] + Weekday.allCases.map({ScheduleDay(weekday: $0)})
@@ -95,13 +68,16 @@ class ScheduleShow: ObservableObject {
     
     @MainActor
     func addSchedule(){
-        self.showAddLecture.toggle()
+        self.showEditView.toggle()
     }
     
+    @MainActor
     func cleanUp() {
-        
+        guard let user = Student.nowUser() else { return }
+        user.courses = nil
+        user.toSaved()
+        freshModel()
     }
-    
     
     @MainActor
     func changeSkimModel() {
@@ -135,6 +111,12 @@ class ScheduleShow: ObservableObject {
                 await AlertView.showAlert(with: error)
             }
         }
+    }
+    
+    @MainActor
+    func openEditView(with scheduleInfo: ScheduleInfo) {
+        self.editLecture = scheduleInfo
+        self.showEditView.toggle()
     }
     
     deinit {

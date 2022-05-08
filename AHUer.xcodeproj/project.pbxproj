@@ -37,6 +37,7 @@
 		35C08E0527EE13F900490DD9 /* ScheduleTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C08E0327EE13F900490DD9 /* ScheduleTime.swift */; };
 		35C08E0627EE13F900490DD9 /* WeedDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C08E0427EE13F900490DD9 /* WeedDay.swift */; };
 		35C08E0827EE196000490DD9 /* Course+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C08E0727EE196000490DD9 /* Course+Extension.swift */; };
+		35DE02F02826B38E000A2743 /* ScheduleTerm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DE02EF2826B38E000A2743 /* ScheduleTerm.swift */; };
 		35E9405027C8809D001B4070 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35E9404F27C8809D001B4070 /* Assets.xcassets */; };
 		35E9405327C8809D001B4070 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35E9405227C8809D001B4070 /* Preview Assets.xcassets */; };
 		35E9405C27C8810D001B4070 /* AHUAppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9405B27C8810D001B4070 /* AHUAppInfo.swift */; };
@@ -114,6 +115,7 @@
 		35C08E0327EE13F900490DD9 /* ScheduleTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleTime.swift; sourceTree = "<group>"; };
 		35C08E0427EE13F900490DD9 /* WeedDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeedDay.swift; sourceTree = "<group>"; };
 		35C08E0727EE196000490DD9 /* Course+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Course+Extension.swift"; sourceTree = "<group>"; };
+		35DE02EF2826B38E000A2743 /* ScheduleTerm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTerm.swift; sourceTree = "<group>"; };
 		35E9404827C88099001B4070 /* AHUer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AHUer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35E9404F27C8809D001B4070 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		35E9405227C8809D001B4070 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 			children = (
 				35C08E0327EE13F900490DD9 /* ScheduleTime.swift */,
 				35C08E0427EE13F900490DD9 /* WeedDay.swift */,
+				35DE02EF2826B38E000A2743 /* ScheduleTerm.swift */,
 			);
 			path = Public;
 			sourceTree = "<group>";
@@ -699,6 +702,7 @@
 				3568A10027DA4AB100FE3E9B /* UserDefaults+.swift in Sources */,
 				35C08E0127EE13B600490DD9 /* LectureCell.swift in Sources */,
 				35E940A227C8813B001B4070 /* ScoreView.swift in Sources */,
+				35DE02F02826B38E000A2743 /* ScheduleTerm.swift in Sources */,
 				35E9409D27C8813B001B4070 /* DistributionShow.swift in Sources */,
 				35E940DF27C88165001B4070 /* GroupBox+Style.swift in Sources */,
 				35E9409527C8813B001B4070 /* BathView.swift in Sources */,

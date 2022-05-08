@@ -40,4 +40,11 @@ struct ScheduleInfo: Identifiable {
         return id == 2 || id == 4
     }
     
+    func remove() {
+        guard let courseID = courseID,
+              let courses = Course.fetch(courseId: courseID) else { return }
+        courses.forEach { course in
+            course.delete()
+        }
+    }
 }

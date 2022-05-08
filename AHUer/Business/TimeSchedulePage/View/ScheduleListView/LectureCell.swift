@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LectureCell: View {
+    @EnvironmentObject var scheduleVM: ScheduleShow
     let course: ScheduleInfo
     var body: some View {
         Group{
@@ -58,19 +59,18 @@ struct LectureCell: View {
             Text(course.teacher ?? "")
             Text(course.location ?? "")
             Divider()
+//            Button {
+//                #warning("Edit")
+//            } label: {
+//                Text("Edit")
+//            }
+
             Button(role: .destructive) {
-                #warning("删除课程")
+                course.remove()
+                scheduleVM.freshModel()
             } label: {
                 Text("Remove")
             }
-
-//            Button {
-//                print("remove")
-//            } label: {
-//                Text("Remove")
-//                    .foregroundColor(.red)
-//            }
-           
         }
     }
     

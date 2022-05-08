@@ -10,6 +10,7 @@ import SwiftUI
 struct ScheduleView: View {
     @ObservedObject var vm: ScheduleShow
     @Namespace var changenameSpace
+    @State var showAlert: Bool = false
     var body: some View {
         NavigationView {
             ScrollView(.vertical, showsIndicators: false) {
@@ -20,36 +21,41 @@ struct ScheduleView: View {
                     scheduleListView
                 }
             }
-            .onTapGesture(count: 2) {
-                withAnimation {
-                    vm.gridModel.toggle()
+            .gesture(
+                mixGesture
+            )
+            .toolbar{
+                ToolbarItem(placement: .navigationBarLeading) {
+                    termPicker
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    toolbarContent
                 }
             }
-            .onTapGesture {
-                withAnimation {
-                    if vm.gridModel {
-                        vm.showTimeLine.toggle()
-                    }
+            
+            .alert("清空课表", isPresented: $showAlert) {
+                Button(role: .cancel) {
+                    print("Cancel")
+                } label: {
+                    Text("取消")
                 }
+                Button(role: .destructive) {
+                    vm.cleanUp()
+                } label: {
+                    Text("确定")
+                }
+            } message: {
+                Text("清空课表会导致所有课表数据被删除")
             }
-            .sheet(isPresented: $vm.showAddLecture) {
+            
+            .sheet(isPresented: $vm.showEditView) {
                 ScheduleAddLectureView()
+                    .onDisappear {
+                        vm.freshModel()
+                    }
             }
             .onAppear {
                 vm.freshModel()
-            }
-            .toolbar{
-                toolbarContent
-            }
-            .toolbar{
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Picker(selection: $vm.selectedTerm, label: Text(vm.selectedTerm.title)) {
-                        ForEach(ScheduleShow.LearningTerm.allCases) { term in
-                            Text(term.title).tag(term)
-                        }
-                    }
-                    .pickerStyle(.menu)
-                }
             }
             .navigationTitle("第\(Date().studyWeek)周")
            
@@ -88,6 +94,27 @@ struct ScheduleView: View {
         .padding(.horizontal)
     }
     
+    private var mixGesture: some Gesture {
+        ExclusiveGesture(
+            TapGesture(count: 2)
+                .onEnded {
+                    withAnimation {
+                        vm.gridModel.toggle()
+                    }
+                }
+            ,
+            DragGesture(minimumDistance: 30)
+                .onEnded { value in
+                    withAnimation {
+                        if vm.gridModel {
+                            vm.showTimeLine = value.location.x > value.startLocation.x
+                        }
+                    }
+                }
+        )
+    }
+    
+    /// 时间表的指示
     private var timeLinetitle: some View {
         VStack {
             Text("Time")
@@ -97,11 +124,47 @@ struct ScheduleView: View {
         }
     }
     
+    
+    /// 网格模式
+    private var scheduleGridView: some View {
+        LazyVGrid(columns: vm.items) {
+            ForEach(vm.weekdays) { weekday in
+                ScheduleDayView(day: weekday, namespace: changenameSpace)
+                    .environmentObject(vm)
+            }
+        }
+        .onDisappear{
+            vm.showTimeLine = false
+        }
+        .padding(.horizontal)
+    }
+    
+    ///列表模式
+    private var scheduleListView: some View {
+        ScheduleGalleryView(namespace: changenameSpace, day: vm.galleryDay)
+    }
+    
+}
+
+
+//MARK: -ToolBar
+extension ScheduleView {
+    //学期选择
+    private var termPicker: some View {
+        Picker(selection: $vm.selectedTerm, label: Text(vm.selectedTerm.title)) {
+            ForEach(LearningTerm.allCases) { term in
+                Text(term.title).tag(term)
+            }
+        }
+        .pickerStyle(.menu)
+    }
+    
+    ///‘更多’按钮
     private var toolbarContent: some View {
         Menu {
             // TODO: 课表
             Button {
-                vm.showAddLecture.toggle()
+                vm.showEditView.toggle()
             } label: {
                 Label("手动添加", systemImage: "plus.rectangle.on.rectangle")
             }
@@ -112,7 +175,7 @@ struct ScheduleView: View {
             }
             
             Button {
-                vm.cleanUp()
+                showAlert.toggle()
             } label: {
                 Label("清除课表", systemImage: "trash")
             }
@@ -124,25 +187,7 @@ struct ScheduleView: View {
             Label("More", systemImage: "tablecells.badge.ellipsis")
         }
     }
-    
-    private var scheduleGridView: some View {
-        LazyVGrid(columns: vm.items) {
-            ForEach(vm.weekdays) { weekday in
-                ScheduleDayView(day: weekday, namespace: changenameSpace)
-            }
-        }
-        .onDisappear{
-            vm.showTimeLine = false
-        }
-        .padding(.horizontal)
-    }
-    
-    private var scheduleListView: some View {
-        ScheduleGalleryView(namespace: changenameSpace, day: vm.galleryDay)
-    }
 }
-
-
 
 
 
