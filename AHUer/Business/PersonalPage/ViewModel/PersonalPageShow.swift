@@ -52,15 +52,22 @@ class PersonalPageShow: ObservableObject {
     
 
     @MainActor func sendMail(){
-        if MFMailComposeViewController.canSendMail() {
-            let vc = MFMailComposeViewController()
-            vc.setSubject("Hello")
-            PresentView.show(vc: vc)
-        }
+        let str = String(format: "mqqapi://card/show_pslcard?src_type=internal&version=1&uin=%@&key=%@&card_type=group&source=external&jump_from=webapi", "948563698","0ac15317186f7778fc25f1cf10050b76e71b1134848e9924cbb1ef7f829d153b")
+        guard let url = URL(string: str) else { return }
+                UIApplication.shared.canOpenURL(url)
+        UIApplication.shared.open(url)
+//        if MFMailComposeViewController.canSendMail() {
+//            let vc = MFMailComposeViewController()
+//            vc.setSubject("Hello")
+////            PresentView.show(vc: vc)
+//            PresentView.show(vc: vc) {
+//                print("A")
+//            }
+//        }
     }
     
     @MainActor func shareApp() {
-        let url = URL(string: "https://github.com")
+        let url = URL(string: "https://github.com/weihas/AHUer")
         let activityController = UIActivityViewController(activityItems: [url!], applicationActivities: nil)
         PresentView.show(vc: activityController)
     }

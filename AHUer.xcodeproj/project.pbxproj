@@ -16,6 +16,7 @@
 		35218F4327EB13DB00E0D7F0 /* SwiftyRSA in Frameworks */ = {isa = PBXBuildFile; productRef = 35218F4227EB13DB00E0D7F0 /* SwiftyRSA */; };
 		35218F4627EB140B00E0D7F0 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 35218F4527EB140B00E0D7F0 /* SwiftUICharts */; };
 		3523340B27EB5CFB0054C0AD /* HomePageNextLecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3523340A27EB5CFB0054C0AD /* HomePageNextLecture.swift */; };
+		35577ADB282AABCD00876DF2 /* Label+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35577ADA282AABCD00876DF2 /* Label+Style.swift */; };
 		35611A50280BF53300981F18 /* CardBalanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35611A4F280BF53300981F18 /* CardBalanceView.swift */; };
 		3568A10027DA4AB100FE3E9B /* UserDefaults+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3568A0FF27DA4AB100FE3E9B /* UserDefaults+.swift */; };
 		358589E927CFB93F00D9DFF3 /* AHUerAPIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358589E827CFB93F00D9DFF3 /* AHUerAPIProvider.swift */; };
@@ -86,6 +87,7 @@
 		35E940E027C88165001B4070 /* Date+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E940D727C88165001B4070 /* Date+Helper.swift */; };
 		35E940E127C88165001B4070 /* Popup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E940D827C88165001B4070 /* Popup.swift */; };
 		35E940E927C883AF001B4070 /* AHUerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E940E827C883AF001B4070 /* AHUerApp.swift */; };
+		35F40A97282AC2BC00E19354 /* AboutUSContributer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F40A96282AC2BC00E19354 /* AboutUSContributer.swift */; };
 		35F6451027DDE384001F24E9 /* ScoreAnalyse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F6450F27DDE384001F24E9 /* ScoreAnalyse.swift */; };
 /* End PBXBuildFile section */
 
@@ -95,6 +97,7 @@
 		351F990A2825061D00E9E6A0 /* CardBalanceShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBalanceShow.swift; sourceTree = "<group>"; };
 		351F990E28261FEA00E9E6A0 /* ScheduleAddLectureShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleAddLectureShow.swift; sourceTree = "<group>"; };
 		3523340A27EB5CFB0054C0AD /* HomePageNextLecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageNextLecture.swift; sourceTree = "<group>"; };
+		35577ADA282AABCD00876DF2 /* Label+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Label+Style.swift"; sourceTree = "<group>"; };
 		35611A4F280BF53300981F18 /* CardBalanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBalanceView.swift; sourceTree = "<group>"; };
 		3568A0FF27DA4AB100FE3E9B /* UserDefaults+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+.swift"; sourceTree = "<group>"; };
 		358589E827CFB93F00D9DFF3 /* AHUerAPIProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHUerAPIProvider.swift; sourceTree = "<group>"; };
@@ -165,6 +168,7 @@
 		35E940D727C88165001B4070 /* Date+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Helper.swift"; sourceTree = "<group>"; };
 		35E940D827C88165001B4070 /* Popup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Popup.swift; sourceTree = "<group>"; };
 		35E940E827C883AF001B4070 /* AHUerApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHUerApp.swift; sourceTree = "<group>"; };
+		35F40A96282AC2BC00E19354 /* AboutUSContributer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUSContributer.swift; sourceTree = "<group>"; };
 		35F6450F27DDE384001F24E9 /* ScoreAnalyse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreAnalyse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -188,7 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				35E940C727C88158001B4070 /* SettingView.swift */,
-				35E940C327C88158001B4070 /* AboutUSView.swift */,
+				35F40A98282AC2C000E19354 /* AboutUS */,
 				35E940C427C88158001B4070 /* ThanksChildView.swift */,
 			);
 			path = ChildView;
@@ -543,6 +547,7 @@
 			isa = PBXGroup;
 			children = (
 				35E940D227C88165001B4070 /* SetStorage.swift */,
+				35577ADA282AABCD00876DF2 /* Label+Style.swift */,
 				3568A0FF27DA4AB100FE3E9B /* UserDefaults+.swift */,
 				35E940D027C88165001B4070 /* Picker+Style.swift */,
 				35E940D127C88165001B4070 /* Button+Style.swift */,
@@ -552,6 +557,15 @@
 				35BE038127D9E95F00753940 /* PresentView.swift */,
 			);
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		35F40A98282AC2C000E19354 /* AboutUS */ = {
+			isa = PBXGroup;
+			children = (
+				35F40A96282AC2BC00E19354 /* AboutUSContributer.swift */,
+				35E940C327C88158001B4070 /* AboutUSView.swift */,
+			);
+			path = AboutUS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -682,6 +696,7 @@
 				35E940BC27C88151001B4070 /* NewsModel.swift in Sources */,
 				35E940DE27C88165001B4070 /* RSA+Func.swift in Sources */,
 				35E940CD27C88158001B4070 /* LogginPanelView.swift in Sources */,
+				35577ADB282AABCD00876DF2 /* Label+Style.swift in Sources */,
 				35E9406627C88128001B4070 /* Persistence.swift in Sources */,
 				35E9409327C8813B001B4070 /* HomePageTips.swift in Sources */,
 				35E9409427C8813B001B4070 /* BathOpenShow.swift in Sources */,
@@ -700,6 +715,7 @@
 				35E940DB27C88165001B4070 /* SetStorage.swift in Sources */,
 				35611A50280BF53300981F18 /* CardBalanceView.swift in Sources */,
 				3568A10027DA4AB100FE3E9B /* UserDefaults+.swift in Sources */,
+				35F40A97282AC2BC00E19354 /* AboutUSContributer.swift in Sources */,
 				35C08E0127EE13B600490DD9 /* LectureCell.swift in Sources */,
 				35E940A227C8813B001B4070 /* ScoreView.swift in Sources */,
 				35DE02F02826B38E000A2743 /* ScheduleTerm.swift in Sources */,
@@ -953,8 +969,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:weihas/AHUerAPIDetail.git";
 			requirement = {
-				branch = main;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

@@ -23,10 +23,6 @@ struct AHUerAPIProvider{
                 case .success(let respon):
                     //如果JSON序列化失败直接抛出错误
                     guard let analysis = try? JSON(data: respon.data) else {
-                        if let str = String(data: respon.data, encoding: .ascii), str.count == 1 {
-                            continuation.resume(returning: JSON(str))
-                            return
-                        }
                         continuation.resume(throwing: AHUerAPIError(code: -10, title: target.errorHandelTitle))
                         return
                     }

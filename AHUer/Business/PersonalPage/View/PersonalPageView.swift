@@ -12,9 +12,9 @@ import SwiftUI
 struct PersonalPageView: View {
     @EnvironmentObject var appInfo: AHUAppInfo
     @ObservedObject var vm: PersonalPageShow
+    @State var showHideView: Bool = false
     
-
-    @State var isBachelor: Bool = true
+    
     var body: some View {
         NavigationView{
             Form {
@@ -26,6 +26,9 @@ struct PersonalPageView: View {
             }
             .sheet(isPresented: $vm.showLoggingPanel) {
                 LogginPanelView(vm: LogginPanelShow())
+            }
+            .sheet(isPresented: $showHideView) {
+                ThanksChildView()
             }
             .navigationBarTitle("个人")
         }
@@ -52,43 +55,67 @@ extension PersonalPageView{
         10
     }
     
-    private var operationSection: some View{
-        Section(header: Text("操作").font(.footnote),
-                footer: Text("V1.0.0-beta").font(.footnote).padding()) {
+    private var operationSection: some View {
+        Section {
             NavigationLink(destination: SettingView()) {
                 Label("课表设置", systemImage: "gear")
+                    .labelStyle(SettingLabel())
                     .padding(distance)
             }
             
             Button {
                 vm.sendMail()
             } label: {
-                Label("意见反馈", systemImage: "contextualmenu.and.cursorarrow")
-                    .padding(distance)
+                NavigationLink {
+                    EmptyView()
+                } label: {
+                    Label("意见反馈", systemImage: "contextualmenu.and.cursorarrow")
+                        .labelStyle(SettingLabel())
+                        .padding(distance)
+                }
             }
             
             NavigationLink(destination: AboutUSView()) {
                 Label("关于我们", systemImage: "person.3")
+                    .labelStyle(SettingLabel())
                     .padding(distance)
             }
+            
             NavigationLink(destination: ThanksChildView()) {
                 Label("开发鸣谢", systemImage: "hammer")
+                    .labelStyle(SettingLabel())
                     .padding(distance)
             }
             
             Button {
                 vm.shareApp()
             } label: {
-                Label("帮忙推广", systemImage: "square.and.arrow.up.on.square")
-                    .padding(distance)
+                NavigationLink {
+                    EmptyView()
+                } label: {
+                    Label("帮忙推广", systemImage: "square.and.arrow.up.on.square")
+                        .labelStyle(SettingLabel())
+                        .padding(distance)
+                }
             }
-            .onTapGesture {
-                vm.shareApp()
-            }
+            
+        } header: {
+            Text("操作")
+                .font(.footnote)
+        } footer: {
+            Text("V1.0.0-beta")
+                .font(.footnote)
+                .gesture(
+                    TapGesture(count: 5)
+                        .onEnded {
+                            showHideView.toggle()
+                        }
+                )
+                .padding()
         }
+        
     }
 }
-
 
 //MARK: Sheet
 extension PersonalPageView{
@@ -107,8 +134,8 @@ extension PersonalPageView{
             return ActionSheet(
                 title: Text("通过现有学号登录或使用其他学号"),
                 buttons: [
-//                    .default(Text("E01814133"),
-//                             action: logginWithExist),
+                    //                    .default(Text("E01814133"),
+                    //                             action: logginWithExist),
                     .default(Text("使用其他学号"), action: {vm.showLoggingPanel.toggle()}),
                     .cancel(Text("取消"))
                 ])
