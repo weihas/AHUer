@@ -74,19 +74,29 @@ struct LectureCell: View {
         }
     }
     
+    var lineLimit: Int {
+        if course.length == 3 {
+            return 4
+        } else if course.length == 4 {
+            return 5
+        } else {
+            return 3
+        }
+    }
+    
     var content: some View {
         VStack{
             if let name = course.name {
                 Text(name)
                     .font(.headline)
                     .minimumScaleFactor(0.5)
-                    .lineLimit(3)
+                    .lineLimit(lineLimit)
                     .padding(3)
             } else if course.isTimeLine {
                 Text(course.time.description)
                     .font(.headline)
                     .minimumScaleFactor(0.5)
-                    .lineLimit(3)
+                    .lineLimit(lineLimit)
                     .padding(3)
                     .foregroundColor(.primary)
                     .background {

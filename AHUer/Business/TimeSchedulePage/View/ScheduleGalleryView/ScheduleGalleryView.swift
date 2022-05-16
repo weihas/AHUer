@@ -63,7 +63,7 @@ struct LectureCard: View {
     var timeLine: some View {
         TimeStripsView(color: .blue, startTime: course.time, length: course.length, isNow: isNow)
             .padding(.horizontal)
-            .animation(.easeOut.delay(Double(course.id) * 0.05))
+//            .animation(.easeOut.delay(Double(course.id) * 0.05))
     }
 }
 
