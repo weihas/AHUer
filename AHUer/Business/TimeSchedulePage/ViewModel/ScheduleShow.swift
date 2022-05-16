@@ -91,9 +91,7 @@ class ScheduleShow: ObservableObject {
     
     @MainActor
     func selectedDay(day: Weekday) {
-        if !gridModel {
         self.selectedDay = day
-        }
     }
     
     

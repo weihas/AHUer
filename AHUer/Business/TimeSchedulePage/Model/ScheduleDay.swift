@@ -9,12 +9,6 @@ import Foundation
 import SwiftUI
 
 struct ScheduleDay {
-    static var timeLine: ScheduleDay {
-        ScheduleDay(weekday: nil,
-                    courses: ScheduleTime.allCases.map({ScheduleInfo(id: $0.id, isTimeLine: true, style: $0.timeLineShowStyle)})
-        )
-    }
-    
     let weekday: Weekday?
     
     var courses: [ScheduleInfo] = []
@@ -97,6 +91,11 @@ extension ScheduleDay: Identifiable {
         return self.courses.filter({$0.teacher != nil})
     }
     
+    static var timeLine: ScheduleDay {
+        ScheduleDay(weekday: nil,
+                    courses: ScheduleTime.allCases.map({ScheduleInfo(id: $0.id, isTimeLine: true, style: $0.timeLineShowStyle)})
+        )
+    }
 }
 
 

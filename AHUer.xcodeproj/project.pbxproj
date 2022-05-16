@@ -27,6 +27,7 @@
 		35A2638127EF543100F28859 /* ScheduleInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A2638027EF543100F28859 /* ScheduleInfo.swift */; };
 		35A2638327EF68E000F28859 /* ScheduleGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A2638227EF68E000F28859 /* ScheduleGalleryView.swift */; };
 		35A2638727EF77AF00F28859 /* TimeStripsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A2638627EF77AF00F28859 /* TimeStripsView.swift */; };
+		35A595622832AB3E001E405E /* RootViewShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A595612832AB3E001E405E /* RootViewShow.swift */; };
 		35BE038227D9E95F00753940 /* PresentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BE038127D9E95F00753940 /* PresentView.swift */; };
 		35BE038527D9F69300753940 /* LogginPanelShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BE038427D9F69300753940 /* LogginPanelShow.swift */; };
 		35BE038827DAF29100753940 /* Environment+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BE038727DAF29100753940 /* Environment+Extension.swift */; };
@@ -43,7 +44,6 @@
 		35E9405327C8809D001B4070 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35E9405227C8809D001B4070 /* Preview Assets.xcassets */; };
 		35E9405C27C8810D001B4070 /* AHUAppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9405B27C8810D001B4070 /* AHUAppInfo.swift */; };
 		35E9405E27C88116001B4070 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9405D27C88116001B4070 /* RootView.swift */; };
-		35E9406027C8811B001B4070 /* RootViewShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9405F27C8811B001B4070 /* RootViewShow.swift */; };
 		35E9406627C88128001B4070 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9406227C88128001B4070 /* Persistence.swift */; };
 		35E9406727C88128001B4070 /* AHUerPrimaryEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9406327C88128001B4070 /* AHUerPrimaryEntity.swift */; };
 		35E9406827C88128001B4070 /* AHUerCoreModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 35E9406427C88128001B4070 /* AHUerCoreModel.xcdatamodeld */; };
@@ -107,6 +107,7 @@
 		35A2638027EF543100F28859 /* ScheduleInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleInfo.swift; sourceTree = "<group>"; };
 		35A2638227EF68E000F28859 /* ScheduleGalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleGalleryView.swift; sourceTree = "<group>"; };
 		35A2638627EF77AF00F28859 /* TimeStripsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStripsView.swift; sourceTree = "<group>"; };
+		35A595612832AB3E001E405E /* RootViewShow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootViewShow.swift; path = ../../../../Desktop/RootViewShow.swift; sourceTree = "<group>"; };
 		35BE038127D9E95F00753940 /* PresentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentView.swift; sourceTree = "<group>"; };
 		35BE038427D9F69300753940 /* LogginPanelShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogginPanelShow.swift; sourceTree = "<group>"; };
 		35BE038727DAF29100753940 /* Environment+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Environment+Extension.swift"; sourceTree = "<group>"; };
@@ -124,7 +125,6 @@
 		35E9405227C8809D001B4070 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		35E9405B27C8810D001B4070 /* AHUAppInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHUAppInfo.swift; sourceTree = "<group>"; };
 		35E9405D27C88116001B4070 /* RootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
-		35E9405F27C8811B001B4070 /* RootViewShow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewShow.swift; sourceTree = "<group>"; };
 		35E9406227C88128001B4070 /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		35E9406327C88128001B4070 /* AHUerPrimaryEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHUerPrimaryEntity.swift; sourceTree = "<group>"; };
 		35E9406527C88128001B4070 /* AHUerCoreModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AHUerCoreModel.xcdatamodel; sourceTree = "<group>"; };
@@ -309,7 +309,7 @@
 				35E940E827C883AF001B4070 /* AHUerApp.swift */,
 				35E9405B27C8810D001B4070 /* AHUAppInfo.swift */,
 				35E9405D27C88116001B4070 /* RootView.swift */,
-				35E9405F27C8811B001B4070 /* RootViewShow.swift */,
+				35A595612832AB3E001E405E /* RootViewShow.swift */,
 				35BE038627DAEF2000753940 /* Helps */,
 				35E9406127C88128001B4070 /* CoreData */,
 				35E9406927C88132001B4070 /* InternetRequest */,
@@ -684,8 +684,8 @@
 				35E940A527C8813B001B4070 /* HomePageView.swift in Sources */,
 				35E9405E27C88116001B4070 /* RootView.swift in Sources */,
 				35E940A327C8813B001B4070 /* AddressBookShow.swift in Sources */,
+				35A595622832AB3E001E405E /* RootViewShow.swift in Sources */,
 				35E940BA27C88151001B4070 /* NewsPageView.swift in Sources */,
-				35E9406027C8811B001B4070 /* RootViewShow.swift in Sources */,
 				35E940D927C88165001B4070 /* Picker+Style.swift in Sources */,
 				35C08DF927EE135800490DD9 /* ScheduleShow.swift in Sources */,
 				35E940A427C8813B001B4070 /* AddressBookView.swift in Sources */,

@@ -67,7 +67,7 @@ extension EmptyRoomView{
                             timeChoose = false
                         }
                     }
-                Text(weekDay.description)
+                Text(weekDay.completeDescription)
                     .padding(7)
                     .background(RoundedRectangle(cornerRadius: 7).fill(colorScheme.isLight ? Color.lightGray : Color.darkGray))
                     .foregroundColor(weekDayChoose ? .blue : .primary)
@@ -123,13 +123,13 @@ extension EmptyRoomView{
     @ViewBuilder
     private func weekDayChooseSegment() -> some View{
         Divider()
-//        Picker("周几选择", selection: $weekDay){
-//            ForEach(Weekday.allCases){ weeday in
-//                Text(weeday.description).tag(weeday)
-//            }
-//        }
-//        .pickerStyle(InlinePickerStyle())
-//        .transition(.opacity)
+        Picker("周几选择", selection: $weekDay){
+            ForEach(Weekday.allCases){ weeday in
+                Text(weeday.completeDescription).tag(weeday)
+            }
+        }
+        .pickerStyle(InlinePickerStyle())
+        .transition(.opacity)
         
     }
     

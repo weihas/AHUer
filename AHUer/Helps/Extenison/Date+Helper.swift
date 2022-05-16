@@ -81,10 +81,10 @@ public extension Date {
         return Calendar.current.component(.nanosecond, from: self)
     }
     
-    /// 从 Date 获取 周几,周一是0，周日是6
+    /// 从 Date 获取 周几,周一是1，周日是7
     var weekDay: Int{
         let result = Calendar.current.component(.weekday, from: self)
-        return (result - 1 >= 0) ? result - 1 : 7
+        return (result+7)%8
     }
     
     var weekDayInChinese: String{
