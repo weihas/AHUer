@@ -14,7 +14,9 @@ struct BathView: View {
         VStack{
             ScrollView{
                 cardsView
+                    .padding()
             }
+            .frame(maxWidth: 500)
             .toolbar {
                 ToolbarItem(placement: .automatic) {
                     Button {

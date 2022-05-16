@@ -8,9 +8,9 @@
 import SwiftUI
 
 class ScheduleAddLectureShow: ObservableObject {
-    @Published var name: String = "Test"
-    @Published var location: String = "ADc"
-    @Published var teacher: String = "asdfgf"
+    @Published var name: String = ""
+    @Published var location: String = ""
+    @Published var teacher: String = ""
     
     @Published var length: Int = 2
     @Published var singleDouble: Bool = false
