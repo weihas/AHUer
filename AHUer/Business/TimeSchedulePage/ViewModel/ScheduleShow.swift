@@ -21,7 +21,7 @@ class ScheduleShow: ObservableObject {
     @AppStorage(AHUerDefaultsKey.Schedule_IsGridModel.rawValue, store: .standard) var gridModel:  Bool = false
     @AppStorage(AHUerDefaultsKey.Schedule_HideWeekend.rawValue, store: .standard) var hideWeekend:  Bool = false
     @Published var selectedDay: Weekday?
-    @Published var showEditView: Bool = true
+    @Published var showEditView: Bool = false
     @Published var editLecture: ScheduleInfo?
     
     init() {

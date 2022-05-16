@@ -18,8 +18,8 @@ struct ScoreAnalyse: View {
                 LineChartView(data: vm.gpaData, maxValue: 5.0, minvalue: 0)
                     .aspectRatio(1.8, contentMode: .fit)
                     .padding()
-                Text("总绩点: \(vm.totalGpa)")
-                Text("总学分: \(vm.totalCredit)")
+                Text("总绩点: \(vm.totalGpa, specifier: "%.2f")")
+                Text("总学分: \(vm.totalCredit, specifier: "%.1f")")
             }
             .navigationTitle("成绩分析")
             .navigationBarTitleDisplayMode(.inline)
