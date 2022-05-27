@@ -27,7 +27,6 @@
 		35A2638127EF543100F28859 /* ScheduleInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A2638027EF543100F28859 /* ScheduleInfo.swift */; };
 		35A2638327EF68E000F28859 /* ScheduleGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A2638227EF68E000F28859 /* ScheduleGalleryView.swift */; };
 		35A2638727EF77AF00F28859 /* TimeStripsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A2638627EF77AF00F28859 /* TimeStripsView.swift */; };
-		35A595622832AB3E001E405E /* RootViewShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A595612832AB3E001E405E /* RootViewShow.swift */; };
 		35BE038227D9E95F00753940 /* PresentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BE038127D9E95F00753940 /* PresentView.swift */; };
 		35BE038527D9F69300753940 /* LogginPanelShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BE038427D9F69300753940 /* LogginPanelShow.swift */; };
 		35BE038827DAF29100753940 /* Environment+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BE038727DAF29100753940 /* Environment+Extension.swift */; };
@@ -40,6 +39,9 @@
 		35C08E0627EE13F900490DD9 /* WeedDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C08E0427EE13F900490DD9 /* WeedDay.swift */; };
 		35C08E0827EE196000490DD9 /* Course+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C08E0727EE196000490DD9 /* Course+Extension.swift */; };
 		35DE02F02826B38E000A2743 /* ScheduleTerm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DE02EF2826B38E000A2743 /* ScheduleTerm.swift */; };
+		35E2E9932841003800D87F37 /* RootViewShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E2E9922841003800D87F37 /* RootViewShow.swift */; };
+		35E2E9972841097C00D87F37 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35E2E9962841097C00D87F37 /* MapKit.framework */; };
+		35E2E9B72841156200D87F37 /* BathRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E2E9B62841156200D87F37 /* BathRoom.swift */; };
 		35E9405027C8809D001B4070 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35E9404F27C8809D001B4070 /* Assets.xcassets */; };
 		35E9405327C8809D001B4070 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35E9405227C8809D001B4070 /* Preview Assets.xcassets */; };
 		35E9405C27C8810D001B4070 /* AHUAppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9405B27C8810D001B4070 /* AHUAppInfo.swift */; };
@@ -107,7 +109,6 @@
 		35A2638027EF543100F28859 /* ScheduleInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleInfo.swift; sourceTree = "<group>"; };
 		35A2638227EF68E000F28859 /* ScheduleGalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleGalleryView.swift; sourceTree = "<group>"; };
 		35A2638627EF77AF00F28859 /* TimeStripsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStripsView.swift; sourceTree = "<group>"; };
-		35A595612832AB3E001E405E /* RootViewShow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootViewShow.swift; path = ../../../../Desktop/RootViewShow.swift; sourceTree = "<group>"; };
 		35BE038127D9E95F00753940 /* PresentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentView.swift; sourceTree = "<group>"; };
 		35BE038427D9F69300753940 /* LogginPanelShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogginPanelShow.swift; sourceTree = "<group>"; };
 		35BE038727DAF29100753940 /* Environment+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Environment+Extension.swift"; sourceTree = "<group>"; };
@@ -120,6 +121,10 @@
 		35C08E0427EE13F900490DD9 /* WeedDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeedDay.swift; sourceTree = "<group>"; };
 		35C08E0727EE196000490DD9 /* Course+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Course+Extension.swift"; sourceTree = "<group>"; };
 		35DE02EF2826B38E000A2743 /* ScheduleTerm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTerm.swift; sourceTree = "<group>"; };
+		35E2E9922841003800D87F37 /* RootViewShow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewShow.swift; sourceTree = "<group>"; };
+		35E2E9942841097C00D87F37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		35E2E9962841097C00D87F37 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		35E2E9B62841156200D87F37 /* BathRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BathRoom.swift; sourceTree = "<group>"; };
 		35E9404827C88099001B4070 /* AHUer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AHUer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35E9404F27C8809D001B4070 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		35E9405227C8809D001B4070 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -181,6 +186,7 @@
 				358589F327CFBE8400D9DFF3 /* AHUerAPIDetail in Frameworks */,
 				35218F4027EB13B400E0D7F0 /* Moya in Frameworks */,
 				35218F4627EB140B00E0D7F0 /* SwiftUICharts in Frameworks */,
+				35E2E9972841097C00D87F37 /* MapKit.framework in Frameworks */,
 				35218F4327EB13DB00E0D7F0 /* SwiftyRSA in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,11 +293,20 @@
 			path = Public;
 			sourceTree = "<group>";
 		};
+		35E2E9952841097C00D87F37 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				35E2E9962841097C00D87F37 /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		35E9403F27C88099001B4070 = {
 			isa = PBXGroup;
 			children = (
 				35E9404A27C88099001B4070 /* AHUer */,
 				35E9404927C88099001B4070 /* Products */,
+				35E2E9952841097C00D87F37 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -306,10 +321,11 @@
 		35E9404A27C88099001B4070 /* AHUer */ = {
 			isa = PBXGroup;
 			children = (
+				35E2E9942841097C00D87F37 /* Info.plist */,
 				35E940E827C883AF001B4070 /* AHUerApp.swift */,
 				35E9405B27C8810D001B4070 /* AHUAppInfo.swift */,
 				35E9405D27C88116001B4070 /* RootView.swift */,
-				35A595612832AB3E001E405E /* RootViewShow.swift */,
+				35E2E9922841003800D87F37 /* RootViewShow.swift */,
 				35BE038627DAEF2000753940 /* Helps */,
 				35E9406127C88128001B4070 /* CoreData */,
 				35E9406927C88132001B4070 /* InternetRequest */,
@@ -404,6 +420,7 @@
 		35E9407827C8813B001B4070 /* Bath */ = {
 			isa = PBXGroup;
 			children = (
+				35E2E9B62841156200D87F37 /* BathRoom.swift */,
 				35E9407927C8813B001B4070 /* BathOpenShow.swift */,
 				35E9407A27C8813B001B4070 /* BathView.swift */,
 			);
@@ -653,6 +670,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				35F6451027DDE384001F24E9 /* ScoreAnalyse.swift in Sources */,
+				35E2E9B72841156200D87F37 /* BathRoom.swift in Sources */,
 				35A2638727EF77AF00F28859 /* TimeStripsView.swift in Sources */,
 				35E940BB27C88151001B4070 /* NewsPlaying.swift in Sources */,
 				35E9409C27C8813B001B4070 /* EmptyRoomView.swift in Sources */,
@@ -684,7 +702,7 @@
 				35E940A527C8813B001B4070 /* HomePageView.swift in Sources */,
 				35E9405E27C88116001B4070 /* RootView.swift in Sources */,
 				35E940A327C8813B001B4070 /* AddressBookShow.swift in Sources */,
-				35A595622832AB3E001E405E /* RootViewShow.swift in Sources */,
+				35E2E9932841003800D87F37 /* RootViewShow.swift in Sources */,
 				35E940BA27C88151001B4070 /* NewsPageView.swift in Sources */,
 				35E940D927C88165001B4070 /* Picker+Style.swift in Sources */,
 				35C08DF927EE135800490DD9 /* ScheduleShow.swift in Sources */,
@@ -860,6 +878,7 @@
 				DEVELOPMENT_TEAM = 4WB3QMP893;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AHUer/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -890,6 +909,7 @@
 				DEVELOPMENT_TEAM = 4WB3QMP893;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AHUer/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

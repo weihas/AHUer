@@ -7,29 +7,62 @@
 
 import Foundation
 import SwiftUI
+import MapKit
 
 class BathOpenShow: ObservableObject {
-    @AppStorage(AHUerDefaultsKey.BathRoom.rawValue, store: .standard)  var northisMen: Bool = false
+    @Published var regin = MKCoordinateRegion(center: .init(latitude: 31.76693, longitude: 117.1848), span: .init(latitudeDelta: 0.015, longitudeDelta: 0.015))
+    @Published var selectedBathroom: BathRoom = .Zhu
+    @AppStorage(AHUerDefaultsKey.BathRoom.rawValue, store: .standard) var pinBathRoom: Int = 0
+    
+    
+    
+    //MARK: -Access to model
+    
+    var bathrooms: [BathRoom] {
+        return BathRoom.allCases
+    }
+    
+    var boardTitle: String {
+        selectedBathroom.name
+    }
+    
+    var boardSubtitle: String {
+        "开启状态：" + selectedBathroom.openState
+    }
+    
+    var borderTime: String {
+        return "10:30 - 21:00"
+    }
+    
+    var currentisPin: Bool {
+        return self.selectedBathroom.id == pinBathRoom
+    }
+    
+    //MARK: -Intent(s)
+    
+    @MainActor func choose(bathroom: BathRoom) {
+        withAnimation {
+            self.selectedBathroom = bathroom
+        }
+    }
+    
+    func pinSelectedBathRoom() {
+        withAnimation {
+            pinBathRoom = self.selectedBathroom.id
+        }
+    }
     
     func freshBathroom() {
         Task{
             do {
-                let north = try await AHUerAPIProvider.asyncRequest(.bathroom).stringValue
-                await updateState(state: north == "m")
+                try await AHUerAPIProvider.bathroom()
+                await MainActor.run { [ weak self] in
+                    self?.objectWillChange.send()
+                }
             } catch {
                 await AlertView.showAlert(with: error)
             }
         }
-    }
-    
-    @MainActor
-    func freshModel() {
-    }
-    
-    @MainActor
-    private func updateState(state: Bool) {
-        northisMen = state
-        guard let user = Student.nowUser() else { return }
     }
     
     deinit {

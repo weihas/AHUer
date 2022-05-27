@@ -9,7 +9,6 @@ import Foundation
 import SwiftUI
 
 struct HomePageTips {
-    private(set) var northisMen: Bool = true
     private(set) var gpa: (thisterm: Double , all: Double) = (0.0, 0.0)
     private(set) var exam: Exam?
     
@@ -20,10 +19,6 @@ struct HomePageTips {
         exam = nextExam
     }
     
-    private mutating func fetchMyBath(){
-    }
-    
-    
     private mutating func fetchMyScore(){
         guard let user = Student.nowUser() else { gpa = (0.0, 0.0) ; return }
         gpa = (user.termGradePoint , user.totalGradePointAverage)
@@ -32,7 +27,6 @@ struct HomePageTips {
     @MainActor
     mutating func fetchModel() {
         fetchMyExam()
-        fetchMyBath()
         fetchMyScore()
     }
 

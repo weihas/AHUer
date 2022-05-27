@@ -11,6 +11,7 @@ import SwiftUI
 class HomePageShow: ObservableObject {
     @Published private var nextCourseModel: HomePageNextLecture
     @Published private var tipsModel: HomePageTips
+    @AppStorage(AHUerDefaultsKey.BathRoom.rawValue, store: .standard) var pinBathRoom: Int = 0
     
     
     init() {
@@ -55,11 +56,10 @@ class HomePageShow: ObservableObject {
         return nextCourseModel.nextCourse?.location  ?? "Location"
     }
     
-    var bathTipsContext: (north: String, south: String) {
-
-        let north = "北区: " + (tipsModel.northisMen ? "男生" : "女生")
-        let south = "南区/蕙园: " + (tipsModel.northisMen ? "女生" : "男生")
-        return (north, south)
+    var bathTipsContext: (name: String, openState: String) {
+        guard let pined = BathRoom(rawValue: pinBathRoom) else { return ("竹园" , "男") }
+        print(pined.name)
+        return (pined.name, pined.openState)
     }
     
     

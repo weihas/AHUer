@@ -121,8 +121,9 @@ extension HomePageView {
         NavigationLink(destination: BathView(vm: vm.moreVM.bathInfoVM)) {
             GroupBox(label: Label("浴室开放", systemImage: "drop")){
                 VStack(alignment: .leading){
-                    Text(vm.bathTipsContext.north)
-                    Text(vm.bathTipsContext.south)
+                    let bathcontext = vm.bathTipsContext
+                    Text(bathcontext.name)
+                    Text(bathcontext.openState)
                 }
             }
             .groupBoxStyle(ColorBoxStyle(.purple))

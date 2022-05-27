@@ -26,6 +26,51 @@ class AHUAppInfo: ObservableObject {
     }
 }
 
+enum TabPage: Int {
+    case homePage
+    case schedulePage
+    case personal
+}
+
+extension TabPage: Identifiable, CaseIterable {
+    var id: Int {
+        return self.rawValue
+    }
+    
+    var name: String {
+        switch self {
+        case .homePage:
+            return "主页"
+        case .schedulePage:
+            return "课表"
+        case .personal:
+            return "个人"
+        }
+    }
+    
+    var icon: String {
+        switch self {
+        case .homePage:
+            return "house"
+        case .schedulePage:
+            return "list.bullet.rectangle"
+        case .personal:
+            return "person.circle"
+        }
+    }
+    
+    var title: String {
+        switch self {
+        case .homePage:
+            return "今天"
+        case .schedulePage:
+            return "第十一周"
+        case .personal:
+            return "个人"
+        }
+    }
+    
+}
 
 
 
