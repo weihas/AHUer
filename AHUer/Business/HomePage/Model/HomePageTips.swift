@@ -21,8 +21,6 @@ struct HomePageTips {
     }
     
     private mutating func fetchMyBath(){
-        guard let user = Student.nowUser() else { return }
-        self.northisMen = user.northisMen
     }
     
     

@@ -172,10 +172,14 @@ extension AHUerAPIProvider{
     /// 浴室
     static func bathroom() async throws{
         let respon: JSON = try await asyncRequest(.bathroom)
-        await container.performBackgroundTask { context in
-            guard let student = Student.nowUser(in: context) else { return }
-            student.northisMen = (respon.stringValue == "m")
+        let values = respon["data"].arrayValue
+        for value in values {
+            value["openStatus"].stringValue.contains(where: "")
         }
+        
+        let a = 0
+        
+//        UserDefaults.standard.set(respon["data"], forKey: AHUerDefaultsKey.BathRoom.rawValue)
     }
     
     /// 余额

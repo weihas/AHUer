@@ -24,15 +24,12 @@ class BathOpenShow: ObservableObject {
     
     @MainActor
     func freshModel() {
-        guard let user = Student.nowUser() else { return }
-        northisMen = user.northisMen
     }
     
     @MainActor
     private func updateState(state: Bool) {
         northisMen = state
         guard let user = Student.nowUser() else { return }
-        user.northisMen = state
     }
     
     deinit {
