@@ -12,38 +12,33 @@ struct HomePageView: View {
     @ObservedObject var vm: HomePageShow
     @State var showGPA: Bool = false
     var body: some View {
-        NavigationView{
-            ScrollView(showsIndicators: false){
-                VStack(alignment: .leading){
-                    helloLabel
-                        .onTapGesture {
-                            appInfo.tabItemNum = 3
-                        }
-                    LazyVGrid(columns: [GridItem(.adaptive(minimum: 450), alignment: .top)]) {
-                        NextLectureLabel(
-                            courseName: vm.nextCourseName,
-                            courseProgress: vm.nextCourseProgress,
-                            startTime: vm.nextCourseStartTime,
-                            teacher: vm.nextCourseTeacher,
-                            location: vm.nextCourseLocation
-                        )
-                        buttonsLabel
-                        tipsLabel
+        ScrollView(showsIndicators: false){
+            VStack(alignment: .leading){
+                helloLabel
+                    .onTapGesture {
+                        appInfo.tabItemNum = .personal
                     }
-                    .padding(.top, 10)
-                    
+                LazyVGrid(columns: [GridItem(.adaptive(minimum: 450), alignment: .top)]) {
+                    NextLectureLabel(
+                        courseName: vm.nextCourseName,
+                        courseProgress: vm.nextCourseProgress,
+                        startTime: vm.nextCourseStartTime,
+                        teacher: vm.nextCourseTeacher,
+                        location: vm.nextCourseLocation
+                    )
+                    buttonsLabel
+                    tipsLabel
                 }
-                .groupBoxStyle(ModuleBoxStyle())
+                .padding(.top, 10)
+                
             }
-            .onAppear{
-                vm.freshModels()
-            }
-            .navigationTitle("今天")
-            .navigationBarTitleDisplayMode(.automatic)
+            .groupBoxStyle(ModuleBoxStyle())
         }
-        .navigationViewStyle(.stack)
+        .onAppear{
+            vm.freshModels()
+        }
     }
-    
+
     
     private var helloLabel: some View {
         VStack(alignment: .leading){

@@ -42,7 +42,7 @@ struct NextLectureLabel: View {
                     .fontWeight(.medium)
                 Spacer()
                 Button {
-                    appInfo.tabItemNum = 1
+                    appInfo.tabItemNum = .schedulePage
                 } label: {
                     Image(systemName: "align.horizontal.left")
                 }

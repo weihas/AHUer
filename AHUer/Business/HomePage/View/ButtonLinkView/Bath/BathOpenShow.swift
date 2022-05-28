@@ -31,7 +31,7 @@ class BathOpenShow: ObservableObject {
     }
     
     var borderTime: String {
-        return "10:30 - 21:00"
+        "开启时间：" + "10:30 - 21:00"
     }
     
     var currentisPin: Bool {

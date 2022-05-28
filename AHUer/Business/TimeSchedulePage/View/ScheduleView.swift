@@ -12,55 +12,50 @@ struct ScheduleView: View {
     @Namespace var changenameSpace
     @State var showAlert: Bool = false
     var body: some View {
-        NavigationView {
-            ScrollView(.vertical, showsIndicators: false) {
-              dateLineView
-                if vm.gridModel {
-                    scheduleGridView
-                } else {
-                    scheduleListView
-                }
+        ScrollView(.vertical, showsIndicators: false) {
+            dateLineView
+            if vm.gridModel {
+                scheduleGridView
+            } else {
+                scheduleListView
             }
-            .gesture(
-                mixGesture
-            )
-            .toolbar{
-                ToolbarItem(placement: .navigationBarLeading) {
-                    termPicker
-                }
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    toolbarContent
-                }
-            }
-            
-            .alert("清空课表", isPresented: $showAlert) {
-                Button(role: .cancel) {
-                    print("Cancel")
-                } label: {
-                    Text("取消")
-                }
-                Button(role: .destructive) {
-                    vm.cleanUp()
-                } label: {
-                    Text("确定")
-                }
-            } message: {
-                Text("清空课表会导致所有课表数据被删除")
-            }
-            
-            .sheet(isPresented: $vm.showEditView) {
-                ScheduleAddLectureView()
-                    .onDisappear {
-                        vm.freshModel()
-                    }
-            }
-            .onAppear {
-                vm.freshModel()
-            }
-            .navigationTitle("第\(Date().studyWeek)周")
-           
         }
-        .navigationViewStyle(.stack)
+        .gesture(
+            mixGesture
+        )
+        .toolbar{
+            ToolbarItem(placement: .navigationBarLeading) {
+                termPicker
+            }
+            ToolbarItem(placement: .navigationBarTrailing) {
+                toolbarContent
+            }
+        }
+        
+        .alert("清空课表", isPresented: $showAlert) {
+            Button(role: .cancel) {
+                print("Cancel")
+            } label: {
+                Text("取消")
+            }
+            Button(role: .destructive) {
+                vm.cleanUp()
+            } label: {
+                Text("确定")
+            }
+        } message: {
+            Text("清空课表会导致所有课表数据被删除")
+        }
+        
+        .sheet(isPresented: $vm.showEditView) {
+            ScheduleAddLectureView()
+                .onDisappear {
+                    vm.freshModel()
+                }
+        }
+        .onAppear {
+            vm.freshModel()
+        }
     }
     
     //日期视图

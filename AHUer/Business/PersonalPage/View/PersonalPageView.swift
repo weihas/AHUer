@@ -16,24 +16,19 @@ struct PersonalPageView: View {
     
     
     var body: some View {
-        NavigationView{
-            Form {
-                accountSection
-                operationSection
-            }
-            .actionSheet(isPresented: $vm.showLoggingChoose) {
-                actionSheet
-            }
-            .sheet(isPresented: $vm.showLoggingPanel) {
-                LogginPanelView(vm: LogginPanelShow())
-            }
-            .sheet(isPresented: $showHideView) {
-                ThanksChildView()
-            }
-            .navigationBarTitle("个人")
+        Form {
+            accountSection
+            operationSection
         }
-
-        .navigationViewStyle(.stack)
+        .actionSheet(isPresented: $vm.showLoggingChoose) {
+            actionSheet
+        }
+        .sheet(isPresented: $vm.showLoggingPanel) {
+            LogginPanelView(vm: LogginPanelShow())
+        }
+        .sheet(isPresented: $showHideView) {
+            ThanksChildView()
+        }
     }
 }
 

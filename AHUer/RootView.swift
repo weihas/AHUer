@@ -15,36 +15,39 @@ struct RootView: View {
     
     var body: some View {
         TabView(selection: $appInfo.tabItemNum) {
-            HomePageView(vm: rootVM.HomePageViewModel)
-                .tabItem {
-                    Image(systemName: "house")
-                    Text("主页")
-                }
-                .tag(0)
-            ScheduleView(vm: rootVM.timeScheduleViewModel)
-                .tabItem {
-                    Image(systemName: "list.bullet.rectangle")
-                    Text("课表")
-                }
-                .tag(1)
+            ForEach(TabPage.allCases) { page in
+                creatView(tabPage: page)
+                    .tabItem {
+                        Label(page.name, systemImage: page.icon)
+                    }
+                    .tag(page)
+                    
+            }
             
-//            NewsPageView(newsVM: NewsPlaying())
-//                .tabItem {
-//                    Image(systemName: "newspaper")
-//                    Text("资讯")
-//                }
-//                .tag(2)
-
-            PersonalPageView(vm: rootVM.PersonalPageViewModel)
-                .tabItem {
-                    Image(systemName: "person.circle")
-                    Text("个人")
-                }
-                .tag(3)
         }
+        .navigationViewStyle(.stack)
         .font(.headline)
         .onAppear {
             appInfo.freshLogginStatus()
+        }
+    }
+    
+    
+    
+    @ViewBuilder
+    func creatView(tabPage: TabPage) -> some View {
+        NavigationView {
+            Group {
+                switch tabPage {
+                case .homePage:
+                    HomePageView(vm: rootVM.HomePageViewModel)
+                case .schedulePage:
+                    ScheduleView(vm: rootVM.timeScheduleViewModel)
+                case .personal:
+                    PersonalPageView(vm: rootVM.PersonalPageViewModel)
+                }
+            }
+            .navigationTitle(tabPage.title)
         }
     }
 }

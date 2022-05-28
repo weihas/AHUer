@@ -58,7 +58,6 @@ class HomePageShow: ObservableObject {
     
     var bathTipsContext: (name: String, openState: String) {
         guard let pined = BathRoom(rawValue: pinBathRoom) else { return ("竹园" , "男") }
-        print(pined.name)
         return (pined.name, pined.openState)
     }
     
