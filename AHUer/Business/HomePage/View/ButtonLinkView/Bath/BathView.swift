@@ -66,8 +66,9 @@ struct BathView: View {
             }
             .pickerStyle(.segmented)
             HStack {
-                VStack(alignment: .leading, spacing: 15) {
+                VStack(alignment: .leading) {
                     Label(vm.borderTime, systemImage: "clock")
+                    Divider()
                     Label(vm.boardSubtitle, systemImage: "tornado")
                         .font(.headline)
                 }
