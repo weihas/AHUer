@@ -26,11 +26,9 @@ class AHUAppInfo: ObservableObject {
         
         //有ID无cookie
         if hasId && !hascookie {
-            
+            cleanCache()
         } else if !hasId && hascookie {
-            Task {
-                userID = ""
-            }
+            cleanCache()
         }
     }
     
