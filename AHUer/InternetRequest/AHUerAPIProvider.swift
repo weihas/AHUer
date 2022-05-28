@@ -59,13 +59,15 @@ extension AHUerAPIProvider{
     ///   - password: 密码
     ///   - type: 登录目标
     /// - Returns: 用户名(不为空则成功)
-    static func loggin(userId: String, password: String, type: Int) async throws {
+    static func loggin(userId: String, password: String, type: Int, saveCookie: Bool) async throws {
         let respon: JSON = try await asyncRequest(.login(userId: userId, password: password, type: type))
         
         guard let userName = respon["data"]["name"].string, userName != "" else { throw AHUerAPIError(code: -10, title: "登录") }
         
-        //cookie存储
-        HTTPCookieStorage.saveAHUerCookie()
+        if saveCookie {
+            //cookie存储
+            HTTPCookieStorage.saveAHUerCookie()
+        }
         
         let attribute = JSON(["studentID" : userId, "studentName" : userName])
 
@@ -159,13 +161,15 @@ extension AHUerAPIProvider{
     }
     
     /// 网络登出
-    static func logout(type: Int = 1) async throws{
-        let _ = try await asyncRequest(.logout(type: type))
+    static func logout(type: Int = 1) async {
+        let _ = try? await asyncRequest(.logout(type: type))
+        
         await container.performBackgroundTask { context in
             guard let student = Student.nowUser(in: context) else { return }
             student.delete()
         }
         HTTPCookieStorage.deleteAHUerCookie()
+        UserDefaults.standard.removeObject(forKey: AHUerDefaultsKey.AHUID.rawValue)
     }
     
     

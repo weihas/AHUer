@@ -11,11 +11,29 @@ import SwiftUI
 
 //登陆弹窗VM
 class LogginPanelShow: ObservableObject {
-    @Published var userID: String = "E01814133"
+    @Published var username: String = "E01814133"
     @Published var password: String = "Whw,0917"
-    @Published var logginType: Bool = false
+    @Published var logginOrigin: Bool = false
     @AppStorage(AHUerDefaultsKey.AHUID.rawValue, store: .standard) var localID: String = ""
+    @Published var saveCookie: Bool = true
     
+    //MARK: -Access to Model
+    
+    var userNameIcon: String {
+        guard !username.isEmpty else { return "person" }
+        if username.isRegularForUserName {
+            if username.count == 9 {
+                return "person.fill.checkmark"
+            }
+            return "person.fill.questionmark"
+        } else {
+            return "person.fill.xmark"
+        }
+    }
+    
+    var passwordIcon: String {
+        password.isEmpty ? "key" : "key.fill"
+    }
     
     //MARK: -Intents
     
@@ -23,7 +41,7 @@ class LogginPanelShow: ObservableObject {
         do {
             guard let pw = try password.rsaCrypto() else { return false }
             
-            try await AHUerAPIProvider.loggin(userId: userID, password: pw, type: logginType ? 2 : 1)
+            try await AHUerAPIProvider.loggin(userId: username, password: pw, type: logginOrigin ? 2 : 1, saveCookie: saveCookie)
             await syncStatus()
             await freshAppStatus()
             
@@ -36,7 +54,7 @@ class LogginPanelShow: ObservableObject {
     
     @MainActor
     func syncStatus(){
-        localID = userID
+        localID = username
     }
 
     func freshAppStatus() async {

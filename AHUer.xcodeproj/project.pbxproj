@@ -19,6 +19,7 @@
 		35577ADB282AABCD00876DF2 /* Label+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35577ADA282AABCD00876DF2 /* Label+Style.swift */; };
 		35611A50280BF53300981F18 /* CardBalanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35611A4F280BF53300981F18 /* CardBalanceView.swift */; };
 		3568A10027DA4AB100FE3E9B /* UserDefaults+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3568A0FF27DA4AB100FE3E9B /* UserDefaults+.swift */; };
+		3575CF81284291D300EA9729 /* LogginDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3575CF80284291D300EA9729 /* LogginDetailView.swift */; };
 		358589E927CFB93F00D9DFF3 /* AHUerAPIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358589E827CFB93F00D9DFF3 /* AHUerAPIProvider.swift */; };
 		358589EB27CFBAB800D9DFF3 /* AHUerAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358589EA27CFBAB800D9DFF3 /* AHUerAPIError.swift */; };
 		358589ED27CFBB4100D9DFF3 /* AHUerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358589EC27CFBB4100D9DFF3 /* AHUerAPI.swift */; };
@@ -102,6 +103,7 @@
 		35577ADA282AABCD00876DF2 /* Label+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Label+Style.swift"; sourceTree = "<group>"; };
 		35611A4F280BF53300981F18 /* CardBalanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBalanceView.swift; sourceTree = "<group>"; };
 		3568A0FF27DA4AB100FE3E9B /* UserDefaults+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+.swift"; sourceTree = "<group>"; };
+		3575CF80284291D300EA9729 /* LogginDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogginDetailView.swift; sourceTree = "<group>"; };
 		358589E827CFB93F00D9DFF3 /* AHUerAPIProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHUerAPIProvider.swift; sourceTree = "<group>"; };
 		358589EA27CFBAB800D9DFF3 /* AHUerAPIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHUerAPIError.swift; sourceTree = "<group>"; };
 		358589EC27CFBB4100D9DFF3 /* AHUerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AHUerAPI.swift; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 			children = (
 				35BE038427D9F69300753940 /* LogginPanelShow.swift */,
 				35E940C627C88158001B4070 /* LogginPanelView.swift */,
+				3575CF80284291D300EA9729 /* LogginDetailView.swift */,
 			);
 			path = LoginPanel;
 			sourceTree = "<group>";
@@ -722,6 +725,7 @@
 				35E940E127C88165001B4070 /* Popup.swift in Sources */,
 				35E9409727C8813B001B4070 /* MoreView.swift in Sources */,
 				35E9406727C88128001B4070 /* AHUerPrimaryEntity.swift in Sources */,
+				3575CF81284291D300EA9729 /* LogginDetailView.swift in Sources */,
 				35E9409F27C8813B001B4070 /* ScoreGets.swift in Sources */,
 				35E940CA27C88158001B4070 /* AboutUSView.swift in Sources */,
 				358589E927CFB93F00D9DFF3 /* AHUerAPIProvider.swift in Sources */,

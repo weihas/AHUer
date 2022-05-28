@@ -14,10 +14,33 @@ class AHUAppInfo: ObservableObject {
     ///当前的tableItemNum
     @Published var tabItemNum: TabPage = .homePage
     @Published var isLoggin: Bool = false
-    init() {}
+    
+    init() {
+        freshLogginStatus()
+    }
     
     func freshLogginStatus() {
-        isLoggin = (userID != "")
+        let hascookie = HTTPCookieStorage.haveAHUerCookie
+        let hasId = userID != ""
+        isLoggin = hascookie && hasId
+        
+        //有ID无cookie
+        if hasId && !hascookie {
+            
+        } else if !hasId && hascookie {
+            Task {
+                userID = ""
+            }
+        }
+    }
+    
+    func cleanCache() {
+        Task {
+            await AHUerAPIProvider.logout()
+            await MainActor.run {
+                userID = ""
+            }
+        }
     }
     
     deinit{

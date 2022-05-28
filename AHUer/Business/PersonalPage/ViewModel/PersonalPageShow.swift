@@ -37,12 +37,8 @@ class PersonalPageShow: ObservableObject {
     
     func logout(type: Int) {
         Task{
-            do {
-                try await AHUerAPIProvider.logout(type: type)
-                await cleanUp()
-            } catch {
-                await AlertView.showAlert(with: error)
-            }
+            await AHUerAPIProvider.logout(type: type)
+            await cleanUp()
         }
     }
     

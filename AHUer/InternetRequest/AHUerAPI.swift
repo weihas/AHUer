@@ -190,6 +190,11 @@ extension HTTPCookieStorage{
         }
     }
     
+    static var haveAHUerCookie: Bool {
+        guard let cookies = shared.cookies(for: AHUerAPIDetail.domainUrl) else { return false}
+        return !cookies.isEmpty
+    }
+    
     static func deleteAHUerCookie(){
         guard let cookies = shared.cookies(for: AHUerAPIDetail.domainUrl) else { return }
         for cookie in cookies{

@@ -81,8 +81,9 @@ struct BathView: View {
                         .font(.system(size: 15))
                         .padding()
                 }
-                .background(Color.lightGray)
+                .background(colorScheme.isLight ? Color.lightGray : Color.gray)
                 .cornerRadius(8)
+                .shadow(radius: vm.currentisPin ?  0 : 3)
             }
             
         }
@@ -92,7 +93,7 @@ struct BathView: View {
                 .fill(colorScheme.isLight ? .white : .darkGray)
                 .shadow(radius: 3, x: 0, y: -3)
         )
-        .opacity(0.8)
+        .opacity(0.9)
     }
 }
 

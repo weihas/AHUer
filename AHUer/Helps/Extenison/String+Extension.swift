@@ -20,4 +20,11 @@ extension String {
         //去掉空格
         return string.replacingOccurrences(of: " ", with: "")
     }
+    
+    var isRegularForUserName: Bool{
+        let regex = "^[A-Z][0-9]{0,8}$"
+        guard let RE = try? NSRegularExpression(pattern: regex, options: .caseInsensitive) else { return false }
+        let match =  RE.matches(in: self, options: .reportCompletion, range: NSRange(location: 0, length: self.count))
+        return match.count == 0 ? false : true
+    }
 }
