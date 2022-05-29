@@ -36,6 +36,7 @@
     </entity>
     <entity name="Student" representedClassName="Student" syncable="YES" codeGenerationType="class">
         <attribute name="cardBalance" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="startYear" optional="YES" attributeType="Integer 64" usesScalarValueType="YES"/>
         <attribute name="studentID" optional="YES" attributeType="String"/>
         <attribute name="studentName" optional="YES" attributeType="String"/>
         <attribute name="termGradePoint" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
@@ -50,6 +51,6 @@
         <element name="Course" positionX="154.36328125" positionY="-1107.27734375" width="128" height="209"/>
         <element name="Exam" positionX="57.76171875" positionY="-770.984375" width="128" height="134"/>
         <element name="Grade" positionX="-389.19921875" positionY="-500.5546875" width="128" height="164"/>
-        <element name="Student" positionX="-397.61328125" positionY="-917.22265625" width="152.84765625" height="179"/>
+        <element name="Student" positionX="-397.61328125" positionY="-917.22265625" width="152.84765625" height="194"/>
     </elements>
 </model>

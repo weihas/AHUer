@@ -147,7 +147,7 @@ extension ScheduleView {
     //学期选择
     private var termPicker: some View {
         Picker(selection: $vm.selectedTerm, label: Text(vm.selectedTerm.title)) {
-            ForEach(LearningTerm.allCases) { term in
+            ForEach(vm.showTerms) { term in
                 Text(term.title).tag(term)
             }
         }

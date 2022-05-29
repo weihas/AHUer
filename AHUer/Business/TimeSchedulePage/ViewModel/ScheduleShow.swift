@@ -45,6 +45,9 @@ class ScheduleShow: ObservableObject {
         return result
     }
     
+    var showTerms: [LearningTerm] {
+        return LearningTerm.showTerms
+    }
     
     var galleryDay: ScheduleDay {
         guard let index = selectedDay?.rawValue else { return models.first ?? .timeLine }

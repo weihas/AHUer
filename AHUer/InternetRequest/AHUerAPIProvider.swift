@@ -68,8 +68,10 @@ extension AHUerAPIProvider{
             //cookie存储
             HTTPCookieStorage.saveAHUerCookie()
         }
+        //取学号中的年份
+        let startYear = "20" + String(userId.prefix(4).suffix(2))
         
-        let attribute = JSON(["studentID" : userId, "studentName" : userName])
+        let attribute = JSON(["studentID" : userId, "studentName" : userName, "startYear" : startYear ])
 
         await container.performBackgroundTask { context in
             if let user = Student.fetch(studentId: userId, in: context) {

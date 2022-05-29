@@ -21,8 +21,17 @@ enum LearningTerm: Int, CaseIterable, Identifiable {
         return self.rawValue
     }
     
+    static var showTerms: [LearningTerm] {
+        let startYear: Int = Int(Student.nowUser()?.startYear ?? Int64(Date().year))
+        let nowYear: Int = Date().year
+        var delta = (nowYear - startYear)*2
+        delta = delta == 0 ? 1 : delta
+        return Array(LearningTerm.allCases.prefix(delta))
+    }
+    
     var schoolYear: String {
-        let nowYear = 2018 + (self.rawValue/2)
+        let startYear: Int = Int(Student.nowUser()?.startYear ?? Int64(Date().year))
+        let nowYear = startYear + (self.rawValue/2)
         return "\(nowYear)" + "-" + "\(nowYear+1)"
     }
     
