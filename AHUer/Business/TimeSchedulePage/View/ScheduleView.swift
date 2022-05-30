@@ -23,9 +23,9 @@ struct ScheduleView: View {
                     scheduleListView
                 }
             }
-            .onTapGesture(count: 2) {
-                vm.toggleTimeLine()
-            }
+        }
+        .onTapGesture(count: 2) {
+            vm.toggleTimeLine()
         }
         .animation(.easeInOut, value: vm.gridModel || vm.hideWeekend || vm.showTimeLine)
         .toolbar{
@@ -178,6 +178,11 @@ extension ScheduleView {
             Divider()
             Toggle(isOn: $vm.gridModel) {
                 Label("网格模式", systemImage: "tablecells")
+            }
+            if vm.gridModel {
+                Toggle(isOn: $vm.showTimeLine) {
+                    Label("显示时间", systemImage: "timelapse")
+                }
             }
             Toggle(isOn: $vm.hideWeekend) {
                 Label("隐藏周末", systemImage: "cloud.sun")

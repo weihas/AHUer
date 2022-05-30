@@ -43,8 +43,8 @@ class LogginPanelShow: ObservableObject {
             
             try await AHUerAPIProvider.loggin(userId: username, password: pw, type: logginOrigin ? 2 : 1, saveCookie: saveCookie)
             await syncStatus()
+            HapticManager.impactFeedBack(style: .success)
             await freshAppStatus()
-            
             return true
         } catch {
             await AlertView.showAlert(with: error)

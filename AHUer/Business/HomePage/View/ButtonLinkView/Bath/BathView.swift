@@ -28,12 +28,12 @@ struct BathView: View {
                     }
                     .fixedSize()
                     .padding()
+                    .onTapGesture {
+                        vm.choose(bathroom: bathroom)
+                    }
                     .contextMenu {
                         Text(bathroom.name)
                         Text(bathroom.openState)
-                    }
-                    .onTapGesture {
-                        vm.choose(bathroom: bathroom)
                     }
                 }
         }

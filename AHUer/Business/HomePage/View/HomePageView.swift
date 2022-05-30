@@ -135,6 +135,7 @@ extension HomePageView {
             }
             .overlay(alignment: .topTrailing) {
                 Button {
+                    HapticManager.impactFeedBack(style: .light)
                     showGPA.toggle()
                 } label: {
                     Image(systemName: showGPA ? "eye" : "eye.slash")

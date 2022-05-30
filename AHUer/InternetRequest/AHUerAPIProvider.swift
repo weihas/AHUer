@@ -171,7 +171,9 @@ extension AHUerAPIProvider{
             student.delete()
         }
         HTTPCookieStorage.deleteAHUerCookie()
-        UserDefaults.standard.removeObject(forKey: AHUerDefaultsKey.AHUID.rawValue)
+        await MainActor.run {
+            UserDefaults.standard.removeObject(forKey: AHUerDefaultsKey.AHUID.rawValue)
+        }
     }
     
     

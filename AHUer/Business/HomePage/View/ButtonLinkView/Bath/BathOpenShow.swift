@@ -42,11 +42,15 @@ class BathOpenShow: ObservableObject {
     
     @MainActor func choose(bathroom: BathRoom) {
         withAnimation {
+            HapticManager.impactFeedBack(style: .light)
             self.selectedBathroom = bathroom
         }
     }
     
     func pinSelectedBathRoom() {
+        if pinBathRoom != selectedBathroom.id {
+            HapticManager.impactFeedBack(style: .waring)
+        }
         withAnimation {
             pinBathRoom = self.selectedBathroom.id
         }

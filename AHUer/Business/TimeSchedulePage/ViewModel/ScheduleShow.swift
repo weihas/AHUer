@@ -101,6 +101,8 @@ class ScheduleShow: ObservableObject {
     
     @MainActor
     func toggleTimeLine() {
+        guard self.gridModel else { return }
+        HapticManager.impactFeedBack(style: .light)
         withAnimation {
             showTimeLine.toggle()
         }
