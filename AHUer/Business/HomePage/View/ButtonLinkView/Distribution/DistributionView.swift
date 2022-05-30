@@ -10,9 +10,7 @@ import SwiftUICharts
 
 struct DistributionView: View {
     @ObservedObject var vm: DistributionShow
-    @EnvironmentObject var appInfo: AHUAppInfo
-    @State var courseName: String = ""
-    @State var show: Bool = false
+    @State var isFocused: Bool = false
     var body: some View {
         ScrollView {
             searchBar
@@ -36,35 +34,34 @@ struct DistributionView: View {
     
     var searchBar: some View{
         VStack {
-            TextField("输入课程名称", text: $courseName){
-                vm.getDistribution(courseName: courseName)
-            }
+            TextField("输入课程名称", text: $vm.courseName)
             .padding()
-            
             .background(Capsule().stroke(Color.meiRed).padding(10))
-            .overlay(
-                HStack{
-                    if show {
-                        Spacer()
-                        Button {
-                            vm.getDistribution(courseName: courseName)
-                            withAnimation {
-                                show = false
-                            }
-                        } label: {
-                            Image(systemName: "magnifyingglass")
-                                .font(.system(size: 20))
-                                .padding(.trailing)
+            .onSubmit {
+                vm.getDistribution()
+            }
+            .overlay(alignment: .trailing) {
+                if vm.showSearch {
+                    Button {
+                        vm.getDistribution()
+                        withAnimation {
+                            isFocused.toggle()
                         }
+                    } label: {
+                        Image(systemName: "magnifyingglass")
+                            .font(.system(size: 20))
+                            .padding(.trailing)
                     }
+                    
                 }
-            )
+            }
             Divider()
-            LazyVGrid(columns: [GridItem(.adaptive(minimum: 100))]){
+            LazyVGrid(columns: [GridItem(.adaptive(minimum: 90))]){
                 ForEach(0..<vm.tipsRegularly.count, id: \.self){ index in
                     let name = vm.tipsRegularly[index]
                     Button(name) {
-                        vm.getDistribution(courseName: name)
+                        vm.courseName = name
+                        vm.getDistribution()
                     }
                     .lineLimit(1)
                     .padding(.horizontal)
@@ -78,7 +75,7 @@ struct DistributionView: View {
         }
         .onTapGesture {
             withAnimation{
-                show = true
+                isFocused = true
             }
         }
     }

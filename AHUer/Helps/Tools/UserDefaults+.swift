@@ -14,4 +14,8 @@ enum AHUerDefaultsKey: String {
     case Loggin = "IsLoggin"
     case Schedule_IsGridModel
     case Schedule_HideWeekend
+    case Schedule_SelectedTerm
+    case Exam_SelectedTerm
+    case SatrtYear
+    case StartData
 }

@@ -21,18 +21,17 @@ enum LearningTerm: Int, CaseIterable, Identifiable {
         return self.rawValue
     }
     
-    static var showTerms: [LearningTerm] {
-        let startYear: Int = Int(Student.nowUser()?.startYear ?? Int64(Date().year))
+    static func showTerms(of startYear: Int) -> [LearningTerm] {
         let nowYear: Int = Date().year
         var delta = (nowYear - startYear)*2
-        delta = delta == 0 ? 1 : delta
+        delta = delta == 0 ? 2 : delta
         return Array(LearningTerm.allCases.prefix(delta))
     }
     
     var schoolYear: String {
-        let startYear: Int = Int(Student.nowUser()?.startYear ?? Int64(Date().year))
+        let startYear: Int = Int(Student.nowUser()?.startYear ?? Int64(Date().year - 1))
         let nowYear = startYear + (self.rawValue/2)
-        return "\(nowYear)" + "-" + "\(nowYear+1)"
+        return "\(nowYear)" + "~" + "\(nowYear+1)"
     }
     
     var term: Int {
@@ -40,6 +39,10 @@ enum LearningTerm: Int, CaseIterable, Identifiable {
     }
     
     var title: String {
-        return schoolYear + " ~ " + "\(term)"
+        return schoolYear + " - " + "\(term)"
+    }
+    
+    var completeTitle: String {
+        return schoolYear + " 第" + "\(term)" + "学期"
     }
 }

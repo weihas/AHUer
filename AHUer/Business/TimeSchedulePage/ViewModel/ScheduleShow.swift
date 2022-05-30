@@ -10,7 +10,7 @@ import SwiftUI
 class ScheduleShow: ObservableObject {
     // [Time Mon Tue Wed Thr Fri Sta Sun]
     @Published private var models: [ScheduleDay]
-    @Published var selectedTerm: LearningTerm = .eight {
+    @AppStorage(AHUerDefaultsKey.Schedule_SelectedTerm.rawValue, store: .standard) var selectedTerm: LearningTerm = .eight {
         didSet {
             withAnimation {
                 freshScheduleInternet()
@@ -45,8 +45,10 @@ class ScheduleShow: ObservableObject {
         return result
     }
     
+
     var showTerms: [LearningTerm] {
-        return LearningTerm.showTerms
+        let startYear: Int = Int(Student.nowUser()?.startYear ?? Int64(Date().year))
+        return LearningTerm.showTerms(of: startYear)
     }
     
     var galleryDay: ScheduleDay {
@@ -97,6 +99,20 @@ class ScheduleShow: ObservableObject {
         self.selectedDay = day
     }
     
+    @MainActor
+    func toggleTimeLine() {
+        withAnimation {
+            showTimeLine.toggle()
+        }
+    }
+    
+    @MainActor
+    
+    func toggleHideWeekend() {
+        withAnimation {
+            hideWeekend.toggle()
+        }
+    }
     
     @MainActor
     func reduce() {
@@ -104,9 +120,13 @@ class ScheduleShow: ObservableObject {
     }
     
     func freshScheduleInternet() {
-        Task{
+        //这里一定是主线程
+        let schoolYear = self.selectedTerm.schoolYear
+        let schoolTerm = self.selectedTerm.term
+        
+        Task {
             do {
-                try await AHUerAPIProvider.getSchedule(schoolYear: selectedTerm.schoolYear, schoolTerm: selectedTerm.term)
+                try await AHUerAPIProvider.getSchedule(schoolYear: schoolYear, schoolTerm: schoolTerm)
                 await freshModel()
             } catch {
                 await AlertView.showAlert(with: error)

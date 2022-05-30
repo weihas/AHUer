@@ -72,7 +72,7 @@ extension EmptyRoomView{
                     .background(RoundedRectangle(cornerRadius: 7).fill(colorScheme.isLight ? Color.lightGray : Color.darkGray))
                     .foregroundColor(weekDayChoose ? .blue : .primary)
                     .onTapGesture {
-                        withAnimation{
+                        withAnimation {
                             weekNumChoose = false
                             weekDayChoose.toggle()
                             timeChoose = false

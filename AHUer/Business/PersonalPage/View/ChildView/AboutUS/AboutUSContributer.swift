@@ -9,7 +9,6 @@ import Foundation
 
 enum ContributeType: Int, CaseIterable {
     case product
-    case foreground
     case background
     case management
     case design
@@ -26,8 +25,6 @@ extension ContributeType: Identifiable {
         switch self {
         case .product:
             return "产品"
-        case .foreground:
-            return "前端"
         case .background:
             return "后端"
         case .management:
@@ -45,8 +42,6 @@ extension ContributeType: Identifiable {
         switch self {
         case .product:
             return "brain.head.profile"
-        case .foreground:
-            return "rectangle.and.hand.point.up.left"
         case .background:
             return "brain.head.profile"
         case .management:
@@ -63,15 +58,13 @@ extension ContributeType: Identifiable {
     var member: [String] {
         switch self {
         case .product:
-            return ["郑琦","谢梦磊","吴思娴","石坤","刘子哲","王浩伟"]
-        case .foreground:
-            return ["谢梦磊","洪志高","ZJX","石坤","李阳","冯磊","朱凡","陈聪","付天辰","吴世博","王浩伟"]
+            return ["王浩伟"]
         case .background:
-            return ["石坤","刘子哲","刘瑞鹏","王渝川","吴振龙"]
+            return ["吴振龙", "徐海", "王岳赣", "王壮壮"]
         case .management:
-            return ["吴思娴","毛依凡","吴越洋","刘子哲","欧立洋"]
+            return []
         case .design:
-            return ["郑琦","葛婷","熊彦超","焦雨辰","刘菲","陈柏潭","刘雯茜","王睿妍","王浩伟"]
+            return ["王浩伟"]
         case .machineLearning:
             return ["张敬轩", "马昆昆"]
         case .thanks:

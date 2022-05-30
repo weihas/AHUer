@@ -10,11 +10,16 @@ import SwiftUI
 
 class DistributionShow: ObservableObject{
     @Published var distributions: [Distribution] = []
+    @Published var courseName: String = ""
     
-    var tipsRegularly: [String] = ["高等数学","马基","英语","大机","物理","Python"]
+    var tipsRegularly: [String] = ["高等数学","马基","英语","大机","物理","Python", "Java"]
     
+    var showSearch: Bool {
+        !courseName.isEmpty
+    }
     
-    func getDistribution(courseName: String){
+    func getDistribution() {
+        guard !courseName.isEmpty else { return }
         Task{
             do {
                 let respon = try await AHUerAPIProvider.asyncRequest(.gradeDistribution(courseName: courseName))

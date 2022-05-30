@@ -37,7 +37,7 @@ struct LogginPanelView: View {
     
     var titleView: some View {
         VStack {
-            Image(systemName: "person.text.rectangle")
+            Image(systemName: "graduationcap")
                 .font(.largeTitle)
                 .padding()
             Text("Welcome to AHUer !")

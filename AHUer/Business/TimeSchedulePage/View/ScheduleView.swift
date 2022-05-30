@@ -10,19 +10,24 @@ import SwiftUI
 struct ScheduleView: View {
     @ObservedObject var vm: ScheduleShow
     @Namespace var changenameSpace
+    @Environment(\.colorScheme) var colorScheme
     @State var showAlert: Bool = false
     var body: some View {
-        ScrollView(.vertical, showsIndicators: false) {
+        ScrollView(showsIndicators: false) {
+            moduleChooseView
             dateLineView
-            if vm.gridModel {
-                scheduleGridView
-            } else {
-                scheduleListView
+            Group {
+                if vm.gridModel {
+                    scheduleGridView
+                } else {
+                    scheduleListView
+                }
+            }
+            .onTapGesture(count: 2) {
+                vm.toggleTimeLine()
             }
         }
-        .gesture(
-            mixGesture
-        )
+        .animation(.easeInOut, value: vm.gridModel || vm.hideWeekend || vm.showTimeLine)
         .toolbar{
             ToolbarItem(placement: .navigationBarLeading) {
                 termPicker
@@ -53,9 +58,21 @@ struct ScheduleView: View {
                     vm.freshModel()
                 }
         }
+//        .navigationBarTitleDisplayMode(.inline)
         .onAppear {
             vm.freshModel()
         }
+    }
+    
+    private var moduleChooseView: some View {
+        Picker(selection: $vm.gridModel) {
+            Text("Day").tag(false)
+            Text("Weak").tag(true)
+        } label: {
+            Text("Choose")
+        }
+        .pickerStyle(.segmented)
+        .padding([.horizontal,.bottom])
     }
     
     //日期视图
@@ -87,26 +104,6 @@ struct ScheduleView: View {
             }
         }
         .padding(.horizontal)
-    }
-    
-    private var mixGesture: some Gesture {
-        ExclusiveGesture(
-            TapGesture(count: 2)
-                .onEnded {
-                    withAnimation {
-                        vm.gridModel.toggle()
-                    }
-                }
-            ,
-            DragGesture(minimumDistance: 30)
-                .onEnded { value in
-                    withAnimation {
-                        if vm.gridModel {
-                            vm.showTimeLine = value.location.x > value.startLocation.x
-                        }
-                    }
-                }
-        )
     }
     
     /// 时间表的指示
@@ -146,11 +143,15 @@ struct ScheduleView: View {
 extension ScheduleView {
     //学期选择
     private var termPicker: some View {
-        Picker(selection: $vm.selectedTerm, label: Text(vm.selectedTerm.title)) {
+        Picker(selection: $vm.selectedTerm) {
             ForEach(vm.showTerms) { term in
                 Text(term.title).tag(term)
             }
+        } label: {
+            Text(vm.selectedTerm.title)
         }
+        .padding(.horizontal, 7)
+        .background(RoundedRectangle(cornerRadius: 7).stroke(colorScheme.isLight ? Color.lightGray : Color.darkGray))
         .pickerStyle(.menu)
     }
     
@@ -177,6 +178,9 @@ extension ScheduleView {
             Divider()
             Toggle(isOn: $vm.gridModel) {
                 Label("网格模式", systemImage: "tablecells")
+            }
+            Toggle(isOn: $vm.hideWeekend) {
+                Label("隐藏周末", systemImage: "cloud.sun")
             }
         } label: {
             Label("More", systemImage: "tablecells.badge.ellipsis")

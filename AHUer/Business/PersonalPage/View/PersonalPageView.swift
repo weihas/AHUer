@@ -40,8 +40,12 @@ extension PersonalPageView{
             Button {
                 vm.logginButtonTap(isLoggin: appInfo.isLoggin)
             } label: {
-                Text(vm.logginMessage(isLoggin: appInfo.isLoggin))
-                    .foregroundColor(.blue)
+                NavigationLink {
+                    EmptyView()
+                } label: {
+                    Text(vm.logginMessage(isLoggin: appInfo.isLoggin))
+                        .foregroundColor(.blue)
+                }
             }
         }
     }

@@ -9,9 +9,12 @@ import SwiftUI
 
 struct ExamSiteView: View {
     @ObservedObject var vm: ExamSiteShow
+    @State var showYearChoose: Bool = false
+    @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
         VStack{
+            termPicker
             List(vm.exams){ exam in
                 examCard(exam: exam)
             }
@@ -22,12 +25,45 @@ struct ExamSiteView: View {
                 vm.freshExamDataLocol()
             }
         }
+        .onTapGesture {
+            withAnimation {
+                showYearChoose = false
+            }
+        }
         .toolbar {
             toolBarContent
         }
         .navigationTitle("考试查询")
         .navigationBarTitleDisplayMode(.inline)
     }
+    
+    
+    var termPicker: some View {
+        VStack{
+            Text(vm.selectedTerm.completeTitle)
+                .padding(7)
+                .background(RoundedRectangle(cornerRadius: 7).fill(colorScheme.isLight ? Color.lightGray : Color.darkGray))
+                .foregroundColor(showYearChoose ? .blue : .primary)
+                .onTapGesture{
+                    withAnimation {
+                        showYearChoose.toggle()
+                    }
+                }
+            
+            if showYearChoose {
+                Picker(selection: $vm.selectedTerm) {
+                    ForEach(vm.termtoShow) { term in
+                        Text("\(term.completeTitle)")
+                            .tag(term)
+                    }
+                } label: {
+                    Label("选择", systemImage: "rectangle.on.rectangle")
+                }
+                .pickerStyle(.wheel)
+            }
+        }
+    }
+    
     
     var toolBarContent: some View {
         HStack{

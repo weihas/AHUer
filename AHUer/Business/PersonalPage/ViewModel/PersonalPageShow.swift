@@ -23,6 +23,9 @@ class PersonalPageShow: ObservableObject {
         return isLoggin ? Student.nowUser()?.studentName ?? "---Error" : "登录"
     }
     
+    var UserID: String {
+        return userID
+    }
     
     // MARK: -Intents(s)
     
