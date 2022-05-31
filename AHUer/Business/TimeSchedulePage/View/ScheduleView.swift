@@ -24,6 +24,12 @@ struct ScheduleView: View {
                 }
             }
         }
+        .gesture(
+            DragGesture()
+                .onEnded { value in
+                    vm.changeCurrentWeekNum(to: value.location.x > value.startLocation.x)
+                }
+        )
         .onTapGesture(count: 2) {
             vm.toggleTimeLine()
         }
@@ -51,7 +57,6 @@ struct ScheduleView: View {
         } message: {
             Text("清空课表会导致所有课表数据被删除")
         }
-        
         .sheet(isPresented: $vm.showEditView) {
             ScheduleAddLectureView()
                 .onDisappear {
@@ -59,6 +64,7 @@ struct ScheduleView: View {
                 }
         }
 //        .navigationBarTitleDisplayMode(.inline)
+        .navigationTitle("第\(vm.currentWeek)周")
         .onAppear {
             vm.freshModel()
         }

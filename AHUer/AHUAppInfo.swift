@@ -12,7 +12,7 @@ import SwiftUI
 class AHUAppInfo: ObservableObject {
     @AppStorage(AHUerDefaultsKey.AHUID.rawValue, store: .standard) var userID: String = ""
     ///当前的tableItemNum
-    @Published var tabItemNum: TabPage = .homePage
+    @Published var tabItemNum: TabPage = .schedulePage
     @Published var isLoggin: Bool = false
     
     init() {
@@ -76,17 +76,6 @@ extension TabPage: Identifiable, CaseIterable {
             return "list.bullet.rectangle"
         case .personal:
             return "person.circle"
-        }
-    }
-    
-    var title: String {
-        switch self {
-        case .homePage:
-            return "今天"
-        case .schedulePage:
-            return "第十一周"
-        case .personal:
-            return "个人"
         }
     }
 }

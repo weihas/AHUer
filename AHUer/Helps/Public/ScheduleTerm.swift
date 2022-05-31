@@ -31,7 +31,7 @@ enum LearningTerm: Int, CaseIterable, Identifiable {
     var schoolYear: String {
         let startYear: Int = Int(Student.nowUser()?.startYear ?? Int64(Date().year - 1))
         let nowYear = startYear + (self.rawValue/2)
-        return "\(nowYear)" + "~" + "\(nowYear+1)"
+        return "\(nowYear)" + "-" + "\(nowYear+1)"
     }
     
     var term: Int {
@@ -39,7 +39,7 @@ enum LearningTerm: Int, CaseIterable, Identifiable {
     }
     
     var title: String {
-        return schoolYear + " - " + "\(term)"
+        return schoolYear + "\t" + "\(term)"
     }
     
     var completeTitle: String {

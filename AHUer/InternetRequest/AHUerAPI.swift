@@ -22,6 +22,7 @@ public enum AHUerAPI {
     case gradeDistribution(courseName: String)
     case bathroom
     case campusCardBalance
+    case startTime
 }
 
 extension AHUerAPI: TargetType {
@@ -48,6 +49,8 @@ extension AHUerAPI: TargetType {
             return detail.bathroom.rawValue
         case .campusCardBalance:
             return detail.campusCardBalance.rawValue
+        case .startTime:
+            return detail.startTime.rawValue
         }
     }
 
@@ -71,6 +74,8 @@ extension AHUerAPI: TargetType {
             return .get
         case .campusCardBalance:
             return .get
+        case .startTime:
+            return .get
         }
     }
 
@@ -93,6 +98,8 @@ extension AHUerAPI: TargetType {
         case .bathroom:
             return .requestPlain
         case .campusCardBalance:
+            return .requestPlain
+        case .startTime:
             return .requestPlain
         }
     }
@@ -126,6 +133,8 @@ extension AHUerAPI: TargetType {
             return "get bathroom"
         case .campusCardBalance:
             return "get campusCardBalance"
+        case .startTime:
+            return "get startTime"
         }
     }
     
@@ -150,6 +159,8 @@ extension AHUerAPI: TargetType {
             return "浴室查询"
         case .campusCardBalance:
             return "余额获取"
+        case .startTime:
+            return "开学时间"
         }
     }
 }

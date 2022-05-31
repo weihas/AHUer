@@ -47,7 +47,6 @@ struct RootView: View {
                     PersonalPageView(vm: rootVM.PersonalPageViewModel)
                 }
             }
-            .navigationTitle(tabPage.title)
         }
     }
 }

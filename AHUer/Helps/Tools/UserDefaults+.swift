@@ -16,6 +16,5 @@ enum AHUerDefaultsKey: String {
     case Schedule_HideWeekend
     case Schedule_SelectedTerm
     case Exam_SelectedTerm
-    case SatrtYear
-    case StartData
+    case StartDate
 }

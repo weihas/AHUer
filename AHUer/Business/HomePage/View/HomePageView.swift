@@ -34,6 +34,7 @@ struct HomePageView: View {
             }
             .groupBoxStyle(ModuleBoxStyle())
         }
+        .navigationTitle("今天")
         .onAppear{
             vm.freshModels()
         }

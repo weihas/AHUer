@@ -248,8 +248,14 @@ extension Date{
     }
     
     //TODO: -
-    var studyWeek: Int{
+    var studyWeek: Int {
+        let startDate = UserDefaults.standard.string(forKey: studyYear)
         return 11
+        
+    }
+    
+    var studyWeekInChinese: String {
+        return " some thing"
     }
     
     var isSingel: Bool{

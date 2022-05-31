@@ -199,6 +199,15 @@ extension AHUerAPIProvider{
             student.cardBalance = respon["data"]["balance"].doubleValue
         }
     }
+    
+    ///本学期 开学日期
+    static func startTime() async throws {
+        let respon: JSON = try await asyncRequest(.startTime)
+        #warning("处理StartTime")
+        let date = respon.stringValue
+        print (date)
+        UserDefaults.standard.set(date, forKey: AHUerDefaultsKey.StartDate.rawValue)
+    }
 }
 
 

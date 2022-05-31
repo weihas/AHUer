@@ -23,6 +23,7 @@ class ScheduleShow: ObservableObject {
     @Published var selectedDay: Weekday?
     @Published var showEditView: Bool = false
     @Published var editLecture: ScheduleInfo?
+    @Published var currentWeek: Int = 11
     
     init() {
         models = [ScheduleDay.timeLine] + Weekday.allCases.map({ScheduleDay(weekday: $0)})
@@ -119,6 +120,18 @@ class ScheduleShow: ObservableObject {
     @MainActor
     func reduce() {
         self.selectedDay = Weekday(rawValue: Date().weekDay)
+    }
+    
+    @MainActor
+    func changeCurrentWeekNum(to left: Bool) {
+        withAnimation {
+            if left {
+                currentWeek -= 1
+            } else {
+                currentWeek += 1
+            }
+            self.freshModel()
+        }
     }
     
     func freshScheduleInternet() {

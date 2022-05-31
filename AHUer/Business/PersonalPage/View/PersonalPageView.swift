@@ -29,6 +29,7 @@ struct PersonalPageView: View {
         .sheet(isPresented: $showHideView) {
             ThanksChildView()
         }
+        .navigationTitle("个人")
     }
 }
 
