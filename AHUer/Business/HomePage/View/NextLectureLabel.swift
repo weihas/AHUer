@@ -22,7 +22,7 @@ struct NextLectureLabel: View {
     var body: some View {
         GroupBox {
             RoundedRectangle(cornerRadius: 20)
-                .fill(Color.blue)
+                .fill(Color.imageBlue)
                 .aspectRatio(2, contentMode: .fit)
                 .shadow(radius: 10)
                 .overlay {

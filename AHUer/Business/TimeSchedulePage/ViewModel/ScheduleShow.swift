@@ -163,6 +163,11 @@ class ScheduleShow: ObservableObject {
         self.showEditView.toggle()
     }
     
+    @MainActor
+    func freshCurrentWeek() {
+        self.currentWeek = Date().studyWeek
+    }
+    
     deinit {
         print("🌀ScheduleShow released")
     }

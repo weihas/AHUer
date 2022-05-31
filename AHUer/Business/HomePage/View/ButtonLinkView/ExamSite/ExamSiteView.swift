@@ -13,17 +13,9 @@ struct ExamSiteView: View {
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
-        VStack{
+        VStack {
             termPicker
-            List(vm.exams){ exam in
-                examCard(exam: exam)
-            }
-            .refreshable {
-                vm.freshExamData()
-            }
-            .onAppear {
-                vm.freshExamDataLocol()
-            }
+            contentView
         }
         .onTapGesture {
             withAnimation {
@@ -32,6 +24,9 @@ struct ExamSiteView: View {
         }
         .toolbar {
             toolBarContent
+        }
+        .onAppear {
+            vm.freshExamDataLocol()
         }
         .navigationTitle("考试查询")
         .navigationBarTitleDisplayMode(.inline)
@@ -64,6 +59,15 @@ struct ExamSiteView: View {
         }
     }
     
+    var contentView: some View {
+        List(vm.exams) { exam in
+            examCard(exam: exam)
+        }
+        .listStyle(.sidebar)
+        .refreshable {
+            vm.freshExamData()
+        }
+    }
     
     var toolBarContent: some View {
         HStack{
@@ -86,29 +90,30 @@ struct ExamSiteView: View {
     
     @ViewBuilder
     func examCard(exam: Exam) -> some View {
-        VStack(alignment: .leading){
-            Text(exam.course ?? "")
-                .font(.system(size: 18, weight: .medium))
-                .minimumScaleFactor(0.6)
-                .lineLimit(1)
-                .padding(.vertical, 8)
-            Text(exam.time ?? "")
-                .font(.callout)
-                .underline()
-                .padding(.bottom, 5)
-            HStack{
-                Text(exam.location ?? "")
-                Spacer()
-                Text("座位号: " + (exam.seatNum ?? "") )
+            VStack(alignment: .leading){
+                Text(exam.course ?? "")
+                    .font(.system(size: 18, weight: .medium))
+                    .minimumScaleFactor(0.6)
+                    .lineLimit(1)
+                    .padding(.vertical, 8)
+                Text(exam.time ?? "")
+                    .font(.callout)
+                    .underline()
+                    .padding(.bottom, 5)
+                HStack {
+                    Text(exam.location ?? "")
+                    Spacer()
+                    Text("座位号" + "\(exam.seatNum ?? "")")
+                }
+                .font(.body)
             }
-            .font(.body)
-
-        }
+            .padding()
+            .background(RoundedRectangle(cornerRadius: 15).fill(Color.yuzan).opacity(0.8))
+            .shadow(radius: 5)
     }
     
     
 }
-
 
 
 

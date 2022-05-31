@@ -67,6 +67,10 @@ struct ScheduleView: View {
         .navigationTitle("第\(vm.currentWeek)周")
         .onAppear {
             vm.freshModel()
+            vm.freshCurrentWeek()
+        }
+        .onDisappear {
+            vm.freshCurrentWeek()
         }
     }
     

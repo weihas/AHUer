@@ -58,6 +58,26 @@ extension Color{
         return Color(r: 200, g: 200, b: 200)
     }
     
+    static var jintaiLan: Color {
+        return Color(r: 39, g: 117, b: 182)
+    }
+    
+    static var yuzan: Color {
+        return Color(r: 164, g: 202, b: 182)
+    }
+    
+    static var gemBlue: Color {
+        return Color(r: 36, g: 134, b: 185)
+    }
+    
+    static var RainBowBlue: Color {
+        return Color(r: 33, g: 119, b: 184)
+    }
+    
+    static var imageBlue: Color {
+        return Color(r: 47, g: 131, b: 215)
+    }
+    
     //If BlackModel, return white ,WhiteModel return black
     static var background: Color{
         return Color(.systemBackground)
