@@ -23,7 +23,7 @@ class ScheduleShow: ObservableObject {
     @Published var selectedDay: Weekday?
     @Published var showEditView: Bool = false
     @Published var editLecture: ScheduleInfo?
-    @Published var currentWeek: Int = 11
+    @Published private(set) var currentWeek: Int = 11
     
     init() {
         models = [ScheduleDay.timeLine] + Weekday.allCases.map({ScheduleDay(weekday: $0)})
@@ -62,12 +62,18 @@ class ScheduleShow: ObservableObject {
         Array(repeating: GridItem(.flexible(minimum: 20), spacing: 10, alignment: .top), count: weekdays.count)
     }
     
+    //偏移的周数
+    var weekOffset: Int {
+        let weekNum = Date().studyWeek
+        return currentWeek - weekNum
+    }
+    
     //MARK: -Intent(s)
     
     @MainActor
     func freshModel() {
         for index in models.indices {
-            models[index].fetchModel()
+            models[index].fetchModel(with: currentWeek)
         }
         reduce()
     }
@@ -125,10 +131,12 @@ class ScheduleShow: ObservableObject {
     @MainActor
     func changeCurrentWeekNum(to left: Bool) {
         withAnimation {
-            if left {
+            if left, currentWeek > 1 {
                 currentWeek -= 1
-            } else {
+            } else if !left, currentWeek < 18 {
                 currentWeek += 1
+            } else {
+                return
             }
             self.freshModel()
         }

@@ -22,7 +22,9 @@ struct ScheduleDay {
     }
     
     
-    mutating func fetchModel() {
+    /// 刷新model
+    /// - Parameter weekNum: 第几周
+    mutating func fetchModel(with weekNum: Int) {
        //如果weekday为空，说明是timeline，不要刷新
         guard let weekday = weekday else { return }
         //刷新当天
@@ -31,9 +33,8 @@ struct ScheduleDay {
 
         
         guard let user = Student.nowUser() else { return }
-        let today = Date()
-        let predicate = NSPredicate(format: "owner = %@ AND startWeek <= %@ AND endWeek >= %@ AND weekday = %@", user, NSNumber(value: today.studyWeek), NSNumber(value: today.studyWeek), NSNumber(value: weekday.rawValue))
-        guard let courses = Course.fetch(by: predicate, sort: ["startTime": true]), !courses.isEmpty else { return }
+        let predicate = NSPredicate(format: "owner = %@ AND startWeek <= %@ AND endWeek >= %@ AND weekday = %@", user, NSNumber(value: weekNum), NSNumber(value: weekNum), NSNumber(value: weekday.rawValue))
+        guard let courses = Course.fetch(by: predicate, sort: ["startTime": true])?.filter({!$0.singleDouble || (Int($0.startWeek) + weekNum)%2 == 0 }), !courses.isEmpty else { return }
         
         self.isModify = true
         
@@ -78,8 +79,8 @@ extension ScheduleDay: Identifiable {
         return weekday?.rawValue ?? -1
     }
     
-    var date: Date {
-        return weekday?.date ?? .now
+    func dateOffSetWeekNum(weekNumDelta: Int) -> Date {
+        return weekday?.date.adding(week: weekNumDelta) ?? .now
     }
     
     var isTimeLine: Bool {

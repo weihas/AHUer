@@ -94,7 +94,7 @@ struct ScheduleView: View {
                             ZStack{
                                 Circle()
                                     .fill(day.weekday == vm.selectedDay ? Color.primary : Color.clear)
-                                Text("\(day.date.day)")
+                                Text("\(day.dateOffSetWeekNum(weekNumDelta: vm.weekOffset).day)")
                                     .foregroundColor(day.weekday == vm.selectedDay ? Color(UIColor.systemBackground) : Color.primary)
                                     .padding(3)
                             }

@@ -207,6 +207,15 @@ public extension Date {
     }
     
     
+    /// 加周
+    /// - Parameter week: 几周
+    /// - Returns: 日期
+    func adding(week: Int) -> Date? {
+        let days = week * 7
+        return Calendar.current.date(byAdding: DateComponents(day: days), to: self)
+    }
+    
+    
 }
 
 //AHUer
