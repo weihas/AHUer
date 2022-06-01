@@ -33,7 +33,7 @@ struct ScheduleView: View {
         .onTapGesture(count: 2) {
             vm.toggleTimeLine()
         }
-        .animation(.easeInOut, value: vm.gridModel || vm.hideWeekend || vm.showTimeLine)
+        .animation(.easeInOut, value: vm.animationValue)
         .toolbar{
             ToolbarItem(placement: .navigationBarLeading) {
                 termPicker

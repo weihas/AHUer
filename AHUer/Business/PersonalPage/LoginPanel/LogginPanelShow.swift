@@ -62,6 +62,7 @@ class LogginPanelShow: ObservableObject {
         async let _ = try? await AHUerAPIProvider.getScore()
         async let _ = try? await AHUerAPIProvider.cardBalance()
         async let _ = try? await AHUerAPIProvider.bathroom()
+        async let _ = try? await AHUerAPIProvider.startTime()
     }
     
     

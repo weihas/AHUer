@@ -46,6 +46,13 @@ class ScheduleShow: ObservableObject {
         return result
     }
     
+    var animationValue: Int {
+        let a = showTimeLine ? (1 << 0) : 0
+        let b = gridModel ? (1 << 1) : 0
+        let c = hideWeekend ? (1 << 2) : 0
+        return a + b + c
+    }
+    
 
     var showTerms: [LearningTerm] {
         let startYear: Int = Int(Student.nowUser()?.startYear ?? Int64(Date().year))

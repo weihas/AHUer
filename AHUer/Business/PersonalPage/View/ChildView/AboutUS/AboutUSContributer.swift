@@ -13,7 +13,6 @@ enum ContributeType: Int, CaseIterable {
     case management
     case design
     case machineLearning
-    case thanks
 }
 
 extension ContributeType: Identifiable {
@@ -33,8 +32,6 @@ extension ContributeType: Identifiable {
             return "设计"
         case .machineLearning:
             return "机器学习"
-        case .thanks:
-            return "致谢"
         }
     }
     
@@ -49,8 +46,6 @@ extension ContributeType: Identifiable {
         case .design:
             return "brain.head.profile"
         case .machineLearning:
-            return "brain.head.profile"
-        case .thanks:
             return "brain.head.profile"
         }
     }
@@ -67,8 +62,6 @@ extension ContributeType: Identifiable {
             return ["王浩伟"]
         case .machineLearning:
             return ["张敬轩", "马昆昆"]
-        case .thanks:
-            return []
         }
     }
 }

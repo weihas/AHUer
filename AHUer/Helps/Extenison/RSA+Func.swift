@@ -8,7 +8,7 @@
 import Foundation
 import SwiftyRSA
 
-extension String{
+extension String {
     func rsaCrypto() throws -> String? {
         let key = """
 -----BEGIN RSA PUBLIC KEY-----

@@ -126,7 +126,6 @@
 		35C08E0727EE196000490DD9 /* Course+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Course+Extension.swift"; sourceTree = "<group>"; };
 		35DE02EF2826B38E000A2743 /* ScheduleTerm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTerm.swift; sourceTree = "<group>"; };
 		35E2E9922841003800D87F37 /* RootViewShow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewShow.swift; sourceTree = "<group>"; };
-		35E2E9942841097C00D87F37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		35E2E9962841097C00D87F37 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		35E2E9B62841156200D87F37 /* BathRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BathRoom.swift; sourceTree = "<group>"; };
 		35E9404827C88099001B4070 /* AHUer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AHUer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -327,7 +326,6 @@
 		35E9404A27C88099001B4070 /* AHUer */ = {
 			isa = PBXGroup;
 			children = (
-				35E2E9942841097C00D87F37 /* Info.plist */,
 				35E940E827C883AF001B4070 /* AHUerApp.swift */,
 				35E9405B27C8810D001B4070 /* AHUAppInfo.swift */,
 				35E9405D27C88116001B4070 /* RootView.swift */,
@@ -886,7 +884,6 @@
 				DEVELOPMENT_TEAM = 4WB3QMP893;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = AHUer/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -917,7 +914,6 @@
 				DEVELOPMENT_TEAM = 4WB3QMP893;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = AHUer/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

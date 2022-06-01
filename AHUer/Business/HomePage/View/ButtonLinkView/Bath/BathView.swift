@@ -12,10 +12,10 @@ struct BathView: View {
     @ObservedObject var vm: BathOpenShow
     @Environment(\.colorScheme) var colorScheme
     @State var regin = MKCoordinateRegion(center: .init(latitude: 31.76390, longitude: 117.1848), span: .init(latitudeDelta: 0.015, longitudeDelta: 0.015))
-    @State var trackMode: MapUserTrackingMode = .follow
+    @State var trackMode: MapUserTrackingMode = .none
     
     var body: some View {
-        Map(coordinateRegion: $regin, interactionModes: .all, showsUserLocation: true, userTrackingMode: $trackMode, annotationItems: vm.bathrooms) { bathroom in
+        Map(coordinateRegion: $regin, interactionModes: .all, userTrackingMode: $trackMode, annotationItems: vm.bathrooms) { bathroom in
                 MapAnnotation(coordinate: bathroom.coordinate, anchorPoint: CGPoint(x: 0.20, y: 0.5)) {
                     HStack {
                         Image(systemName: "mappin.circle.fill")
@@ -26,6 +26,7 @@ struct BathView: View {
                             .minimumScaleFactor(0.5)
                             .foregroundColor(.gray)
                     }
+
                     .fixedSize()
                     .padding()
                     .onTapGesture {

@@ -258,13 +258,10 @@ extension Date{
     
     //TODO: -
     var studyWeek: Int {
-        let startDate = UserDefaults.standard.string(forKey: studyYear)
-        return 11
-        
-    }
-    
-    var studyWeekInChinese: String {
-        return " some thing"
+        guard let startdate = UserDefaults.standard.string(forKey: AHUerDefaultsKey.StartDate.rawValue)?.date,
+              let diffweek = Calendar.current.dateComponents([.weekOfYear], from: startdate, to: self).weekOfYear,
+              (0..<18).contains(diffweek) else { return 11 }
+        return diffweek + 1
     }
     
     var isSingel: Bool{

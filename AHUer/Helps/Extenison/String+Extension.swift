@@ -27,4 +27,10 @@ extension String {
         let match =  RE.matches(in: self, options: .reportCompletion, range: NSRange(location: 0, length: self.count))
         return match.count == 0 ? false : true
     }
+    
+    var date: Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        return dateFormatter.date(from: self)
+    }
 }
