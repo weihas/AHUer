@@ -30,28 +30,28 @@ struct LectureCard: View {
             timeLine
             RoundedRectangle(cornerRadius: 20)
                 .fill(course.color)
-                .shadow(radius: 5)
                 .aspectRatio(2, contentMode: .fit)
-                .padding()
-                .scaleEffect(isNow ? 1 : 0.9, anchor: .leading)
-                .overlay(alignment: .leading){
+                .overlay(alignment: .topLeading) {
                     VStack(alignment: .leading){
-                        Text((course.name ?? "") + "x\(course.length)")
-                            .font(.title2)
+                        Text((course.name ?? ""))
                             .fontWeight(.medium)
-                            .padding()
-                        Group{
-                            Label(course.time.description , systemImage: "clock")
+                            .font(.title2)
+                            .minimumScaleFactor(0.7)
+                        Label(" x \(course.length)" , systemImage: "clock")
+                        Spacer()
+                        HStack {
                             Label(course.teacher ?? "", systemImage: "person")
                             Label(course.location ?? "", systemImage: "location")
                         }
-                        .padding(.leading)
+                        .lineLimit(1)
                         .font(.footnote)
                     }
-                    .padding(.bottom)
-                    .foregroundColor(.white)
                     .padding()
+                    .foregroundColor(.white)
                 }
+                .scaleEffect(isNow ? 1 : 0.9, anchor: .leading)
+                .padding(.trailing)
+                .shadow(radius: 10)
         }
     }
     
@@ -72,7 +72,7 @@ struct ScheduleGalleryView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{
             ScheduleGalleryView(namespace: name, day: .init(weekday: .Wed, courses: [
-                .init(id: 0, name: "高等数学", teacher: "张飞", location: "博北A123", courseID: "GG12345", style: .two),
+                .init(id: 0, name: "高等数学的奥秘之法术原理", teacher: "张飞", location: "博北A123", courseID: "GG12345", style: .two),
                 .init(id: 1, name: "高等英语", teacher: "刘备", location: "博北A124", courseID: "GG12346", style: .two),
                 .init(id: 2, name: "高等语文", teacher: "关羽", location: "博北A125", courseID: "GG12347", style: .two)
             ]))

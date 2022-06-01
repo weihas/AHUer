@@ -43,6 +43,7 @@ struct NextLectureLabel: View {
                 Spacer()
                 Button {
                     appInfo.tabItemNum = .schedulePage
+                    HapticManager.impactFeedBack(style: .light)
                 } label: {
                     Image(systemName: "align.horizontal.left")
                 }
@@ -54,8 +55,8 @@ struct NextLectureLabel: View {
                     .font(.system(size: 10))
                     .foregroundColor(.white)
             }
+            .animation(.easeInOut, value: courseProgress.progress)
             .progressViewStyle(LinearProgressViewStyle(tint: .white))
-            
             Group{
                 Label(startTime , systemImage: "clock")
                 Label(teacher, systemImage: "person")

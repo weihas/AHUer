@@ -85,3 +85,9 @@ extension View{
         return self.border(Color.black, width: 1)
     }
 }
+
+extension View {
+    func shadow() -> some View {
+        return self.shadow(radius: 5)
+    }
+}

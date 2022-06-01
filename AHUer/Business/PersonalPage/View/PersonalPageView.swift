@@ -58,7 +58,7 @@ extension PersonalPageView{
     private var operationSection: some View {
         Section {
             NavigationLink(destination: SettingView()) {
-                Label("课表设置", systemImage: "gear")
+                Label("程序设置", systemImage: "gear")
                     .labelStyle(SettingLabel())
                     .padding(distance)
             }
@@ -125,8 +125,7 @@ extension PersonalPageView{
                 title: Text("是否退出登录"),
                 buttons: [
                     .destructive(Text("退出")){
-                        appInfo.isLoggin = false
-                        vm.logout(type: 1)
+                        appInfo.cleanCache()
                     },
                     .cancel(Text("取消"))
                 ])

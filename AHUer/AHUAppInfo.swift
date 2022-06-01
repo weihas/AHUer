@@ -34,9 +34,13 @@ class AHUAppInfo: ObservableObject {
     
     func cleanCache() {
         Task {
-            await AHUerAPIProvider.logout()
+            let type = UserDefaults.standard.integer(forKey: AHUerDefaultsKey.LogginType.rawValue)
+            await AHUerAPIProvider.logout(type: type)
+           
+            
             await MainActor.run {
-                userID = ""
+                isLoggin = false
+                AHUerDefaultsKey.removeDefaults.forEach({UserDefaults.standard.removeObject(forKey: $0.rawValue)})
             }
         }
     }

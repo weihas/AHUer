@@ -66,8 +66,8 @@ struct VerticalLine: Shape {
 }
 
 
-//struct TimeLineView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        TimeStripsView()
-//    }
-//}
+struct TimeLineView_Previews: PreviewProvider {
+    static var previews: some View {
+        TimeStripsView(startTime: .first, length: 2)
+    }
+}

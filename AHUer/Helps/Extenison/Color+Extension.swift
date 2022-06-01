@@ -41,6 +41,9 @@ extension Color{
     static var lightGray: Color {
         return Color(r: 238, g: 238, b: 238)
     }
+    static var deepGray: Color {
+        return Color(r: 30, g: 30, b: 30)
+    }
     
     static var HeHuanRed: Color {
         return Color(r: 240, g: 161, b: 168)
@@ -78,6 +81,31 @@ extension Color{
         return Color(r: 47, g: 131, b: 215)
     }
     
+    static var hupoYello: Color {
+        Color(r: 254, g: 186, b: 7)
+    }
+    
+    
+    static var haitangRed: Color {
+        Color(r: 240, g: 55, b: 82)
+    }
+    
+    static var appleGreen: Color {
+        Color(r: 186, g: 207, b: 101)
+    }
+    
+    static var yuGreen: Color {
+        Color(r: 65, g: 179, b: 73)
+    }
+    
+    static var yuRed: Color {
+        Color(r: 204, g: 22, b: 58)
+    }
+    
+    static var yuBlue: Color {
+        Color(r: 18, g: 110, b: 200)
+    }
+    
     //If BlackModel, return white ,WhiteModel return black
     static var background: Color{
         return Color(.systemBackground)
@@ -97,7 +125,7 @@ extension Color{
         } else if courseId.contains("GG") {
             return .green
         } else if courseId.contains("TY") {
-            return .yellow
+            return .hupoYello
         } else if courseId.contains("ADD") {
             return .skyBlue
         } else {

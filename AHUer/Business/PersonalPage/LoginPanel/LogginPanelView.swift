@@ -47,9 +47,9 @@ struct LogginPanelView: View {
     
     var logginOriginChoose: some View {
         Section {
-            Picker(selection: $vm.logginOrigin, label: Text("登录选择")) {
-                Text("教务系统").tag(false)
-                Text("智慧安大").tag(true)
+            Picker(selection: $vm.logginType, label: Text("登录选择")) {
+                Text("教务系统").tag(1)
+                Text("智慧安大").tag(2)
             }
             .pickerStyle(.segmented)
         } header: {

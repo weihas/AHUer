@@ -13,7 +13,7 @@ import SwiftUI
 class LogginPanelShow: ObservableObject {
     @Published var username: String = "E01814133"
     @Published var password: String = "Whw,0917"
-    @Published var logginOrigin: Bool = false
+    @Published var logginType: Int = 2
     @AppStorage(AHUerDefaultsKey.AHUID.rawValue, store: .standard) var localID: String = ""
     @Published var saveCookie: Bool = true
     
@@ -40,11 +40,11 @@ class LogginPanelShow: ObservableObject {
     func loggin() async -> Bool {
         do {
             guard let pw = try password.rsaCrypto() else { return false }
-            
-            try await AHUerAPIProvider.loggin(userId: username, password: pw, type: logginOrigin ? 2 : 1, saveCookie: saveCookie)
+            try await AHUerAPIProvider.loggin(userId: username, password: pw, type: logginType, saveCookie: saveCookie)
             await syncStatus()
             HapticManager.impactFeedBack(style: .success)
             await freshAppStatus()
+            UserDefaults.standard.set(logginType, forKey: AHUerDefaultsKey.LogginType.rawValue)
             return true
         } catch {
             await AlertView.showAlert(with: error)

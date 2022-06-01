@@ -35,7 +35,7 @@ struct AlertView {
     static func showAlert(title: String, message: String? = nil, style: UIAlertController.Style = .alert, completion: @escaping (()->Void) = {}) {
         let alertVC = UIAlertController(title: title, message: message, preferredStyle: style)
         alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-        HapticManager.impactFeedBack(style: .error)
+        HapticManager.responError()
         PresentView.show(vc: alertVC, completion: completion)
     }
     

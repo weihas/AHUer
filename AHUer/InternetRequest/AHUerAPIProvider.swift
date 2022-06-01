@@ -163,7 +163,7 @@ extension AHUerAPIProvider{
     }
     
     /// 网络登出
-    static func logout(type: Int = 1) async {
+    static func logout(type: Int) async {
         let _ = try? await asyncRequest(.logout(type: type))
         
         await container.performBackgroundTask { context in
@@ -171,9 +171,6 @@ extension AHUerAPIProvider{
             student.delete()
         }
         HTTPCookieStorage.deleteAHUerCookie()
-        await MainActor.run {
-            UserDefaults.standard.removeObject(forKey: AHUerDefaultsKey.AHUID.rawValue)
-        }
     }
     
     

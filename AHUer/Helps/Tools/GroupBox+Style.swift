@@ -37,12 +37,12 @@ struct ColorBoxStyle: GroupBoxStyle {
                 .padding()
         }
       
-        .foregroundColor(Color(.systemBackground))
+        .foregroundColor(Color.background)
         .background(
             RoundedRectangle(cornerRadius: 20)
                 .fill(backgroundColor)
                 .opacity(0.8)
-                .shadow(radius: 8)
+                .shadow(radius: 10)
             )
         .padding()
     }

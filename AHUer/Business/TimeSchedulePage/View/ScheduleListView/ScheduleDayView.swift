@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ScheduleDayView: View {
     var day: ScheduleDay
+    var hideWeekEnd: Bool
     var namespace: Namespace.ID
     var body: some View {
         VStack {
@@ -17,12 +18,16 @@ struct ScheduleDayView: View {
                     Divider()
                         .padding(.vertical , 3)
                 }
-               LectureCell(course: course)
+                LectureCell(course: course, cornerRadius: cornerRadius)
                     .foregroundColor(.background)
                     .shadow(radius: 5)
                     .matchedGeometryEffect(id: course.geometryID, in: namespace)
             }
         }
+    }
+    
+    var cornerRadius: Double {
+        hideWeekEnd ? 14 : 10
     }
 }
 

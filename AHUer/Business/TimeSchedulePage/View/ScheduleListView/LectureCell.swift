@@ -10,25 +10,26 @@ import SwiftUI
 struct LectureCell: View {
     @EnvironmentObject var scheduleVM: ScheduleShow
     let course: ScheduleInfo
+    var cornerRadius: Double = 10
     var body: some View {
         Group{
             switch course.style {
             case .hide:
                 EmptyView()
             case .spacer:
-                RoundedRectangle(cornerRadius: 10).fill(Color.clear)
+                RoundedRectangle(cornerRadius: cornerRadius).fill(Color.clear)
                     .aspectRatio(course.style.aspectRatio, contentMode: .fit)
             case .four:
                 VStack{
-                    RoundedRectangle(cornerRadius: 10)
+                    RoundedRectangle(cornerRadius: cornerRadius)
                         .fill(Color.clear)
                         .aspectRatio(0.5, contentMode: .fit)
-                    RoundedRectangle(cornerRadius: 10)
+                    RoundedRectangle(cornerRadius: cornerRadius)
                         .fill(Color.clear)
                         .aspectRatio(0.5, contentMode: .fit)
                 }
                 .background {
-                    RoundedRectangle(cornerRadius: 10)
+                    RoundedRectangle(cornerRadius: cornerRadius)
                         .fill(course.color)
                 }
                 .overlay(alignment: .top) {
@@ -38,7 +39,7 @@ struct LectureCell: View {
                     contextMenu
                 }
             default:
-                RoundedRectangle(cornerRadius: 10)
+                RoundedRectangle(cornerRadius: cornerRadius)
                     .fill(course.color)
                     .aspectRatio(course.style.aspectRatio, contentMode: .fit)
                     .overlay(alignment: .top) {
@@ -85,19 +86,17 @@ struct LectureCell: View {
     }
     
     var content: some View {
-        VStack{
+        VStack {
             if let name = course.name {
                 Text(name)
                     .font(.headline)
                     .minimumScaleFactor(0.5)
                     .lineLimit(lineLimit)
-                    .padding(3)
             } else if course.isTimeLine {
                 Text(course.time.description)
                     .font(.headline)
                     .minimumScaleFactor(0.5)
                     .lineLimit(lineLimit)
-                    .padding(3)
                     .foregroundColor(.primary)
                     .background {
                         Capsule()
@@ -107,13 +106,12 @@ struct LectureCell: View {
             if let location = course.location {
                 Text(location)
                     .font(.footnote)
-                    .minimumScaleFactor(0.6)
+                    .minimumScaleFactor(0.5)
                     .lineLimit(location.count > 10 ? 3 : 2)
-                    .padding(3)
 //                    .truncationMode(.tail)
             }
-           
         }
+        .padding(5)
     }
     
 }

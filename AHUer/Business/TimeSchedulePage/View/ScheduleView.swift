@@ -93,13 +93,13 @@ struct ScheduleView: View {
                     if day.isTimeLine {
                         timeLinetitle
                     } else {
-                        Group{
+                        VStack {
                             Text(day.weekday?.description ?? "Time")
                             ZStack{
                                 Circle()
                                     .fill(day.weekday == vm.selectedDay ? Color.primary : Color.clear)
                                 Text("\(day.dateOffSetWeekNum(weekNumDelta: vm.weekOffset).day)")
-                                    .foregroundColor(day.weekday == vm.selectedDay ? Color(UIColor.systemBackground) : Color.primary)
+                                    .foregroundColor(day.weekday == vm.selectedDay ? Color.background : Color.primary)
                                     .padding(3)
                             }
                         }
@@ -131,7 +131,7 @@ struct ScheduleView: View {
     private var scheduleGridView: some View {
         LazyVGrid(columns: vm.items) {
             ForEach(vm.weekdays) { weekday in
-                ScheduleDayView(day: weekday, namespace: changenameSpace)
+                ScheduleDayView(day: weekday, hideWeekEnd: vm.hideWeekend, namespace: changenameSpace)
                     .environmentObject(vm)
             }
         }
@@ -161,7 +161,7 @@ extension ScheduleView {
             Text(vm.selectedTerm.title)
         }
         .padding(.horizontal, 7)
-        .background(RoundedRectangle(cornerRadius: 7).stroke(colorScheme.isLight ? Color.lightGray : Color.darkGray))
+        .background(RoundedRectangle(cornerRadius: 7).stroke(colorScheme.isLight ? Color.lightGray : Color.deepGray))
         .pickerStyle(.menu)
     }
     

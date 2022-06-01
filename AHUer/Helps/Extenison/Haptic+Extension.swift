@@ -66,4 +66,25 @@ extension HapticManager {
             break
         }
     }
+    
+    static func responBack(status: Bool?) {
+        guard let status = status else { return }
+        if status {
+            impactFeedBack(style: .success)
+        } else {
+            if UserDefaults.standard.bool(forKey: AHUerDefaultsKey.Haptic_Error_Active.rawValue) {
+                impactFeedBack(style: .error)
+            }
+        }
+    }
+    
+    static func responError(){
+        impactFeedBack(style: .error)
+    }
+    
+    static func responSuccess() {
+        if UserDefaults.standard.bool(forKey: AHUerDefaultsKey.Haptic_Success_Active.rawValue) {
+            impactFeedBack(style: .success)
+        }
+    }
 }

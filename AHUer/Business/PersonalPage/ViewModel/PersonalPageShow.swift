@@ -37,18 +37,6 @@ class PersonalPageShow: ObservableObject {
         }
     }
     
-    
-    func logout(type: Int) {
-        Task{
-            await AHUerAPIProvider.logout(type: type)
-            await cleanUp()
-        }
-    }
-    
-    @MainActor func cleanUp(){
-        userID = ""
-    }
-    
 
     @MainActor func sendMail(){
         let str = String(format: "mqqapi://card/show_pslcard?src_type=internal&version=1&uin=%@&key=%@&card_type=group&source=external&jump_from=webapi", "948563698","0ac15317186f7778fc25f1cf10050b76e71b1134848e9924cbb1ef7f829d153b")
