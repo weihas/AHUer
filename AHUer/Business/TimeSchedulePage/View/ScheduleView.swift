@@ -77,7 +77,7 @@ struct ScheduleView: View {
     private var moduleChooseView: some View {
         Picker(selection: $vm.gridModel) {
             Text("Day").tag(false)
-            Text("Weak").tag(true)
+            Text("Week").tag(true)
         } label: {
             Text("Choose")
         }
